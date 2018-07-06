@@ -1,6 +1,6 @@
 /* File: main-crb.c */
 
-/*
+/**
  * Copyright (c) 1997 Ben Harrison, Keith Randall, Peter Ammon, Ron Anderson
  * and others
  *
@@ -10,7 +10,7 @@
  */
 
 
-/*
+/**
  * This file helps Angband work with Macintosh computers running OS X,
  * or OS 8/9 with CarbonLib system extention.
  *
@@ -211,7 +211,7 @@
  *   CFNumber.h = read/write short values from/to preferences
  */
 
-/*
+/**
  * Yet another main-xxx.c for Carbon (pelpel) - revision 11d
  *
  * Since I'm using CodeWarrior, the traditional header files are
@@ -452,7 +452,7 @@
  */
 
 
-/*
+/**
  * Force Carbon-compatible APIs
  */
 #ifndef MACH_O_CARBON
@@ -462,7 +462,7 @@
 
 #else
 
-/*
+/**
 * Must be Mach-O Carbon target with OS X gcc.
 * No need to set TARGET_API_MAC_CARBON to 1 here, but I assume it should
 * be able to make efficient use of BSD functions, hence:
@@ -480,7 +480,7 @@
 
 #ifdef PRIVATE_USER_PATH
 
-/*
+/**
  * Check and create if needed the directory dirpath
  */
 bool private_check_user_directory(cptr dirpath)
@@ -520,7 +520,7 @@ bool private_check_user_directory(cptr dirpath)
 	}
 }
 
-/*
+/**
  * Check existence of ".ToME/" directory in the user's
  * home directory or try to create it if it doesn't exist.
  * Returns FALSE if all the attempts fail.
@@ -567,7 +567,7 @@ static bool check_create_user_dir(void)
 #endif /* PRIVATE_USER_PATH */
 
 
-/*
+/**
  * Variant-dependent features:
  *
  * #define ALLOW_BIG_SCREEN (V, Ey, O, T.o.M.E., and Z.  Dr's big screen needs
@@ -607,13 +607,13 @@ static bool check_create_user_dir(void)
 #endif
 
 
-/*
+/**
  * Use rewritten asynchronous sound player
  */
 #define USE_ASYNC_SOUND
 
 
-/*
+/**
  * A rather crude fix to reduce amount of redraw artefacts.
  * Some fixed width fonts (i.e. Monaco) has characters with negative
  * left bearings, so Term_wipe_mac or overwriting cannot completely
@@ -623,7 +623,7 @@ static bool check_create_user_dir(void)
  */
 #define CLIP_HACK /* */
 
-/*
+/**
  * To cope with pref file related problems.  It no longer has to be acculate,
  * because preferences are stored in plist.
  */
@@ -633,7 +633,7 @@ static bool check_create_user_dir(void)
 #define PREF_VER_EXTRA VERSION_EXTRA
 
 
-/*
+/**
  * In OS X + gcc, use <Carbon/Carbon.h>, <CoreServices/CoreServices.h> and
  * <CoreFoundation/CoreFoundation.h> for ALL of these, including the Apple
  * Event ones.  <QuickTime/QuickTime.h> is used by the tile loading code.
@@ -682,13 +682,13 @@ static bool check_create_user_dir(void)
 #endif
 
 
-/*
+/**
  * Use "malloc()" instead of "NewPtr()"
  */
 /* #define USE_MALLOC */
 
 
-/*
+/**
  * Information about each of the 256 available colors
  */
 static RGBColor color_info[256];
@@ -696,7 +696,7 @@ static RGBColor color_info[256];
 
 #ifdef MACH_O_CARBON
 
-/*
+/**
  * Creator signature and file type - Didn't I say that I abhor file name
  * extentions?  Names and metadata are entirely different set of notions.
  */
@@ -706,12 +706,12 @@ OSType _ftype;
 #endif /* MACH_O_CARBON */
 
 
-/*
+/**
  * Forward declare
  */
 typedef struct term_data term_data;
 
-/*
+/**
  * Extra "term" data
  */
 struct term_data
@@ -773,7 +773,7 @@ struct term_data
 
 
 
-/*
+/**
  * Forward declare -- see below
  */
 static bool CheckEvents(bool wait);
@@ -781,7 +781,7 @@ static bool CheckEvents(bool wait);
 
 #ifndef MACH_O_CARBON
 
-/*
+/**
  * Hack -- location of the main directory
  */
 static short app_vol;
@@ -790,60 +790,60 @@ static long app_dir;
 #endif /* !MACH_O_CARBON */
 
 
-/*
+/**
  * Delay handling of double-clicked savefiles
  */
 Boolean open_when_ready = FALSE;
 
-/*
+/**
  * Delay handling of pre-emptive "quit" event
  */
 Boolean quit_when_ready = FALSE;
 
 
-/*
+/**
  * Aqua automatically supplies the Quit menu.
  */
 static Boolean is_aqua = FALSE;
 
-/*
+/**
  * Version of Mac OS - for version specific bug workarounds (; ;)
  */
 static long mac_os_version;
 
 
-/*
+/**
  * Hack -- game in progress
  */
 static int game_in_progress = 0;
 
 
-/*
+/**
  * Only do "SetPort()" when needed
  */
 static WindowPtr active = NULL;
 
 
-/*
+/**
  * Maximum number of terms
  */
 #define MAX_TERM_DATA 8
 
 
-/*
+/**
  * An array of term_data's
  */
 static term_data data[MAX_TERM_DATA];
 
 
-/*
+/**
  * Note when "open"/"new" become valid
  */
 static bool initialized = FALSE;
 
 
 
-/*
+/**
  * Convert a C string to a pascal string in place
  *
  * This function may be defined elsewhere, but since it is so
@@ -872,7 +872,7 @@ static void ctopstr(StringPtr src)
 
 /* Carbon File Manager utilities by pelpel */
 
-/*
+/**
  * (Carbon)
  * Convert a pathname to a corresponding FSSpec.
  * Returns noErr on success.
@@ -894,7 +894,7 @@ static OSErr path_to_spec(const char *path, FSSpec *spec)
 }
 
 
-/*
+/**
  * (Carbon)
  * Convert a FSSpec to a corresponding pathname.
  * Returns noErr on success.
@@ -916,7 +916,7 @@ static OSErr spec_to_path(const FSSpec *spec, char *buf, size_t size)
 }
 
 
-/*
+/**
  * (Carbon) [via path_to_spec]
  * Set creator and filetype of a file specified by POSIX-style pathname.
  * Returns 0 on success, -1 in case of errors.
@@ -945,7 +945,7 @@ int fsetfileinfo(char *pathname, OSType fcreator, OSType ftype)
 
 #else /* MACH_O_CARBON */
 
-/*
+/**
 * Convert refnum+vrefnum+fname into a full file name
 * Store this filename in 'buf' (make sure it is long enough)
 * Note that 'fname' looks to be a "pascal" string
@@ -996,7 +996,7 @@ static void refnum_to_name(char *buf, long refnum, short vrefnum, char *fname)
 }
 
 
-/*
+/**
 * Convert a pascal string in place
 *
 * This function may be defined elsewhere, but since it is so
@@ -1018,7 +1018,7 @@ static void ptocstr(StringPtr src)
 }
 
 
-/*
+/**
 * Utility routines by Steve Linberg
 *
 * The following three routines (pstrcat, pstrinsert, and PathNameFromDirID)
@@ -1040,7 +1040,7 @@ static void pstrcat(StringPtr dst, StringPtr src)
 }
 
 
-/*
+/**
 * pstrinsert - insert string 'src' at beginning of string 'dst'
 */
 static void pstrinsert(StringPtr dst, StringPtr src)
@@ -1084,7 +1084,7 @@ static void PathNameFromDirID(long dirID, short vRefNum, StringPtr fullPathName)
 
 
 
-/*
+/**
  * Center a rectangle inside another rectangle
  *
  * Consider using RepositionWindow() whenever possible
@@ -1102,7 +1102,7 @@ static void center_rect(Rect *r, Rect *s)
 }
 
 
-/*
+/**
  * Activate a given window, if necessary
  */
 static void activate(WindowPtr w)
@@ -1119,7 +1119,7 @@ static void activate(WindowPtr w)
 }
 
 
-/*
+/**
  * Display a warning message
  */
 static void mac_warning(cptr warning)
@@ -1146,7 +1146,7 @@ static void mac_warning(cptr warning)
 
 /*** Some generic functions ***/
 
-/*
+/**
  * Hack -- activate a color (0 to 255)
  */
 static void term_data_color(term_data *td, int a)
@@ -1163,7 +1163,7 @@ static void term_data_color(term_data *td, int a)
 }
 
 
-/*
+/**
  * Hack -- Apply and Verify the "font" info
  *
  * This should usually be followed by "term_data_check_size()"
@@ -1226,7 +1226,7 @@ static void term_data_check_font(term_data *td)
 }
 
 
-/*
+/**
  * Hack -- Apply and Verify the "size" info
  */
 static void term_data_check_size(term_data *td)
@@ -1346,7 +1346,7 @@ static void term_data_check_size(term_data *td)
 }
 
 
-/*
+/**
  * Hack -- resize a term_data
  *
  * This should normally be followed by "term_data_redraw()"
@@ -1364,7 +1364,7 @@ static void term_data_resize(term_data *td)
 
 
 
-/*
+/**
  * Hack -- redraw a term_data
  *
  * Note that "Term_redraw()" calls "TERM_XTRA_CLEAR"
@@ -1391,7 +1391,7 @@ static void term_data_redraw(term_data *td)
 }
 
 
-/*
+/**
  * Graphics support
  */
 
@@ -1423,12 +1423,12 @@ static int graf_mode_req = GRAF_MODE_NONE; 	/* requested graphics mode */
 static int transparency_mode = TR_NONE; 	/* types of transparency effect */
 
 
-/*
+/**
  * Forward Declare
  */
 typedef struct FrameRec FrameRec;
 
-/*
+/**
  * Frame
  *
  *	- GWorld for the frame image
@@ -1443,13 +1443,13 @@ struct FrameRec
 };
 
 
-/*
+/**
  * The global picture data
  */
 static FrameRec *frameP = NULL;
 
 
-/*
+/**
  * Lock a frame
  */
 static void BenSWLockFrame(FrameRec *srcFrameP)
@@ -1464,7 +1464,7 @@ static void BenSWLockFrame(FrameRec *srcFrameP)
 }
 
 
-/*
+/**
  * Unlock a frame
  */
 static void BenSWUnlockFrame(FrameRec *srcFrameP)
@@ -1484,7 +1484,7 @@ static void BenSWUnlockFrame(FrameRec *srcFrameP)
 
 /* Moving graphics resources into data fork -- pelpel */
 
-/*
+/**
  * (Carbon, Bundle)
  * Given base and type names of a resource, find a file in the
  * current application bundle and return its FSSpec in the third argument.
@@ -1518,7 +1518,7 @@ static Boolean get_resource_spec(
 }
 
 
-/*
+/**
  * (QuickTime)
  * Create a off-screen GWorld from contents of a file specified by a FSSpec.
  *
@@ -1657,7 +1657,7 @@ static OSErr BenSWCreateGWorldFromPict(
 #endif /* MACH_O_CARBON */
 
 
-/*
+/**
  * Init the global "frameP"
  */
 static errr globe_init(void)
@@ -1718,7 +1718,7 @@ static errr globe_init(void)
 }
 
 
-/*
+/**
  * Nuke the global "frameP"
  */
 static errr globe_nuke(void)
@@ -1749,14 +1749,14 @@ static errr globe_nuke(void)
 
 #ifdef USE_ASYNC_SOUND
 
-/*
+/**
  * Asynchronous sound player - completely revised (beta)
  */
 #if defined(USE_QT_SOUND) && !defined(MACH_O_CARBON)
 # undef USE_QT_SOUND
 #endif /* USE_QT_SOUND && !MACH_O_CARBON */
 
-/*
+/**
  * How many sound channels will be pooled
  *
  * Was: 20, but I don't think we need 20 sound effects playing
@@ -1764,22 +1764,22 @@ static errr globe_nuke(void)
  */
 #define MAX_CHANNELS		8
 
-/*
+/**
  * A pool of sound channels
  */
 static SndChannelPtr channels[MAX_CHANNELS];
 
-/*
+/**
  * Status of the channel pool
  */
 static Boolean channel_initialised = FALSE;
 
-/*
+/**
  * Data handles containing sound samples
  */
 static SndListHandle samples[SOUND_MAX];
 
-/*
+/**
  * Reference counts of sound samples
  */
 static SInt16 sample_refs[SOUND_MAX];
@@ -1790,7 +1790,7 @@ static SInt16 sample_refs[SOUND_MAX];
 #define VOLUME_MAX			100	/* Maximum sound volume in % */
 #define VOLUME_INC			5	/* Increment sound volume in % */
 
-/*
+/**
  * I'm just too lazy to write a panel for this XXX XXX
  */
 static int sound_volume = SOUND_VOLUME_MAX;
@@ -1798,7 +1798,7 @@ static int sound_volume = SOUND_VOLUME_MAX;
 
 #ifdef USE_QT_SOUND
 
-/*
+/**
  * QuickTime sound, by Ron Anderson
  *
  * I didn't choose to use Windows-style .ini files (Ron wrote a parser
@@ -1806,7 +1806,7 @@ static int sound_volume = SOUND_VOLUME_MAX;
  * would code plist-based configuration code in the future -- pelpel
  */
 
-/*
+/**
  * (QuickTime)
  * Load sound effects from data-fork resources.  They are wav files
  * with the same names as angband_sound_name[] (variable.c)
@@ -1923,7 +1923,7 @@ close_file:
 
 #else /* USE_QT_SOUND */
 
-/*
+/**
 * Return a handle of 'snd ' resource given Angband sound event number,
 * or NULL if it isn't found.
 *
@@ -1944,7 +1944,7 @@ return ((SndListHandle)GetNamedResource('snd ', sound));
 #endif /* USE_QT_SOUND */
 
 
-/*
+/**
  * Clean up sound support - to be called when the game exits.
  *
  * Globals referenced: channels[], samples[], sample_refs[].
@@ -1987,7 +1987,7 @@ static void cleanup_sound(void)
 }
 
 
-/*
+/**
  * Play sound effects asynchronously -- pelpel
  *
  * I don't believe those who first started using the previous implementations
@@ -2179,7 +2179,7 @@ static void play_sound(int num, int vol)
 /*** Support for the "z-term.c" package ***/
 
 
-/*
+/**
  * Initialize a new Term
  *
  * Note also the "window type" called "noGrowDocProc", which might be more
@@ -2321,7 +2321,7 @@ static void Term_init_mac(term *t)
 
 
 
-/*
+/**
  * Nuke an old Term
  */
 static void Term_nuke_mac(term *t)
@@ -2331,7 +2331,7 @@ static void Term_nuke_mac(term *t)
 
 
 
-/*
+/**
  * Unused
  */
 static errr Term_user_mac(int n)
@@ -2342,7 +2342,7 @@ static errr Term_user_mac(int n)
 
 
 
-/*
+/**
  * React to changes
  */
 static errr Term_xtra_mac_react(void)
@@ -2500,7 +2500,7 @@ static errr Term_xtra_mac_react(void)
 }
 
 
-/*
+/**
  * Do a "special thing"
  */
 static errr Term_xtra_mac(int n, int v)
@@ -2748,7 +2748,7 @@ static errr Term_xtra_mac(int n, int v)
 
 
 
-/*
+/**
  * Low level graphics (Assumes valid input).
  * Draw a "cursor" at (x,y), using a "yellow box".
  * We are allowed to use "Term_what()" to determine
@@ -2790,7 +2790,7 @@ static errr Term_curs_mac(int x, int y)
 }
 
 
-/*
+/**
  * Low level graphics (Assumes valid input)
  *
  * Erase "n" characters starting at (x,y)
@@ -2814,7 +2814,7 @@ static errr Term_wipe_mac(int x, int y, int n)
 }
 
 
-/*
+/**
  * Low level graphics.  Assumes valid input.
  *
  * Draw several ("n") chars, with an attr, at a given location.
@@ -2871,7 +2871,7 @@ static errr Term_text_mac(int x, int y, int n, byte a, const char *cp)
 }
 
 
-/*
+/**
  * Low level graphics (Assumes valid input)
  *
  * Erase "n" characters starting at (x,y)
@@ -3156,7 +3156,7 @@ static errr Term_pict_mac(int x, int y, int n, const byte *ap, const char *cp)
 
 
 
-/*
+/**
  * Create and initialize window number "i"
  */
 static void term_data_link(int i)
@@ -3221,7 +3221,7 @@ static void term_data_link(int i)
 
 #ifdef MACH_O_CARBON
 
-/*
+/**
  * (Carbon, Bundle)
  * Return a POSIX pathname of the lib directory, or NULL if it can't be
  * located.  Caller must supply a buffer along with its size in bytes,
@@ -3277,7 +3277,7 @@ ret:
 
 #else /* MACH_O_CARBON */
 
-/*
+/**
 * Set the "current working directory" (also known as the "default"
 * volume/directory) to the location of the current application.
 *
@@ -3327,7 +3327,7 @@ static void SetupAppDir(void)
 
 
 
-/*
+/**
  * Using Core Foundation's Preferences services -- pelpel
  *
  * Requires OS 8.6 or greater with CarbonLib 1.1 or greater. Or OS X,
@@ -3342,7 +3342,7 @@ static void SetupAppDir(void)
  */
 
 
-/*
+/**
  * Store "value" as the value for preferences item name
  * pointed by key
  */
@@ -3375,7 +3375,7 @@ static void save_pref_short(const char *key, short value)
 }
 
 
-/*
+/**
  * Load preference value for key, returns TRUE if it succeeds with
  * vptr updated appropriately, FALSE otherwise.
  */
@@ -3417,7 +3417,7 @@ static bool query_load_pref_short(const char *key, short *vptr)
 }
 
 
-/*
+/**
  * Update short data pointed by vptr only if preferences
  * value for key is located.
  */
@@ -3430,7 +3430,7 @@ static void load_pref_short(const char *key, short *vptr)
 }
 
 
-/*
+/**
  * Save preferences to preferences file for current host+current user+
  * current application.
  */
@@ -3493,7 +3493,7 @@ static void cf_save_prefs()
 }
 
 
-/*
+/**
  * Load preferences from preferences file for current host+current user+
  * current application.
  */
@@ -3603,7 +3603,7 @@ static void cf_load_prefs()
 
 
 
-/*
+/**
  * Hack -- default data for a window
  */
 static void term_data_hack(term_data *td)
@@ -3650,7 +3650,7 @@ static void term_data_hack(term_data *td)
 }
 
 
-/*
+/**
  * Read the preference file, Create the windows.
  *
  * We attempt to use "FindFolder()" to track down the preference file.
@@ -3731,7 +3731,7 @@ static void init_windows(void)
 }
 
 
-/*
+/**
  * Save preferences
  */
 static void save_pref_file(void)
@@ -3744,7 +3744,7 @@ static void save_pref_file(void)
 
 #ifndef SAVEFILE_SCREEN
 
-/*
+/**
  * Prepare savefile dialogue and set the variable
  * savefile accordingly. Returns true if it succeeds, false (or
  * aborts) otherwise. If all is false, only allow files whose type
@@ -3880,7 +3880,7 @@ static bool select_savefile(bool all)
 }
 
 
-/*
+/**
  * Handle menu: "File" + "New"
  */
 static void do_menu_file_new(void)
@@ -3902,7 +3902,7 @@ static void do_menu_file_new(void)
 }
 
 
-/*
+/**
  * Handle menu: "File" + "Open" /  "Import"
  */
 static void do_menu_file_open(bool all)
@@ -3929,7 +3929,7 @@ static void do_menu_file_open(bool all)
 #endif /* !SAVEFILE_SCREEN */
 
 
-/*
+/**
  * Handle the "open_when_ready" flag
  */
 static void handle_open_when_ready(void)
@@ -3967,7 +3967,7 @@ static void handle_open_when_ready(void)
 
 
 
-/*
+/**
  * Menus
  *
  * The standard menus are:
@@ -4051,7 +4051,7 @@ static void handle_open_when_ready(void)
 #define ITEM_WIZARD	7
 
 
-/*
+/**
  * I HATE UNICODE!  We've never wanted it.  Some multi-national companies
  * made it up as their internationalisation "solution".  So I won't use
  * any such API's -- pelpel
@@ -4061,7 +4061,7 @@ static byte menu_size_values[NSIZES];
 static byte menu_tilewidth_values[NSIZES];
 static byte menu_tileheight_values[NSIZES];
 
-/*
+/**
  * Initialize the menus
  *
  * Fixed top level menus are now loaded all at once by GetNewMBar().
@@ -4336,7 +4336,7 @@ static void init_menubar(void)
 }
 
 
-/*
+/**
  * Prepare the menus
  *
  * It is very important that the player not be allowed to "save" the game
@@ -4710,7 +4710,7 @@ static void setup_menus(void)
 }
 
 
-/*
+/**
  * Process a menu selection (see above)
  *
  * Hack -- assume that invalid menu selections are disabled above,
@@ -5304,7 +5304,7 @@ static void menu(long mc)
 }
 
 
-/*
+/**
  * Check for extra required parameters -- From "Maarten Hazewinkel"
  */
 static OSErr CheckRequiredAEParams(const AppleEvent *theAppleEvent)
@@ -5325,7 +5325,7 @@ static OSErr CheckRequiredAEParams(const AppleEvent *theAppleEvent)
 }
 
 
-/*
+/**
  * Apple Event Handler -- Open Application
  */
 static OSErr AEH_Start(const AppleEvent *theAppleEvent, AppleEvent *reply,
@@ -5335,7 +5335,7 @@ static OSErr AEH_Start(const AppleEvent *theAppleEvent, AppleEvent *reply,
 }
 
 
-/*
+/**
  * Apple Event Handler -- Quit Application
  */
 static OSErr AEH_Quit(const AppleEvent *theAppleEvent, AppleEvent *reply,
@@ -5349,7 +5349,7 @@ static OSErr AEH_Quit(const AppleEvent *theAppleEvent, AppleEvent *reply,
 }
 
 
-/*
+/**
  * Apple Event Handler -- Print Documents
  */
 static OSErr AEH_Print(const AppleEvent *theAppleEvent, AppleEvent *reply,
@@ -5359,7 +5359,7 @@ static OSErr AEH_Print(const AppleEvent *theAppleEvent, AppleEvent *reply,
 }
 
 
-/*
+/**
  * Apple Event Handler by Steve Linberg (slinberg@crocker.com).
  *
  * The old method of opening savefiles from the finder does not work
@@ -5438,7 +5438,7 @@ static OSErr AEH_Open(const AppleEvent *theAppleEvent, AppleEvent* reply,
 }
 
 
-/*
+/**
  * Handle quit_when_ready, by Peter Ammon,
  * slightly modified to check inkey_flag.
  */
@@ -5468,7 +5468,7 @@ static void quit_calmly(void)
 }
 
 
-/*
+/**
  * Macintosh modifiers (event.modifier & ccc):
  *   cmdKey, optionKey, shiftKey, alphaLock, controlKey
  *
@@ -5519,7 +5519,7 @@ static void quit_calmly(void)
  */
 
 
-/*
+/**
  * Check for Events, return TRUE if we process any
  *
  * Now it really waits for events if wait set to true, to prevent
@@ -5936,13 +5936,13 @@ static bool CheckEvents(bool wait)
 /*** Some Hooks for various routines ***/
 
 
-/*
+/**
  * Mega-Hack -- emergency lifeboat
  */
 static void *lifeboat = NULL;
 
 
-/*
+/**
  * Hook to "release" memory
  */
 #ifdef NEW_ZVIRT_HOOKS /* [V] removed the unused 'size' argument. */
@@ -5968,7 +5968,7 @@ static void *hook_rnfree(void *v, size_t size)
 	return (NULL);
 }
 
-/*
+/**
  * Hook to "allocate" memory
  */
 static void *hook_ralloc(size_t size)
@@ -5988,7 +5988,7 @@ static void *hook_ralloc(size_t size)
 
 }
 
-/*
+/**
  * Hook to handle "out of memory" errors
  */
 static void *hook_rpanic(size_t size)
@@ -6016,7 +6016,7 @@ static void *hook_rpanic(size_t size)
 }
 
 
-/*
+/**
  * Hook to tell the user something important
  */
 static void hook_plog(cptr str)
@@ -6026,7 +6026,7 @@ static void hook_plog(cptr str)
 }
 
 
-/*
+/**
  * Hook to tell the user something, and then quit
  */
 static void hook_quit(cptr str)
@@ -6062,7 +6062,7 @@ static void hook_quit(cptr str)
 }
 
 
-/*
+/**
  * Hook to tell the user something, and then crash
  */
 static void hook_core(cptr str)
@@ -6088,7 +6088,7 @@ static void hook_core(cptr str)
 /*** Main program ***/
 
 
-/*
+/**
  * Init some stuff
  *
  * XXX XXX XXX Hack -- This function attempts to "fix" the nasty
@@ -6239,7 +6239,7 @@ refnum_to_name(
 }
 
 
-/*
+/**
  * Macintosh Main loop
  */
 int main(void)

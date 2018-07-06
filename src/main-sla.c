@@ -2,7 +2,7 @@
 
 /* Purpose: Actual Unix "slang" support for Angband */
 
-/*
+/**
  * Author: hans@grumbeer.pfalz.de (Hans-Joachim Baader)
  *
  * Most of this code is adapted directly from "main-gcu.c"
@@ -18,25 +18,25 @@
 #include <slang.h>
 
 
-/*
+/**
  * Are we "active"?
  */
 static int slang_on = FALSE;
 
 
-/*
+/**
  * Can we use "color"?
  */
 static bool can_use_color = FALSE;
 
 
-/*
+/**
  * Angband to SLang color conversion table
  */
 static int colortable[16];
 
 
-/*
+/**
  * Currently, only a single "term" is supported here
  */
 static term term_screen_body;
@@ -45,7 +45,7 @@ static term term_screen_body;
 
 
 
-/*
+/**
  * Hack -- see below
  */
 void init_pair (int index, char *foreground, char *background)
@@ -100,7 +100,7 @@ static char *color_terminals [] =
 
 
 
-/*
+/**
  * Stolen from the Midnight Commander
  */
 int has_colors(void)
@@ -150,7 +150,7 @@ int has_colors(void)
 
 
 
-/*
+/**
  * Nuke SLang
  */
 static void Term_nuke_sla(term *t)
@@ -175,7 +175,7 @@ static void Term_nuke_sla(term *t)
 }
 
 
-/*
+/**
  * Init SLang
  */
 static void Term_init_sla(term *t)
@@ -185,7 +185,7 @@ static void Term_init_sla(term *t)
 }
 
 
-/*
+/**
  * Process an event, wait if requested
  */
 static errr Term_xtra_sla_event(int v)
@@ -202,7 +202,7 @@ static errr Term_xtra_sla_event(int v)
 
 
 
-/*
+/**
  * Suspend / Resume
  */
 static errr Term_xtra_sla_alive(int v)
@@ -239,7 +239,7 @@ static errr Term_xtra_sla_alive(int v)
 }
 
 
-/*
+/**
  * Handle a "special request"
  */
 static errr Term_xtra_sla(int n, int v)
@@ -294,7 +294,7 @@ static errr Term_xtra_sla(int n, int v)
 
 
 
-/*
+/**
  * Actually MOVE the hardware cursor
  */
 static errr Term_curs_sla(int x, int y, int z)
@@ -307,7 +307,7 @@ static errr Term_curs_sla(int x, int y, int z)
 }
 
 
-/*
+/**
  * Erase some characters
  */
 static errr Term_wipe_sla(int x, int y, int n)
@@ -325,7 +325,7 @@ static errr Term_wipe_sla(int x, int y, int n)
 }
 
 
-/*
+/**
  * Place some text on the screen using an attribute
  */
 static errr Term_text_sla(int x, int y, int n, byte a, cptr s)
@@ -344,7 +344,7 @@ static errr Term_text_sla(int x, int y, int n, byte a, cptr s)
 }
 
 
-/*
+/**
  * Prepare "SLang" for use by the file "term.c"
  * Installs the "hook" functions defined above
  */

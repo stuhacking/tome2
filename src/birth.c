@@ -2,7 +2,7 @@
 
 /* Purpose: create a player character */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -12,7 +12,7 @@
 
 #include "angband.h"
 
-/*
+/**
  * How often the autoroller will update the display and pause
  * to check for user interuptions.
  * Bigger values will make the autoroller faster, but slower
@@ -21,7 +21,7 @@
  */
 #define AUTOROLLER_STEP 25L
 
-/*
+/**
  * Maximum number of tries for selection of a proper quest monster
  */
 #define MAX_TRIES 100
@@ -29,27 +29,27 @@
 /* Max quests */
 static byte max_quests = 0;
 
-/*
+/**
  * Current stats
  */
 static s16b stat_use[6];
 
-/*
+/**
  * Autoroll limit
  */
 static s16b stat_limit[6];
 
-/*
+/**
  * Autoroll matches
  */
 static s32b stat_match[6];
 
-/*
+/**
  * Autoroll round
  */
 static s32b auto_round;
 
-/*
+/**
  * Last round
  */
 static s32b last_round;
@@ -85,7 +85,7 @@ static char *human_syllable3[] =
 	"wyr", "wyth",
 };
 
-/*
+/**
  * Random Name Generator
  * based on a Javascript by Michael Hensley
  * "http://geocities.com/timessquare/castle/6274/"
@@ -148,7 +148,7 @@ void print_desc(cptr txt)
 	print_desc_aux(txt, 12, 1);
 }
 
-/*
+/**
  * Save the current data for later
  */
 static void save_prev_data(void)
@@ -197,7 +197,7 @@ static void save_prev_data(void)
 }
 
 
-/*
+/**
  * Load the previous data
  */
 static void load_prev_data(bool save)
@@ -297,7 +297,7 @@ static void load_prev_data(bool save)
 
 
 
-/*
+/**
  * Returns adjusted stat -JK-  Algorithm by -JWT-
  *
  * auto_roll is boolean and states maximum changes should be used rather
@@ -367,7 +367,7 @@ static int adjust_stat(int value, int amount, int auto_roll)
 
 
 
-/*
+/**
  * Roll for a characters stats
  *
  * For efficiency, we include a chunk of "calc_bonuses()".
@@ -456,7 +456,7 @@ static void get_stats(void)
 }
 
 
-/*
+/**
  * Roll for some info that the auto-roller ignores
  */
 static void get_extra(void)
@@ -534,7 +534,7 @@ static void get_extra(void)
 }
 
 
-/*
+/**
  * Get the racial history, and social class, using the "history charts".
  */
 static void get_history(void)
@@ -638,7 +638,7 @@ static void get_history(void)
 }
 
 
-/*
+/**
  * Fill the random_artifacts array with relevant info.
  */
 errr init_randart(void)
@@ -676,7 +676,7 @@ errr init_randart(void)
 }
 
 
-/*
+/**
  * A helper function for get_ahw(), also called by polymorph code
  */
 void get_height_weight(void)
@@ -730,7 +730,7 @@ void get_height_weight(void)
 }
 
 
-/*
+/**
  * Computes character's age, height, and weight
  */
 static void get_ahw(void)
@@ -746,7 +746,7 @@ static void get_ahw(void)
 
 
 
-/*
+/**
  * Get the player's starting money
  */
 static void get_money(void)
@@ -776,7 +776,7 @@ static void get_money(void)
 
 
 
-/*
+/**
  * Display stat values, subset of "put_stats()"
  *
  * See 'display_player()' for basic method.
@@ -815,7 +815,7 @@ static void birth_put_stats(void)
 }
 
 
-/*
+/**
  * Clear all the global "character" data
  */
 static void player_wipe(void)
@@ -1096,7 +1096,7 @@ void outfit_obj(int tv, int sv, int pval, int dd, int ds)
 }
 
 
-/*
+/**
  * Init players with some belongings
  *
  * Having an item makes the player "aware" of its purpose.
@@ -2519,7 +2519,7 @@ static bool player_birth_aux_ask()
 
 
 
-/*
+/**
  * Initial stat costs (initial stats always range from 10 to 18 inclusive).
  */
 static const int birth_stat_costs[(18-10) + 1] =
@@ -2528,7 +2528,7 @@ static const int birth_stat_costs[(18-10) + 1] =
 };
 
 
-/*
+/**
  * Helper function for 'player_birth()'.
  *
  * This function handles "point-based" character creation.
@@ -2717,7 +2717,7 @@ static bool player_birth_aux_point(void)
 	return (TRUE);
 }
 
-/*
+/**
  * Use the autoroller or not to generate a char
  */
 static bool player_birth_aux_auto()
@@ -3063,7 +3063,7 @@ static bool player_birth_aux_auto()
 }
 
 
-/*
+/**
  * Helper function for 'player_birth()'
  *
  * The delay may be reduced, but is recommended to keep players
@@ -3242,7 +3242,7 @@ static bool player_birth_aux()
 }
 
 
-/*
+/**
  * Helper function for validate_bg().
  */
 static void validate_bg_aux(int chart, bool chart_checked[], char *buf)
@@ -3311,7 +3311,7 @@ static void validate_bg_aux(int chart, bool chart_checked[], char *buf)
 }
 
 
-/*
+/**
  * Verify that the bg[] table is valid.
  */
 static void validate_bg(void)
@@ -3338,7 +3338,7 @@ static void validate_bg(void)
 	}
 }
 
-/*
+/**
  * Initialize a random town
  */
 void init_town(int t_idx, int level)
@@ -3358,7 +3358,7 @@ void init_town(int t_idx, int level)
 	t_ptr->numstores = 8;
 }
 
-/*
+/**
  * Create a new character.
  *
  * Note that we may be called with "junk" leftover in the various
@@ -3521,7 +3521,7 @@ char savefile_desc[46][80];
 bool savefile_alive[46];
 int savefile_idx[46];
 
-/*
+/**
  * Grab all the names from an index
  */
 int load_savefile_names()
@@ -3650,7 +3650,7 @@ int load_savefile_names()
 }
 
 
-/*
+/**
  * Save all the names from an index
  */
 void save_savefile_names()

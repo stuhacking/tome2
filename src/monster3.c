@@ -2,7 +2,7 @@
 
 /* Purpose: Monsters AI */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -12,7 +12,7 @@
 
 #include "angband.h"
 
-/*
+/**
  * Is the mon,ster in friendly state(pet, friend, ..)
  * -1 = enemy, 0 = neutral, 1 = friend
  */
@@ -637,7 +637,7 @@ bool do_control_reconnect()
 	return FALSE;
 }
 
-/*
+/**
  * Turns a simple pet into a faithful companion
  */
 void do_cmd_companion()

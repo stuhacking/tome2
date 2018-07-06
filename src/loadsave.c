@@ -59,7 +59,7 @@ BZFILE *bzf;
 int bzerr;
 #endif /* BZ_SAVES */
 
-/*
+/**
  * Basic byte-level reading from savefile. This provides a single point
  * of interface to the pseudoencryption that ToME (and Angband)
  * uses. I'm thinking about if it might be faster/better to modify all
@@ -115,7 +115,7 @@ static void sf_put(byte v)
 #endif
 }
 
-/*
+/**
  * This function does nothing if BZ_SAVES in undefined.
  */
 #ifdef BZ_SAVES
@@ -159,7 +159,7 @@ static void bz_done(int flag)
 }
 #endif	/* BZ_SAVES */
 
-/*
+/**
  * Do object memory and similar stuff
  */
 static void do_xtra(int k_idx, int flag)
@@ -186,7 +186,7 @@ static void do_xtra(int k_idx, int flag)
 	}
 }
 
-/*
+/**
  * Load/Save quick start data
  */
 void do_quick_start(int flag)
@@ -217,7 +217,7 @@ void do_quick_start(int flag)
 	for (i = 0; i < 4; i++) do_string(previous_char.history[i], 60, flag);
 }
 
-/*
+/**
  * The special saved subrace
  */
 static void do_subrace(int flag)
@@ -305,7 +305,7 @@ static void do_subrace(int flag)
 	}
 }
 
-/*
+/**
  * Misc. other data
  */
 static char loaded_game_module[80];
@@ -841,7 +841,7 @@ void save_dungeon(void)
 	my_fclose(fff);
 }
 
-/*
+/**
  * Medium level player saver
  */
 static bool save_player_aux(char *name)
@@ -925,7 +925,7 @@ static bool save_player_aux(char *name)
 	return (TRUE);
 }
 
-/*
+/**
  * Attempt to save the player in a savefile
  */
 bool save_player(void)
@@ -1060,7 +1060,7 @@ bool file_exist(char *buf)
 	return result;
 }
 
-/*
+/**
  * Attempt to Load a "savefile"
  *
  * On multi-user systems, you may only "read" a savefile if you will be
@@ -1439,7 +1439,7 @@ bool load_player(void)
 }
 
 
-/*
+/**
  * Size-aware read/write routines for the savefile, do all their
  * work through sf_get and sf_put.
  */
@@ -1603,7 +1603,7 @@ static void do_ver_s16b(s16b *v, u32b version, s16b defval, int flag)
 	do_s16b(v, flag);
 }
 
-/*
+/**
  * Show information on the screen, one line at a time.
  *
  * Avoid the top two lines, to avoid interference with "msg_print()".
@@ -1623,7 +1623,7 @@ static void note(cptr msg)
 }
 
 
-/*
+/**
  * Determine if an item can be wielded/worn (e.g. helmet, sword, bow, arrow)
  */
 static bool wearable_p(object_type *o_ptr)
@@ -1676,7 +1676,7 @@ static bool wearable_p(object_type *o_ptr)
 }
 
 
-/*
+/**
  * rd/wr an object
  *
  * FIXME! This code probably has a lot of cruft from the old Z/V codebase.
@@ -1922,7 +1922,7 @@ static void do_item(object_type *o_ptr, int flag)
 
 
 
-/*
+/**
  * Read a monster
  */
 static void do_monster(monster_type *m_ptr, int flag)
@@ -2052,7 +2052,7 @@ static void do_monster(monster_type *m_ptr, int flag)
 
 
 
-/*
+/**
  * Handle monster lore
  */
 static void do_lore(int r_idx, int flag)
@@ -2118,7 +2118,7 @@ static void do_lore(int r_idx, int flag)
 
 
 
-/*
+/**
  * Read a store
  */
 static bool do_store(store_type *str, int flag)
@@ -2173,7 +2173,7 @@ static bool do_store(store_type *str, int flag)
 	return (TRUE);
 }
 
-/*
+/**
  * RNG state
  */
 static void do_randomizer(int flag)
@@ -2201,7 +2201,7 @@ static void do_randomizer(int flag)
 	}
 }
 
-/*
+/**
  * Handle options
  *
  * Normal options are stored as a set of 256 bit flags,
@@ -2400,7 +2400,7 @@ static void do_spells(int i, int flag)
 }
 
 
-/*
+/**
  * Handle player inventory
  *
  * FIXME! This function probably could be unified better
@@ -2501,7 +2501,7 @@ static bool do_inventory(int flag)
 
 
 
-/*
+/**
  * Read the saved messages
  */
 static void do_messages(int flag)   /* FIXME! We should be able to unify this better */
@@ -2545,7 +2545,7 @@ static void do_messages(int flag)   /* FIXME! We should be able to unify this be
 	}
 }
 
-/*
+/**
  * Handle dungeon
  *
  * The monsters/objects must be loaded in the same order
@@ -2931,7 +2931,7 @@ void do_fate(int i, int flag)
 	do_byte((byte*)&fates[i].know, flag);
 }
 
-/*
+/**
  * Actually read the savefile
  */
 static bool do_savefile_aux(int flag)
@@ -3412,7 +3412,7 @@ static bool do_savefile_aux(int flag)
 }
 
 
-/*
+/**
  * Actually read the savefile
  */
 errr rd_savefile(void)
@@ -3484,7 +3484,7 @@ errr rd_savefile(void)
 	return (err);
 }
 
-/*
+/**
  * Note that this function may not be needed at all.
  * It was taken out of load_player_aux(). Do we need it?
  */
@@ -3807,7 +3807,7 @@ static void my_sentinel(char *place, u16b value, int flag)
 
 /********** Variable savefile stuff **************/
 
-/*
+/**
  * Add num slots to the savefile
  */
 void register_savefile(int num)

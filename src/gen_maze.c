@@ -1,8 +1,8 @@
-/*
+/**
  * Maze dungeon generator
  */
 
-/*
+/**
  * Copyright (c) 2003 DarkGod. And somebody who posted the algorith on
  * rec.games.roguelike.development. I can't remember teh name :( please mail me
  *
@@ -13,7 +13,7 @@
 
 #include "angband.h"
 
-/*
+/**
  * If we wasted static memory for this, it would look like:
  *
  * static char maze[(MAX_HGT / 2) + 2][(MAX_WID / 2) + 2];

@@ -3,12 +3,12 @@
 #ifndef INCLUDED_H_DEFINE_H
 #define INCLUDED_H_DEFINE_H
 
-/*
+/**
  * Define some simple constants
  */
 
 
-/*
+/**
  * Hack -- Define NULL
  */
 #ifndef NULL
@@ -20,7 +20,7 @@
 #endif /* NULL */
 
 
-/*
+/**
  * Hack -- force definitions -- see fd_seek()
  */
 #ifndef SEEK_SET
@@ -33,7 +33,7 @@
 # define SEEK_END	2
 #endif
 
-/*
+/**
  * Hack -- force definitions -- see fd_lock()  XXX XXX XXX
  */
 #ifndef F_UNLCK
@@ -47,7 +47,7 @@
 #endif
 
 
-/*
+/**
  * The constants "TRUE" and "FALSE"
  */
 
@@ -62,39 +62,39 @@
 
 /**** Simple "Macros" ****/
 
-/*
+/**
  * Force a character to lowercase/uppercase
  */
 #define FORCELOWER(A)  ((isupper((A))) ? tolower((A)) : (A))
 #define FORCEUPPER(A)  ((islower((A))) ? toupper((A)) : (A))
 
 
-/*
+/**
  * Non-typed minimum value macro
  */
 #undef MIN
 #define MIN(a,b)	(((a) > (b)) ? (b)  : (a))
 
-/*
+/**
  * Non-typed maximum value macro
  */
 #undef MAX
 #define MAX(a,b)	(((a) < (b)) ? (b)  : (a))
 
-/*
+/**
  * Non-typed absolute value macro
  */
 #undef ABS
 #define ABS(a)		(((a) < 0)   ? (-(a)) : (a))
 
-/*
+/**
  * Non-typed sign extractor macro
  */
 #undef SGN
 #define SGN(a)		(((a) < 0)   ? (-1) : ((a) != 0))
 
 
-/*
+/**
  * Note that all "index" values must be "lowercase letters", while
  * all "digits" must be "digits".  Control characters can be made
  * from any legal characters.  XXX XXX XXX

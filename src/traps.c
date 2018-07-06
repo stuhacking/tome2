@@ -132,7 +132,7 @@ static bool do_trap_teleport_away(object_type *i_ptr, s16b y, s16b x)
 	return (ident);
 }
 
-/*
+/**
  * this handles a trap that places walls around the player
  */
 static bool player_handle_trap_of_walls(void)
@@ -365,7 +365,7 @@ static bool player_handle_trap_of_walls(void)
 }
 
 
-/*
+/**
  * this function handles arrow & dagger traps, in various types.
  * num = number of missiles
  * tval, sval = kind of missiles
@@ -411,7 +411,7 @@ static bool player_handle_missile_trap(s16b num, s16b tval, s16b sval, s16b dd, 
 	return TRUE;
 }
 
-/*
+/**
  * this function handles a "breath" type trap - acid bolt, lightning balls etc.
  */
 static bool player_handle_breath_trap(s16b rad, s16b type, u16b trap)
@@ -436,7 +436,7 @@ static bool player_handle_breath_trap(s16b rad, s16b type, u16b trap)
 	return (ident);
 }
 
-/*
+/**
  * This function damages the player by a trap
  */
 static void trap_hit(s16b trap)
@@ -449,7 +449,7 @@ static void trap_hit(s16b trap)
 	take_hit(dam, t_name + t_ptr->name);
 }
 
-/*
+/**
  * this function activates one trap type, and returns
  * a bool indicating if this trap is now identified
  */
@@ -1994,7 +1994,7 @@ void player_activate_door_trap(s16b y, s16b x)
 }
 
 
-/*
+/**
  * Places a random trap at the given location.
  *
  * The location must be a valid, empty, clean, floor grid.
@@ -2062,7 +2062,7 @@ void place_trap(int y, int x)
 }
 
 
-/*
+/**
  * Places a random trap on the given chest.
  *
  * The object must be a valid chest.
@@ -2116,11 +2116,11 @@ void wiz_place_trap(int y, int x, int idx)
 	c_ptr->t_idx = idx;
 }
 
-/*
+/**
  * Here begin monster traps code
  */
 
-/*
+/**
  * Hook to determine if an object is a device
  */
 static bool item_tester_hook_device(object_type *o_ptr)
@@ -2133,7 +2133,7 @@ static bool item_tester_hook_device(object_type *o_ptr)
 	return (FALSE);
 }
 
-/*
+/**
  * Hook to determine if an object is a potion
  */
 static bool item_tester_hook_potion(object_type *o_ptr)
@@ -2145,7 +2145,7 @@ static bool item_tester_hook_potion(object_type *o_ptr)
 	return (FALSE);
 }
 
-/*
+/**
  * The trap setting code for rogues -MWK-
  *
  * Also, it will fail or give weird results if the tvals are resorted!
@@ -2297,7 +2297,7 @@ void do_cmd_set_trap(void)
 	cave_set_feat(p_ptr->py, p_ptr->px, FEAT_MON_TRAP);
 }
 
-/*
+/**
  * Monster hitting a rod trap -MWK-
  *
  * Return TRUE if the monster died
@@ -2408,7 +2408,7 @@ bool mon_hit_trap_aux_rod(int m_idx, object_type *o_ptr)
 	return (cave[y][x].m_idx == 0 ? TRUE : FALSE);
 }
 
-/*
+/**
  * Monster hitting a staff trap -MWK-
  *
  * Return TRUE if the monster died
@@ -2508,7 +2508,7 @@ bool mon_hit_trap_aux_staff(int m_idx, object_type *o_ptr)
 	return (cave[y][x].m_idx == 0 ? TRUE : FALSE);
 }
 
-/*
+/**
  * Monster hitting a scroll trap -MWK-
  *
  * Return TRUE if the monster died
@@ -2635,7 +2635,7 @@ bool mon_hit_trap_aux_scroll(int m_idx, int sval)
 	return (cave[y][x].m_idx == 0 ? TRUE : FALSE);
 }
 
-/*
+/**
  * Monster hitting a wand trap -MWK-
  *
  * Return TRUE if the monster died
@@ -2776,7 +2776,7 @@ bool mon_hit_trap_aux_wand(int m_idx, object_type *o_ptr)
 	return (cave[y][x].m_idx == 0 ? TRUE : FALSE);
 }
 
-/*
+/**
  * Monster hitting a potions trap -MWK-
  *
  * Return TRUE if the monster died
@@ -2932,7 +2932,7 @@ bool mon_hit_trap_aux_potion(int m_idx, object_type *o_ptr)
 	return (cave[y][x].m_idx == 0 ? TRUE : FALSE);
 }
 
-/*
+/**
  * Monster hitting a monster trap -MWK-
  * Returns True if the monster died, false otherwise
  */

@@ -8,7 +8,7 @@
 #include "z-virt.h"
 
 
-/*
+/**
  * Here is some information about the routines in this file.
  *
  * In general, the following routines take a "buffer", a "max length",
@@ -141,12 +141,12 @@
 
 
 
-/*
+/**
  * The "type" of the "user defined print routine" pointer
  */
 typedef uint (*vstrnfmt_aux_func)(char *buf, uint max, cptr fmt, vptr arg);
 
-/*
+/**
  * The "default" user defined print routine.  Ignore the "fmt" string.
  */
 static uint vstrnfmt_aux_dflt(char *buf, uint max, cptr fmt, vptr arg)
@@ -166,7 +166,7 @@ static uint vstrnfmt_aux_dflt(char *buf, uint max, cptr fmt, vptr arg)
 	return (len);
 }
 
-/*
+/**
  * The "current" user defined print routine.  It can be changed
  * dynamically by sending the proper "%r" sequence to "vstrnfmt()"
  */
@@ -174,7 +174,7 @@ static vstrnfmt_aux_func vstrnfmt_aux = vstrnfmt_aux_dflt;
 
 
 
-/*
+/**
  * Basic "vararg" format function.
  *
  * This function takes a buffer, a max byte count, a format string, and
@@ -643,7 +643,7 @@ uint vstrnfmt(char *buf, uint max, cptr fmt, va_list vp)
 }
 
 
-/*
+/**
  * Do a vstrnfmt (see above) into a (growable) static buffer.
  * This buffer is usable for very short term formatting of results.
  */
@@ -685,7 +685,7 @@ char *vformat(cptr fmt, va_list vp)
 
 
 
-/*
+/**
  * Do a vstrnfmt (see above) into a buffer of a given size.
  */
 uint strnfmt(char *buf, uint max, cptr fmt, ...)
@@ -708,7 +708,7 @@ uint strnfmt(char *buf, uint max, cptr fmt, ...)
 }
 
 
-/*
+/**
  * Do a vstrnfmt (see above) into a buffer of unknown size.
  * Since the buffer size is unknown, the user better verify the args.
  */
@@ -734,7 +734,7 @@ uint strfmt(char *buf, cptr fmt, ...)
 
 
 
-/*
+/**
  * Do a vstrnfmt() into (see above) into a (growable) static buffer.
  * This buffer is usable for very short term formatting of results.
  * Note that the buffer is (technically) writable, but only up to
@@ -761,7 +761,7 @@ char *format(cptr fmt, ...)
 
 
 
-/*
+/**
  * Vararg interface to plog()
  */
 void plog_fmt(cptr fmt, ...)
@@ -784,7 +784,7 @@ void plog_fmt(cptr fmt, ...)
 
 
 
-/*
+/**
  * Vararg interface to quit()
  */
 void quit_fmt(cptr fmt, ...)
@@ -807,7 +807,7 @@ void quit_fmt(cptr fmt, ...)
 
 
 
-/*
+/**
  * Vararg interface to core()
  */
 void core_fmt(cptr fmt, ...)

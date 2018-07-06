@@ -1,6 +1,6 @@
 /* File: z-term.h */
 
-/*
+/**
  * Copyright (c) 1997 Ben Harrison
  *
  * This software may be copied and distributed for educational, research,
@@ -15,7 +15,7 @@
 
 #define IN_MAINWINDOW (Term == term_screen)
 
-/*
+/**
  * A term_win is a "window" for a Term
  *
  *	- Cursor Useless/Visible codes
@@ -65,7 +65,7 @@ struct term_win
 
 
 
-/*
+/**
  * An actual "term" structure
  *
  *	- Extra "user" info (used by application)
@@ -251,7 +251,7 @@ struct term
 /**** Available Constants ****/
 
 
-/*
+/**
  * Definitions for the "actions" of "Term_xtra()"
  *
  * These values may be used as the first parameter of "Term_xtra()",

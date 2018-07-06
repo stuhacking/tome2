@@ -2,7 +2,7 @@
 
 /* Purpose: various lua bindings */
 
-/*
+/**
  * Copyright (c) 2001 DarkGod
  *
  * This software may be copied and distributed for educational, research, and
@@ -16,7 +16,7 @@
 #include "tolua.h"
 extern lua_State *L;
 
-/*
+/**
  * Get a new magic type
  */
 magic_power *new_magic_power(int num)
@@ -93,7 +93,7 @@ bool lua_spell_success(magic_power *spell, int stat, char *oups_fct)
 	return (TRUE);
 }
 
-/*
+/**
  * Create objects
  */
 object_type *new_object()
@@ -108,7 +108,7 @@ void end_object(object_type *o_ptr)
 	FREE(o_ptr, object_type);
 }
 
-/*
+/**
  * Powers
  */
 s16b add_new_power(cptr name, cptr desc, cptr gain, cptr lose, byte level, byte cost, byte stat, byte diff)
@@ -170,7 +170,7 @@ char *lua_object_desc(object_type *o_ptr, int pref, int mode)
 	return (buf);
 }
 
-/*
+/**
  * Monsters
  */
 
@@ -209,7 +209,7 @@ bool lua_summon_monster(int y, int x, int lev, bool friend, char *fct)
 		return summon_specific_friendly(y, x, lev, SUMMON_LUA, TRUE);
 }
 
-/*
+/**
  * Quests
  */
 s16b add_new_quest(char *name)
@@ -233,7 +233,7 @@ void desc_quest(int q_idx, int d, char *desc)
 		strncpy(quest[q_idx].desc[d], desc, 79);
 }
 
-/*
+/**
  * Misc
  */
 bool get_com_lua(cptr prompt, int *com)
@@ -494,12 +494,12 @@ void lua_print_hook(cptr str)
 }
 
 
-/*
+/**
  * Finds a good random bounty monster
  * Im too lazy to write it in lua since the lua API for monsters is not very well yet
  */
 
-/*
+/**
  * Hook for bounty monster selection.
  */
 static bool lua_mon_hook_bounty(int r_idx)
@@ -557,7 +557,7 @@ int lua_get_new_bounty_monster(int lev)
 	return r_idx;
 }
 
-/*
+/**
  * Some misc functions
  */
 char *lua_input_box(cptr title, int max)
@@ -611,7 +611,7 @@ void lua_display_list(int y, int x, int h, int w, cptr title, list_type* list, i
 	display_list(y, x, h, w, title, list->list, max, begin, sel, sel_color);
 }
 
-/*
+/**
  * Level generators
  */
 bool level_generate_script(cptr name)
@@ -628,7 +628,7 @@ void add_scripted_generator(cptr name, bool stairs, bool monsters, bool objects,
 	add_level_generator(name, level_generate_script, stairs, monsters, objects, miscs);
 }
 
-/*
+/**
  * Gods
  */
 s16b add_new_gods(char *name)

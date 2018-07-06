@@ -8,7 +8,7 @@
 #ifdef USE_CAP
 
 
-/*
+/**
  * This file is a total hack, but is often very helpful.  :-)
  *
  * This file allows use of the terminal without requiring the
@@ -28,14 +28,14 @@
  */
 
 
-/*
+/**
  * Require a "system"
  */
 #if !defined(USE_TERMCAP) && !defined(USE_HARDCODE)
 # define USE_TERMCAP
 #endif
 
-/*
+/**
  * Hack -- try to guess which systems use what commands
  * Hack -- allow one of the "USE_Txxxxx" flags to be pre-set.
  * Mega-Hack -- try to guess when "POSIX" is available.
@@ -57,7 +57,7 @@
 
 
 
-/*
+/**
  * POSIX stuff
  */
 #ifdef USE_TPOSIX
@@ -65,7 +65,7 @@
 # include <termios.h>
 #endif
 
-/*
+/**
  * One version needs these files
  */
 #ifdef USE_TERMIO
@@ -73,7 +73,7 @@
 # include <termio.h>
 #endif
 
-/*
+/**
  * The other needs these files
  */
 #ifdef USE_TCHARS
@@ -85,7 +85,7 @@
 #endif
 
 
-/*
+/**
  * XXX XXX Hack -- POSIX uses "O_NONBLOCK" instead of "O_NDELAY"
  *
  * They should both work due to the "(i != 1)" test in the code
@@ -100,7 +100,7 @@
 
 #ifdef USE_TERMCAP
 
-/*
+/**
  * Termcap string information
  */
 
@@ -112,7 +112,7 @@ static char *desc; 		/* The terminal name */
 #endif
 
 
-/*
+/**
  * Pointers into the "area"
  */
 
@@ -135,7 +135,7 @@ static char *ve; 	/* Cursor - normal */
 static char *vs; 	/* Cursor - bright */
 
 
-/*
+/**
  * State variables
  */
 
@@ -146,7 +146,7 @@ static int cury; 	/* Cursor location (Y) */
 static int curv; 	/* Cursor visibility */
 
 
-/*
+/**
  * Extern functions
  */
 extern char *getenv();
@@ -154,7 +154,7 @@ extern char *tgoto();
 extern char *tgetstr();
 
 
-/*
+/**
  * Write some chars to the terminal
  */
 static void ewrite(char *str)
@@ -226,7 +226,7 @@ static void tp(char *s)
 
 
 
-/*
+/**
  * Clear the screen
  */
 static void do_cl(void)
@@ -234,7 +234,7 @@ static void do_cl(void)
 	if (cl) tp (cl);
 }
 
-/*
+/**
  * Clear to the end of the line
  */
 static void do_ce(void)
@@ -243,7 +243,7 @@ static void do_ce(void)
 }
 
 
-/*
+/**
  * Set the cursor visibility (0 = invis, 1 = normal, 2 = bright)
  */
 static void curs_set(int vis)
@@ -268,7 +268,7 @@ static void curs_set(int vis)
 
 
 
-/*
+/**
  * Restrict scrolling to within these rows
  */
 static void do_cs(int y1, int y2)
@@ -288,7 +288,7 @@ static void do_cs(int y1, int y2)
 
 
 
-/*
+/**
  * Go to the given screen location directly
  */
 static void do_cm(int x, int y)
@@ -307,7 +307,7 @@ static void do_cm(int x, int y)
 }
 
 
-/*
+/**
  * Go to the given screen location in a "clever" manner
  *
  * XXX XXX XXX This function could use some work!
@@ -351,7 +351,7 @@ static void do_move(int x1, int y1, int x2, int y2)
 
 
 
-/*
+/**
  * Help initialize this file (see below)
  */
 errr init_cap_aux(void)
@@ -452,7 +452,7 @@ errr init_cap_aux(void)
 
 
 
-/*
+/**
  * Save the "normal" and "angband" terminal settings
  */
 
@@ -488,20 +488,20 @@ static int game_local_chars;
 
 
 
-/*
+/**
  * Are we active?  Not really needed.
  */
 static int active = FALSE;
 
 
-/*
+/**
  * The main screen (no sub-screens)
  */
 static term term_screen_body;
 
 
 
-/*
+/**
  * Place the "keymap" into its "normal" state
  */
 static void keymap_norm(void)
@@ -534,7 +534,7 @@ static void keymap_norm(void)
 }
 
 
-/*
+/**
  * Place the "keymap" into the "game" state
  */
 static void keymap_game(void)
@@ -567,7 +567,7 @@ static void keymap_game(void)
 }
 
 
-/*
+/**
  * Save the normal keymap
  */
 static void keymap_norm_prepare(void)
@@ -600,7 +600,7 @@ static void keymap_norm_prepare(void)
 }
 
 
-/*
+/**
  * Save the keymaps (normal and game)
  */
 static void keymap_game_prepare(void)
@@ -722,7 +722,7 @@ static void keymap_game_prepare(void)
 
 
 
-/*
+/**
  * Suspend/Resume
  */
 static errr Term_xtra_cap_alive(int v)
@@ -769,7 +769,7 @@ static errr Term_xtra_cap_alive(int v)
 
 
 
-/*
+/**
  * Process an event
  */
 static errr Term_xtra_cap_event(int v)
@@ -816,7 +816,7 @@ static errr Term_xtra_cap_event(int v)
 
 
 
-/*
+/**
  * Actually move the hardware cursor
  */
 static errr Term_curs_cap(int x, int y)
@@ -833,7 +833,7 @@ static errr Term_curs_cap(int x, int y)
 }
 
 
-/*
+/**
  * Erase a grid of space
  *
  * XXX XXX XXX Note that we will never be asked to clear the
@@ -868,7 +868,7 @@ static errr Term_wipe_cap(int x, int y, int n)
 }
 
 
-/*
+/**
  * Place some text on the screen using an attribute
  */
 static errr Term_text_cap(int x, int y, int n, byte a, cptr s)
@@ -900,7 +900,7 @@ static errr Term_text_cap(int x, int y, int n, byte a, cptr s)
 }
 
 
-/*
+/**
  * Handle a "special request"
  */
 static errr Term_xtra_cap(int n, int v)
@@ -951,7 +951,7 @@ static errr Term_xtra_cap(int n, int v)
 
 
 
-/*
+/**
  * Init a "term" for this file
  */
 static void Term_init_cap(term *t)
@@ -976,7 +976,7 @@ static void Term_init_cap(term *t)
 }
 
 
-/*
+/**
  * Nuke a "term" for this file
  */
 static void Term_nuke_cap(term *t)
@@ -1005,7 +1005,7 @@ static void Term_nuke_cap(term *t)
 
 
 
-/*
+/**
  * Prepare this file for Angband usage
  */
 errr init_cap(void)

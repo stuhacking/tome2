@@ -3,7 +3,7 @@
 #ifndef INCLUDED_H_CONFIG_H
 #define INCLUDED_H_CONFIG_H
 
-/*
+/**
  * Choose the hardware, operating system, and compiler.
  * Also, choose various "system level" compilation options.
  * A lot of these definitions take effect in "h-system.h"
@@ -14,67 +14,67 @@
  */
 
 
-/*
+/**
  * no system definitions are needed for 4.3BSD, SUN OS, DG/UX
  */
 
-/*
+/**
  * OPTION: Compile on a Macintosh (see "A-mac-h" or "A-mac-pch")
  */
 #ifndef MACINTOSH
 /* #define MACINTOSH */
 #endif
 
-/*
+/**
  * OPTION: Compile on Windows (automatic)
  */
 #ifndef WINDOWS
 /* #define WINDOWS */
 #endif
 
-/*
+/**
  * OPTION: Compile on a SYS III version of UNIX
  */
 #ifndef SYS_III
 /* #define SYS_III */
 #endif
 
-/*
+/**
  * OPTION: Compile on a SYS V version of UNIX (not Solaris)
  */
 #ifndef SYS_V
 /* #define SYS_V */
 #endif
 
-/*
+/**
  * OPTION: Compile on a HPUX version of UNIX
  */
 #ifndef HPUX
 /* #define HPUX */
 #endif
 
-/*
+/**
  * OPTION: Compile on an SGI running IRIX
  */
 #ifndef SGI
 /* #define SGI */
 #endif
 
-/*
+/**
  * OPTION: Compile on a SunOS machine
  */
 #ifndef SUNOS
 /* #define SUNOS */
 #endif
 
-/*
+/**
  * OPTION: Compile on a Solaris machine
  */
 #ifndef SOLARIS
 /* #define SOLARIS */
 #endif
 
-/*
+/**
  * OPTION: Compile on an ultrix/4.2BSD/Dynix/etc. version of UNIX,
  * Do not define this if you are on any kind of SunOS.
  */
@@ -84,7 +84,7 @@
 
 
 
-/*
+/**
  * Extract the "SUNOS" flag from the compiler
  */
 #if defined(sun)
@@ -93,7 +93,7 @@
 # endif
 #endif
 
-/*
+/**
  * Extract the "ULTRIX" flag from the compiler
  */
 #if defined(ultrix) || defined(Pyramid)
@@ -102,7 +102,7 @@
 # endif
 #endif
 
-/*
+/**
  * Extract the "ATARI" flag from the compiler [cjh]
  */
 #if defined(__atarist) || defined(__atarist__)
@@ -111,7 +111,7 @@
 # endif
 #endif
 
-/*
+/**
  * Extract the "SGI" flag from the compiler
  */
 #ifdef sgi
@@ -120,7 +120,7 @@
 # endif
 #endif
 
-/*
+/**
  * Extract the "MSDOS" flag from the compiler
  */
 #ifdef __MSDOS__
@@ -129,7 +129,7 @@
 # endif
 #endif
 
-/*
+/**
  * Extract the "WINDOWS" flag from the compiler
  */
 #if defined(_Windows) || defined(__WINDOWS__) || \
@@ -142,7 +142,7 @@
 
 
 
-/*
+/**
  * OPTION: Define "L64" if a "long" is 64-bits.  See "h-types.h".
  * The only such platform that angband is ported to is currently
  * DEC Alpha AXP running OSF/1 (OpenVMS uses 32-bit longs).
@@ -153,7 +153,7 @@
 
 
 
-/*
+/**
  * OPTION: set "SET_UID" if the machine is a "multi-user" machine.
  * This option is used to verify the use of "uids" and "gids" for
  * various "Unix" calls, and of "pids" for getting a random seed,
@@ -170,7 +170,7 @@
 #endif
 
 
-/*
+/**
  * OPTION: Set "USG" for "System V" versions of Unix
  * This is used to choose a "lock()" function, and to choose
  * which header files ("string.h" vs "strings.h") to include.
@@ -187,7 +187,7 @@
 #endif
 
 
-/*
+/**
  * Every system seems to use its own symbol as a path separator.
  * Default to the standard Unix slash, but attempt to change this
  * for various other systems.  Note that any system that uses the
@@ -214,7 +214,7 @@
 #endif
 
 
-/*
+/**
  * The Macintosh allows the use of a "file type" when creating a file
  */
 #if defined(MACINTOSH) && !defined(applec) || defined(MACH_O_CARBON)
@@ -227,7 +227,7 @@
 #endif
 
 
-/*
+/**
  * OPTION: Hack -- Make sure "strchr()" and "strrchr()" will work
  */
 #if defined(SYS_III) || defined(SYS_V) || defined(MSDOS)
@@ -238,13 +238,13 @@
 #endif
 
 
-/*
+/**
  * OPTION: Define "HAS_STRICMP" only if "stricmp()" exists.
  * Note that "stricmp()" is not actually used by Angband.
  */
 /* #define HAS_STRICMP */
 
-/*
+/**
  * Linux has "stricmp()" with a different name
  */
 #if defined(linux)
@@ -253,14 +253,14 @@
 #endif
 
 
-/*
+/**
  * OPTION: Define "HAS_MEMSET" only if "memset()" exists.
  * Note that the "memset()" routines are used in "z-virt.h"
  */
 #define HAS_MEMSET
 
 
-/*
+/**
  * OPTION: Define "HAS_USLEEP" only if "usleep()" exists.
  * Note that this is only relevant for "SET_UID" machines
  */

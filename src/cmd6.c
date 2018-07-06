@@ -2,7 +2,7 @@
 
 /* Purpose: Object commands */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -13,13 +13,13 @@
 #include "angband.h"
 
 
-/*
+/**
  * Forward declare
  */
 static bool activate_spell(object_type * o_ptr, byte choice);
 
 
-/*
+/**
  * General function to find an item by its name
  */
 cptr get_item_hook_find_obj_what;
@@ -50,7 +50,7 @@ bool get_item_hook_find_obj(int *item)
 }
 
 
-/*
+/**
  * This file includes code for eating food, drinking potions,
  * reading scrolls, aiming wands, using staffs, zapping rods,
  * and activating artifacts.
@@ -91,7 +91,7 @@ bool get_item_hook_find_obj(int *item)
  */
 
 
-/*
+/**
  * Determine the effects of eating a corpse. A corpse can be
  * eaten whole or cut into pieces for later.
  */
@@ -904,7 +904,7 @@ static void corpse_effect(object_type *o_ptr, bool cutting)
 }
 
 
-/*
+/**
  * Hook to determine if an object is eatable
  */
 static bool item_tester_hook_eatable(object_type *o_ptr)
@@ -917,7 +917,7 @@ static bool item_tester_hook_eatable(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Eat some food (from the pack or floor)
  */
 void do_cmd_eat_food(void)
@@ -1504,7 +1504,7 @@ void do_cmd_eat_food(void)
 }
 
 
-/*
+/**
  * Cut a corpse up for convenient storage
  */
 void do_cmd_cut_corpse(void)
@@ -1618,7 +1618,7 @@ void do_cmd_cut_corpse(void)
 }
 
 
-/*
+/**
  * Use a potion to cure some meat
  *
  * Salt water works well.
@@ -1789,7 +1789,7 @@ void do_cmd_cure_meat(void)
 }
 
 
-/*
+/**
  * Hook to determine if an object is quaffable
  */
 static bool item_tester_hook_quaffable(object_type *o_ptr)
@@ -2500,7 +2500,7 @@ static bool quaff_potion(int tval, int sval, int pval, int pval2)
 }
 
 
-/*
+/**
  * Quaff a potion (from the pack or the floor)
  */
 void do_cmd_quaff_potion(void)
@@ -2617,7 +2617,7 @@ void do_cmd_quaff_potion(void)
 }
 
 
-/*
+/**
  * Drink from a fountain
  */
 void do_cmd_drink_fountain(void)
@@ -2692,7 +2692,7 @@ void do_cmd_drink_fountain(void)
 }
 
 
-/*
+/**
  * Fill an empty bottle
  */
 void do_cmd_fill_bottle(void)
@@ -2790,7 +2790,7 @@ void do_cmd_fill_bottle(void)
 }
 
 
-/*
+/**
  * Curse the players armor
  */
 bool curse_armor(void)
@@ -2855,7 +2855,7 @@ bool curse_armor(void)
 }
 
 
-/*
+/**
  * Curse the players weapon
  */
 bool curse_weapon(void)
@@ -2922,7 +2922,7 @@ bool curse_weapon(void)
 }
 
 
-/*
+/**
  * Hook to determine if an object is readable
  */
 static bool item_tester_hook_readable(object_type *o_ptr)
@@ -2934,7 +2934,7 @@ static bool item_tester_hook_readable(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Read a scroll (from the pack or floor).
  *
  * Certain scrolls can be "aborted" without losing the scroll.  These
@@ -3748,7 +3748,7 @@ void unset_stick_mode()
 }
 
 
-/*
+/**
  * Use a staff.                        -RAK-
  *
  * One charge of one staff disappears.
@@ -3937,7 +3937,7 @@ void do_cmd_use_staff(void)
 }
 
 
-/*
+/**
  * Aim a wand (from the pack or floor).
  *
  * Use a single charge from a single item.
@@ -4114,7 +4114,7 @@ void do_cmd_aim_wand(void)
 
 
 
-/*
+/**
  * Activate (zap) a Rod
  *
  * Unstack fully charged rods as needed.
@@ -4124,7 +4124,7 @@ void do_cmd_aim_wand(void)
  */
 
 
-/*
+/**
  * Hook to determine if an object is zapable
  */
 static bool item_tester_hook_zapable(object_type *o_ptr)
@@ -4136,7 +4136,7 @@ static bool item_tester_hook_zapable(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Hook to determine if an object is attachable
  */
 static bool item_tester_hook_attachable(object_type *o_ptr)
@@ -4149,7 +4149,7 @@ static bool item_tester_hook_attachable(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Combine a rod and a rod tip
  */
 void zap_combine_rod_tip(object_type *q_ptr, int tip_item)
@@ -4236,7 +4236,7 @@ void zap_combine_rod_tip(object_type *q_ptr, int tip_item)
 }
 
 
-/*
+/**
  * Zap a rod, or attack a rod tip to a rod
  */
 void do_cmd_zap_rod(void)
@@ -4729,7 +4729,7 @@ void do_cmd_zap_rod(void)
 
 
 
-/*
+/**
  * Hook to determine if an object is activable
  */
 static bool item_tester_hook_activate(object_type *o_ptr)
@@ -4752,7 +4752,7 @@ static bool item_tester_hook_activate(object_type *o_ptr)
 
 
 
-/*
+/**
  * Hack -- activate the ring of power
  */
 int ring_of_power()
@@ -4851,7 +4851,7 @@ int ring_of_power()
 
 
 
-/*
+/**
  * Enchant some bolts
  */
 bool brand_bolts(void)
@@ -4903,7 +4903,7 @@ bool brand_bolts(void)
 }
 
 
-/*
+/**
  * Objects in the p_ptr->inventory can now be activated, and
  * SOME of those may be able to stack (ego wands or something)
  * in any case, we can't know that it's impossible. *BUT* we'll

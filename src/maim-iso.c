@@ -1,4 +1,4 @@
-/*
+/**
  *
  * This file contains routines for maiming bitmaps as well as other
  * supplemental routines, all for SDL.
@@ -46,7 +46,7 @@
 #include <math.h> /* for scaling blits */
 //#include "bits/nan.h"
 
-/*
+/**
  *
  * Supplemental SDL bitmap manipulation functions.
  *

@@ -33,20 +33,20 @@
 #include <math.h>
 
 #ifdef USE_ISO
-/*
+/**
  * Simugraph system (Hj. Malthaner)
  */
 #include "iso/simsys.h"
 #include "iso/simgraph.h"
 #include "iso/world_adaptor.h"
 #include "iso/world_view.h"
-/*
+/**
  * Simugraph specific routines
  * by Hj. Malthaner
  */
 #include "iso/hackdef.h"
 
-/*
+/**
  * Text place marker function protype (Hj. Malthaner)
  */
 static void set_spots(int x, int y, int n, bool v);
@@ -63,7 +63,7 @@ bool spots[80][24];
  */
 int mx, my;
 
-/*
+/**
  * Hajo: this flags need to be set when opening windows
  */
 
@@ -1162,7 +1162,7 @@ static errr Term_xtra_sdl(int n, int v)
 #define TYPECOLOR(i) 	printf("  R:%d\tG:%d\tB:%d\tA:%d\t\n",\
 	color_data[i]>>24,(color_data[i]&0x00ff0000)>>16,\
 	(color_data[i]&0x0000ff00)>>8,(color_data[i]&0x000000ff));
-/*
+/**
  * Display the cursor
  *
  * This routine should display the cursor at the given location
@@ -1192,7 +1192,7 @@ static errr Term_curs_sdl(int x, int y)
 }
 
 
-/*
+/**
  * Erase some characters
  *
  * This function should erase "n" characters starting at (x,y).
@@ -1234,7 +1234,7 @@ static errr Term_wipe_sdl(int x, int y, int n)
 }
 
 
-/*
+/**
  * Draw some text on the screen
  *
  * This function should actually display an array of characters
@@ -1351,7 +1351,7 @@ static errr Term_text_sdl(int x, int y, int n, byte a, const char *cp)
 	return (0);
 }
 
-/*
+/**
  * Draw some attr/char pairs on the screen
  *
  * This routine should display the given "n" attr/char pairs at
@@ -1472,7 +1472,7 @@ static errr term_data_init(term_data *td, int i)
 
 #ifdef PRIVATE_USER_PATH
 
-/*
+/**
  * Check and create if needed the directory dirpath -- copied from main.c
  */
 bool private_check_user_directory(cptr dirpath)
@@ -1512,7 +1512,7 @@ bool private_check_user_directory(cptr dirpath)
 	}
 }
 
-/*
+/**
  * Check existence of ".ToME/" directory in the user's
  * home directory or try to create it if it doesn't exist.
  * Returns FALSE if all the attempts fail.
@@ -1535,7 +1535,7 @@ static bool check_create_user_dir(void)
 
 #endif /* PRIVATE_USER_PATH */
 
-/*
+/**
  * Init some stuff - copied from main.c
  */
 static void init_stuff(void)

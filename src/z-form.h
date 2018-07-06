@@ -5,7 +5,7 @@
 
 #include "h-basic.h"
 
-/*
+/**
  * This file provides functions very similar to "sprintf()", but which
  * not only parse some additional "format sequences", but also enforce
  * bounds checking, and allow repeated "appends" to the same buffer.

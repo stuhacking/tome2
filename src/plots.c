@@ -2,7 +2,7 @@
 
 /* Purpose: plots & quests */
 
-/*
+/**
  * Copyright (c) 2001 James E. Wilson, Robert A. Koeneke, DarkGod
  *
  * This software may be copied and distributed for educational, research, and

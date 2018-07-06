@@ -1,6 +1,6 @@
 /* File: main-gtk.c */
 
-/*
+/**
  * Copyright (c) 2000-2001 Robert Ruehlmann,
  * Steven Fuerst, Uwe Siems, "pelpel", et al.
  *
@@ -9,7 +9,7 @@
  * are included in all such copies.
  */
 
-/*
+/**
  * Robert Ruehlmann wrote the original Gtk port. Since an initial work is
  * much harder than enhancements, his effort worth more credits than
  * others.
@@ -33,7 +33,7 @@
 #include "angband.h"
 
 
-/*
+/**
  * Activate variant-specific features
  *
  * Angband 2.9.3 and close variants don't require any.
@@ -67,7 +67,7 @@
 # define USE_DOUBLE_TILES	/* Mogami's bigtile patch */
 #endif /* TOME */
 
-/*
+/**
  * Some examples
  */
 #ifdef ANGBAND300
@@ -111,7 +111,7 @@
 #endif
 
 
-/*
+/**
  * Include some helpful X11 code.
  */
 #ifndef ANG293_COMPAT
@@ -119,19 +119,19 @@
 #endif /* !ANG293_COMPAT */
 
 
-/*
+/**
  * Number of pixels inserted between the menu bar and the main screen
  */
 #define NO_PADDING 0
 
 
-/*
+/**
  * Largest possible number of terminal windows supported by the game
  */
 #define MAX_TERM_DATA 8
 
 
-/*
+/**
  * Extra data to associate with each "window"
  *
  * Each "window" is represented by a "term_data" structure, which
@@ -141,7 +141,7 @@
 
 #ifdef USE_GRAPHICS
 
-/*
+/**
  * Since GdkRGB doesn't provide us some useful functions...
  */
 typedef struct GdkRGBImage GdkRGBImage;
@@ -157,7 +157,7 @@ struct GdkRGBImage
 #endif /* USE_GRAPHICS */
 
 
-/*
+/**
  * This structure holds everything you need to manipulate terminals
  */
 typedef struct term_data term_data;
@@ -198,7 +198,7 @@ struct term_data
 };
 
 
-/*
+/**
  * Where to draw when we call Gdk drawing primitives
  */
 # define TERM_DATA_DRAWABLE(td) \
@@ -247,30 +247,30 @@ gdk_draw_pixmap( \
 #endif /* 0 */
 
 
-/*
+/**
  * An array of "term_data" structures, one for each "sub-window"
  */
 static term_data data[MAX_TERM_DATA];
 
-/*
+/**
  * Number of active terms
  */
 static int num_term = 1;
 
 
-/*
+/**
  * RGB values of the sixteen Angband colours
  */
 static guint32 angband_colours[16];
 
 
-/*
+/**
  * Set to TRUE when a game is in progress
  */
 static bool game_in_progress = FALSE;
 
 
-/*
+/**
  * This is in some cases used for double buffering as well as
  * a backing store, speeding things up under client-server
  * configurations, while turning this off *might* work better
@@ -286,7 +286,7 @@ static bool use_backing_store = TRUE;
 
 #ifdef ANG293_COMPAT
 
-/*
+/**
  * Look up some environment variables to find font name for each window.
  */
 static cptr get_default_font(int term)
@@ -318,7 +318,7 @@ static cptr get_default_font(int term)
 
 # ifndef SAVEFILE_SCREEN
 
-/*
+/**
  * In [V]2.9.3, this frees all dynamically allocated memory
  */
 static void cleanup_angband(void)
@@ -328,7 +328,7 @@ static void cleanup_angband(void)
 
 # endif  /* !SAVEFILE_SCREEN */
 
-/*
+/**
  * New global flag to indicate if it's safe to save now
  */
 #define can_save TRUE
@@ -338,7 +338,7 @@ static void cleanup_angband(void)
 
 #ifdef ANG291_COMPAT
 
-/*
+/**
  * The standard game uses this to implement lighting effects
  * for 16x16 tiles in cave.c...
  *
@@ -354,7 +354,7 @@ static bool use_transparency = TRUE;
 
 /**** Low level routines - memory allocation ****/
 
-/*
+/**
  * Hook to "release" memory
  */
 #ifdef ANGBAND300
@@ -371,7 +371,7 @@ static vptr hook_rnfree(vptr v, huge size)
 }
 
 
-/*
+/**
  * Hook to "allocate" memory
  */
 static vptr hook_ralloc(huge size)
@@ -386,7 +386,7 @@ static vptr hook_ralloc(huge size)
 
 #ifdef SUPPORT_GAMMA
 
-/*
+/**
  * When set to TRUE, indicates that we can use gamma_table
  */
 static bool gamma_table_ready = FALSE;
@@ -394,7 +394,7 @@ static bool gamma_table_ready = FALSE;
 
 # ifdef INTERACTIVE_GAMMA
 
-/*
+/**
  * Initialise the gamma-correction table for current gamma_val
  * - interactive version
  */
@@ -430,7 +430,7 @@ static void setup_gamma_table(void)
 
 # else /* INTERACTIVE_GAMMA */
 
-/*
+/**
  * Initialise the gamma-correction table if environment variable
  * ANGBAND_X11_GAMMA is set and contains a meaningful value
  *
@@ -497,7 +497,7 @@ static void setup_gamma_table(void)
 #endif /* SUPPORT_GAMMA */
 
 
-/*
+/**
  * Remeber RGB values for sixteen Angband colours, in a format
  * that is convinient for GdkRGB GC functions.
  *
@@ -547,7 +547,7 @@ static void init_colours(void)
 }
 
 
-/*
+/**
  * Set foreground colour of window td to attr, only when it is necessary
  */
 static void term_data_set_fg(term_data *td, byte attr)
@@ -565,7 +565,7 @@ static void term_data_set_fg(term_data *td, byte attr)
 
 #ifdef USE_GRAPHICS
 
-/*
+/**
  * Graphics mode selector - current setting and requested value
  */
 #define GRAF_MODE_NONE	0
@@ -575,23 +575,23 @@ static void term_data_set_fg(term_data *td, byte attr)
 static int graf_mode = GRAF_MODE_NONE;
 static int graf_mode_request = GRAF_MODE_NONE;
 
-/*
+/**
  * Use smooth rescaling?
  */
 static bool smooth_rescaling = TRUE;
 static bool smooth_rescaling_request = TRUE;
 
-/*
+/**
  * Dithering
  */
 static GdkRgbDither dith_mode = GDK_RGB_DITHER_NORMAL;
 
-/*
+/**
  * Need to reload and resize tiles when fonts are changed.
  */
 static bool resize_request = FALSE;
 
-/*
+/**
  * Numbers of columns and rows in current tileset
  * calculated and set by the tile loading code in graf_init()
  * and used by Term_pict_gtk()
@@ -600,13 +600,13 @@ static int tile_rows;
 static int tile_cols;
 
 
-/*
+/**
  * Directory name(s)
  */
 static cptr ANGBAND_DIR_XTRA_GRAF;
 
 
-/*
+/**
  * Be nice to old graphics hardwares -- using GdkRGB.
  *
  * We don't have colour allocation failure any longer this way,
@@ -643,11 +643,11 @@ static cptr ANGBAND_DIR_XTRA_GRAF;
  *  blue value rgb_buf[j * rowstride + i * 3 + 2].
  */
 
-/*
+/**
  * gdk_image compatibility functions - should be part of gdk, IMHO.
  */
 
-/*
+/**
  * Create GdkRGBImage of width * height and return pointer
  * to it. Returns NULL on failure
  */
@@ -684,7 +684,7 @@ static GdkRGBImage *gdk_rgb_image_new(
 	return (result);
 }
 
-/*
+/**
  * Free a GdkRGBImage
  */
 static void gdk_rgb_image_destroy(
@@ -703,7 +703,7 @@ static void gdk_rgb_image_destroy(
 
 #if 0
 
-/*
+/**
  * Unref a GdkRGBImage
  */
 static void gdk_rgb_image_unref(
@@ -720,7 +720,7 @@ static void gdk_rgb_image_unref(
 }
 
 
-/*
+/**
  * Reference a GdkRGBImage
  */
 static void gdk_rgb_image_ref(
@@ -736,7 +736,7 @@ static void gdk_rgb_image_ref(
 #endif /* 0 */
 
 
-/*
+/**
  * Write RGB pixel of the format 0xRRGGBB to (x, y) in GdkRGBImage
  */
 static void gdk_rgb_image_put_pixel(
@@ -768,7 +768,7 @@ static void gdk_rgb_image_put_pixel(
 }
 
 
-/*
+/**
  * Returns RGB pixel (0xRRGGBB) at (x, y) in GdkRGBImage
  */
 static guint32 gdk_rgb_image_get_pixel(
@@ -795,7 +795,7 @@ static guint32 gdk_rgb_image_get_pixel(
 }
 
 
-/*
+/**
  * Since gdk_draw_rgb_image is a bit harder to use than it's
  * GdkImage counterpart, I wrote a grue function that takes
  * exactly the same parameters as gdk_draw_image, with
@@ -834,20 +834,20 @@ static void gdk_draw_rgb_image_2(
 }
 
 
-/*
+/**
  * Code for smooth icon rescaling from Uwe Siems, Jan 2000
  *
  * XXX XXX Duplication of maid-x11.c, again. It doesn't do any colour
  * allocation, either.
  */
 
-/*
+/**
  * to save ourselves some labour, define a maximum expected icon width here:
  */
 #define MAX_ICON_WIDTH 32
 
 
-/*
+/**
  * Each pixel is kept in this structure during smooth rescaling
  * calculations, to make things a bit easier
  */
@@ -860,7 +860,7 @@ struct rgb_type
 	guint32 blue;
 };
 
-/*
+/**
  * Because there are many occurences of this, and because
  * it's logical to do so...
  */
@@ -870,7 +870,7 @@ struct rgb_type
 (rgb_buf)->blue  = (pix) & 0xFF
 
 
-/*
+/**
  * get_scaled_row reads a scan from the given GdkRGBImage, scales it smoothly
  * and returns the red, green and blue values in arrays.
  * The values in this arrays must be divided by a certain value that is
@@ -1020,7 +1020,7 @@ static void get_scaled_row(
 }
 
 
-/*
+/**
  * put_rgb_scan takes arrays for red, green and blue and writes pixel values
  * according to this values in the GdkRGBImage-structure. w is the number of
  * pixels to write and div is the value by which all red/green/blue values
@@ -1068,7 +1068,7 @@ static void put_rgb_scan(
 }
 
 
-/*
+/**
  * scale_icon transfers an area from GdkRGBImage im_in, locate (x1,y1) to
  * im_out, locate (x2, y2). Source size is (ix, iy) and destination size
  * is (ox, oy).
@@ -1249,7 +1249,7 @@ static void scale_icon(
 }
 
 
-/*
+/**
  * Rescale icons using sort of anti-aliasing technique.
  */
 static GdkRGBImage *resize_tiles_smooth(
@@ -1292,7 +1292,7 @@ static GdkRGBImage *resize_tiles_smooth(
 }
 
 
-/*
+/**
  * Steven Fuerst's tile resizing code
  * Taken from Z because I think the algorithm is cool.
  */
@@ -1365,7 +1365,7 @@ static void copy_pixels(
 #endif
 
 
-/*
+/**
  * Resize ix * iy pixel tiles in old to ox * oy pixels
  * and return a new GdkRGBImage containing the resized tiles
  */
@@ -1476,7 +1476,7 @@ static GdkRGBImage *resize_tiles_fast(
 }
 
 
-/*
+/**
  * Resize an image of ix * iy pixels and return a newly allocated
  * image of ox * oy pixels.
  */
@@ -1514,11 +1514,11 @@ static GdkRGBImage *resize_tiles(
 }
 
 
-/*
+/**
  * Tile loaders - XPM and BMP
  */
 
-/*
+/**
  * A helper function for the XPM loader
  *
  * Read next string delimited by double quotes from
@@ -1585,11 +1585,11 @@ static bool read_str(char *buf, u32b len, FILE *f)
 }
 
 
-/*
+/**
  * Remember pixel symbol to RGB colour mappings
  */
 
-/*
+/**
  * I've forgot the formula, but I remember prime number yields
  * good results
  */
@@ -1605,7 +1605,7 @@ struct pal_type
 };
 
 
-/*
+/**
  * A simple, slow and stupid XPM loader
  */
 static GdkRGBImage *load_xpm(cptr filename)
@@ -1862,7 +1862,7 @@ oops:
 }
 
 
-/*
+/**
  * A BMP loader, yet another duplication of maid-x11.c functions.
  *
  * Another duplication, again because of different image format and
@@ -1879,7 +1879,7 @@ oops:
  * no reason to follow *their* words.
  */
 
-/*
+/**
  * BMP file header
  */
 typedef struct bmp_file_type bmp_file_type;
@@ -1894,7 +1894,7 @@ struct bmp_file_type
 };
 
 
-/*
+/**
  * BMP file information fields
  */
 typedef struct bmp_info_type bmp_info_type;
@@ -1914,7 +1914,7 @@ struct bmp_info_type
 	u32b color_importand;
 };
 
-/*
+/**
  * "RGBQUAD" type.
  */
 typedef struct rgb_quad_type rgb_quad_type;
@@ -1954,7 +1954,7 @@ static void rd_u32b(FILE *fff, u32b *ip)
 }
 
 
-/*
+/**
  * Read a BMP file (a certain trademark nuked)
  *
  * This function replaces the old ReadRaw and RemapColors functions.
@@ -2133,7 +2133,7 @@ GdkRGBImage *load_bmp(cptr filename)
 }
 
 
-/*
+/**
  * Try to load an XPM file, or a BMP file if it fails
  *
  * Choice of file format may better be made yet another option XXX
@@ -2163,7 +2163,7 @@ static GdkRGBImage *load_tiles(cptr basename)
 }
 
 
-/*
+/**
  * Free all tiles and graphics buffers associated with windows
  *
  * This is conspirator of graf_init() below, sharing its inefficiency
@@ -2204,7 +2204,7 @@ static void graf_nuke()
 }
 
 
-/*
+/**
  * Load tiles, scale them to current font size, and store a pointer
  * to them in a term_data structure for each term.
  *
@@ -2354,7 +2354,7 @@ static bool graf_init(
 }
 
 
-/*
+/**
  * React to various changes in graphics mode settings
  *
  * It is *not* a requirement for tiles to have same pixel width and height.
@@ -2468,7 +2468,7 @@ static void init_graphics(void)
 /**** Term package support routines ****/
 
 
-/*
+/**
  * Free data used by a term
  */
 static void Term_nuke_gtk(term *t)
@@ -2516,7 +2516,7 @@ static void Term_nuke_gtk(term *t)
 }
 
 
-/*
+/**
  * Erase the whole term.
  */
 static errr Term_clear_gtk(void)
@@ -2548,7 +2548,7 @@ static errr Term_clear_gtk(void)
 }
 
 
-/*
+/**
  * Erase some characters.
  */
 static errr Term_wipe_gtk(int x, int y, int n)
@@ -2580,7 +2580,7 @@ static errr Term_wipe_gtk(int x, int y, int n)
 }
 
 
-/*
+/**
  * Draw some textual characters.
  */
 static errr Term_text_gtk(int x, int y, int n, byte a, cptr s)
@@ -2618,7 +2618,7 @@ static errr Term_text_gtk(int x, int y, int n, byte a, cptr s)
 }
 
 
-/*
+/**
  * Draw software cursor at (x, y)
  */
 static errr Term_curs_gtk(int x, int y)
@@ -2672,7 +2672,7 @@ static errr Term_curs_gtk(int x, int y)
 
 # ifdef USE_TRANSPARENCY
 
-/*
+/**
  * XXX XXX Low level graphics helper
  * Draw a tile at (s_x, s_y) over one at (t_x, t_y) and store the
  * result in td->trans_buf
@@ -2713,7 +2713,7 @@ static void overlay_tiles_2(
 
 # ifdef USE_EGO_GRAPHICS
 
-/*
+/**
  * XXX XXX Low level graphics helper
  * Draw a tile at (e_x, e_y) over one at (s_x, s_y) over another one
  * at (t_x, t_y) and store the result in td->trans_buf
@@ -2764,7 +2764,7 @@ static void overlay_tiles_3(
 # endif  /* USE_TRANSPARENCY */
 
 
-/*
+/**
  * Low level graphics (Assumes valid input)
  *
  * Draw "n" tiles/characters starting at (x,y)
@@ -3038,7 +3038,7 @@ static errr Term_pict_gtk(
 #endif /* USE_GRAPHICS */
 
 
-/*
+/**
  * Process an event, if there's none block when wait is set true,
  * return immediately otherwise.
  */
@@ -3049,7 +3049,7 @@ static void CheckEvent(bool wait)
 }
 
 
-/*
+/**
  * Process all pending events (without blocking)
  */
 static void DrainEvents(void)
@@ -3059,7 +3059,7 @@ static void DrainEvents(void)
 }
 
 
-/*
+/**
  * Handle a "special request"
  */
 static errr Term_xtra_gtk(int n, int v)
@@ -3208,7 +3208,7 @@ static errr Term_xtra_gtk(int n, int v)
 /**** Event handlers ****/
 
 
-/*
+/**
  * Operation overkill
  * Verify term size info - just because the other windowing ports have this
  */
@@ -3232,7 +3232,7 @@ static void term_data_check_size(term_data *td)
 }
 
 
-/*
+/**
  * Enforce these size constraints within Gtk/Gdk
  * These increments are nice, because you can see numbers of rows/cols
  * while you resize a term.
@@ -3275,7 +3275,7 @@ static void term_data_set_geometry_hints(term_data *td)
 }
 
 
-/*
+/**
  * (Re)allocate a backing store for the window
  */
 static void term_data_set_backing_store(term_data *td)
@@ -3329,7 +3329,7 @@ static void term_data_set_backing_store(term_data *td)
 }
 
 
-/*
+/**
  * Save game only when it's safe to do so
  */
 static void save_game_gtk(void)
@@ -3358,7 +3358,7 @@ static void save_game_gtk(void)
 }
 
 
-/*
+/**
  * Display message in a modal dialog
  */
 static void gtk_message(cptr msg)
@@ -3398,7 +3398,7 @@ static void gtk_message(cptr msg)
 }
 
 
-/*
+/**
  * Hook to tell the user something important
  */
 static void hook_plog(cptr str)
@@ -3408,7 +3408,7 @@ static void hook_plog(cptr str)
 }
 
 
-/*
+/**
  * Process File-Quit menu command
  */
 static void quit_event_handler(
@@ -3424,7 +3424,7 @@ static void quit_event_handler(
 }
 
 
-/*
+/**
  * Process File-Save menu command
  */
 static void save_event_handler(
@@ -3437,7 +3437,7 @@ static void save_event_handler(
 }
 
 
-/*
+/**
  * Handle destruction of the Angband window
  */
 static void destroy_main_event_handler(
@@ -3449,7 +3449,7 @@ static void destroy_main_event_handler(
 }
 
 
-/*
+/**
  * Handle destruction of Subwindows
  */
 static void destroy_sub_event_handler(
@@ -3463,7 +3463,7 @@ static void destroy_sub_event_handler(
 
 #ifndef SAVEFILE_SCREEN
 
-/*
+/**
  * Process File-New menu command
  */
 static void new_event_handler(
@@ -3496,7 +3496,7 @@ static void new_event_handler(
 #endif /* !SAVEFILE_SCREEN */
 
 
-/*
+/**
  * Load fond specified by an XLFD fontname and
  * set up related term_data members
  */
@@ -3539,7 +3539,7 @@ static void load_font(term_data *td, cptr fontname)
 }
 
 
-/*
+/**
  * React to OK button press in font selection dialogue
  */
 static void font_ok_callback(
@@ -3593,7 +3593,7 @@ static void font_ok_callback(
 }
 
 
-/*
+/**
  * Process Options-Font-* menu command
  */
 static void change_font_event_handler(
@@ -3649,7 +3649,7 @@ static void change_font_event_handler(
 }
 
 
-/*
+/**
  * Process Terms-* menu command - hide/show terminal window
  */
 static void term_event_handler(
@@ -3678,7 +3678,7 @@ static void term_event_handler(
 }
 
 
-/*
+/**
  * Toggles the boolean value of use_backing_store and
  * setup / remove backing store for each term
  */
@@ -3702,7 +3702,7 @@ static void change_backing_store_event_handler(
 
 #ifdef USE_GRAPHICS
 
-/*
+/**
  * Set graf_mode_request according to user selection,
  * and let Term_xtra react to the change.
  */
@@ -3722,7 +3722,7 @@ static void change_graf_mode_event_handler(
 }
 
 
-/*
+/**
  * Set dither_mode according to user selection
  */
 static void change_dith_mode_event_handler(
@@ -3740,7 +3740,7 @@ static void change_dith_mode_event_handler(
 }
 
 
-/*
+/**
  * Toggles the graphics tile scaling mode (Fast/Smooth)
  */
 static void change_smooth_mode_event_handler(
@@ -3810,7 +3810,7 @@ static void change_wide_tile_mode_event_handler(
 
 # ifdef USE_TRANSPARENCY
 
-/*
+/**
  * Toggles the boolean value of use_transparency
  */
 static void change_trans_mode_event_handler(
@@ -3832,7 +3832,7 @@ static void change_trans_mode_event_handler(
 
 #ifndef SAVEFILE_SCREEN
 
-/*
+/**
  * Caution: Modal or not, callbacks are called by gtk_main(),
  * so this is the right place to start a game.
  */
@@ -3862,7 +3862,7 @@ static void file_ok_callback(
 }
 
 
-/*
+/**
  * Process File-Open menu command
  */
 static void open_event_handler(
@@ -3916,7 +3916,7 @@ static void open_event_handler(
 #endif /* !SAVEFILE_SCREEN */
 
 
-/*
+/**
  * React to "delete" signal sent to Window widgets
  */
 static gboolean delete_event_handler(
@@ -3932,7 +3932,7 @@ static gboolean delete_event_handler(
 }
 
 
-/*
+/**
  * Convert keypress events to ASCII codes and enqueue them
  * for game
  */
@@ -4203,7 +4203,7 @@ static gboolean keypress_event_handler(
 }
 
 
-/*
+/**
  * Widget customisation (for drawing area) - "realize" signal
  *
  * In this program, called when window containing the drawing
@@ -4240,7 +4240,7 @@ static void realize_event_handler(
 }
 
 
-/*
+/**
  * Widget customisation (for drawing area) - "show" signal
  */
 static void show_event_handler(
@@ -4254,7 +4254,7 @@ static void show_event_handler(
 }
 
 
-/*
+/**
  * Widget customisation (for drawing area) - "hide" signal
  */
 static void hide_event_handler(
@@ -4268,7 +4268,7 @@ static void hide_event_handler(
 }
 
 
-/*
+/**
  * Widget customisation (for drawing area)- handle size allocation requests
  */
 static void size_allocate_event_handler(
@@ -4334,7 +4334,7 @@ static void size_allocate_event_handler(
 }
 
 
-/*
+/**
  * Update exposed area in a window (for drawing area)
  */
 static gboolean expose_event_handler(
@@ -4426,7 +4426,7 @@ static gboolean expose_event_handler(
 
 /**** Initialisation ****/
 
-/*
+/**
  * Initialise a term_data struct
  */
 static errr term_data_init(term_data *td, int i)
@@ -4473,7 +4473,7 @@ static errr term_data_init(term_data *td, int i)
 }
 
 
-/*
+/**
  * Neater menu code with GtkItemFactory.
  *
  * Menu bar of the Angband window
@@ -4593,7 +4593,7 @@ static GtkItemFactoryEntry main_menu_items[] =
 };
 
 
-/*
+/**
  * XXX XXX Fill those NULL's in the menu definition with
  * angband_term_name[] strings
  */
@@ -4650,7 +4650,7 @@ static void setup_menu_paths(void)
 }
 
 
-/*
+/**
  * XXX XXX Free strings allocated by setup_menu_paths()
  */
 static void free_menu_paths(void)
@@ -4699,7 +4699,7 @@ static void free_menu_paths(void)
 }
 
 
-/*
+/**
  * Find widget corresponding to path name
  * return NULL on error
  */
@@ -4725,7 +4725,7 @@ static GtkWidget *get_widget_from_path(cptr path)
 }
 
 
-/*
+/**
  * Enable/disable a menu item
  */
 void enable_menu_item(cptr path, bool enabled)
@@ -4747,7 +4747,7 @@ void enable_menu_item(cptr path, bool enabled)
 }
 
 
-/*
+/**
  * Check/uncheck a menu item. The item should be of the GtkCheckMenuItem type
  */
 void check_menu_item(cptr path, bool checked)
@@ -4774,7 +4774,7 @@ void check_menu_item(cptr path, bool checked)
 }
 
 
-/*
+/**
  * Update the "File" menu
  */
 static void file_menu_update_handler(
@@ -4815,7 +4815,7 @@ static void file_menu_update_handler(
 }
 
 
-/*
+/**
  * Update the "Terms" menu
  */
 static void term_menu_update_handler(
@@ -4837,7 +4837,7 @@ static void term_menu_update_handler(
 }
 
 
-/*
+/**
  * Update the "Font" submenu
  */
 static void font_menu_update_handler(
@@ -4859,7 +4859,7 @@ static void font_menu_update_handler(
 }
 
 
-/*
+/**
  * Update the "Misc" submenu
  */
 static void misc_menu_update_handler(
@@ -4875,7 +4875,7 @@ static void misc_menu_update_handler(
 
 #ifdef USE_GRAPHICS
 
-/*
+/**
  * Update the "Graphics" submenu
  */
 static void graf_menu_update_handler(
@@ -4924,7 +4924,7 @@ static void graf_menu_update_handler(
 #endif /* USE_GRAPHICS */
 
 
-/*
+/**
  * Construct a menu hierarchy using GtkItemFactory, setting up
  * callbacks and accelerators along the way, and return
  * a GtkMenuBar widget.
@@ -4967,7 +4967,7 @@ GtkWidget *get_main_menu(term_data *td)
 }
 
 
-/*
+/**
  * Install callbacks to update menus
  */
 static void add_menu_update_callbacks()
@@ -5050,7 +5050,7 @@ static void add_menu_update_callbacks()
 }
 
 
-/*
+/**
  * Create Gtk widgets for a terminal window and set up callbacks
  */
 static void init_gtk_window(term_data *td, int i)
@@ -5186,7 +5186,7 @@ static void init_gtk_window(term_data *td, int i)
 }
 
 
-/*
+/**
  * To be hooked into quit(). See z-util.c
  */
 static void hook_quit(cptr str)
@@ -5208,7 +5208,7 @@ static void hook_quit(cptr str)
 
 #ifdef ANGBAND300
 
-/*
+/**
  * Help message for this port
  */
 const char help_gtk[] =
@@ -5226,7 +5226,7 @@ const char help_gtk[] =
 #endif /* ANGBAND300 */
 
 
-/*
+/**
  * Initialization function
  */
 errr init_gtk2(int argc, char **argv)

@@ -2,7 +2,7 @@
 
 /* Purpose: Automatizer */
 
-/*
+/**
  * Copyright (c) 2002 DarkGod
  *
  * This software may be copied and distributed for educational, research, and
@@ -16,7 +16,7 @@
 
 extern lua_State *L;
 
-/*
+/**
  * The functions here use direct lua stack manipulation for calls instead of
  * exec_lua(format()) because string manipulations are too slow for such
  * functions

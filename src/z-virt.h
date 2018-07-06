@@ -1,6 +1,6 @@
 /* File: z-virt.h */
 
-/*
+/**
  * Copyright (c) 1997 Ben Harrison
  *
  * This software may be copied and distributed for educational, research,
@@ -17,7 +17,7 @@
 #include <leak_detector.h>
 #endif
 
-/*
+/**
  * Memory management routines.
  *
  * Set ralloc_aux to modify the memory allocation routine.

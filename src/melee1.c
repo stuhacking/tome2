@@ -2,7 +2,7 @@
 
 /* Purpose: Monster attacks */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -14,7 +14,7 @@
 
 
 
-/*
+/**
  * Critical blow.  All hits that do 95% of total possible damage,
  * and which also do at least 20 damage, or, sometimes, N damage.
  * This is used only to determine "cuts" and "stuns".
@@ -52,7 +52,7 @@ static int monster_critical(int dice, int sides, int dam)
 
 
 
-/*
+/**
  * Determine if a monster attack against the player succeeds.
  * Always miss 5% of the time, Always hit 5% of the time.
  * Otherwise, match monster power against player armor.
@@ -82,7 +82,7 @@ static int check_hit(int power, int level)
 
 
 
-/*
+/**
  * Hack -- possible "insult" messages
  */
 static cptr desc_insult[] =
@@ -99,7 +99,7 @@ static cptr desc_insult[] =
 
 
 
-/*
+/**
  * Hack -- possible "insult" messages
  */
 static cptr desc_moan[] =
@@ -115,7 +115,7 @@ static cptr desc_moan[] =
 	"says she is always happy."
 };
 
-/*
+/**
  * Attack the player via physical attacks.
  */
 bool carried_make_attack_normal(int r_idx)
@@ -1344,7 +1344,7 @@ bool carried_make_attack_normal(int r_idx)
 	return (TRUE);
 }
 
-/*
+/**
  * Give unprotected player the Black Breath with a 1 in (chance) probability
  *
  */
@@ -1358,7 +1358,7 @@ void black_breath_attack(int chance)
 	}
 }
 
-/*
+/**
  * Attack the player via physical attacks.
  */
 bool make_attack_normal(int m_idx, byte divis)

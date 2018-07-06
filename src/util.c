@@ -10,7 +10,7 @@
 
 #ifndef HAS_MEMSET
 
-/*
+/**
 * For those systems that don't have "memset()"
 *
 * Set the value of each of 'n' bytes starting at 's' to 'c', return 's'
@@ -29,7 +29,7 @@ char *memset(char *s, int c, huge n)
 
 #ifndef HAS_STRICMP
 
-/*
+/**
 * For those systems that don't have "stricmp()"
 *
 * Compare the two strings "a" and "b" ala "strcmp()" ignoring case.
@@ -57,7 +57,7 @@ int stricmp(cptr a, cptr b)
 
 # ifndef HAS_USLEEP
 
-/*
+/**
 * For those systems that don't have "usleep()" but need it.
 *
 * Fake "usleep()" function grabbed from the inl netrek server -cba
@@ -101,14 +101,14 @@ int	*no_fds = NULL;
 # endif
 
 
-/*
+/**
 * Hack -- External functions
 */
 extern struct passwd *getpwuid();
 extern struct passwd *getpwnam();
 
 
-/*
+/**
 * Find a default user name from the system.
 */
 void user_name(char *buf, int id)
@@ -140,7 +140,7 @@ void user_name(char *buf, int id)
 
 
 
-/*
+/**
 * The concept of the "file" routines below (and elsewhere) is that all
 * file handling should be done using as few routines as possible, since
 * every machine is slightly different, but these routines always have the
@@ -172,7 +172,7 @@ void user_name(char *buf, int id)
 
 #ifdef SET_UID
 
-/*
+/**
 * Extract a "parsed" path from an initial filename
 * Normally, we simply copy the filename into the buffer
 * But leading tilde symbols must be handled in a special way
@@ -250,7 +250,7 @@ errr path_parse(char *buf, int max, cptr file)
 #else /* SET_UID */
 
 
-/*
+/**
 * Extract a "parsed" path from an initial filename
 *
 * This requires no special processing on simple machines,
@@ -269,7 +269,7 @@ errr path_parse(char *buf, int max, cptr file)
 #endif /* SET_UID */
 
 
-/*
+/**
 * Hack -- acquire a "temporary" file name if possible
 *
 * This filename is always in "system-specific" form.
@@ -305,7 +305,7 @@ errr path_temp(char *buf, int max)
 }
 
 
-/*
+/**
 * Create a new path by appending a file (or directory) to a path
 *
 * This requires no special processing on simple machines, except
@@ -353,7 +353,7 @@ errr path_build(char *buf, int max, cptr path, cptr file)
 }
 
 
-/*
+/**
 * Hack -- replacement for "fopen()"
 */
 FILE *my_fopen(cptr file, cptr mode)
@@ -389,7 +389,7 @@ return (s);
 }
 
 
-/*
+/**
 * Hack -- replacement for "fclose()"
 */
 errr my_fclose(FILE *fff)
@@ -405,7 +405,7 @@ errr my_fclose(FILE *fff)
 }
 
 
-/*
+/**
 * Like "fgets()" but for strings
 *
 * Process tabs, strip internal non-printables
@@ -506,7 +506,7 @@ errr my_str_fgets(cptr full_text, char *buf, huge n)
 	return (1);
 }
 
-/*
+/**
 * Hack -- replacement for "fgets()"
 *
 * Read a string, without a newline, to a file
@@ -583,7 +583,7 @@ errr my_fgets(FILE *fff, char *buf, huge n)
 }
 
 
-/*
+/**
 * Hack -- replacement for "fputs()"
 *
 * Dump a string, plus a newline, to a file
@@ -603,7 +603,7 @@ errr my_fputs(FILE *fff, cptr buf, huge n)
 }
 
 
-/*
+/**
 * Code Warrior is a little weird about some functions
 */
 #ifdef BEN_HACK
@@ -615,7 +615,7 @@ extern long lseek(int, long, int);
 #endif /* BEN_HACK */
 
 
-/*
+/**
 * The Macintosh is a little bit brain-dead sometimes
 */
 #ifdef MACINTOSH
@@ -626,7 +626,7 @@ write(F, (char*)(B), S)
 #endif /* MACINTOSH */
 
 
-/*
+/**
 * Several systems have no "O_BINARY" flag
 */
 #ifndef O_BINARY
@@ -634,7 +634,7 @@ write(F, (char*)(B), S)
 #endif /* O_BINARY */
 
 
-/*
+/**
 * Hack -- attempt to delete a file
 */
 errr fd_kill(cptr file)
@@ -652,7 +652,7 @@ errr fd_kill(cptr file)
 }
 
 
-/*
+/**
 * Hack -- attempt to move a file
 */
 errr fd_move(cptr file, cptr what)
@@ -674,7 +674,7 @@ errr fd_move(cptr file, cptr what)
 }
 
 
-/*
+/**
 * Hack -- attempt to copy a file
 */
 errr fd_copy(cptr file, cptr what)
@@ -696,7 +696,7 @@ errr fd_copy(cptr file, cptr what)
 }
 
 
-/*
+/**
 * Hack -- attempt to open a file descriptor (create file)
 *
 * This function should fail if the file already exists
@@ -756,7 +756,7 @@ return (open(buf, O_CREAT | O_EXCL | O_WRONLY | O_BINARY, mode));
 }
 
 
-/*
+/**
 * Hack -- attempt to open a file descriptor (existing file)
 *
 * Note that we assume that the file should be "binary"
@@ -792,7 +792,7 @@ return (open(buf, flags | O_BINARY, 0));
 }
 
 
-/*
+/**
 * Hack -- attempt to lock a file descriptor
 *
 * Legal lock types -- F_UNLCK, F_RDLCK, F_WRLCK
@@ -856,7 +856,7 @@ errr fd_lock(int fd, int what)
 }
 
 
-/*
+/**
 * Hack -- attempt to seek on a file descriptor
 */
 errr fd_seek(int fd, huge n)
@@ -880,7 +880,7 @@ errr fd_seek(int fd, huge n)
 }
 
 
-/*
+/**
 * Hack -- attempt to truncate a file descriptor
 */
 errr fd_chop(int fd, huge n)
@@ -901,7 +901,7 @@ errr fd_chop(int fd, huge n)
 }
 
 
-/*
+/**
 * Hack -- attempt to read data from a file descriptor
 */
 errr fd_read(int fd, char *buf, huge n)
@@ -934,7 +934,7 @@ errr fd_read(int fd, char *buf, huge n)
 }
 
 
-/*
+/**
 * Hack -- Attempt to write data to a file descriptor
 */
 errr fd_write(int fd, cptr buf, huge n)
@@ -967,7 +967,7 @@ errr fd_write(int fd, cptr buf, huge n)
 }
 
 
-/*
+/**
 * Hack -- attempt to close a file descriptor
 */
 errr fd_close(int fd)
@@ -983,7 +983,7 @@ errr fd_close(int fd)
 }
 
 
-/*
+/**
 * XXX XXX XXX Important note about "colors" XXX XXX XXX
 *
 * The "TERM_*" color definitions list the "composition" of each
@@ -1029,7 +1029,7 @@ errr fd_close(int fd)
 */
 
 
-/*
+/**
 * Move the cursor
 */
 void move_cursor(int row, int col)
@@ -1039,7 +1039,7 @@ void move_cursor(int row, int col)
 
 
 
-/*
+/**
 * Convert a decimal to a single digit octal number
 */
 static char octify(uint i)
@@ -1047,7 +1047,7 @@ static char octify(uint i)
 	return (hexsym[i % 8]);
 }
 
-/*
+/**
 * Convert a decimal to a single digit hex number
 */
 static char hexify(uint i)
@@ -1056,7 +1056,7 @@ static char hexify(uint i)
 }
 
 
-/*
+/**
 * Convert a octal-digit into a decimal
 */
 static int deoct(char c)
@@ -1065,7 +1065,7 @@ static int deoct(char c)
 	return (0);
 }
 
-/*
+/**
 * Convert a hexidecimal-digit into a decimal
 */
 static int dehex(char c)
@@ -1203,7 +1203,7 @@ static void trigger_text_to_ascii(char **bufptr, cptr *strptr)
 }
 
 
-/*
+/**
 * Hack -- convert a printable string into real ascii
 *
 * I have no clue if this function correctly handles, for example,
@@ -1397,7 +1397,7 @@ bool trigger_ascii_to_text(char **bufptr, cptr *strptr)
 }
 
 
-/*
+/**
 * Hack -- convert a string into a printable form
 */
 void ascii_to_text(char *buf, cptr str)
@@ -1489,7 +1489,7 @@ void ascii_to_text(char *buf, cptr str)
 
 
 
-/*
+/**
 * The "macro" package
 *
 * Functions are provided to manipulate a collection of macros, each
@@ -1499,13 +1499,13 @@ void ascii_to_text(char *buf, cptr str)
 
 
 
-/*
+/**
 * Determine if any macros have ever started with a given character.
 */
 static bool macro__use[256];
 
 
-/*
+/**
 * Find the macro (if any) which exactly matches the given pattern
 */
 sint macro_find_exact(cptr pat)
@@ -1533,7 +1533,7 @@ sint macro_find_exact(cptr pat)
 }
 
 
-/*
+/**
 * Find the first macro (if any) which contains the given pattern
 */
 static sint macro_find_check(cptr pat)
@@ -1561,7 +1561,7 @@ static sint macro_find_check(cptr pat)
 }
 
 
-/*
+/**
 * Find the first macro (if any) which contains the given pattern and more
 */
 static sint macro_find_maybe(cptr pat)
@@ -1592,7 +1592,7 @@ static sint macro_find_maybe(cptr pat)
 }
 
 
-/*
+/**
 * Find the longest macro (if any) which starts with the given pattern
 */
 static sint macro_find_ready(cptr pat)
@@ -1627,7 +1627,7 @@ static sint macro_find_ready(cptr pat)
 }
 
 
-/*
+/**
 * Add a macro definition (or redefinition).
 *
 * We should use "act == NULL" to "remove" a macro, but this might make it
@@ -1682,7 +1682,7 @@ errr macro_add(cptr pat, cptr act)
 
 
 
-/*
+/**
 * Initialize the "macro" package
 */
 errr macro_init(void)
@@ -1698,20 +1698,20 @@ errr macro_init(void)
 }
 
 
-/*
+/**
 * Local "need flush" variable
 */
 static bool flush_later = FALSE;
 
 
-/*
+/**
 * Local variable -- we are inside a "macro action"
 *
 * Do not match any macros until "ascii 30" is found.
 */
 static bool parse_macro = FALSE;
 
-/*
+/**
 * Local variable -- we are inside a "macro trigger"
 *
 * Strip all keypresses until a low ascii value is found.
@@ -1719,7 +1719,7 @@ static bool parse_macro = FALSE;
 static bool parse_under = FALSE;
 
 
-/*
+/**
 * Flush all input chars.  Actually, remember the flush,
 * and do a "special flush" before the next "inkey()".
 *
@@ -1733,7 +1733,7 @@ void flush(void)
 }
 
 
-/*
+/**
 * Flush the screen, make a noise
 */
 void bell(void)
@@ -1749,7 +1749,7 @@ void bell(void)
 }
 
 
-/*
+/**
 * Hack -- Make a (relevant?) sound
 */
 void sound(int val)
@@ -1763,7 +1763,7 @@ void sound(int val)
 
 
 
-/*
+/**
 * Helper function called only from "inkey()"
 *
 * This function does almost all of the "macro" processing.
@@ -1916,7 +1916,7 @@ static char inkey_aux(void)
 }
 
 
-/*
+/**
 * Mega-Hack -- special "inkey_next" pointer.  XXX XXX XXX
 *
 * This special pointer allows a sequence of keys to be "inserted" into
@@ -1927,7 +1927,7 @@ static char inkey_aux(void)
 static cptr inkey_next = NULL;
 
 
-/*
+/**
 * Get a keypress from the user.
 *
 * This function recognizes a few "global parameters".  These are variables
@@ -2214,7 +2214,7 @@ char inkey(void)
 
 
 
-/*
+/**
 * We use a global array for all inscriptions to reduce the memory
 * spent maintaining inscriptions.  Of course, it is still possible
 * to run out of inscription memory, especially if too many different
@@ -2230,7 +2230,7 @@ char inkey(void)
 * Note that "quark zero" is NULL and should not be "dereferenced".
 */
 
-/*
+/**
 * Add a new "quark" to the set of quarks.
 */
 s16b quark_add(cptr str)
@@ -2258,7 +2258,7 @@ s16b quark_add(cptr str)
 }
 
 
-/*
+/**
 * This function looks up a quark
 */
 cptr quark_str(s16b i)
@@ -2278,7 +2278,7 @@ cptr quark_str(s16b i)
 
 
 
-/*
+/**
 * Second try for the "message" handling routines.
 *
 * Each call to "message_add(s)" will add a new "most recent" message
@@ -2301,7 +2301,7 @@ cptr quark_str(s16b i)
 
 
 
-/*
+/**
 * How many messages are "available"?
 */
 s16b message_num(void)
@@ -2324,7 +2324,7 @@ s16b message_num(void)
 
 
 
-/*
+/**
 * Recall the "text" of a saved message
 */
 cptr message_str(int age)
@@ -2357,7 +2357,7 @@ cptr message_str(int age)
 	return (s);
 }
 
-/*
+/**
 * Recall the color of a saved message
 */
 byte message_color(int age)
@@ -2378,7 +2378,7 @@ byte message_color(int age)
 	return (color);
 }
 
-/*
+/**
  * Recall the type of a saved message
  */
 byte message_type(int age)
@@ -2401,7 +2401,7 @@ byte message_type(int age)
 
 
 
-/*
+/**
 * Add a new message, with great efficiency
 */
 void message_add(byte type, cptr str, byte color)
@@ -2598,7 +2598,7 @@ void message_add(byte type, cptr str, byte color)
 
 
 
-/*
+/**
 * Hack -- flush
 */
 static void msg_flush(int x)
@@ -2652,7 +2652,7 @@ void display_message(int x, int y, int split, byte color, cptr t)
 	}
 }
 
-/*
+/**
 * Output a message to the top line of the screen.
 *
 * Break long messages into multiple pieces (40-72 chars).
@@ -2810,13 +2810,13 @@ void msg_print(cptr msg)
 }
 
 
-/*
+/**
  * Hack -- prevent "accidents" in "screen_save()" or "screen_load()"
  */
 static int screen_depth = 0;
 
 
-/*
+/**
  * Save the screen, and increase the "icky" depth.
  *
  * This function must match exactly one call to "screen_load()".
@@ -2834,7 +2834,7 @@ void screen_save(void)
 }
 
 
-/*
+/**
  * Load the screen, and decrease the "icky" depth.
  *
  * This function must match exactly one call to "screen_save()".
@@ -2852,7 +2852,7 @@ void screen_load(void)
 }
 
 
-/*
+/**
 * Display a formatted message, using "vstrnfmt()" and "msg_print()".
 */
 void msg_format(cptr fmt, ...)
@@ -2895,7 +2895,7 @@ void cmsg_format(byte color, cptr fmt, ...)
 
 
 
-/*
+/**
 * Display a string on the screen using an attribute.
 *
 * At the given location, using the given attribute, if allowed,
@@ -2907,7 +2907,7 @@ void c_put_str(byte attr, cptr str, int row, int col)
 	Term_putstr(col, row, -1, attr, str);
 }
 
-/*
+/**
 * As above, but in "white"
 */
 void put_str(cptr str, int row, int col)
@@ -2918,7 +2918,7 @@ void put_str(cptr str, int row, int col)
 
 
 
-/*
+/**
 * Display a string on the screen using an attribute, and clear
 * to the end of the line.
 */
@@ -2931,7 +2931,7 @@ void c_prt(byte attr, cptr str, int row, int col)
 	Term_addstr( -1, attr, str);
 }
 
-/*
+/**
 * As above, but in "white"
 */
 void prt(cptr str, int row, int col)
@@ -2942,7 +2942,7 @@ void prt(cptr str, int row, int col)
 
 
 
-/*
+/**
  * Print some (colored) text to the screen at the current cursor position,
  * automatically "wrapping" existing text (at spaces) when necessary to
  * avoid placing any text into the last column, and clearing every line
@@ -3058,7 +3058,7 @@ void text_out_to_screen(byte a, cptr str)
 }
 
 
-/*
+/**
  * Write text to the given file and apply line-wrapping.
  *
  * Hook function for text_out(). Make sure that text_out_file points
@@ -3180,7 +3180,7 @@ void text_out_to_file(byte a, cptr str)
 }
 
 
-/*
+/**
  * Output text to the screen or to a file depending on the selected
  * text_out hook.
  */
@@ -3190,7 +3190,7 @@ void text_out(cptr str)
 }
 
 
-/*
+/**
  * Output text to the screen (in color) or to a file depending on the
  * selected hook.
  */
@@ -3202,7 +3202,7 @@ void text_out_c(byte a, cptr str)
 
 
 
-/*
+/**
 * Clear part of the screen
 */
 void clear_from(int row)
@@ -3217,7 +3217,7 @@ void clear_from(int row)
 	}
 }
 
-/*
+/**
  * Try to find a matching command completion.
  * Note that this is not so friendly since it doesn't give
  * a list of possible completions.
@@ -3268,7 +3268,7 @@ static int complete_command(char *buf, int clen, int mlen)
 }
 
 
-/*
+/**
 * Get some input at the cursor location.
 * Assume the buffer is initialized to a default string.
 * Note that this string is often "empty" (see below).
@@ -3396,7 +3396,7 @@ bool askfor_aux(char *buf, int len)
 }
 
 
-/*
+/**
 * Get a string from the user
 *
 * The "prompt" should take the form "Prompt: "
@@ -3427,7 +3427,7 @@ bool get_string(cptr prompt, char *buf, int len)
 }
 
 
-/*
+/**
 * Verify something with the user
 *
 * The "prompt" should take the form "Query? "
@@ -3470,7 +3470,7 @@ bool get_check(cptr prompt)
 }
 
 
-/*
+/**
 * Prompts for a keypress
 *
 * The "prompt" should take the form "Command: "
@@ -3499,7 +3499,7 @@ bool get_com(cptr prompt, char *command)
 }
 
 
-/*
+/**
 * Request a "quantity" from the user
 *
 * Hack -- allow "command_arg" to specify a quantity
@@ -3592,7 +3592,7 @@ s32b get_quantity(cptr prompt, s32b max)
 }
 
 
-/*
+/**
 * Pause for user response XXX XXX XXX
 */
 void pause_line(int row)
@@ -3605,12 +3605,12 @@ void pause_line(int row)
 }
 
 
-/*
+/**
 * Hack -- special buffer to hold the action of the current keymap
 */
 static char request_command_buffer[256];
 
-/*
+/**
 * Mega-Hack -- characters for which keymaps should be ignored in
 * request_command().  This MUST have at least twice as many characters as
 * there are building actions in the actions[] array in store_info_type.
@@ -3618,14 +3618,14 @@ static char request_command_buffer[256];
 #define MAX_IGNORE_KEYMAPS 12
 char request_command_ignore_keymaps[MAX_IGNORE_KEYMAPS];
 
-/*
+/**
 * Mega-Hack -- flag set by do_cmd_{inven,equip}() to allow keymaps in
 * auto-command mode.
 */
 bool request_command_inven_mode = FALSE;
 
 
-/*
+/**
 * Request a command from the user.
 *
 * Sets p_ptr->command_cmd, p_ptr->command_dir, p_ptr->command_rep,
@@ -3936,7 +3936,7 @@ void request_command(int shopping)
 
 
 
-/*
+/**
  * Check a char for "vowel-hood"
  */
 bool is_a_vowel(int ch)
@@ -3963,7 +3963,7 @@ bool is_a_vowel(int ch)
 
 #if 0
 
-/*
+/**
 * Replace the first instance of "target" in "buf" with "insert"
 * If "insert" is NULL, just remove the first instance of "target"
 * In either case, return TRUE if "target" is found.
@@ -4019,7 +4019,7 @@ static bool insert_str(char *buf, cptr target, cptr insert)
 #endif
 
 
-/*
+/**
  * GH
  * Called from cmd4.c and a few other places. Just extracts
  * a direction from the keymap for ch (the last direction,
@@ -4159,7 +4159,7 @@ void repeat_check(void)
 
 #endif /* ALLOW_REPEAT -- TNB */
 
-/*
+/**
  * Read a number at a specific location on the screen
  *
  * Allow numbers of any size and save the last keypress.
@@ -4250,7 +4250,7 @@ u32b get_number(u32b def, u32b max, int y, int x, char *cmd)
 	return res;
 }
 
-/*
+/**
  * Allow the user to select multiple items without pressing '0'
  */
 void get_count(int number, int max)
@@ -4297,7 +4297,7 @@ void strlower(char *buf)
 	}
 }
 
-/*
+/**
  * Given monster name as string, return the index in r_info array. Name
  * must exactly match (look out for commas and the like!), or else 0 is
  * returned. Case doesn't matter. -GSN-
@@ -4334,7 +4334,7 @@ int test_mego_name(cptr name)
 	return (0);
 }
 
-/*
+/**
  * Given item name as string, return the index in k_info array. Name
  * must exactly match (look out for commas and the like!), or else 0 is
  * returned. Case doesn't matter. -DG-
@@ -4356,7 +4356,7 @@ int test_item_name(cptr name)
 	return (0);
 }
 
-/*
+/**
  * Break scalar time
  */
 s32b bst(s32b what, s32b t)
@@ -4485,7 +4485,7 @@ static const s16b gamma_helper[256] =
 };
 
 
-/*
+/**
  * Build the gamma table so that floating point isn't needed.
  *
  * Note gamma goes from 0->256.  The old value of 100 is now 128.
@@ -4553,7 +4553,7 @@ void build_gamma_table(int gamma)
 
 #endif /* SUPPORT_GAMMA */
 
-/*
+/**
  * Ask to select an item in a list
  */
 int ask_menu(cptr ask, char **items, int max)
@@ -4629,7 +4629,7 @@ int ask_menu(cptr ask, char **items, int max)
 	return ret;
 }
 
-/*
+/**
  * Determine if string "t" is a prefix of string "s"
  */
 bool prefix(cptr s, cptr t)
@@ -4652,7 +4652,7 @@ bool prefix(cptr s, cptr t)
 	return (TRUE);
 }
 
-/*
+/**
  * Rescale a value
  */
 s32b value_scale(int value, int vmax, int max, int min)
@@ -4665,7 +4665,7 @@ s32b value_scale(int value, int vmax, int max, int min)
 	return value;
 }
 
-/*
+/**
  * Displays a box
  */
 void draw_box(int y, int x, int h, int w)
@@ -4693,7 +4693,7 @@ void draw_box(int y, int x, int h, int w)
 }
 
 
-/*
+/**
  * Displays a scrollable boxed list with a selected item
  */
 void display_list(int y, int x, int h, int w, cptr title, cptr *list, int max, int begin, int sel, byte sel_color)
@@ -4714,7 +4714,7 @@ void display_list(int y, int x, int h, int w, cptr title, cptr *list, int max, i
 	}
 }
 
-/*
+/**
  * Creates an input box
  */
 bool input_box(cptr text, int y, int x, char *buf, int max)
@@ -4731,7 +4731,7 @@ bool input_box(cptr text, int y, int x, char *buf, int max)
 	return askfor_aux(buf, max);
 }
 
-/*
+/**
  * Creates a msg bbox and ask a question
  */
 char msg_box(cptr text, int y, int x)
@@ -4762,7 +4762,7 @@ void scansubdir(cptr dir)
 	Term_xtra(TERM_XTRA_SCANSUBDIR, 0);
 }
 
-/*
+/**
  * Timers
  */
 timer_type *new_timer(cptr callback, s32b delay)

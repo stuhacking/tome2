@@ -2,7 +2,7 @@
 
 /* Purpose: Object code, part 1 */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -13,7 +13,7 @@
 #include "angband.h"
 
 
-/*
+/**
  * Hack -- note that "TERM_MULTI" is now just "TERM_VIOLET".
  * We will have to find a cleaner method for "MULTI_HUED" later.
  * There were only two multi-hued "flavors" (one potion, one food).
@@ -24,7 +24,7 @@
 #define TERM_MULTI      TERM_VIOLET
 
 
-/*
+/**
  * Max sizes of the following arrays
  */
 #define MAX_ROCKS      62       /* Used with rings (min 58) */
@@ -37,7 +37,7 @@
 #define MAX_SYLLABLES 164       /* Used with scrolls (see below) */
 
 
-/*
+/**
  * Rings (adjectives and colors)
  */
 
@@ -78,7 +78,7 @@ static byte ring_col[MAX_ROCKS] =
 };
 
 
-/*
+/**
  * Amulets (adjectives and colors)
  */
 
@@ -105,7 +105,7 @@ static byte amulet_col[MAX_AMULETS] =
 };
 
 
-/*
+/**
  * Staffs (adjectives and colors)
  */
 
@@ -132,7 +132,7 @@ static byte staff_col[MAX_WOODS] =
 };
 
 
-/*
+/**
  * Wands (adjectives and colors)
  */
 
@@ -161,7 +161,7 @@ static byte wand_col[MAX_METALS] =
 };
 
 
-/*
+/**
  * Rods (adjectives and colors).
  * Efficiency -- copied from wand arrays
  */
@@ -171,7 +171,7 @@ static cptr rod_adj[MAX_METALS];
 static byte rod_col[MAX_METALS];
 
 
-/*
+/**
  * Mushrooms (adjectives and colors)
  */
 
@@ -192,7 +192,7 @@ static byte food_col[MAX_SHROOM] =
 };
 
 
-/*
+/**
  * Color adjectives and colors, for potions.
  * Hack -- The first four entries are hard-coded.
  * (water, apple juice, slime mold juice, something)
@@ -233,7 +233,7 @@ static byte potion_col[MAX_COLORS] =
 };
 
 
-/*
+/**
  * Syllables for scrolls (must be 1-4 letters each)
  */
 
@@ -262,7 +262,7 @@ static cptr syllables[MAX_SYLLABLES] =
 	"foo", "ju", "xuxu"
 };
 
-/*
+/**
  * Hold the titles of scrolls, 6 to 14 characters each
  * Also keep an array of scroll colors (always WHITE for now)
  */
@@ -272,7 +272,7 @@ static char scroll_adj[MAX_TITLES][16];
 static byte scroll_col[MAX_TITLES];
 
 
-/*
+/**
  * Certain items have a flavor
  * This function is used only by "flavor_init()"
  */
@@ -368,7 +368,7 @@ void get_table_name(char *out_string)
 }
 
 
-/*
+/**
  * Certain items, if aware, are known instantly
  * This function is used only by "flavor_init()"
  *
@@ -430,7 +430,7 @@ static bool object_easy_know(int i)
 	return (FALSE);
 }
 
-/*
+/**
  * Prepare the "variable" part of the "k_info" array.
  *
  * The "color"/"metal"/"type" of an item is its "flavor".
@@ -668,7 +668,7 @@ void flavor_init(void)
 	}
 }
 
-/*
+/**
  * Reset the "visual" lists
  *
  * This involves resetting various things to their "default" state.
@@ -826,7 +826,7 @@ void reset_visuals(void)
 
 
 
-/*
+/**
  * Obtain the "flags" for an item
  */
 bool object_flags_no_set = FALSE;
@@ -1019,7 +1019,7 @@ int object_power(object_type *o_ptr)
 
 
 
-/*
+/**
  * Obtain the "flags" for an item which are known to the player
  */
 void object_flags_known(object_type *o_ptr, u32b *f1, u32b *f2, u32b *f3, u32b *f4, u32b *f5, u32b *esp)
@@ -1235,7 +1235,7 @@ void object_flags_known(object_type *o_ptr, u32b *f1, u32b *f2, u32b *f3, u32b *
 
 
 
-/*
+/**
  * Print a char "c" into a string "t", as if by sprintf(t, "%c", c),
  * and return a pointer to the terminator (t + 1).
  */
@@ -1252,7 +1252,7 @@ static char *object_desc_chr(char *t, char c)
 }
 
 
-/*
+/**
  * Print a string "s" into a string "t", as if by strcpy(t, s),
  * and return a pointer to the terminator.
  */
@@ -1268,7 +1268,7 @@ static char *object_desc_str(char *t, cptr s)
 	return (t);
 }
 
-/*
+/**
  * Do the actual conversion of a number for object_desc_num() and
  * object_desc_int().
  */
@@ -1294,7 +1294,7 @@ static char *convert_number(char *result, u32b num)
 	return result;
 }
 
-/*
+/**
  * Print a nnumber "n" into a string "t", as if by
  * sprintf(t, "%u", n), and return a pointer to the terminator.
  */
@@ -1314,7 +1314,7 @@ static char *object_desc_num(char *result, s32b num)
 	return convert_number(result, n);
 }
 
-/*
+/**
  * Print an signed number "num" into a string "result", as if by
  * sprintf(t, "%+d", n), and return a pointer to the terminator.
  * Note that we always print a sign, either "+" or "-".
@@ -1346,7 +1346,7 @@ static char *object_desc_int(char *result, s32b num)
 	return convert_number(result, n);
 }
 
-/*
+/**
  * Creates a description of the item "o_ptr", and stores it in "out_val".
  *
  * One can choose the "verbosity" of the description, including whether
@@ -2606,7 +2606,7 @@ copyback:
 }
 
 
-/*
+/**
  * Hack -- describe an item currently in a store's inventory
  * This allows an item to *look* like the player is "aware" of it
  */
@@ -2640,7 +2640,7 @@ void object_desc_store(char *buf, object_type *o_ptr, int pref, int mode)
 
 
 
-/*
+/**
  * Determine the "Activation" (if any) for an artifact
  * Return a string, or NULL for "no activation"
  */
@@ -2733,7 +2733,7 @@ bool grab_tval_desc(int tval)
 #define CHECK_FIRST(txt, first) \
 if ((first)) { (first) = FALSE; text_out((txt)); } else text_out(", ");
 
-/*
+/**
  * Display the damage done with a multiplier
  */
 void output_dam(object_type *o_ptr, int mult, int mult2, cptr against, cptr against2, bool *first)
@@ -2774,7 +2774,7 @@ void output_dam(object_type *o_ptr, int mult, int mult2, cptr against, cptr agai
 	}
 }
 
-/*
+/**
  * Outputs the damage we do/would do with the weapon
  */
 void display_weapon_damage(object_type *o_ptr)
@@ -2823,7 +2823,7 @@ void display_weapon_damage(object_type *o_ptr)
 	calc_bonuses(TRUE);
 }
 
-/*
+/**
  * Display the ammo damage done with a multiplier
  */
 void output_ammo_dam(object_type *o_ptr, int mult, int mult2, cptr against, cptr against2, bool *first)
@@ -2874,7 +2874,7 @@ void output_ammo_dam(object_type *o_ptr, int mult, int mult2, cptr against, cptr
 	}
 }
 
-/*
+/**
  * Outputs the damage we do/would do with the current bow and this ammo
  */
 void display_ammo_damage(object_type *o_ptr)
@@ -2927,7 +2927,7 @@ void display_ammo_damage(object_type *o_ptr)
 	}
 }
 
-/*
+/**
  * Describe a magic stick powers
  */
 void describe_device(object_type *o_ptr)
@@ -2961,7 +2961,7 @@ void describe_device(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Helper for object_out_desc
  *
  * Print the level something was found on
@@ -2985,7 +2985,7 @@ static cptr object_out_desc_where_found(s16b level, s16b dungeon)
 	return str;
 }
 
-/*
+/**
  * Describe an item
  */
 bool object_out_desc(object_type *o_ptr, FILE *fff, bool trim_down, bool wait_for_it)
@@ -4015,7 +4015,7 @@ bool object_out_desc(object_type *o_ptr, FILE *fff, bool trim_down, bool wait_fo
 
 
 
-/*
+/**
  * Convert an inventory index into a one character label
  * Note that the label does NOT distinguish inven/equip.
  */
@@ -4029,7 +4029,7 @@ char index_to_label(int i)
 }
 
 
-/*
+/**
  * Convert a label into the index of an item in the "inven"
  * Return "-1" if the label does not indicate a real item
  */
@@ -4051,7 +4051,7 @@ s16b label_to_inven(int c)
 }
 
 
-/*
+/**
  * Convert a label into the index of a item in the "equip"
  * Return "-1" if the label does not indicate a real item
  */
@@ -4072,7 +4072,7 @@ s16b label_to_equip(int c)
 	return (i);
 }
 
-/*
+/**
  * Returns the next free slot of the given "type", return the first
  * if all are used
  */
@@ -4102,7 +4102,7 @@ int get_slot(int slot)
 	else return ( -1);
 }
 
-/*
+/**
  * Determine which equipment slot (if any) an item likes, ignoring the player's
  * current body and stuff if ideal == TRUE
  */
@@ -4255,7 +4255,7 @@ s16b wield_slot_ideal(object_type *o_ptr, bool ideal)
 	return ( -1);
 }
 
-/*
+/**
  * Determine which equipment slot (if any) an item likes for the player's
  * current body and stuff
  */
@@ -4264,7 +4264,7 @@ s16b wield_slot(object_type *o_ptr)
 	return wield_slot_ideal(o_ptr, FALSE);
 }
 
-/*
+/**
  * Return a string mentioning how a given item is carried
  */
 cptr mention_use(int i)
@@ -4366,7 +4366,7 @@ cptr mention_use(int i)
 }
 
 
-/*
+/**
  * Return a string describing how a given item is being worn.
  * Currently, only used for items in the equipment, not inventory.
  */
@@ -4467,7 +4467,7 @@ cptr describe_use(int i)
 	return p;
 }
 
-/*
+/**
  * Check an item against the item tester info
  */
 bool item_tester_okay(object_type *o_ptr)
@@ -4503,7 +4503,7 @@ bool item_tester_okay(object_type *o_ptr)
 void show_equip_aux(bool mirror, bool everything);
 void show_inven_aux(bool mirror, bool everything);
 
-/*
+/**
  * Choice window "shadow" of the "show_inven()" function
  */
 void display_inven(void)
@@ -4513,7 +4513,7 @@ void display_inven(void)
 
 
 
-/*
+/**
  * Choice window "shadow" of the "show_equip()" function
  */
 void display_equip(void)
@@ -4540,7 +4540,7 @@ byte get_item_letter_color(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Display the inventory.
  *
  * Hack -- do not display "trailing" empty slots
@@ -4716,7 +4716,7 @@ void show_equip(bool mirror)
 	show_equip_aux(mirror, FALSE);
 }
 
-/*
+/**
  * Display the equipment.
  */
 void show_equip_aux(bool mirror, bool everything)
@@ -4951,7 +4951,7 @@ void show_equip_aux(bool mirror, bool everything)
 
 
 
-/*
+/**
  * Flip "inven" and "equip" in any sub-windows
  */
 void toggle_inven_equip(void)
@@ -4990,7 +4990,7 @@ void toggle_inven_equip(void)
 
 
 
-/*
+/**
  * Verify the choice of an item.
  *
  * The item can be negative to mean "item on floor".
@@ -5026,7 +5026,7 @@ bool verify(cptr prompt, int item)
 }
 
 
-/*
+/**
  * Hack -- allow user to "prevent" certain choices
  *
  * The item can be negative to mean "item on floor".
@@ -5075,7 +5075,7 @@ static bool get_item_allow(int item)
 
 
 
-/*
+/**
  * Auxiliary function for "get_item()" -- test an index
  */
 static bool get_item_okay(int i)
@@ -5092,7 +5092,7 @@ static bool get_item_okay(int i)
 
 
 
-/*
+/**
  * Find the "first" inventory object with the given "tag".
  *
  * A "tag" is a char "n" appearing as "@n" anywhere in the
@@ -5153,7 +5153,7 @@ static int get_tag(int *cp, char tag)
 	return (FALSE);
 }
 
-/*
+/**
  * scan_floor --
  *
  * Return a list of o_list[] indexes of items at the given cave
@@ -5208,7 +5208,7 @@ bool scan_floor(int *items, int *item_num, int y, int x, int mode)
 	return (num != 0);
 }
 
-/*
+/**
  * Display a list of the items on the floor at the given location.
  */
 void show_floor(int y, int x)
@@ -5310,7 +5310,7 @@ void show_floor(int y, int x)
 	if (j && (j < 23)) prt("", j + 1, col ? col - 2 : col);
 }
 
-/*
+/**
  * This version of get_item() is called by get_item() when
  * the easy_floor is on.
  */
@@ -6072,7 +6072,7 @@ bool get_item_floor(int *cp, cptr pmt, cptr str, int mode)
 }
 
 
-/*
+/**
  * Let the user select an item, save its "index"
  *
  * Return TRUE only if an acceptable item was chosen by the user.
@@ -6130,7 +6130,7 @@ bool get_item(int *cp, cptr pmt, cptr str, int mode)
 	return get_item_floor(cp, pmt, str, mode);
 }
 
-/*
+/**
  * Hook to determine if an object is getable
  */
 static bool item_tester_hook_getable(object_type *o_ptr)
@@ -6143,7 +6143,7 @@ static bool item_tester_hook_getable(object_type *o_ptr)
 	return (TRUE);
 }
 
-/*
+/**
  * Wear a single item from o_ptr
  */
 int wear_ammo(object_type *o_ptr)
@@ -6214,7 +6214,7 @@ int wear_ammo(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Try to pickup arrows
  */
 void pickup_ammo()
@@ -6257,7 +6257,7 @@ void pickup_ammo()
 }
 
 
-/*
+/**
  * Make the player carry everything in a grid
  *
  * If "pickup" is FALSE then only gold will be picked up
@@ -6711,7 +6711,7 @@ void gain_flag_group_flag(object_type *o_ptr, bool silent)
 	}
 }
 
-/*
+/**
  * When an object gain a level, he can gain some attributes
  */
 void object_gain_level(object_type *o_ptr)
@@ -6759,7 +6759,7 @@ void object_gain_level(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Item sets fcts
  */
 bool wield_set(s16b a_idx, s16b set_idx, bool silent)

@@ -2,7 +2,7 @@
 
 /* Purpose: Monster spells and movement */
 
-/*
+/**
 * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
 *
 * This software may be copied and distributed for educational, research, and
@@ -10,7 +10,7 @@
 * included in all such copies.
 */
 
-/*
+/**
 * This file has several additions to it by Keldon Jones (keldon@umr.edu)
 * to improve the general quality of the AI (version 0.1.1).
 */
@@ -22,7 +22,7 @@
 
 #define FOLLOW_DISTANCE 6
 
-/*
+/**
  * Based on mon_take_hit... all monster attacks on
  * other monsters should use
  */
@@ -223,7 +223,7 @@ bool mon_take_hit_mon(int s_idx, int m_idx, int dam, bool *fear, cptr note)
 
 
 
-/*
+/**
 * And now for Intelligent monster attacks (including spells).
 *
 * Original idea and code by "DRS" (David Reeves Sward).
@@ -255,7 +255,7 @@ bool mon_take_hit_mon(int s_idx, int m_idx, int dam, bool *fear, cptr note)
 
 
 
-/*
+/**
 * Internal probability routine
 */
 static bool int_outof(monster_race *r_ptr, int prob)
@@ -269,7 +269,7 @@ static bool int_outof(monster_race *r_ptr, int prob)
 
 
 
-/*
+/**
  * Remove the "bad" spells from a spell list
  */
 static void remove_bad_spells(int m_idx, u32b *f4p, u32b *f5p, u32b *f6p)
@@ -548,7 +548,7 @@ static void remove_bad_spells(int m_idx, u32b *f4p, u32b *f5p, u32b *f6p)
 }
 
 
-/*
+/**
  * Determine if there is a space near the player in which
  * a summoned creature can appear
  */
@@ -588,7 +588,7 @@ static bool summon_possible(int y1, int x1)
 
 
 
-/*
+/**
  * Determine if a bolt spell will hit the player.
  *
  * This is exactly like "projectable", but it will return FALSE if a monster
@@ -625,7 +625,7 @@ static bool clean_shot(int y1, int x1, int y2, int x2)
 }
 
 
-/*
+/**
  * Cast a bolt at the player
  * Stop if we hit a monster
  * Affect monsters and the player
@@ -639,7 +639,7 @@ static void bolt(int m_idx, int typ, int dam_hp)
 }
 
 
-/*
+/**
  * Return TRUE if a spell is good for hurting the player (directly).
  */
 static bool spell_attack(byte spell)
@@ -661,7 +661,7 @@ static bool spell_attack(byte spell)
 }
 
 
-/*
+/**
  * Return TRUE if a spell is good for escaping.
  */
 static bool spell_escape(byte spell)
@@ -676,7 +676,7 @@ static bool spell_escape(byte spell)
 	return (FALSE);
 }
 
-/*
+/**
  * Return TRUE if a spell is good for annoying the player.
  */
 static bool spell_annoy(byte spell)
@@ -705,7 +705,7 @@ static bool spell_annoy(byte spell)
 	return (FALSE);
 }
 
-/*
+/**
  * Return TRUE if a spell summons help.
  */
 static bool spell_summon(byte spell)
@@ -720,7 +720,7 @@ static bool spell_summon(byte spell)
 }
 
 
-/*
+/**
  * Return TRUE if a spell is good in a tactical situation.
  */
 static bool spell_tactic(byte spell)
@@ -733,7 +733,7 @@ static bool spell_tactic(byte spell)
 }
 
 
-/*
+/**
  * Return TRUE if a spell hastes.
  */
 static bool spell_haste(byte spell)
@@ -746,7 +746,7 @@ static bool spell_haste(byte spell)
 }
 
 
-/*
+/**
  * Return TRUE if a spell is good for healing.
  */
 static bool spell_heal(byte spell)
@@ -759,7 +759,7 @@ static bool spell_heal(byte spell)
 }
 
 
-/*
+/**
  * Have a monster choose a spell from a list of "useful" spells.
  *
  * Note that this list does NOT include spells that will just hit
@@ -890,7 +890,7 @@ static int choose_attack_spell(int m_idx, byte spells[], byte num)
 }
 
 
-/*
+/**
  * Cast a breath (or ball) attack at the player
  * Pass over any monsters that may be in the way
  * Affect grids, objects, monsters, and the player
@@ -910,7 +910,7 @@ static void breath(int m_idx, int typ, int dam_hp, int rad)
 }
 
 
-/*
+/**
  * Monster casts a breath (or ball) attack at another monster.
  * Pass over any monsters that may be in the way
  * Affect grids, objects, monsters, and the player
@@ -929,7 +929,7 @@ static void monst_breath_monst(int m_idx, int y, int x, int typ, int dam_hp, int
 }
 
 
-/*
+/**
  * Monster casts a bolt at another monster
  * Stop if we hit a monster
  * Affect monsters and the player
@@ -993,7 +993,7 @@ void cmonster_msg(char a, cptr fmt, ...)
 }
 
 
-/*
+/**
  * Monster tries to 'cast a spell' (or breath, etc)
  * at another monster.
  */
@@ -2893,7 +2893,7 @@ void curse_equipment_dg(int chance, int heavy_chance)
 }
 
 
-/*
+/**
  * Creatures can cast spells, shoot missiles, and breathe.
  *
  * Returns "TRUE" if a spell (or whatever) was (successfully) cast.
@@ -4679,7 +4679,7 @@ bool make_attack_spell(int m_idx)
 }
 
 
-/*
+/**
  * Returns whether a given monster will try to run from the player.
  *
  * Monsters will attempt to avoid very powerful players.  See below.
@@ -4753,7 +4753,7 @@ static int mon_will_run(int m_idx)
 
 
 
-/*
+/**
 * Choose the "best" direction for "flowing"
 *
 * Note that ghosts and rock-eaters are never allowed to "flow",
@@ -4776,7 +4776,7 @@ static int mon_will_run(int m_idx)
 * happen if you combine "smell" with low "aaf" values.
 */
 
-/*
+/**
 * Provide a location to flee to, but give the player a wide berth.
 *
 * A monster may wish to flee to a location that is behind the player,
@@ -4862,7 +4862,7 @@ static bool get_fear_moves_aux(int m_idx, int *yp, int *xp)
 }
 
 
-/*
+/**
 * Choose a "safe" location near a monster for it to run toward.
 *
 * A location is "safe" if it can be reached quickly and the player
@@ -4946,7 +4946,7 @@ static bool find_safety(int m_idx, int *yp, int *xp)
 }
 
 
-/*
+/**
  * Choose a good hiding place near a monster for it to run toward.
  *
  * Pack monsters will use this to "ambush" the player and lure him out
@@ -5061,7 +5061,7 @@ void find_corpse(monster_type *m_ptr, int *y, int *x)
 	}
 }
 
-/*
+/**
  * Choose target
  */
 static void get_target_monster(int m_idx)
@@ -5099,7 +5099,7 @@ static void get_target_monster(int m_idx)
 	m_ptr->target = t;
 }
 
-/*
+/**
  * Choose "logical" directions for monster movement
  */
 static bool get_moves(int m_idx, int *mm)
@@ -6152,7 +6152,7 @@ static bool monst_attack_monst(int m_idx, int t_idx)
 }
 
 
-/*
+/**
  * Hack -- local "player stealth" value (see below)
  */
 static u32b noise = 0L;
@@ -6196,7 +6196,7 @@ static bool player_invis(monster_type * m_ptr)
 	return (inv >= randint(mlv*2));
 }
 
-/*
+/**
  * Process a monster
  *
  * The monster is known to be within 100 grids of the player
@@ -7487,7 +7487,7 @@ void summon_maint(int m_idx)
 }
 
 
-/*
+/**
  * Process all the "live" monsters, once per game turn.
  *
  * During each game turn, we scan through the list of all the "live" monsters,

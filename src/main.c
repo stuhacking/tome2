@@ -1,6 +1,6 @@
 /* File: main.c */
 
-/*
+/**
  * Copyright (c) 1997 Ben Harrison, and others
  *
  * This software may be copied and distributed for educational, research,
@@ -16,7 +16,7 @@
 #endif
 
 
-/*
+/**
  * Some machines have a "main()" function in their "main-xxx.c" file,
  * all the others use this file for their "main()" function.
  */
@@ -25,7 +25,7 @@
 #if !defined(MACINTOSH) && !defined(WINDOWS)
 
 
-/*
+/**
  * A hook for "quit()".
  *
  * Close down, then fall back into "quit()".
@@ -49,7 +49,7 @@ static void quit_hook(cptr s)
 
 #ifdef PRIVATE_USER_PATH
 
-/*
+/**
  * Check and create if needed the directory dirpath
  */
 bool private_check_user_directory(cptr dirpath)
@@ -89,7 +89,7 @@ bool private_check_user_directory(cptr dirpath)
 	}
 }
 
-/*
+/**
  * Check existence of ".ToME/" directory in the user's
  * home directory or try to create it if it doesn't exist.
  * Returns FALSE if all the attempts fail.
@@ -113,7 +113,7 @@ static bool check_create_user_dir(void)
 #endif /* PRIVATE_USER_PATH */
 
 
-/*
+/**
  * Initialize and verify the file paths, and the score file.
  *
  * Use the ANGBAND_PATH environment var if possible, else use
@@ -153,7 +153,7 @@ static void init_stuff(void)
 
 
 
-/*
+/**
  * Handle a "-d<what>=<path>" option
  *
  * The "<what>" can be any string starting with the same letter as the
@@ -260,7 +260,7 @@ static void change_path(cptr info)
 }
 
 
-/*
+/**
  * Simple "main" function for multiple platforms.
  *
  * Note the special "--" option which terminates the processing of

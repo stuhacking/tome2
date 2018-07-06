@@ -3,7 +3,7 @@
 #ifndef INCLUDED_H_BASIC_H
 #define INCLUDED_H_BASIC_H
 
-/*
+/**
  * The most basic "include" file.
  *
  * This file simply includes other low level header files.

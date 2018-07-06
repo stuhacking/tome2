@@ -2,7 +2,7 @@
 
 /* Purpose: Powers */
 
-/*
+/**
  * Copyright (c) 2001 James E. Wilson, Robert A. Koeneke, DarkGod
  *
  * This software may be copied and distributed for educational, research, and
@@ -12,7 +12,7 @@
 
 #include "angband.h"
 
-/*
+/**
  * Note: return value indicates the amount of mana to use
  */
 bool power_chance(power_type *x_ptr)
@@ -1258,7 +1258,7 @@ static void power_activate(int power)
 	p_ptr->window |= (PW_PLAYER);
 }
 
-/*
+/**
  * Print a batch of power.
  */
 static void print_power_batch(int *p, int start, int max, bool mode)
@@ -1286,7 +1286,7 @@ static void print_power_batch(int *p, int start, int max, bool mode)
 }
 
 
-/*
+/**
  * List powers and ask to pick one. 
  */
 

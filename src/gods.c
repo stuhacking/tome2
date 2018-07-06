@@ -2,7 +2,7 @@
 
 /* Purpose: Deities code */
 
-/*
+/**
  * Copyright (c) 2002 DarkGod
  *
  * This software may be copied and distributed for educational, research, and
@@ -12,7 +12,7 @@
 
 #include "angband.h"
 
-/*
+/**
  * Add amt piety is god is god
  */
 void inc_piety(int god, s32b amt)
@@ -31,7 +31,7 @@ void inc_piety(int god, s32b amt)
 	}
 }
 
-/*
+/**
  * Renounce to religion
  */
 void abandon_god(int god)
@@ -43,7 +43,7 @@ void abandon_god(int god)
 	}
 }
 
-/*
+/**
  * Get a religion
  */
 void follow_god(int god, bool silent)
@@ -75,7 +75,7 @@ void follow_god(int god, bool silent)
 	}
 }
 
-/*
+/**
  * Show religious info.
  */
 bool show_god_info(bool ext)
@@ -116,7 +116,7 @@ bool show_god_info(bool ext)
 	return TRUE;
 }
 
-/*
+/**
  * Rescale the wisdom value to a 0 <-> max range
  */
 int wisdom_scale(int max)

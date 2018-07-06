@@ -2,7 +2,7 @@
 
 /* Purpose: Inventory commands */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -13,7 +13,7 @@
 #include "angband.h"
 
 
-/*
+/**
  * Display p_ptr->inventory
  */
 void do_cmd_inven(void)
@@ -77,7 +77,7 @@ void do_cmd_inven(void)
 }
 
 
-/*
+/**
  * Display equipment
  */
 void do_cmd_equip(void)
@@ -142,7 +142,7 @@ void do_cmd_equip(void)
 }
 
 
-/*
+/**
  * The "wearable" tester
  */
 static bool item_tester_hook_wear(object_type *o_ptr)
@@ -196,7 +196,7 @@ bool is_slot_ok(int slot)
 }
 
 
-/*
+/**
  * Wield or wear a single item from the pack or floor
  */
 void do_cmd_wield(void)
@@ -473,7 +473,7 @@ void do_cmd_wield(void)
 
 
 
-/*
+/**
  * Take off an item
  */
 void do_cmd_takeoff(void)
@@ -529,7 +529,7 @@ void do_cmd_takeoff(void)
 }
 
 
-/*
+/**
  * Drop an item
  */
 void do_cmd_drop(void)
@@ -608,7 +608,7 @@ void do_cmd_drop(void)
 }
 
 
-/*
+/**
  * Destroy an item
  */
 void do_cmd_destroy(void)
@@ -782,7 +782,7 @@ void do_cmd_destroy(void)
 }
 
 
-/*
+/**
  * Observe an item which has been *identify*-ed
  */
 void do_cmd_observe(void)
@@ -825,7 +825,7 @@ void do_cmd_observe(void)
 
 
 
-/*
+/**
  * Remove the inscription from an object
  * XXX Mention item (when done)?
  */
@@ -876,7 +876,7 @@ void do_cmd_uninscribe(void)
 }
 
 
-/*
+/**
  * Inscribe an object with a comment
  */
 void do_cmd_inscribe(void)
@@ -942,7 +942,7 @@ void do_cmd_inscribe(void)
 
 
 
-/*
+/**
  * An "item_tester_hook" for refilling lanterns
  */
 static bool item_tester_refill_lantern(object_type *o_ptr)
@@ -959,7 +959,7 @@ static bool item_tester_refill_lantern(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Refill the players lamp (from the pack or floor)
  */
 static void do_cmd_refill_lamp(void)
@@ -1036,7 +1036,7 @@ static void do_cmd_refill_lamp(void)
 }
 
 
-/*
+/**
  * An "item_tester_hook" for refilling torches
  */
 static bool item_tester_refill_torch(object_type *o_ptr)
@@ -1050,7 +1050,7 @@ static bool item_tester_refill_torch(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Refuel the players torch (from the pack or floor)
  */
 static void do_cmd_refill_torch(void)
@@ -1131,7 +1131,7 @@ static void do_cmd_refill_torch(void)
 }
 
 
-/*
+/**
  * Refill the players lamp, or restock his torches
  */
 void do_cmd_refill(void)
@@ -1179,7 +1179,7 @@ void do_cmd_refill(void)
 }
 
 
-/*
+/**
  * Target command
  */
 void do_cmd_target(void)
@@ -1199,7 +1199,7 @@ void do_cmd_target(void)
 
 
 
-/*
+/**
  * Look command
  */
 void do_cmd_look(void)
@@ -1213,7 +1213,7 @@ void do_cmd_look(void)
 
 
 
-/*
+/**
  * Allow the player to examine other sectors on the map
  */
 void do_cmd_locate(void)
@@ -1319,7 +1319,7 @@ void do_cmd_locate(void)
 
 
 
-/*
+/**
  * The table of "symbol info" -- each entry is a string of the form
  * "X:desc" where "X" is the trigger, and "desc" is the "info".
  */
@@ -1425,7 +1425,7 @@ static cptr ident_info[] =
 
 
 
-/*
+/**
  * Sorting hook -- Comp function -- see below
  *
  * We use "u" to point to array of monster indexes,
@@ -1501,7 +1501,7 @@ static bool ang_sort_comp_hook(vptr u, vptr v, int a, int b)
 }
 
 
-/*
+/**
  * Sorting hook -- Swap function -- see below
  *
  * We use "u" to point to array of monster indexes,
@@ -1525,7 +1525,7 @@ static void ang_sort_swap_hook(vptr u, vptr v, int a, int b)
 
 
 
-/*
+/**
  * Hack -- Display the "name" and "attr/chars" of a monster race
  */
 static void roff_top(int r_idx)
@@ -1575,7 +1575,7 @@ static void roff_top(int r_idx)
 }
 
 
-/*
+/**
  * Identify a character, allow recall of monsters
  *
  * Several "special" responses recall "multiple" monsters:
@@ -1838,7 +1838,7 @@ void do_cmd_query_symbol(void)
 }
 
 
-/*
+/**
  *  research_mon
  *  -KMW-
  */
@@ -2059,7 +2059,7 @@ bool research_mon()
 }
 
 
-/*
+/**
  * Try to "sense" the grid's mana
  */
 bool do_cmd_sense_grid_mana()
@@ -2111,7 +2111,7 @@ bool do_cmd_sense_grid_mana()
 }
 
 
-/*
+/**
  * Calculate the weight of the portable holes
  */
 s32b portable_hole_weight(void)
@@ -2136,7 +2136,7 @@ s32b portable_hole_weight(void)
 }
 
 
-/*
+/**
  * Calculate and set the weight of the portable holes
  */
 void set_portable_hole_weight(void)
@@ -2192,7 +2192,7 @@ void set_portable_hole_weight(void)
 }
 
 
-/*
+/**
  * Use a portable hole
  */
 void do_cmd_portable_hole(void)
@@ -2248,7 +2248,7 @@ void do_cmd_portable_hole(void)
 }
 
 
-/*
+/**
  * Try to add a CLI action.
  */
 void cli_add(cptr active, cptr trigger, cptr descr)
@@ -2326,7 +2326,7 @@ void cli_add(cptr active, cptr trigger, cptr descr)
 
 
 
-/*
+/**
  * Get a string using CLI completion.
  */
 bool get_string_cli(cptr prompt, char *buf, int len)
@@ -2353,7 +2353,7 @@ bool get_string_cli(cptr prompt, char *buf, int len)
 }
 
 
-/*
+/**
  * Do a command line command
  *
  * This is a wrapper around process command to provide a "reverse keymap"
@@ -2392,37 +2392,33 @@ void do_cmd_cli(void)
 }
 
 
-/*
+/**
  * Display on-line help for the CLI commands
  */
 void do_cmd_cli_help()
 {
-	int i, j;
-
-	FILE *fff;
-
+	FILE *file;
 	char file_name[1024];
-
 
 	/* Temporary file */
 	if (path_temp(file_name, 1024)) return;
 
 	/* Open a new file */
-	fff = my_fopen(file_name, "w");
+	file = my_fopen(file_name, "w");
 
-	for (i = 0, j = -1; i < cli_total; i++)
+	for (int i = 0, j = -1; i < cli_total; i++)
 	{
-		if (j < i - 1) fprintf(fff, "/");
-		fprintf(fff, "[[[[[G%s]", cli_info[i].comm);
+		if (j < i - 1) fprintf(file, "/");
+		fprintf(file, "[[[[[G%s]", cli_info[i].comm);
 		if (cli_info[i].descrip != cli_info[i + 1].descrip)
 		{
-			fprintf(fff, "   %s\n", cli_info[i].descrip);
+			fprintf(file, "   %s\n", cli_info[i].descrip);
 			j = i;
 		}
 	}
 
 	/* Close the file */
-	my_fclose(fff);
+	my_fclose(file);
 
 	/* Enter "icky" mode */
 	character_icky = TRUE;
@@ -2444,7 +2440,7 @@ void do_cmd_cli_help()
 }
 
 
-/*
+/**
  * Dump screen shot in HTML
  */
 void do_cmd_html_dump()

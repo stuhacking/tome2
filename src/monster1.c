@@ -2,7 +2,7 @@
 
 /* Purpose: describe monsters (using monster memory) */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Christopher J. Stuart
  *
  * This software may be copied and distributed for educational, research, and
@@ -13,14 +13,14 @@
 #include "angband.h"
 
 
-/*
+/**
  * Pronoun arrays, by gender.
  */
 static cptr wd_he[3] = { "it", "he", "she" };
 static cptr wd_his[3] = { "its", "his", "her" };
 
 
-/*
+/**
  * Pluralizer.  Args(count, singular, plural)
  */
 #define plural(c,s,p) \
@@ -31,7 +31,7 @@ static cptr wd_his[3] = { "its", "his", "her" };
 
 
 
-/*
+/**
  * Determine if the "armor" is known
  * The higher the level, the fewer kills needed.
  */
@@ -57,7 +57,7 @@ static bool know_armour(int r_idx)
 }
 
 
-/*
+/**
  * Determine if the "damage" of the given attack is known
  * the higher the level of the monster, the fewer the attacks you need,
  * the more damage an attack does, the more attacks you need
@@ -89,7 +89,7 @@ static bool know_damage(int r_idx, int i)
 }
 
 
-/*
+/**
  * Hack -- display monster information using "text_out()"
  *
  * Note that there is now a compiler option to only read the monster
@@ -1547,7 +1547,7 @@ static void roff_aux(int r_idx, int ego, int remem)
 	}
 }
 
-/*
+/**
  * Hack -- Display the "name" and "attr/chars" of a monster race
  */
 static void roff_name(int r_idx, int ego)
@@ -1595,7 +1595,7 @@ static void roff_name(int r_idx, int ego)
 	Term_addstr( -1, TERM_WHITE, "'):");
 }
 
-/*
+/**
  * Hack -- Display the "name" and "attr/chars" of a monster race on top
  */
 static void roff_top(int r_idx, int ego)
@@ -1609,7 +1609,7 @@ static void roff_top(int r_idx, int ego)
 	roff_name(r_idx, ego);
 }
 
-/*
+/**
  * Hack -- describe the given monster race at the top of the screen
  */
 void screen_roff(int r_idx, int ego, int remember)
@@ -1627,7 +1627,7 @@ void screen_roff(int r_idx, int ego, int remember)
 	roff_top(r_idx, ego);
 }
 
-/*
+/**
  * Ddescribe the given monster race at the current pos of the "term" window
  */
 void monster_description_out(int r_idx, int ego)
@@ -1636,7 +1636,7 @@ void monster_description_out(int r_idx, int ego)
 	roff_aux(r_idx, ego, 0);
 }
 
-/*
+/**
  * Hack -- describe the given monster race in the current "term" window
  */
 void display_roff(int r_idx, int ego)
@@ -1861,7 +1861,7 @@ void set_mon_num_hook(void)
 }
 
 
-/*
+/**
  * Check if monster can cross terrain
  */
 bool monster_can_cross_terrain(byte feat, monster_race *r_ptr)

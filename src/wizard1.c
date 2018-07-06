@@ -5,13 +5,13 @@
 #include "angband.h"
 
 
-/*
+/**
  * The spoiler file being created
  */
 static FILE *fff = NULL;
 
 
-/*
+/**
  * Write out `n' of the character `c' to the spoiler file
  */
 static void spoiler_out_n_chars(int n, char c)
@@ -20,7 +20,7 @@ static void spoiler_out_n_chars(int n, char c)
 }
 
 
-/*
+/**
  * Write out `n' blank lines to the spoiler file
  */
 static void spoiler_blanklines(int n)
@@ -29,7 +29,7 @@ static void spoiler_blanklines(int n)
 }
 
 
-/*
+/**
  * Write a line to the spoiler file and then "underline" it with hyphens
  */
 static void spoiler_underline(cptr str)
@@ -40,7 +40,7 @@ static void spoiler_underline(cptr str)
 }
 
 
-/*
+/**
  * Buffer text to the given file. (-SHAWN-)
  * This is basically c_roff() from mon-desc.c with a few changes.
  */
@@ -110,7 +110,7 @@ static void spoil_out(cptr str)
 }
 
 
-/*
+/**
  * Extract a textual representation of an attribute
  */
 static cptr attr_to_text(byte a)
@@ -157,7 +157,7 @@ static cptr attr_to_text(byte a)
 
 
 
-/*
+/**
  * A tval grouper
  */
 typedef struct
@@ -169,12 +169,12 @@ grouper;
 
 
 
-/*
+/**
  * Item Spoilers by: benh@phial.com (Ben Harrison)
  */
 
 
-/*
+/**
  * The basic items categorized by type
  */
 static grouper group_item[] =
@@ -251,7 +251,7 @@ static grouper group_item[] =
 };
 
 
-/*
+/**
  * Describe the kind
  */
 static void kind_info(char *buf, char *dam, char *wgt, int *lev, s32b *val, int k)
@@ -356,7 +356,7 @@ static void kind_info(char *buf, char *dam, char *wgt, int *lev, s32b *val, int 
 }
 
 
-/*
+/**
  * Create a spoiler file for items
  */
 static void spoil_obj_desc(cptr fname)
@@ -489,18 +489,18 @@ static void spoil_obj_desc(cptr fname)
 
 
 
-/*
+/**
  * Artifact Spoilers by: randy@PICARD.tamu.edu (Randy Hutson)
  */
 
 
-/*
+/**
  * Returns a "+" string if a number is non-negative and an empty
  * string if negative
  */
 #define POSITIZE(v) (((v) >= 0) ? "+" : "")
 
-/*
+/**
  * These are used to format the artifact spoiler file. INDENT1 is used
  * to indent all but the first line of an artifact spoiler. INDENT2 is
  * used when a line "wraps". (Bladeturner's resistances cause this.)
@@ -508,17 +508,17 @@ static void spoil_obj_desc(cptr fname)
 #define INDENT1 "    "
 #define INDENT2 "      "
 
-/*
+/**
  * MAX_LINE_LEN specifies when a line should wrap.
  */
 #define MAX_LINE_LEN 75
 
-/*
+/**
  * Given an array, determine how many elements are in the array
  */
 #define N_ELEMENTS(a) (sizeof (a) / sizeof ((a)[0]))
 
-/*
+/**
  * The artifacts categorized by type
  */
 static grouper group_artifact[] =
@@ -566,7 +566,7 @@ static grouper group_artifact[] =
 
 
 
-/*
+/**
  * Pair together a constant flag with a textual description.
  *
  * Used by both "init.c" and "wiz-spo.c".
@@ -586,7 +586,7 @@ struct flag_desc
 
 
 
-/*
+/**
  * These are used for "+3 to STR, DEX", etc. These are separate from
  * the other pval affected traits to simplify the case where an object
  * affects all stats.  In this case, "All stats" is used instead of
@@ -603,7 +603,7 @@ static flag_desc stat_flags_desc[] =
 	{ TR1_CHR, "CHR" }
 };
 
-/*
+/**
  * Besides stats, these are the other player traits
  * which may be affected by an object's pval
  */
@@ -618,7 +618,7 @@ static flag_desc pval_flags1_desc[] =
 	{ TR1_SPEED, "Speed" }
 };
 
-/*
+/**
  * Slaying preferences for weapons
  */
 
@@ -635,7 +635,7 @@ static flag_desc slay_flags_desc[] =
 	{ TR1_KILL_DRAGON, "Xdragon" }
 };
 
-/*
+/**
  * Elemental brands for weapons
  *
  * Clearly, TR1_IMPACT is a bit out of place here. To simplify
@@ -658,7 +658,7 @@ static flag_desc brand_flags_desc[] =
 };
 
 
-/*
+/**
  * The 15 resistables
  */
 static const flag_desc resist_flags_desc[] =
@@ -681,7 +681,7 @@ static const flag_desc resist_flags_desc[] =
 	{ TR2_RES_DISEN, "Disenchantment" },
 };
 
-/*
+/**
  * Elemental immunities (along with poison)
  */
 
@@ -693,7 +693,7 @@ static const flag_desc immune_flags_desc[] =
 	{ TR2_IM_COLD, "Cold" },
 };
 
-/*
+/**
  * Sustain stats -  these are given their "own" line in the
  * spoiler file, mainly for simplicity
  */
@@ -707,7 +707,7 @@ static const flag_desc sustain_flags_desc[] =
 	{ TR2_SUST_CHR, "CHR" },
 };
 
-/*
+/**
  * Miscellaneous magic given by an object's "flags2" field
  */
 
@@ -718,7 +718,7 @@ static const flag_desc misc_flags2_desc[] =
 	{ TR2_HOLD_LIFE, "Hold Life" },
 };
 
-/*
+/**
  * Miscellaneous magic given by an object's "flags3" field
  *
  * Note that cursed artifacts and objects with permanent light
@@ -743,7 +743,7 @@ static const flag_desc misc_flags3_desc[] =
 };
 
 
-/*
+/**
  * A special type used just for dealing with pvals
  */
 typedef struct
@@ -774,7 +774,7 @@ typedef struct
 pval_info_type;
 
 
-/*
+/**
  * An "object analysis structure"
  *
  * It will be filled with descriptive strings detailing an object's
@@ -824,7 +824,7 @@ obj_desc_list;
 
 
 
-/*
+/**
  * This function does most of the actual "analysis". Given a set of bit flags
  * (which will be from one of the flags fields from the object in question),
  * a "flag description structure", a "description list", and the number of
@@ -851,7 +851,7 @@ static cptr *spoiler_flag_aux(const u32b art_flags, const flag_desc *flag_ptr,
 }
 
 
-/*
+/**
  * Acquire a "basic" description "The Cloak of Death [1,+10]"
  */
 static void analyze_general (object_type *o_ptr, char *desc_ptr)
@@ -861,7 +861,7 @@ static void analyze_general (object_type *o_ptr, char *desc_ptr)
 }
 
 
-/*
+/**
  * List "player traits" altered by an artifact's pval. These include stats,
  * speed, infravision, tunnelling, stealth, searching, and extra attacks.
  */
@@ -1002,7 +1002,7 @@ static void analyze_sustains (object_type *o_ptr, cptr *sustain_list)
 }
 
 
-/*
+/**
  * Note miscellaneous powers bestowed by an artifact such as see invisible,
  * free action, permanent light, etc.
  */
@@ -1069,7 +1069,7 @@ static void analyze_misc_magic (object_type *o_ptr, cptr *misc_list)
 
 
 
-/*
+/**
  * Determine the minimum depth an artifact can appear, its rarity, its weight,
  * and its value in gold pieces
  */
@@ -1083,7 +1083,7 @@ static void analyze_misc (object_type *o_ptr, char *misc_desc)
 }
 
 
-/*
+/**
  * Fill in an object description structure for a given object
  */
 static void object_analyze(object_type *o_ptr, obj_desc_list *desc_ptr)
@@ -1118,7 +1118,7 @@ static void print_header(void)
 	spoiler_underline(buf);
 }
 
-/*
+/**
  * This is somewhat ugly.
  *
  * Given a header ("Resist", e.g.), a list ("Fire", "Cold", Acid", e.g.),
@@ -1172,7 +1172,7 @@ static void spoiler_print_art(obj_desc_list *art_ptr, int name1, int set, object
 }
 
 
-/*
+/**
  * Hack -- Create a "forged" artifact
  */
 static bool make_fake_artifact(object_type *o_ptr, int name1)
@@ -1215,7 +1215,7 @@ static bool make_fake_artifact(object_type *o_ptr, int name1)
 }
 
 
-/*
+/**
  * Create a spoiler file for artifacts
  */
 static void spoil_artifact(cptr fname)
@@ -1306,7 +1306,7 @@ static void spoil_artifact(cptr fname)
 
 
 
-/*
+/**
  * Create a spoiler file for monsters   -BEN-
  */
 static void spoil_mon_desc(cptr fname)
@@ -1445,13 +1445,13 @@ static void spoil_mon_desc(cptr fname)
 
 
 
-/*
+/**
  * Monster spoilers by: smchorse@ringer.cs.utsa.edu (Shawn McHorse)
  *
  * Primarily based on code already in mon-desc.c, mostly by -BEN-
  */
 
-/*
+/**
  * Pronoun arrays
  */
 static cptr wd_che[3] = { "It", "He", "She" };
@@ -1459,7 +1459,7 @@ static cptr wd_lhe[3] = { "it", "he", "she" };
 
 
 
-/*
+/**
  * Create a spoiler file for monsters (-SHAWN-)
  */
 static void spoil_mon_info(cptr fname)
@@ -2388,7 +2388,7 @@ char *long_intro =
 	"*****essences.txt*07[ESP and Curses]\n"
 	"*****essences.txt*08[Artifact Activations]\n";
 
-/*
+/**
  * Create a spoiler file for essences
  */
 static void spoil_bateries(cptr fname)
@@ -2555,7 +2555,7 @@ static void spoil_bateries(cptr fname)
 }
 
 
-/*
+/**
  * Print a bookless spell list
  */
 void print_magic_powers( magic_power *powers, int max_powers, void(*power_info)(char *p, int power), int skill_num )
@@ -2599,7 +2599,7 @@ void print_magic_powers( magic_power *powers, int max_powers, void(*power_info)(
 }
 
 
-/*
+/**
  * Create a spoiler file for spells
  */
 
@@ -2653,12 +2653,12 @@ static void spoil_spells(cptr fname)
 
 
 
-/*
+/**
  * Forward declare
  */
 extern void do_cmd_spoilers(void);
 
-/*
+/**
  * Create Spoiler files -BEN-
  */
 void do_cmd_spoilers(void)

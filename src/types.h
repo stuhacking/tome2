@@ -2,7 +2,7 @@
 
 /* Purpose: global type declarations */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -11,12 +11,12 @@
  */
 
 
-/*
+/**
  * This file should ONLY be included by "angband.h"
  */
 
 
-/*
+/**
  * Note that "char" may or may not be signed, and that "signed char"
  * may or may not work on all machines.  So always use "s16b" or "s32b"
  * for signed values.  Also, note that unsigned values cause math problems
@@ -49,7 +49,7 @@
 
 
 
-/*
+/**
  * Template file header information (see "init.c").  16 bytes.
  *
  * Note that the sizes of many of the "arrays" are between 32768 and
@@ -102,7 +102,7 @@ struct header
 };
 
 
-/*
+/**
  * "Themed" objects.
  * Probability in percent for each class of objects to be dropped.
  * This could perhaps be an array - but that wouldn't be as clear.
@@ -117,7 +117,7 @@ struct obj_theme
 };
 
 
-/*
+/**
  * Information about terrain "features"
  */
 
@@ -154,7 +154,7 @@ struct feature_type
 };
 
 
-/*
+/**
  * Information about object "kinds", including player knowledge.
  *
  * Only "aware" and "tried" are saved in the savefile
@@ -237,7 +237,7 @@ struct object_kind
 
 
 
-/*
+/**
  * Information about "artifacts".
  *
  * Note that the save-file only writes "cur_num" to the savefile.
@@ -298,7 +298,7 @@ struct artifact_type
 };
 
 
-/*
+/**
  * Information about "ego-items".
  */
 
@@ -363,7 +363,7 @@ struct ego_item_type
 };
 
 
-/*
+/**
  * Information about "random artifacts parts".
  */
 typedef struct randart_part_type randart_part_type;
@@ -414,7 +414,7 @@ struct randart_gen_type
 };
 
 
-/*
+/**
  * Monster blow structure
  *
  *	- Method (RBM_*)
@@ -435,7 +435,7 @@ struct monster_blow
 
 
 
-/*
+/**
  * Monster "race" information, including racial memories
  *
  * Note that "d_attr" and "d_char" are used for MORE than "visual" stuff.
@@ -626,7 +626,7 @@ struct monster_ego
 
 
 
-/*
+/**
  * Information about "vault generation"
  */
 
@@ -676,7 +676,7 @@ struct trap_type
 
 
 
-/*
+/**
  * A single "grid" in a Cave
  *
  * Note that several aspects of the code restrict the actual cave
@@ -741,7 +741,7 @@ struct effect_type
 	u32b    flags;          /* Flags */
 };
 
-/*
+/**
  * Object information, for a specific object.
  *
  * Note that a "discount" on an item is permanent and never goes away.
@@ -848,7 +848,7 @@ struct object_type
 };
 
 
-/*
+/**
  * Monster mind, use for skills and such
  */
 typedef struct monster_mind monster_mind;
@@ -864,7 +864,7 @@ struct monster_mind
 
 
 
-/*
+/**
  * Monster information, for a specific monster.
  *
  * Note: fy, fx constrain dungeon size to 256x256
@@ -930,7 +930,7 @@ struct monster_type
 
 
 
-/*
+/**
  * An entry for the object/monster allocation functions
  *
  * Pass 1 is determined from allocation information
@@ -954,7 +954,7 @@ struct alloc_entry
 
 
 
-/*
+/**
  * Available "options"
  *
  *	- Address of actual option variable (or NULL)
@@ -986,7 +986,7 @@ struct option_type
 	cptr	o_desc;
 };
 
-/*
+/**
  * A store owner
  */
 typedef struct owner_type owner_type;
@@ -1013,7 +1013,7 @@ struct owner_type
 
 
 
-/*
+/**
  * A store, with an owner, various state flags, a current stock
  * of items, and a table of items that are often purchased.
  */
@@ -1039,7 +1039,7 @@ struct store_type
 	object_type *stock;		/* Stock -- Actual stock items */
 };
 
-/*
+/**
  * A store/building type
  */
 typedef struct store_info_type store_info_type;
@@ -1065,7 +1065,7 @@ struct store_info_type
 	u32b flags1;                    /* Flags */
 };
 
-/*
+/**
  * Stores/buildings actions
  */
 typedef struct store_action_type store_action_type;
@@ -1081,7 +1081,7 @@ struct store_action_type
 	s16b action_restr;              /* Action restriction */
 };
 
-/*
+/**
  * the spell function must provide the desc
  */
 typedef struct magic_type magic_type;
@@ -1094,7 +1094,7 @@ struct magic_type
 	byte sexp;			/* Encoded experience bonus */
 };
 
-/*
+/**
  * Player sex info
  */
 
@@ -1108,7 +1108,7 @@ struct player_sex
 };
 
 
-/*
+/**
  * Player racial info
  */
 
@@ -1271,7 +1271,7 @@ struct player_race_mod
 };
 
 
-/*
+/**
  * Player class info
  */
 
@@ -1417,7 +1417,7 @@ struct help_info
 };
 
 
-/*
+/**
  * Most of the "player" information goes here.
  *
  * This stucture gives us a large collection of player variables.
@@ -1905,7 +1905,7 @@ struct border_type
 };
 
 
-/*
+/**
  * A structure describing a wilderness area
  * with a terrain, a town or a dungeon entrance
  */
@@ -1927,7 +1927,7 @@ struct wilderness_type_info
 	byte    terrain[MAX_WILD_TERRAIN];/* Feature types for the plasma generator */
 };
 
-/*
+/**
  * A structure describing a wilderness map
  */
 typedef struct wilderness_map wilderness_map;
@@ -1941,7 +1941,7 @@ struct wilderness_map
 	bool    known;                  /* Is it seen by the player ? */
 };
 
-/*
+/**
  * A structure describing a town with
  * stores and buildings
  */
@@ -1994,7 +1994,7 @@ struct artifact_select_flag {
 	int  rflag[6];	/* Monster Race flags for required Corpses */
 };
 
-/*
+/**
  A structure for deity information.
  */
 typedef struct deity_type deity_type;
@@ -2243,7 +2243,7 @@ struct power_type
 /* Hooks */
 typedef bool (*hook_type)(char *fmt);
 
-/*
+/**
  * Structure for the "quests"
  */
 typedef struct quest_type quest_type;
@@ -2296,7 +2296,7 @@ struct tval_desc
 	cptr    desc;           /* desc */
 };
 
-/*
+/**
  * Between exit
  */
 typedef struct between_exit between_exit;
@@ -2312,7 +2312,7 @@ struct between_exit
 	s16b level;
 };
 
-/*
+/**
  * A structure to hold "rolled" information
  */
 typedef struct birther birther;
@@ -2368,12 +2368,12 @@ union hook_return
 	monster_type *m_ptr;
 };
 
-/*
+/**
  * Forward declare
  */
 typedef struct hist_type hist_type;
 
-/*
+/**
  * Player background information
  */
 struct hist_type
@@ -2386,7 +2386,7 @@ struct hist_type
 	byte bonus;			        /* Social Class Bonus + 50 */
 };
 
-/*
+/**
  * Item sets
  */
 typedef struct set_type set_type;
@@ -2420,7 +2420,7 @@ struct cli_comm
 	s16b key;	/* Key to convert command to. */
 };
 
-/*
+/**
  * Skills !
  */
 typedef struct skill_type skill_type;
@@ -2454,7 +2454,7 @@ struct skill_type
 };
 
 
-/*
+/**
  * The spell function must provide the desc
  */
 typedef struct spell_type spell_type;
@@ -2475,7 +2475,7 @@ struct school_type
 	s16b skill;                     /* Skill used for that school */
 };
 
-/*
+/**
  * Desc for GF_FOO
  */
 typedef struct gf_name_type gf_name_type;
@@ -2485,7 +2485,7 @@ struct gf_name_type
 	cptr name;
 };
 
-/*
+/**
  * Timers
  */
 typedef struct timer_type timer_type;
@@ -2501,7 +2501,7 @@ struct timer_type
 	cptr callback;          /* The lua function to call upon firing(no C callback yet .. maybe) */
 };
 
-/*
+/**
  * This is for lua functions that need to pass table to c functions
  */
 typedef struct list_type list_type;
@@ -2510,7 +2510,7 @@ struct list_type
 	cptr *list;
 };
 
-/*
+/**
  * Abilities
  */
 typedef struct ability_type ability_type;

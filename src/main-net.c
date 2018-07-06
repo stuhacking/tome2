@@ -1,6 +1,6 @@
 /* File: main-gcu.c */
 
-/*
+/**
  * Copyright (c) 1997 Ben Harrison, and others
  *
  * This software may be copied and distributed for educational, research,
@@ -9,7 +9,7 @@
  */
 
 
-/*
+/**
  * This file helps Angband run on Unix/Curses machines.
  *
  *
@@ -60,7 +60,7 @@ ip_connection *net_connection = &net_connection_forge;
 #define PACKET_TEXT             254
 #define PACKET_CLEAR            253
 
-/*
+/**
  * Information about a term
  */
 typedef struct term_data term_data;
@@ -77,7 +77,7 @@ struct term_data
 static term_data data[MAX_TERM_DATA];
 
 
-/*
+/**
  * Hack -- Number of initialized "term" structures
  */
 static int active = 0;
@@ -85,7 +85,7 @@ static int active = 0;
 
 
 
-/*
+/**
  * Suspend/Resume
  */
 static errr Term_xtra_net_alive(int v)
@@ -107,7 +107,7 @@ static errr Term_xtra_net_alive(int v)
 
 
 
-/*
+/**
  * Init the "net" system
  */
 static void Term_init_net(term *t)
@@ -119,7 +119,7 @@ static void Term_init_net(term *t)
 }
 
 
-/*
+/**
  * Nuke the "net" system
  */
 static void Term_nuke_net(term *t)
@@ -131,7 +131,7 @@ static void Term_nuke_net(term *t)
 
 
 
-/*
+/**
  * Process events (with optional wait)
  */
 static errr Term_xtra_net_event(int v)
@@ -174,7 +174,7 @@ static errr Term_xtra_net_event(int v)
 	return (0);
 }
 
-/*
+/**
  * React to changes
  */
 static errr Term_xtra_net_react(void)
@@ -204,7 +204,7 @@ static errr Term_xtra_net_react(void)
 }
 
 
-/*
+/**
  * Handle a "special request"
  */
 static errr Term_xtra_net(int n, int v)
@@ -271,7 +271,7 @@ static errr Term_xtra_net(int n, int v)
 }
 
 
-/*
+/**
  * Actually MOVE the hardware cursor
  */
 static errr Term_curs_net(int x, int y)
@@ -286,7 +286,7 @@ static errr Term_curs_net(int x, int y)
 }
 
 
-/*
+/**
  * Erase a grid of space
  * Hack -- try to be "semi-efficient".
  */
@@ -304,7 +304,7 @@ static errr Term_wipe_net(int x, int y, int n)
 	return (0);
 }
 
-/*
+/**
  * Place some text on the screen using an attribute
  */
 static errr Term_text_net(int x, int y, int n, byte a, cptr s)
@@ -330,7 +330,7 @@ static errr Term_text_net(int x, int y, int n, byte a, cptr s)
 }
 
 
-/*
+/**
  * Create a window for the given "term_data" argument.
  *
  * Assumes legal arguments.
@@ -381,7 +381,7 @@ static void net_lost_connection_hook(ip_connection *conn)
 	printf("...accepted\n");
 }
 
-/*
+/**
  * Prepare "curses" for use by the file "z-term.c"
  *
  * Installs the "hook" functions defined above, and then activates

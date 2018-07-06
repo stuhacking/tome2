@@ -5,7 +5,7 @@
 #include "angband.h"
 
 
-/*
+/**
  * This file is used to initialize various variables and arrays for the
  * Angband game.  Note the use of "fd_read()" and "fd_write()" to bypass
  * the common limitation of "read()" and "write()" to only 32767 bytes
@@ -25,7 +25,7 @@
 
 /*** Helper arrays for parsing ascii template files ***/
 
-/*
+/**
  * Monster Blow Methods
  */
 static cptr r_info_blow_method[] =
@@ -59,7 +59,7 @@ static cptr r_info_blow_method[] =
 };
 
 
-/*
+/**
  * Monster Blow Effects
  */
 static cptr r_info_blow_effect[] =
@@ -103,7 +103,7 @@ static cptr r_info_blow_effect[] =
 };
 
 
-/*
+/**
  * Monster race flags
  */
 static cptr r_info_flags1[] =
@@ -142,7 +142,7 @@ static cptr r_info_flags1[] =
 	"DROP_CHOSEN"
 };
 
-/*
+/**
  * Monster race flags
  */
 static cptr r_info_flags2[] =
@@ -181,7 +181,7 @@ static cptr r_info_flags2[] =
 	"BRAIN_8"
 };
 
-/*
+/**
  * Monster race flags
  */
 static cptr r_info_flags3[] =
@@ -220,7 +220,7 @@ static cptr r_info_flags3[] =
 	"NO_SLEEP"
 };
 
-/*
+/**
  * Monster race flags
  */
 static cptr r_info_flags4[] =
@@ -259,7 +259,7 @@ static cptr r_info_flags4[] =
 	"BR_DISI",
 };
 
-/*
+/**
  * Monster race flags
  */
 static cptr r_info_flags5[] =
@@ -298,7 +298,7 @@ static cptr r_info_flags5[] =
 	"HOLD"
 };
 
-/*
+/**
  * Monster race flags
  */
 static cptr r_info_flags6[] =
@@ -338,7 +338,7 @@ static cptr r_info_flags6[] =
 };
 
 
-/*
+/**
  * Monster race flags
  */
 static cptr r_info_flags7[] =
@@ -377,7 +377,7 @@ static cptr r_info_flags7[] =
 	"XXX7X31",
 };
 
-/*
+/**
  * Monster race flags
  */
 static cptr r_info_flags8[] =
@@ -417,7 +417,7 @@ static cptr r_info_flags8[] =
 };
 
 
-/*
+/**
  * Monster race flags - Drops
  */
 static cptr r_info_flags9[] =
@@ -457,7 +457,7 @@ static cptr r_info_flags9[] =
 };
 
 
-/*
+/**
  * Object flags
  */
 cptr k_info_flags1[] =
@@ -496,7 +496,7 @@ cptr k_info_flags1[] =
 	"BRAND_COLD"
 };
 
-/*
+/**
  * Object flags
  */
 cptr k_info_flags2[] =
@@ -535,7 +535,7 @@ cptr k_info_flags2[] =
 	"RES_DISEN"
 };
 
-/*
+/**
  * Trap flags
  */
 cptr k_info_flags2_trap[] =
@@ -575,7 +575,7 @@ cptr k_info_flags2_trap[] =
 };
 
 
-/*
+/**
  * Object flags
  */
 cptr k_info_flags3[] =
@@ -614,7 +614,7 @@ cptr k_info_flags3[] =
 	"PERMA_CURSE"
 };
 
-/*
+/**
  * Object flags
  */
 cptr k_info_flags4[] =
@@ -653,7 +653,7 @@ cptr k_info_flags4[] =
 	"NO_RECHARGE"
 };
 
-/*
+/**
  * Object flags
  */
 cptr k_info_flags5[] =
@@ -692,7 +692,7 @@ cptr k_info_flags5[] =
 	"XXX8X22",
 };
 
-/*
+/**
  * ESP flags
  */
 cptr esp_flags[] =
@@ -769,7 +769,7 @@ static cptr ego_flags[] =
 	"LIMIT_BLOWS"
 };
 
-/*
+/**
  * Feature flags
  */
 static cptr f_info_flags1[] =
@@ -808,7 +808,7 @@ static cptr f_info_flags1[] =
 	"XXX1"
 };
 
-/*
+/**
  * Dungeon flags
  */
 static cptr d_info_flags1[] =
@@ -884,7 +884,7 @@ static cptr d_info_flags2[] =
 	"XXX1"
 };
 
-/*
+/**
  * Trap flags
  */
 static cptr t_info_flags[] =
@@ -923,7 +923,7 @@ static cptr t_info_flags[] =
 	"XXX32"
 };
 
-/*
+/**
  * Wilderness feature flags
  */
 static cptr wf_info_flags1[] =
@@ -963,7 +963,7 @@ static cptr wf_info_flags1[] =
 	"XXX1"
 };
 
-/*
+/**
  * Stores flags
  */
 static cptr st_info_flags1[] =
@@ -1003,7 +1003,7 @@ static cptr st_info_flags1[] =
 	"XXX1"
 };
 
-/*
+/**
  * Race flags
  */
 cptr rp_info_flags1[] =
@@ -1042,7 +1042,7 @@ cptr rp_info_flags1[] =
 	"XXX"
 };
 
-/*
+/**
  * Race flags
  */
 cptr rp_info_flags2[] =
@@ -1120,7 +1120,7 @@ static cptr s_info_flags1[] =
 	"XXX1"
 };
 
-/*
+/**
  * Dungeon effect types (used in E:damage:frequency:type entry in d_info.txt)
  */
 static struct
@@ -1397,7 +1397,7 @@ static const char *activation_names[] =
 	""
 };
 
-/*
+/**
  * Convert a "color letter" into an "actual" color
  * The colors are: dwsorgbuDWvyRGBU, as shown below
  */
@@ -1443,7 +1443,7 @@ int color_char_to_attr(char c)
 	return ( -1);
 }
 
-/*
+/**
  * Attr value-to-char convertion table
  */
 byte conv_color[16] =
@@ -1488,13 +1488,13 @@ static byte monster_ego_modify(char c)
 	}
 }
 
-/*
+/**
  * Implements fp stacks, for included files
  */
 static FILE *fp_stack[10];
 static int fp_stack_idx = 0;
 
-/*
+/**
  * Must be caleld before the main loop
  */
 static void fp_stack_init(FILE *fp)
@@ -1543,7 +1543,7 @@ static bool fp_stack_pop()
 		return FALSE;
 }
 
-/*
+/**
  * Must be used instead of my_fgets for teh main loop
  */
 static int my_fgets_dostack(char *buf, int len)
@@ -1567,7 +1567,7 @@ static int my_fgets_dostack(char *buf, int len)
 
 /*** Initialize from ascii template files ***/
 
-/*
+/**
  * Grab one race flag from a textual string
  */
 static bool unknown_shut_up = FALSE;
@@ -1614,7 +1614,7 @@ static errr grab_one_race_allow_flag(u32b *choice, cptr what)
 	return (1);
 }
 
-/*
+/**
  * Grab one flag from a textual string
  */
 static errr grab_one_skill_flag(u32b *f1, cptr what)
@@ -1637,7 +1637,7 @@ static errr grab_one_skill_flag(u32b *f1, cptr what)
 	/* Error */
 	return (1);
 }
-/*
+/**
  * Grab one flag from a textual string
  */
 static errr grab_one_player_race_flag(u32b *f1, u32b *f2, cptr what)
@@ -1683,7 +1683,7 @@ int get_activation(char *activation)
 	return -1;
 }
 
-/*
+/**
  * Grab one flag in an object_kind from a textual string
  */
 static errr grab_one_race_kind_flag(u32b *f1, u32b *f2, u32b *f3, u32b *f4, u32b *f5, u32b *esp, cptr what)
@@ -1767,7 +1767,7 @@ static errr grab_one_race_kind_flag(u32b *f1, u32b *f2, u32b *f3, u32b *f4, u32b
 	return (1);
 }
 
-/*
+/**
  * Initialize the "player" arrays, by parsing an ascii "template" file
  */
 errr init_player_info_txt(FILE *fp, char *buf)
@@ -3409,7 +3409,7 @@ errr init_player_info_txt(FILE *fp, char *buf)
 }
 
 
-/*
+/**
  * Initialize the "v_info" array, by parsing an ascii "template" file
  */
 errr init_v_info_txt(FILE *fp, char *buf, bool start)
@@ -3625,7 +3625,7 @@ errr init_v_info_txt(FILE *fp, char *buf, bool start)
 }
 
 
-/*
+/**
  * Grab one flag in an feature_type from a textual string
  */
 static errr grab_one_feature_flag(feature_type *f_ptr, cptr what)
@@ -3650,7 +3650,7 @@ static errr grab_one_feature_flag(feature_type *f_ptr, cptr what)
 }
 
 
-/*
+/**
  * Initialize the "f_info" array, by parsing an ascii "template" file
  */
 errr init_f_info_txt(FILE *fp, char *buf)
@@ -3992,7 +3992,7 @@ errr init_f_info_txt(FILE *fp, char *buf)
 }
 
 
-/*
+/**
  * Grab one flag in an object_kind from a textual string
  */
 static errr grab_one_kind_flag(object_kind *k_ptr, cptr what, bool obvious)
@@ -4097,7 +4097,7 @@ static errr grab_one_kind_flag(object_kind *k_ptr, cptr what, bool obvious)
 	return (1);
 }
 
-/*
+/**
  * Initialize the "k_info" array, by parsing an ascii "template" file
  */
 errr init_k_info_txt(FILE *fp, char *buf)
@@ -4595,7 +4595,7 @@ int init_al_info_essence(char *essence)
 		}
 	return -1;
 }
-/*
+/**
  * Initialize the "al_info" array, by parsing an ascii "template" file
  */
 errr init_al_info_txt(FILE *fp, char *buf)
@@ -4903,7 +4903,7 @@ errr init_al_info_txt(FILE *fp, char *buf)
 	return (0);
 }
 
-/*
+/**
  * Grab one flag in an artifact_type from a textual string
  */
 static errr grab_one_artifact_flag(artifact_type *a_ptr, cptr what, bool obvious)
@@ -5011,7 +5011,7 @@ static errr grab_one_artifact_flag(artifact_type *a_ptr, cptr what, bool obvious
 
 
 
-/*
+/**
  * Initialize the "a_info" array, by parsing an ascii "template" file
  */
 errr init_a_info_txt(FILE *fp, char *buf)
@@ -5350,7 +5350,7 @@ errr init_a_info_txt(FILE *fp, char *buf)
 	return (0);
 }
 
-/*
+/**
 * Initialize the "set_info" array, by parsing an ascii "template" file
 */
 errr init_set_info_txt(FILE *fp, char *buf)
@@ -5588,7 +5588,7 @@ errr init_set_info_txt(FILE *fp, char *buf)
 }
 
 
-/*
+/**
  * Initialize the "s_info" array, by parsing an ascii "template" file
  */
 errr init_s_info_txt(FILE *fp, char *buf)
@@ -5967,7 +5967,7 @@ errr init_s_info_txt(FILE *fp, char *buf)
 	return (0);
 }
 
-/*
+/**
  * Initialize the "ab_info" array, by parsing an ascii "template" file
  */
 errr init_ab_info_txt(FILE *fp, char *buf)
@@ -6309,7 +6309,7 @@ errr init_ab_info_txt(FILE *fp, char *buf)
 }
 
 
-/*
+/**
  * Grab one flag in a ego-item_type from a textual string
  */
 static bool grab_one_ego_item_flag(ego_item_type *e_ptr, cptr what, int n, bool obvious)
@@ -6529,7 +6529,7 @@ static bool grab_one_ego_item_flag_restrict(ego_item_type *e_ptr, cptr what, boo
 
 
 
-/*
+/**
  * Initialize the "e_info" array, by parsing an ascii "template" file
  */
 errr init_e_info_txt(FILE *fp, char *buf)
@@ -6931,7 +6931,7 @@ errr init_e_info_txt(FILE *fp, char *buf)
 	return (0);
 }
 
-/*
+/**
  * Grab one flag in a randart_part_type from a textual string
  */
 static bool grab_one_randart_item_flag(randart_part_type *ra_ptr, cptr what, char c)
@@ -7051,7 +7051,7 @@ static bool grab_one_randart_item_flag(randart_part_type *ra_ptr, cptr what, cha
 
 
 
-/*
+/**
  * Initialize the "ra_info" array, by parsing an ascii "template" file
  */
 errr init_ra_info_txt(FILE *fp, char *buf)
@@ -7338,7 +7338,7 @@ errr init_ra_info_txt(FILE *fp, char *buf)
 	return (0);
 }
 
-/*
+/**
  * Grab one (basic) flag in a monster_race from a textual string
  */
 static errr grab_one_basic_flag(monster_race *r_ptr, cptr what)
@@ -7413,7 +7413,7 @@ static errr grab_one_basic_flag(monster_race *r_ptr, cptr what)
 }
 
 
-/*
+/**
  * Grab one (spell) flag in a monster_race from a textual string
  */
 static errr grab_one_spell_flag(monster_race *r_ptr, cptr what)
@@ -7458,7 +7458,7 @@ static errr grab_one_spell_flag(monster_race *r_ptr, cptr what)
 }
 
 
-/*
+/**
  * Initialize the "r_info" array, by parsing an ascii "template" file
  */
 errr init_r_info_txt(FILE *fp, char *buf)
@@ -7872,7 +7872,7 @@ errr init_r_info_txt(FILE *fp, char *buf)
 }
 
 
-/*
+/**
  * Grab one (basic) flag in a monster_race from a textual string
  */
 static errr grab_one_basic_ego_flag(monster_ego *re_ptr, cptr what, bool add)
@@ -7965,7 +7965,7 @@ static errr grab_one_basic_ego_flag(monster_ego *re_ptr, cptr what, bool add)
 }
 
 
-/*
+/**
  * Grab one (spell) flag in a monster_race from a textual string
  */
 static errr grab_one_spell_ego_flag(monster_ego *re_ptr, cptr what, bool add)
@@ -8018,7 +8018,7 @@ static errr grab_one_spell_ego_flag(monster_ego *re_ptr, cptr what, bool add)
 	return (1);
 }
 
-/*
+/**
  * Grab one (basic) flag in a monster_race from a textual string
  */
 static errr grab_one_ego_flag(monster_ego *re_ptr, cptr what, bool must)
@@ -8098,7 +8098,7 @@ static errr grab_one_ego_flag(monster_ego *re_ptr, cptr what, bool must)
 	return (1);
 }
 
-/*
+/**
  * Initialize the "re_info" array, by parsing an ascii "template" file
  */
 errr init_re_info_txt(FILE *fp, char *buf)
@@ -8618,7 +8618,7 @@ errr init_re_info_txt(FILE *fp, char *buf)
 }
 
 
-/*
+/**
  * Grab one flag in an trap_type from a textual string
  */
 static errr grab_one_trap_type_flag(trap_type *t_ptr, cptr what)
@@ -8642,7 +8642,7 @@ static errr grab_one_trap_type_flag(trap_type *t_ptr, cptr what)
 }
 
 
-/*
+/**
  * Initialize the "tr_info" array, by parsing an ascii "template" file
  */
 errr init_t_info_txt(FILE *fp, char *buf)
@@ -8858,7 +8858,7 @@ errr init_t_info_txt(FILE *fp, char *buf)
 	return (0);
 }
 
-/*
+/**
  * Grab one flag for a dungeon type from a textual string
  */
 errr grab_one_dungeon_flag(u32b *flags1, u32b *flags2, cptr what)
@@ -8892,7 +8892,7 @@ errr grab_one_dungeon_flag(u32b *flags1, u32b *flags2, cptr what)
 	return (1);
 }
 
-/*
+/**
  * Grab one (basic) flag in a monster_race from a textual string
  */
 static errr grab_one_basic_monster_flag(dungeon_info_type *d_ptr, cptr what, byte rule)
@@ -8967,7 +8967,7 @@ static errr grab_one_basic_monster_flag(dungeon_info_type *d_ptr, cptr what, byt
 }
 
 
-/*
+/**
  * Grab one (spell) flag in a monster_race from a textual string
  */
 static errr grab_one_spell_monster_flag(dungeon_info_type *d_ptr, cptr what, byte rule)
@@ -9011,7 +9011,7 @@ static errr grab_one_spell_monster_flag(dungeon_info_type *d_ptr, cptr what, byt
 	return (1);
 }
 
-/*
+/**
  * Initialize the "d_info" array, by parsing an ascii "template" file
  */
 errr init_d_info_txt(FILE *fp, char *buf)
@@ -9605,7 +9605,7 @@ errr init_d_info_txt(FILE *fp, char *buf)
 	return (0);
 }
 
-/*
+/**
  * Grab one race flag from a textual string
  */
 static errr grab_one_race_flag(owner_type *ow_ptr, int state, cptr what)
@@ -9636,7 +9636,7 @@ static errr grab_one_race_flag(owner_type *ow_ptr, int state, cptr what)
 	return (1);
 }
 
-/*
+/**
  * Grab one store flag from a textual string
  */
 static errr grab_one_store_flag(store_info_type *st_ptr, cptr what)
@@ -9660,7 +9660,7 @@ static errr grab_one_store_flag(store_info_type *st_ptr, cptr what)
 	return (1);
 }
 
-/*
+/**
  * Initialize the "st_info" array, by parsing an ascii "template" file
  */
 errr init_st_info_txt(FILE *fp, char *buf)
@@ -9949,7 +9949,7 @@ errr init_st_info_txt(FILE *fp, char *buf)
 	return (0);
 }
 
-/*
+/**
  * Initialize the "ba_info" array, by parsing an ascii "template" file
  */
 errr init_ba_info_txt(FILE *fp, char *buf)
@@ -10119,7 +10119,7 @@ errr init_ba_info_txt(FILE *fp, char *buf)
 	return (0);
 }
 
-/*
+/**
  * Initialize the "ow_info" array, by parsing an ascii "template" file
  */
 errr init_ow_info_txt(FILE *fp, char *buf)
@@ -10342,7 +10342,7 @@ errr init_ow_info_txt(FILE *fp, char *buf)
 	return (0);
 }
 
-/*
+/**
  * Grab one flag for a dungeon type from a textual string
  */
 static errr grab_one_wf_info_flag(wilderness_type_info *wf_ptr, cptr what)
@@ -10366,7 +10366,7 @@ static errr grab_one_wf_info_flag(wilderness_type_info *wf_ptr, cptr what)
 	return (1);
 }
 
-/*
+/**
  * Initialize the "wf_info" array, by parsing an ascii "template" file
  */
 errr init_wf_info_txt(FILE *fp, char *buf)
@@ -10629,7 +10629,7 @@ static bool meta_sleep = TRUE;
 
 static dungeon_grid letter[255];
 
-/*
+/**
  * Parse a sub-file of the "extra info"
  */
 bool process_dungeon_file_full = FALSE;
@@ -11404,7 +11404,7 @@ static errr process_dungeon_file_aux(char *buf, int *yval, int *xval, int xvalst
 
 
 
-/*
+/**
  * Helper function for "process_dungeon_file()"
  */
 static cptr process_dungeon_file_expr(char **sp, char *fp)

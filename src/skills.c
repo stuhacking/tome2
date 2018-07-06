@@ -2,7 +2,7 @@
 
 /* Purpose: player skills */
 
-/*
+/**
  * Copyright (c) 2001 DarkGod
  *
  * This software may be copied and distributed for educational, research, and
@@ -13,7 +13,7 @@
 #include "angband.h"
 
 
-/*
+/**
  * Advance the skill point of the skill specified by i and
  * modify related skills
  */
@@ -50,7 +50,7 @@ void increase_skill(int i, s16b *invest)
 }
 
 
-/*
+/**
  * Descrease the skill point of the skill specified by i and
  * modify related skills
  */
@@ -74,7 +74,7 @@ void decrease_skill(int i, s16b *invest)
 }
 
 
-/*
+/**
  * Given the name of a skill, returns skill index or -1 if no
  * such skill is found
  */
@@ -108,7 +108,7 @@ s16b find_skill_i(cptr name)
 }
 
 
-/*
+/**
  *
  */
 s16b get_skill(int skill)
@@ -117,7 +117,7 @@ s16b get_skill(int skill)
 }
 
 
-/*
+/**
  * Return "scale" (a misnomer -- this is max value) * (current skill value)
  * / (max skill value)
  */
@@ -141,7 +141,7 @@ s16b get_skill_scale(int skill, u32b scale)
 }
 
 
-/*
+/**
  *
  */
 int get_idx(int i)
@@ -177,7 +177,7 @@ static bool is_known(int s_idx)
 	return FALSE;
 }
 
-/*
+/**
  *
  */
 void init_table_aux(int table[MAX_SKILLS][2], int *idx, int father, int lev,
@@ -220,7 +220,7 @@ bool has_child(int sel)
 }
 
 
-/*
+/**
  * Dump the skill tree
  */
 void dump_skills(FILE *fff)
@@ -267,7 +267,7 @@ void dump_skills(FILE *fff)
 }
 
 
-/*
+/**
  * Draw the skill tree
  */
 void print_skills(int table[MAX_SKILLS][2], int max, int sel, int start)
@@ -334,7 +334,7 @@ void print_skills(int table[MAX_SKILLS][2], int max, int sel, int start)
 	}
 }
 
-/*
+/**
  * Checks various stuff to do when skills change, like new spells, ...
  */
 void recalc_skills(bool init)
@@ -377,7 +377,7 @@ void recalc_skills(bool init)
 	}
 }
 
-/*
+/**
  * Recalc the skill value
  */
 void recalc_skills_theory(s16b *invest, s32b *base_val, s32b *base_mod, s32b *bonus)
@@ -427,7 +427,7 @@ void recalc_skills_theory(s16b *invest, s32b *base_val, s32b *base_mod, s32b *bo
 	}
 }
 
-/*
+/**
  * Interreact with skills
  */
 void do_cmd_skill()
@@ -598,7 +598,7 @@ void do_cmd_skill()
 
 
 
-/*
+/**
  * List of melee skills
  */
 s16b melee_skills[MAX_MELEE] =
@@ -740,7 +740,7 @@ void select_default_melee()
 	}
 }
 
-/*
+/**
  * Print a batch of skills.
  */
 static void print_skill_batch(int *p, cptr *p_desc, int start, int max, bool mode)
@@ -1075,7 +1075,7 @@ bool forbid_non_blessed()
 
 
 
-/*
+/**
  * The autoskiller gets fed with the desired skill values at level 50 and determines
  * where to invest each levels
  */
@@ -1205,7 +1205,7 @@ void autoskiller_level(s32b *ideal)
 #endif
 }
 
-/*
+/**
  * Gets the base value of a skill, given a race/class/...
  */
 void compute_skills(s32b *v, s32b *m, int i)
@@ -1264,7 +1264,7 @@ void compute_skills(s32b *v, s32b *m, int i)
 	                mod, spp_ptr->skill_modm[i]);
 }
 
-/*
+/**
  * Initialize a skill with given values
  */
 void init_skill(s32b value, s32b mod, int i)
@@ -1433,7 +1433,7 @@ void do_get_new_skill()
 
 /**************************************** ABILITIES *****************************************/
 
-/*
+/**
  * Given the name of an ability, returns ability index or -1 if no
  * such ability is found
  */
@@ -1452,7 +1452,7 @@ s16b find_ability(cptr name)
 	return ( -1);
 }
 
-/*
+/**
  * Do the player have the ability
  */
 bool has_ability(int ab)
@@ -1562,7 +1562,7 @@ static void add_sorted_ability(int *table, int *max, int ab)
 	(*max)++;
 }
 
-/*
+/**
  * Print the abilities list
  */
 void dump_abilities(FILE *fff)
@@ -1595,7 +1595,7 @@ void dump_abilities(FILE *fff)
 	}
 }
 
-/*
+/**
  * Draw the abilities list
  */
 void print_abilities(int table[], int max, int sel, int start)
@@ -1653,7 +1653,7 @@ void print_abilities(int table[], int max, int sel, int start)
 	}
 }
 
-/*
+/**
  * Interreact with abilitiess
  */
 void do_cmd_ability()
@@ -1757,7 +1757,7 @@ if (ab_info[i].name)
 	p_ptr->redraw |= (PR_WIPE | PR_BASIC | PR_EXTRA | PR_MAP);
 }
 
-/*
+/**
  * Apply abilities to be granted this level
  */
 void apply_level_abilities(int level)

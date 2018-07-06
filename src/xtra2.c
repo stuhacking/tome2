@@ -3,7 +3,7 @@
 
 /* Purpose: effects of various "objects", targetting and panel handling */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -13,7 +13,7 @@
 
 #include "angband.h"
 
-/*
+/**
  * Invoke The Rush
  */
 bool set_rush(int v)
@@ -51,7 +51,7 @@ bool set_rush(int v)
 }
 
 
-/*
+/**
  * Set "p_ptr->parasite" and "p_ptr->parasite_r_idx"
  * notice observable changes
  */
@@ -123,7 +123,7 @@ bool set_parasite(int v, int r)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->tim_project" and others
  * notice observable changes
  */
@@ -176,7 +176,7 @@ bool set_project(int v, s16b gf, s16b dam, s16b rad, s16b flag)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->tim_roots" and others
  * notice observable changes
  */
@@ -227,7 +227,7 @@ bool set_roots(int v, s16b ac, s16b dam)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->tim_(magic|water)_breath" and others
  * notice observable changes
  */
@@ -301,7 +301,7 @@ bool set_tim_breath(int v, bool magical)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->absorb_soul"
  * notice observable changes
  */
@@ -350,7 +350,7 @@ bool set_absorb_soul(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->disrupt_shield"
  * notice observable changes
  */
@@ -399,7 +399,7 @@ bool set_disrupt_shield(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->prob_travel"
  * notice observable changes
  */
@@ -448,7 +448,7 @@ bool set_prob_travel(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->tim_invis", and "p_ptr->tim_inv_pow",
  * notice observable changes
  */
@@ -499,7 +499,7 @@ bool set_invis(int v, int p)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->tim_poison",
  * notice observable changes
  */
@@ -548,7 +548,7 @@ bool set_poison(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "no_breeds"
  */
 bool set_no_breeders(int v)
@@ -596,7 +596,7 @@ bool set_no_breeders(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->tim_deadly"
  */
 bool set_tim_deadly(int v)
@@ -644,7 +644,7 @@ bool set_tim_deadly(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->tim_ffall"
  */
 bool set_tim_ffall(int v)
@@ -692,7 +692,7 @@ bool set_tim_ffall(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->tim_fly"
  */
 bool set_tim_fly(int v)
@@ -740,7 +740,7 @@ bool set_tim_fly(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->meditation"
  */
 bool set_meditation(int v)
@@ -789,7 +789,7 @@ bool set_meditation(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->tim_reflect"
  */
 bool set_tim_reflect(int v)
@@ -837,7 +837,7 @@ bool set_tim_reflect(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->tim_res_time"
  */
 bool set_tim_res_time(int v)
@@ -885,7 +885,7 @@ bool set_tim_res_time(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->tim_fire_aura"
  */
 bool set_tim_fire_aura(int v)
@@ -933,7 +933,7 @@ bool set_tim_fire_aura(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->strike"
  */
 bool set_strike(int v)
@@ -981,7 +981,7 @@ bool set_strike(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->oppose_ld"
  */
 bool set_oppose_ld(int v)
@@ -1029,7 +1029,7 @@ bool set_oppose_ld(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->oppose_cc"
  */
 bool set_oppose_cc(int v)
@@ -1077,7 +1077,7 @@ bool set_oppose_cc(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->oppose_ss"
  */
 bool set_oppose_ss(int v)
@@ -1125,7 +1125,7 @@ bool set_oppose_ss(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->oppose_nex"
  */
 bool set_oppose_nex(int v)
@@ -1173,7 +1173,7 @@ bool set_oppose_nex(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->tim_mimic", and "p_ptr->mimic_form",
  * notice observable changes
  */
@@ -1232,7 +1232,7 @@ bool set_mimic(int v, int p, int level)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->blind", notice observable changes
  *
  * Note the use of "PU_UN_VIEW", which is needed to memorize any terrain
@@ -1295,7 +1295,7 @@ bool set_blind(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->tim_lite", notice observable changes
  *
  * Note the use of "PU_VIEW", which is needed to
@@ -1355,7 +1355,7 @@ bool set_lite(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->confused", notice observable changes
  */
 bool set_confused(int v)
@@ -1405,7 +1405,7 @@ bool set_confused(int v)
 }
 
 
-/*
+/**
  * Set "p_ptr->poisoned", notice observable changes
  */
 bool set_poisoned(int v)
@@ -1455,7 +1455,7 @@ bool set_poisoned(int v)
 }
 
 
-/*
+/**
  * Set "p_ptr->afraid", notice observable changes
  */
 bool set_afraid(int v)
@@ -1505,7 +1505,7 @@ bool set_afraid(int v)
 }
 
 
-/*
+/**
  * Set "p_ptr->paralyzed", notice observable changes
  */
 bool set_paralyzed(int v)
@@ -1555,7 +1555,7 @@ bool set_paralyzed(int v)
 }
 
 
-/*
+/**
  * Set "p_ptr->image", notice observable changes
  *
  * Note that we must redraw the map when hallucination changes.
@@ -1612,7 +1612,7 @@ bool set_image(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->lightspeed", notice observable changes
  */
 bool set_light_speed(int v)
@@ -1710,7 +1710,7 @@ bool set_fast(int v, int p)
 }
 
 
-/*
+/**
  * Set "p_ptr->slow", notice observable changes
  */
 bool set_slow(int v)
@@ -1760,7 +1760,7 @@ bool set_slow(int v)
 }
 
 
-/*
+/**
  * Set "p_ptr->shield", notice observable changes
  */
 bool set_shield(int v, int p, s16b o, s16b d1, s16b d2)
@@ -1816,7 +1816,7 @@ bool set_shield(int v, int p, s16b o, s16b d1, s16b d2)
 
 
 
-/*
+/**
  * Set "p_ptr->blessed", notice observable changes
  */
 bool set_blessed(int v)
@@ -1866,7 +1866,7 @@ bool set_blessed(int v)
 }
 
 
-/*
+/**
  * Set "p_ptr->hero", notice observable changes
  */
 bool set_hero(int v)
@@ -1918,7 +1918,7 @@ bool set_hero(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->holy", notice observable changes
  */
 bool set_holy(int v)
@@ -1967,7 +1967,7 @@ bool set_holy(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->walk_water", notice observable changes
  */
 bool set_walk_water(int v)
@@ -2016,7 +2016,7 @@ bool set_walk_water(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->shero", notice observable changes
  */
 bool set_shero(int v)
@@ -2087,7 +2087,7 @@ bool set_shero(int v)
 }
 
 
-/*
+/**
  * Set "p_ptr->protevil", notice observable changes
  */
 bool set_protevil(int v)
@@ -2133,7 +2133,7 @@ bool set_protevil(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->protgood", notice observable changes
  */
 bool set_protgood(int v)
@@ -2179,7 +2179,7 @@ bool set_protgood(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->protundead", notice observable changes
  */
 bool set_protundead(int v)
@@ -2225,7 +2225,7 @@ bool set_protundead(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->set_shadow", notice observable changes
  */
 bool set_shadow(int v)
@@ -2303,7 +2303,7 @@ bool set_shadow(int v)
 
 
 
-/*
+/**
  * Set "p_ptr->invuln", notice observable changes
  */
 bool set_invuln(int v)
@@ -2380,7 +2380,7 @@ bool set_invuln(int v)
 
 
 
-/*
+/**
  * Set "p_ptr->tim_esp", notice observable changes
  */
 bool set_tim_esp(int v)
@@ -2432,7 +2432,7 @@ bool set_tim_esp(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->tim_thunder", notice observable changes
  */
 bool set_tim_thunder(int v, int p1, int p2)
@@ -2487,7 +2487,7 @@ bool set_tim_thunder(int v, int p1, int p2)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->tim_invis", notice observable changes
  */
 bool set_tim_invis(int v)
@@ -2540,7 +2540,7 @@ bool set_tim_invis(int v)
 }
 
 
-/*
+/**
  * Set "p_ptr->tim_infra", notice observable changes
  */
 bool set_tim_infra(int v)
@@ -2593,7 +2593,7 @@ bool set_tim_infra(int v)
 }
 
 
-/*
+/**
  * Set "p_ptr->tim_mental_barrier", notice observable changes
  */
 bool set_mental_barrier(int v)
@@ -2639,7 +2639,7 @@ bool set_mental_barrier(int v)
 	return (TRUE);
 }
 
-/*
+/**
  * Set "p_ptr->oppose_acid", notice observable changes
  */
 bool set_oppose_acid(int v)
@@ -2686,7 +2686,7 @@ bool set_oppose_acid(int v)
 }
 
 
-/*
+/**
  * Set "p_ptr->oppose_elec", notice observable changes
  */
 bool set_oppose_elec(int v)
@@ -2733,7 +2733,7 @@ bool set_oppose_elec(int v)
 }
 
 
-/*
+/**
  * Set "p_ptr->oppose_fire", notice observable changes
  */
 bool set_oppose_fire(int v)
@@ -2780,7 +2780,7 @@ bool set_oppose_fire(int v)
 }
 
 
-/*
+/**
  * Set "p_ptr->oppose_cold", notice observable changes
  */
 bool set_oppose_cold(int v)
@@ -2827,7 +2827,7 @@ bool set_oppose_cold(int v)
 }
 
 
-/*
+/**
  * Set "p_ptr->oppose_pois", notice observable changes
  */
 bool set_oppose_pois(int v)
@@ -2874,7 +2874,7 @@ bool set_oppose_pois(int v)
 }
 
 
-/*
+/**
  * Set "p_ptr->tim_regen", notice observable changes
  */
 bool set_tim_regen(int v, int p)
@@ -2923,7 +2923,7 @@ bool set_tim_regen(int v, int p)
 }
 
 
-/*
+/**
  * Set "p_ptr->stun", notice observable changes
  *
  * Note the special code to only notice "range" changes.
@@ -3084,7 +3084,7 @@ bool set_stun(int v)
 }
 
 
-/*
+/**
  * Set "p_ptr->cut", notice observable changes
  *
  * Note the special code to only notice "range" changes.
@@ -3306,7 +3306,7 @@ void drop_from_wild()
 	}
 }
 
-/*
+/**
  * Set "p_ptr->food", notice observable changes
  *
  * The "p_ptr->food" variable can get as large as 20000, allowing the
@@ -3506,7 +3506,7 @@ bool set_food(int v)
 }
 
 
-/*
+/**
  * Advance experience levels and print experience
  */
 void check_experience(void)
@@ -3646,7 +3646,7 @@ void check_experience(void)
 	/* Hook it! */
 	process_hooks(HOOK_PLAYER_LEVEL, "(d)", gained);
 }
-/*
+/**
  * Advance experience levels and print experience
  */
 void check_experience_obj(object_type *o_ptr)
@@ -3681,7 +3681,7 @@ void check_experience_obj(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Gain experience (share it to objects if needed)
  */
 void gain_exp(s32b amount)
@@ -3748,7 +3748,7 @@ void gain_exp(s32b amount)
 }
 
 
-/*
+/**
  * Lose experience
  */
 void lose_exp(s32b amount)
@@ -3769,7 +3769,7 @@ void lose_exp(s32b amount)
 
 
 
-/*
+/**
  * Hack -- Return the "automatic coin type" of a monster race
  * Used to allocate proper treasure when "Creeping coins" die
  *
@@ -3801,7 +3801,7 @@ int get_coin_type(monster_race *r_ptr)
 	return (0);
 }
 
-/*
+/**
  * This routine handles the production of corpses/skeletons/heads/skulls
  * when a monster is killed.
  */
@@ -3900,7 +3900,7 @@ void place_corpse(monster_type *m_ptr)
 }
 
 
-/*
+/**
  * Handle the "death" of a monster.
  *
  * Disperse treasures centered at the monster location based on the
@@ -4503,7 +4503,7 @@ void monster_death(int m_idx)
 
 
 
-/*
+/**
  * Decreases monsters hit points, handling monster death.
  *
  * We return TRUE if the monster has been killed (and deleted).
@@ -4864,7 +4864,7 @@ bool mon_take_hit(int m_idx, int dam, bool *fear, cptr note)
 }
 
 
-/*
+/**
  * Get term size and calculate screen size
  */
 void get_screen_size(int *wid_p, int *hgt_p)
@@ -4875,7 +4875,7 @@ void get_screen_size(int *wid_p, int *hgt_p)
 	if (use_bigtile) *wid_p /= 2;
 }
 
-/*
+/**
  * Calculates current boundaries
  * Called below.
  */
@@ -4901,7 +4901,7 @@ static void panel_bounds(void)
 }
 
 
-/*
+/**
  * Handle a request to change the current panel
  *
  * Return TRUE if the panel was changed.
@@ -4954,7 +4954,7 @@ bool change_panel(int dy, int dx)
 }
 
 
-/*
+/**
  * Given an row (y) and col (x), this routine detects when a move
  * off the screen has occurred and figures new borders. -RAK-
  *
@@ -5101,7 +5101,7 @@ void verify_panel(void)
 }
 
 
-/*
+/**
  * Map resizing whenever the main term changes size
  */
 void resize_map(void)
@@ -5150,7 +5150,7 @@ void resize_map(void)
 }
 
 
-/*
+/**
  * Redraw a term when it is resized
  */
 void resize_window(void)
@@ -5182,7 +5182,7 @@ void resize_window(void)
 
 
 
-/*
+/**
  * Monster health description
  */
 cptr look_mon_desc(int m_idx)
@@ -5232,7 +5232,7 @@ cptr look_mon_desc(int m_idx)
 
 
 
-/*
+/**
  * Angband sorting algorithm -- quick sort in place
  *
  * Note that the details of the data we are sorting is hidden,
@@ -5281,7 +5281,7 @@ void ang_sort_aux(vptr u, vptr v, int p, int q)
 }
 
 
-/*
+/**
  * Angband sorting algorithm -- quick sort in place
  *
  * Note that the details of the data we are sorting is hidden,
@@ -5300,7 +5300,7 @@ void ang_sort(vptr u, vptr v, int n)
 /*** Targetting Code ***/
 
 
-/*
+/**
  * Determine is a monster makes a reasonable target
  *
  * The concept of "targetting" was stolen from "Morgul" (?)
@@ -5346,7 +5346,7 @@ bool target_able(int m_idx)
 
 
 
-/*
+/**
  * Update (if necessary) and verify (if possible) the target.
  *
  * We return TRUE if the target is "okay" and FALSE otherwise.
@@ -5379,7 +5379,7 @@ bool target_okay(void)
 
 
 
-/*
+/**
  * Sorting hook -- comp function -- by "distance to player"
  *
  * We use "u" and "v" to point to arrays of "x" and "y" positions,
@@ -5419,7 +5419,7 @@ static bool ang_sort_comp_distance(vptr u, vptr v, int a, int b)
 }
 
 
-/*
+/**
  * Sorting hook -- swap function -- by "distance to player"
  *
  * We use "u" and "v" to point to arrays of "x" and "y" positions,
@@ -5445,7 +5445,7 @@ static void ang_sort_swap_distance(vptr u, vptr v, int a, int b)
 
 
 
-/*
+/**
  * Hack -- help "select" a location (see below)
  */
 static s16b target_pick(int y1, int x1, int dy, int dx)
@@ -5498,7 +5498,7 @@ static s16b target_pick(int y1, int x1, int dy, int dx)
 }
 
 
-/*
+/**
  * Hack -- determine if a given location is "interesting"
  */
 static bool target_set_accept(int y, int x)
@@ -5564,7 +5564,7 @@ static bool target_set_accept(int y, int x)
 }
 
 
-/*
+/**
  * Prepare the "temp" array for "target_set"
  *
  * Return the number of target_able monsters in the set.
@@ -5643,7 +5643,7 @@ bool target_object(int y, int x, int mode, cptr info, bool *boring,
 	return (FALSE);
 }
 
-/*
+/**
  * Examine a grid, return a keypress.
  *
  * The "mode" argument contains the "TARGET_LOOK" bit flag, which
@@ -6069,7 +6069,7 @@ static int target_set_aux(int y, int x, int mode, cptr info)
 
 
 
-/*
+/**
  * Handle "target" and "look".
  *
  * Note that this code can be called from "get_aim_dir()".
@@ -6489,7 +6489,7 @@ bool target_set(int mode)
 
 
 
-/*
+/**
  * Get an "aiming direction" from the user.
  *
  * The "dir" is loaded with 1,2,3,4,6,7,8,9 for "actual direction", and
@@ -6621,7 +6621,7 @@ bool get_aim_dir(int *dp)
 
 
 
-/*
+/**
  * Request a "movement" direction (1,2,3,4,6,7,8,9) from the user,
  * and place it into "command_dir", unless we already have one.
  *
@@ -7152,7 +7152,7 @@ void gain_level_reward(int chosen_reward)
 }
 
 
-/*
+/**
  * old -- from PsiAngband.
  */
 bool tgt_pt(int *x, int *y)
@@ -7327,7 +7327,7 @@ bool get_hack_dir(int *dp)
 	return (TRUE);
 }
 
-/*
+/**
  * Do we have at least one corruption?
  */
 bool got_corruptions()
@@ -7346,7 +7346,7 @@ bool got_corruptions()
 	return FALSE;
 }
 
-/*
+/**
  * Dump the corruption list
  */
 void dump_corruptions(FILE *fff, bool color)
@@ -7372,7 +7372,7 @@ void dump_corruptions(FILE *fff, bool color)
 	}
 }
 
-/*
+/**
  * Set "p_ptr->grace", notice observable changes
  */
 void set_grace(s32b v)
@@ -7545,7 +7545,7 @@ void clean_wish_name(char *buf, char *name)
 	}
 }
 
-/*
+/**
  * Allow the player to make a wish
  */
 void make_wish(void)
@@ -7666,7 +7666,7 @@ void make_wish(void)
 }
 
 
-/*
+/**
  * Corrupted have a 1/3 chance of losing a mutation each time this is called, 
  * assuming they have any in the first place
  */
@@ -7685,7 +7685,7 @@ void corrupt_corrupted(void)
 	return;
 }
 
-/*
+/**
  * Change to an other class
  */
 void switch_class(int sclass)
@@ -7694,7 +7694,7 @@ void switch_class(int sclass)
 	cp_ptr = &class_info[p_ptr->pclass];
 }
 
-/*
+/**
  * Change to an other subclass
  */
 void switch_subclass(int sclass)
@@ -7703,7 +7703,7 @@ void switch_subclass(int sclass)
 	spp_ptr = &class_info[p_ptr->pclass].spec[p_ptr->pspec];
 }
 
-/*
+/**
  * Change to an other subrace
  */
 void switch_subrace(int racem, bool copy_old)
@@ -7737,7 +7737,7 @@ void set_subrace_title(int racem, cptr name)
 	strcpy(race_mod_info[racem].title + rmp_name, name);
 }
 
-/*
+/**
  * Rebirth, recalc hp & exp/level
  */
 void do_rebirth()
@@ -7763,7 +7763,7 @@ void do_rebirth()
 	lite_spot(p_ptr->py, p_ptr->px);
 }
 
-/*
+/**
  * Quick mimic name to index function
  */
 int resolve_mimic_name(cptr name)

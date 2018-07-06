@@ -1,20 +1,16 @@
-/* File: cmd1.c */
-
-/* Purpose: Movement commands (part 1) */
-
-/*
+/** \file: cmd1.c --- Movement commands (Part 1)
+ *
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
  * not for profit purposes provided that this copyright and statement are
  * included in all such copies.
  */
-
 #include "angband.h"
 #define MAX_VAMPIRIC_DRAIN 100
 
 
-/*
+/**
  * Determine if the player "hits" a monster (normal combat).
  * Note -- Always miss 5%, always hit 5%, otherwise random.
  */
@@ -44,7 +40,7 @@ bool test_hit_fire(int chance, int ac, int vis)
 
 
 
-/*
+/**
  * Determine if the player "hits" a monster (normal combat).
  *
  * Note -- Always miss 5%, always hit 5%, otherwise random.
@@ -75,7 +71,7 @@ bool test_hit_norm(int chance, int ac, int vis)
 
 
 
-/*
+/**
  * Critical hits (from objects thrown by player)
  * Factor in item weight, total plusses, and player level.
  */
@@ -115,7 +111,7 @@ s16b critical_shot(int weight, int plus, int dam, int skill)
 	return (dam);
 }
 
-/*
+/**
  * Critical hits (by player)
  *
  * Factor in weapon weight, total plusses, player level.
@@ -187,7 +183,7 @@ s16b critical_norm(int weight, int plus, int dam, int weapon_tval, bool *done_cr
 
 
 
-/*
+/**
  * Extract the "total damage" from a given object hitting a given monster.
  *
  * Note that "flasks of oil" do NOT do fire damage, although they
@@ -519,7 +515,7 @@ s16b tot_dam_aux(object_type *o_ptr, int tdam, monster_type *m_ptr,
 }
 
 
-/*
+/**
  * Search for hidden things
  */
 void search(void)
@@ -616,7 +612,7 @@ void search(void)
 
 
 
-/*
+/**
  * Player "wants" to pick up an object or gold.
  * Note that we ONLY handle things that can be picked up.
  * See "move_player()" for handling of other things.
@@ -630,7 +626,7 @@ void carry(int pickup)
 }
 
 
-/*
+/**
  * Handle player hitting a real trap
  */
 static void hit_trap(void)
@@ -817,7 +813,7 @@ static void natural_attack(s16b m_idx, int attack, bool *fear, bool *mdeath)
 
 #endif
 
-/*
+/**
  * Carried monster can attack too.
  * Based on monst_attack_monst.
  */
@@ -912,10 +908,8 @@ static void carried_monster_attack(s16b m_idx, bool *fear, bool *mdeath,
 		visible = TRUE;
 
 #if 0
-
 		/* Extract visibility from carrying lite */
 		if (r_ptr->flags9 & RF9_HAS_LITE) visible = TRUE;
-
 #endif /* 0 */
 
 		/* Extract the attack "power" */
@@ -1465,7 +1459,7 @@ static void carried_monster_attack(s16b m_idx, bool *fear, bool *mdeath,
 	}
 }
 
-/*
+/**
  * Carried monster can attack too.
  * Based on monst_attack_monst.
  */
@@ -2099,7 +2093,7 @@ static void incarnate_monster_attack(s16b m_idx, bool *fear, bool *mdeath,
 }
 
 
-/*
+/**
  * Fetch an attack description from dam_*.txt files.
  */
 
@@ -2148,7 +2142,7 @@ static void flavored_attack(int percent, char *output)
 }
 
 
-/*
+/**
  * Apply the special effects of an attack
  */
 void attack_special(monster_type *m_ptr, s32b special, int dam)
@@ -2225,7 +2219,7 @@ void attack_special(monster_type *m_ptr, s32b special, int dam)
 }
 
 
-/*
+/**
  * Bare handed attacks
  */
 static void py_attack_hand(int *k, monster_type *m_ptr, s32b *special)
@@ -2381,7 +2375,7 @@ static void py_attack_hand(int *k, monster_type *m_ptr, s32b *special)
 }
 
 
-/*
+/**
  * Apply nazgul effects
  */
 void do_nazgul(int *k, int *num, int num_blow, int weap, monster_race *r_ptr,
@@ -2474,7 +2468,7 @@ void do_nazgul(int *k, int *num, int num_blow, int weap, monster_race *r_ptr,
 }
 
 
-/*
+/**
  * Player attacks a (poor, defenseless) creature        -RAK-
  *
  * If no "weapon" is available, then "punch" the monster one time.
@@ -3270,7 +3264,7 @@ bool player_can_enter(byte feature)
 	return (TRUE);
 }
 
-/*
+/**
  * Move player in the given direction, with the given "pickup" flag.
  *
  * This routine should (probably) always induce energy expenditure.
@@ -3885,7 +3879,7 @@ void move_player(int dir, int do_pickup, bool disarm)
 }
 
 
-/*
+/**
  * Hack -- Grid-based version of see_obstacle
  */
 static int see_obstacle_grid(cave_type *c_ptr)
@@ -3929,7 +3923,7 @@ static int see_obstacle_grid(cave_type *c_ptr)
 }
 
 
-/*
+/**
  * Hack -- Check for a "known wall" or "dangerous" feature (see below)
  */
 static int see_obstacle(int dir, int y, int x)
@@ -3946,7 +3940,7 @@ static int see_obstacle(int dir, int y, int x)
 }
 
 
-/*
+/**
  * Hack -- Check for an "unknown corner" (see below)
  */
 static int see_nothing(int dir, int y, int x)
@@ -3975,7 +3969,7 @@ static int see_nothing(int dir, int y, int x)
 
 
 
-/*
+/**
  * The running algorithm:                       -CJS-
  *
  * In the diagrams below, the player has just arrived in the
@@ -4106,32 +4100,32 @@ static int see_nothing(int dir, int y, int x)
 
 
 
-/*
+/**
  * Hack -- allow quick "cycling" through the legal directions
  */
 static byte cycle[] = { 1, 2, 3, 6, 9, 8, 7, 4, 1, 2, 3, 6, 9, 8, 7, 4, 1 };
 
-/*
+/**
  * Hack -- map each direction into the "middle" of the "cycle[]" array
  */
 static byte chome[] = { 0, 8, 9, 10, 7, 0, 11, 6, 5, 4 };
 
-/*
+/**
  * The direction we are running
  */
 static byte find_current;
 
-/*
+/**
  * The direction we came from
  */
 static byte find_prevdir;
 
-/*
+/**
  * We are looking for open area
  */
 static bool find_openarea;
 
-/*
+/**
  * We are looking for a break
  */
 static bool find_breakright;
@@ -4139,7 +4133,7 @@ static bool find_breakleft;
 
 
 
-/*
+/**
  * Initialize the running algorithm for a new direction.
  *
  * Diagonal Corridor -- allow diaginal entry into corridors.
@@ -4242,7 +4236,7 @@ static void run_init(int dir)
 }
 
 
-/*
+/**
  * Update the current "run" path
  *
  * Return TRUE if the running should be stopped
@@ -4622,7 +4616,7 @@ static bool run_test(void)
 
 
 
-/*
+/**
  * Take one step along the current "run" path
  */
 void run_step(int dir)
@@ -4677,7 +4671,7 @@ void run_step(int dir)
 }
 
 
-/*
+/**
  * Take care of the various things that can happen when you step
  * into a space. (Objects, traps, and stores.)
  */
@@ -4716,7 +4710,7 @@ void step_effects(int y, int x, int do_pickup)
 	}
 }
 
-/*
+/**
  * Issue a pet command
  */
 void do_cmd_pet(void)
@@ -5161,7 +5155,7 @@ void do_cmd_pet(void)
 	}
 }
 
-/*
+/**
  * Incarnate into a body
  */
 bool do_cmd_integrate_body()
@@ -5210,7 +5204,7 @@ bool do_cmd_integrate_body()
 	return TRUE;
 }
 
-/*
+/**
  * Leave a body
  */
 bool do_cmd_leave_body(bool drop_body)
@@ -5435,7 +5429,7 @@ bool execute_inscription(byte i, byte y, byte x)
 }
 
 
-/*
+/**
  * Choose an inscription and engrave it
  */
 void do_cmd_engrave()
@@ -5475,7 +5469,7 @@ void do_cmd_engrave()
 }
 
 
-/*
+/**
  * Let's do a spinning around attack:                   -- DG --
  *     aDb
  *     y@k

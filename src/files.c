@@ -2,7 +2,7 @@
 
 /* Purpose: code dealing with files (and death) */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -16,13 +16,13 @@
 static bool setuid_grabbed = TRUE;
 
 
-/*
+/**
  * You may or may not want to use the following "#undef".
  */
 /* #undef _POSIX_SAVED_IDS */
 
 
-/*
+/**
  * Hack -- drop permissions
  */
 void safe_setuid_drop(void)
@@ -66,7 +66,7 @@ void safe_setuid_drop(void)
 }
 
 
-/*
+/**
  * Hack -- grab permissions
  */
 void safe_setuid_grab(void)
@@ -110,7 +110,7 @@ void safe_setuid_grab(void)
 }
 
 
-/*
+/**
  * Extract the first few "tokens" from a buffer
  *
  * This function uses "colon" and "slash" and delim arg as the delimeter characters.
@@ -189,7 +189,7 @@ s16b tokenize(char *buf, s16b num, char **tokens, char delim1, char delim2)
 
 
 
-/*
+/**
  * Parse a sub-file of the "extra info" (format shown below)
  *
  * Each "action" line has an "action symbol" in the first column,
@@ -710,7 +710,7 @@ errr process_pref_file_aux(char *buf)
 }
 
 
-/*
+/**
  * Helper function for "process_pref_file()"
  *
  * Input:
@@ -987,7 +987,7 @@ static cptr process_pref_file_expr(char **sp, char *fp)
 
 
 
-/*
+/**
  * Process the "user pref file" with the given name
  *
  * See the function above for a list of legal "commands".
@@ -1116,7 +1116,7 @@ errr process_pref_file(cptr name)
 
 #ifdef CHECK_TIME
 
-/*
+/**
  * Operating hours for ANGBAND (defaults to non-work hours)
  */
 static char days[7][29] =
@@ -1130,7 +1130,7 @@ static char days[7][29] =
 		"SAT:XXXXXXXXXXXXXXXXXXXXXXXX"
 	};
 
-/*
+/**
  * Restict usage (defaults to no restrictions)
  */
 static bool check_time_flag = FALSE;
@@ -1138,7 +1138,7 @@ static bool check_time_flag = FALSE;
 #endif
 
 
-/*
+/**
  * Handle CHECK_TIME
  */
 errr check_time(void)
@@ -1169,7 +1169,7 @@ errr check_time(void)
 
 
 
-/*
+/**
  * !Ran under the game's permission!
  *
  * Initialize CHECK_TIME
@@ -1259,7 +1259,7 @@ struct statstime
 	struct timeval curtime;
 };
 
-/*
+/**
  * Maximal load (if any).
  */
 static int check_load_value = 0;
@@ -1267,7 +1267,7 @@ static int check_load_value = 0;
 #endif
 
 
-/*
+/**
  * Handle CHECK_LOAD
  */
 errr check_load(void)
@@ -1298,7 +1298,7 @@ errr check_load(void)
 }
 
 
-/*
+/**
  * !Ran under the game's permission!
  *
  * Initialize CHECK_LOAD
@@ -1368,7 +1368,7 @@ errr check_load_init(void)
 }
 
 
-/*
+/**
  * Print long number with header at given row, column
  * Use the color for the number, not the header
  */
@@ -1383,7 +1383,7 @@ static void prt_lnum(cptr header, s32b num, int row, int col, byte color)
 }
 
 
-/*
+/**
  * Print number with header at given row, column
  */
 static void prt_num(cptr header, int num, int row, int col, byte color,
@@ -1399,7 +1399,7 @@ static void prt_num(cptr header, int num, int row, int col, byte color,
 }
 
 
-/*
+/**
  * Print str with header at given row, column
  */
 static void prt_str(cptr header, cptr str, int row, int col, byte color)
@@ -1414,7 +1414,7 @@ static void prt_str(cptr header, cptr str, int row, int col, byte color)
 }
 
 
-/*
+/**
  * Prints the following information on the screen.
  *
  * For this to look right, the following should be spaced the
@@ -1593,13 +1593,13 @@ static void display_player_middle(void)
 
 
 
-/*
+/**
  * Hack -- pass color info around this file
  */
 static byte likert_color = TERM_WHITE;
 
 
-/*
+/**
  * Returns a "rating" of x depending on y
  */
 static cptr likert(int x, int y)
@@ -1679,7 +1679,7 @@ static cptr likert(int x, int y)
 }
 
 
-/*
+/**
  * Prints ratings on certain abilities
  *
  * This code is "imitated" elsewhere to "dump" a character sheet.
@@ -1861,7 +1861,7 @@ static void display_player_various(void)
 
 
 
-/*
+/**
  * Obtain the "flags" of the wielded symbiote
  */
 
@@ -1892,7 +1892,7 @@ void wield_monster_flags(u32b *f1, u32b *f2, u32b *f3, u32b *f4, u32b *f5, u32b 
 }
 
 
-/*
+/**
  * Obtain the "flags" for the player as if he was an item
  */
 void player_flags(u32b *f1, u32b *f2, u32b *f3, u32b *f4, u32b *f5, u32b *esp)
@@ -2272,7 +2272,7 @@ void player_flags(u32b *f1, u32b *f2, u32b *f3, u32b *f4, u32b *f5, u32b *esp)
 	}
 }
 
-/*
+/**
  * Object flag names
  */
 static cptr object_flag_names[192] =
@@ -2445,7 +2445,7 @@ static cptr object_flag_names[192] =
 	"Full ESP",
 };
 
-/*
+/**
  * Summarize resistances
  */
 static void display_player_ben_one(int mode)
@@ -2682,7 +2682,7 @@ static void display_player_ben_one(int mode)
 }
 
 
-/*
+/**
  * Display the character on the screen (various modes)
  *
  * The top two and bottom two lines are left blank.
@@ -2826,7 +2826,7 @@ void display_player(int mode)
 	}
 }
 
-/*
+/**
  * Utility function; should probably be in some other file...
  *
  * Describe the player's location -- either by dungeon level, town, or in
@@ -2920,7 +2920,7 @@ cptr describe_player_location()
 	return desc;
 }
 
-/*
+/**
  * Helper function or file_character_print_grid
  *
  * Figure out if a row on the grid is empty
@@ -2941,7 +2941,7 @@ static bool file_character_print_grid_check_row(const char *buf)
 	return FALSE;
 }
 
-/*
+/**
  * Helper function for file_character
  *
  * Prints the big ugly grid
@@ -2983,7 +2983,7 @@ static void file_character_print_grid(FILE *fff, bool show_gaps, bool show_legen
 	}
 }
 
-/*
+/**
  * Helper function for file_character
  *
  * Outputs one item (for Inventory, Equipment, Home, and Mathom-house)
@@ -3002,7 +3002,7 @@ void file_character_print_item(FILE *fff, char label, object_type *obj, bool ful
 	}
 }
 
-/*
+/**
  * Helper function for file_character
  *
  * Prints out one "store" (for Home and Mathom-house)
@@ -3029,7 +3029,7 @@ void file_character_print_store(FILE *fff, wilderness_type_info *place, int stor
 	}
 }
 
-/*
+/**
  * Helper function for file_character
  *
  * Checks if the store hasn't been added to the list yet, and then adds it if it
@@ -3072,7 +3072,7 @@ bool file_character_check_stores(store_type ***store_list, int *store_list_count
 	return TRUE;
 }
 
-/*
+/**
  * Hack -- Dump a character description file
  *
  * XXX XXX XXX Allow the "full" flag to dump additional info,
@@ -3429,7 +3429,7 @@ errr file_character(cptr name, bool full)
 }
 
 
-/*
+/**
  * Recursive file perusal.
  *
  * Return FALSE on "ESCAPE", otherwise TRUE.
@@ -3442,7 +3442,7 @@ errr file_character(cptr name, bool full)
  * XXX XXX XXX Allow the user to "save" the current file.
  */
 
-/*
+/**
  * A structure to hold (some of == XXX) the hyperlink information.
  * This prevents excessive use of stack.
  */
@@ -4594,7 +4594,7 @@ void html_screenshot(cptr name)
 	my_fclose(htm);
 }
 
-/*
+/**
  * Because this is dead code and hardly anyone but DG needs it.
  * IMHO this should never been included in the game code -- pelpel
  */
@@ -4629,7 +4629,7 @@ static int get_key(char c)
 	return ((i > KEY_NUM) ? KEY_NUM : i);
 }
 
-/*
+/**
  * Some ports don't like huge stacks
  */
 typedef char chg_type[500][100];
@@ -4738,7 +4738,7 @@ bool chg_to_txt(cptr base, cptr newname)
 
 #endif /* !WINDOWS && !MACINTOSH */
 
-/*
+/**
  * Peruse the On-Line-Help
  */
 void do_cmd_help(void)
@@ -4756,7 +4756,7 @@ void do_cmd_help(void)
 
 
 
-/*
+/**
  * Process the player name.
  * Extract a clean "base name".
  * Build the savefile name if needed.
@@ -4862,7 +4862,7 @@ void process_player_name(bool sf)
 }
 
 
-/*
+/**
  * Gets a name for the character, reacting to name changes.
  *
  * Assumes that "display_player(0)" has just been called
@@ -4913,7 +4913,7 @@ void get_name(void)
 
 
 
-/*
+/**
  * Hack -- commit suicide
  */
 void do_cmd_suicide(void)
@@ -4990,7 +4990,7 @@ void remove_cave_view(bool remove)
 	}
 }
 
-/*
+/**
  * Save the game
  */
 void do_cmd_save_game(void)
@@ -5053,7 +5053,7 @@ void do_cmd_save_game(void)
 
 
 
-/*
+/**
  * Hack -- Calculates the total number of points earned                -JWT-
  */
 long total_points(void)
@@ -5175,7 +5175,7 @@ long total_points(void)
 
 
 
-/*
+/**
  * Centers a string within a 31 character string                -JWT-
  */
 static void center_string(char *buf, cptr str)
@@ -5193,13 +5193,13 @@ static void center_string(char *buf, cptr str)
 }
 
 
-/*
+/**
  * Redefinable "print_tombstone" action
  */
 bool (*tombstone_aux)(void) = NULL;
 
 
-/*
+/**
  * Display a "tomb-stone"
  */
 static void print_tomb(void)
@@ -5322,7 +5322,7 @@ static void print_tomb(void)
 }
 
 
-/*
+/**
  * Display some character info
  */
 static void show_info(void)
@@ -5492,7 +5492,7 @@ static void show_info(void)
 
 
 
-/*
+/**
  * Semi-Portable High Score List Entry (128 bytes) -- BEN
  *
  * All fields listed below are null terminated ascii strings.
@@ -5542,7 +5542,7 @@ struct high_score
 
 
 
-/*
+/**
  * Seek score 'i' in the highscore file
  */
 static int highscore_seek(int i)
@@ -5552,7 +5552,7 @@ static int highscore_seek(int i)
 }
 
 
-/*
+/**
  * Read one score from the highscore file
  */
 static errr highscore_read(high_score *score)
@@ -5562,7 +5562,7 @@ static errr highscore_read(high_score *score)
 }
 
 
-/*
+/**
  * Write one score to the highscore file
  */
 static int highscore_write(high_score *score)
@@ -5574,7 +5574,7 @@ static int highscore_write(high_score *score)
 
 
 
-/*
+/**
  * Just determine where a new score *would* be placed
  * Return the location (0 is best) or -1 on failure
  */
@@ -5602,7 +5602,7 @@ static int highscore_where(high_score *score)
 }
 
 
-/*
+/**
  * Actually place an entry into the high score file
  * Return the location (0 is best) or -1 on "failure"
  */
@@ -5647,7 +5647,7 @@ static int highscore_add(high_score *score)
 
 
 
-/*
+/**
  * Display the scores in a given range.
  * Assumes the high score list is already open.
  * Only five entries per line, too much info.
@@ -5817,7 +5817,7 @@ static void display_scores_aux(int from, int to, int note, high_score *score)
 }
 
 
-/*
+/**
  * Hack -- Display the scores in a given range and quit.
  *
  * This function is only called from "main.c" when the user asks
@@ -5859,7 +5859,7 @@ void display_scores(int from, int to)
 }
 
 
-/*
+/**
  * show_highclass - selectively list highscores based on class
  * -KMW-
  */
@@ -5986,7 +5986,7 @@ void show_highclass(int building)
 }
 
 
-/*
+/**
  * Race Legends
  * -KMW-
  */
@@ -6067,7 +6067,7 @@ void race_score(int race_num)
 }
 
 
-/*
+/**
  * Race Legends
  * -KMW-
  */
@@ -6088,7 +6088,7 @@ void race_legends(void)
 
 
 
-/*
+/**
  * Enters a players name on a hi-score table, if "legal", and in any
  * case, displays some relevant portion of the high score list.
  *
@@ -6248,7 +6248,7 @@ static errr top_twenty(void)
 }
 
 
-/*
+/**
  * Predict the players location, and display it.
  */
 errr predict_score(void)
@@ -6336,7 +6336,7 @@ errr predict_score(void)
 
 
 
-/*
+/**
  * Change the player into a King!                        -RAK-
  */
 static void kingly(void)
@@ -6388,7 +6388,7 @@ static void kingly(void)
 }
 
 
-/*
+/**
  * Wipe the saved levels
  */
 void wipe_saved()
@@ -6429,7 +6429,7 @@ void wipe_saved()
 }
 
 
-/*
+/**
  * Close up the current game (player may or may not be dead)
  *
  * This function is called only from "main.c" and "signals.c".
@@ -6563,7 +6563,7 @@ void close_game(void)
 }
 
 
-/*
+/**
  * Handle abrupt death of the visual system
  *
  * This routine is called only in very rare situations, and only
@@ -6606,7 +6606,7 @@ void exit_game_panic(void)
 }
 
 
-/*
+/**
  * Grab a randomly selected line in lib/file/file_name
  */
 errr get_rnd_line(char *file_name, char *output)
@@ -6684,7 +6684,7 @@ errr get_rnd_line(char *file_name, char *output)
 }
 
 
-/*
+/**
  * Read line'th line file the file
  * and return pointer to it, or NULL if it fails.
  *
@@ -6734,7 +6734,7 @@ char *get_line(char* fname, cptr fdir, char *linbuf, int line)
 }
 
 
-/*
+/**
  * Return a line for a speaking unique, by Matt G.
  *
  * XXX XXX XXX Opening a file and scanning it through whenever a unique
@@ -6882,7 +6882,7 @@ errr get_xtra_line(char *file_name, monster_type *m_ptr, char *output)
 #include <signal.h>
 
 
-/*
+/**
  * Handle signals -- suspend
  *
  * Actually suspend the game, and then resume cleanly
@@ -6919,7 +6919,7 @@ static void handle_signal_suspend(int sig)
 }
 
 
-/*
+/**
  * Handle signals -- simple (interrupt and quit)
  *
  * This function was causing a *huge* number of problems, so it has
@@ -7010,7 +7010,7 @@ static void handle_signal_simple(int sig)
 }
 
 
-/*
+/**
  * Handle signal -- abort, kill, etc
  */
 static void handle_signal_abort(int sig)
@@ -7067,7 +7067,7 @@ static void handle_signal_abort(int sig)
 
 
 
-/*
+/**
  * Ignore SIGTSTP signals (keyboard suspend)
  */
 void signals_ignore_tstp(void)
@@ -7079,7 +7079,7 @@ void signals_ignore_tstp(void)
 
 }
 
-/*
+/**
  * Handle SIGTSTP signals (keyboard suspend)
  */
 void signals_handle_tstp(void)
@@ -7092,7 +7092,7 @@ void signals_handle_tstp(void)
 }
 
 
-/*
+/**
  * Prepare to handle the relevant signals
  */
 void signals_init(void)
@@ -7179,19 +7179,19 @@ void signals_init(void)
 #else        /* HANDLE_SIGNALS */
 
 
-/*
+/**
 * Do nothing
 */
 void signals_ignore_tstp(void)
 {}
 
-/*
+/**
 * Do nothing
 */
 void signals_handle_tstp(void)
 {}
 
-/*
+/**
 * Do nothing
 */
 void signals_init(void)

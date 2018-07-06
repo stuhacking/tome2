@@ -3,7 +3,7 @@
 #ifndef INCLUDED_H_SYSTEM_H
 #define INCLUDED_H_SYSTEM_H
 
-/*
+/**
  * Include the basic "system" files.
  *
  * Make sure all "system" constants/macros are defined.

@@ -2,7 +2,7 @@
 
 /* Purpose: Wizard commands */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -15,7 +15,7 @@
 void do_cmd_wizard_body(s16b);
 extern void status_main(void);
 
-/*
+/**
  * Adds a lvl to a monster
  */
 void wiz_inc_monster_level(int level)
@@ -49,7 +49,7 @@ void wiz_align_monster(int status)
 	}
 }
 
-/*
+/**
  * Teleport directly to a town
  */
 void teleport_player_town(int town)
@@ -84,7 +84,7 @@ finteletown:
 }
 
 
-/*
+/**
  * Hack -- Rerate Hitpoints
  */
 void do_cmd_rerate(void)
@@ -132,7 +132,7 @@ void do_cmd_rerate(void)
 }
 
 
-/*
+/**
  * Create the artifact of the specified number -- DAN
  *
  */
@@ -190,7 +190,7 @@ static void wiz_create_named_art()
 	msg_print("Allocated.");
 }
 
-/*
+/**
  * Hack -- quick debugging hook
  */
 void do_cmd_wiz_hack_ben(int num)
@@ -247,7 +247,7 @@ static void do_cmd_summon_horde()
 #endif /* MONSTER_HORDES */
 
 
-/*
+/**
  * Output a long int in binary format.
  */
 static void prt_binary(u32b flags, int row, int col)
@@ -273,7 +273,7 @@ static void prt_binary(u32b flags, int row, int col)
 }
 
 
-/*
+/**
  * Hack -- Teleport to the target
  */
 static void do_cmd_wiz_bamf(void)
@@ -286,7 +286,7 @@ static void do_cmd_wiz_bamf(void)
 }
 
 
-/*
+/**
  * Aux function for "do_cmd_wiz_change()".	-RAK-
  */
 static void do_cmd_wiz_change_aux(void)
@@ -372,7 +372,7 @@ static void do_cmd_wiz_change_aux(void)
 }
 
 
-/*
+/**
  * Change various "permanent" player variables.
  */
 static void do_cmd_wiz_change(void)
@@ -385,7 +385,7 @@ static void do_cmd_wiz_change(void)
 }
 
 
-/*
+/**
  * Wizard routines for creating objects		-RAK-
  * And for manipulating them!                   -Bernd-
  *
@@ -441,7 +441,7 @@ static void do_cmd_wiz_change(void)
  * This "feature" may induce crashes or other nasty effects.
  */
 
-/*
+/**
  * Just display an item's properties (debug-info)
  * Originally by David Reeve Sward <sward+@CMU.EDU>
  * Verbose item flags by -Bernd-
@@ -509,7 +509,7 @@ static void wiz_display_item(object_type *o_ptr)
 }
 
 
-/*
+/**
  * A list of tvals and their textual names
  */
 tval_desc2 tvals[] =
@@ -564,7 +564,7 @@ tval_desc2 tvals[] =
 };
 
 
-/*
+/**
  * Strip an "object name" into a buffer
  */
 static void strip_name(char *buf, int k_idx)
@@ -590,7 +590,7 @@ static void strip_name(char *buf, int k_idx)
 }
 
 
-/*
+/**
  * Hack -- title for each column
  *
  * XXX XXX XXX This will not work with "EBCDIC", I would think.
@@ -598,7 +598,7 @@ static void strip_name(char *buf, int k_idx)
 static char head[4] = { 'a', 'A', '0', ':' };
 
 
-/*
+/**
  * Print a string as required by wiz_create_itemtype().
  * Trims characters from the beginning until it fits in the space
  * before the next row or the edge of the screen.
@@ -619,7 +619,7 @@ static void wci_string(cptr string, int num)
 	prt(format("[%c] %s", ch, string), row, col);
 }
 
-/*
+/**
  * Specify tval and sval (type and subtype of object) originally
  * by RAK, heavily modified by -Bernd-
  *
@@ -716,7 +716,7 @@ static int wiz_create_itemtype(void)
 }
 
 
-/*
+/**
  * Tweak an item
  */
 static void wiz_tweak_item(object_type *o_ptr)
@@ -803,7 +803,7 @@ static void wiz_tweak_item(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Apply magic to an item or turn it into an artifact. -Bernd-
  */
 static void wiz_reroll_item(object_type *o_ptr)
@@ -904,13 +904,13 @@ static void wiz_reroll_item(object_type *o_ptr)
 
 
 
-/*
+/**
  * Maximum number of rolls
  */
 #define TEST_ROLL 100000
 
 
-/*
+/**
  * Try to create an item again. Output some statistics.    -Bernd-
  *
  * The statistics are correct now.  We acquire a clean grid, and then
@@ -1107,7 +1107,7 @@ static void wiz_statistics(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Change the quantity of a the item
  */
 static void wiz_quantity_item(object_type *o_ptr)
@@ -1139,7 +1139,7 @@ static void wiz_quantity_item(object_type *o_ptr)
 
 
 
-/*
+/**
  * Play with an item. Options include:
  *   - Output statistics (via wiz_roll_item)
  *   - Reroll item (via wiz_reroll_item)
@@ -1282,7 +1282,7 @@ static void do_cmd_wiz_play(void)
 }
 
 
-/*
+/**
  * Wizard routine for creating objects		-RAK-
  * Heavily modified to allow magification and artifactification  -Bernd-
  *
@@ -1334,7 +1334,7 @@ static void wiz_create_item(void)
 	msg_print("Allocated.");
 }
 
-/*
+/**
  * As above, but takes the k_idx as a parameter instead of using menus.
  */
 static void wiz_create_item_2(void)
@@ -1368,7 +1368,7 @@ static void wiz_create_item_2(void)
 }
 
 
-/*
+/**
  * Cure everything instantly
  */
 void do_cmd_wiz_cure_all(void)
@@ -1431,7 +1431,7 @@ void do_cmd_wiz_cure_all(void)
 }
 
 
-/*
+/**
  * Go to any level
  */
 static void do_cmd_wiz_jump(void)
@@ -1487,7 +1487,7 @@ static void do_cmd_wiz_jump(void)
 }
 
 
-/*
+/**
  * Become aware of a lot of objects
  */
 static void do_cmd_wiz_learn(void)
@@ -1518,7 +1518,7 @@ static void do_cmd_wiz_learn(void)
 }
 
 
-/*
+/**
  * Summon some creatures
  */
 static void do_cmd_wiz_summon(int num)
@@ -1532,7 +1532,7 @@ static void do_cmd_wiz_summon(int num)
 }
 
 
-/*
+/**
  * Summon a creature of the specified type
  *
  * XXX XXX XXX This function is rather dangerous
@@ -1566,7 +1566,7 @@ static void do_cmd_wiz_named(int r_idx, bool slp)
 }
 
 
-/*
+/**
  * Summon a creature of the specified type
  *
  * XXX XXX XXX This function is rather dangerous
@@ -1601,7 +1601,7 @@ void do_cmd_wiz_named_friendly(int r_idx, bool slp)
 
 
 
-/*
+/**
  * Hack -- Delete all nearby monsters
  */
 static void do_cmd_wiz_zap(void)
@@ -1633,21 +1633,21 @@ extern void do_cmd_wiz_body(s16b bidx)
 }
 
 
-/*
+/**
  * External function
  */
 extern void do_cmd_spoilers(void);
 
 
 
-/*
+/**
  * Hack -- declare external function
  */
 extern void do_cmd_debug(void);
 
 
 
-/*
+/**
  * Ask for and parse a "debug command"
  * The "command_arg" may have been set.
  */

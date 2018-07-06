@@ -2,7 +2,7 @@
 
 /* Purpose: Angband game engine */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -20,7 +20,7 @@ extern lua_State* L;
 #define AUTO_CURSE_CHANCE 15
 #define CHAINSWORD_NOISE 100
 
-/*
+/**
  * I created this when a bug misplaced my character and the game wasn't able
  * to load it again.. very frustrating.
  * So this hack will generate a new level without calling dungeon(), and
@@ -32,7 +32,7 @@ bool save_hack = TRUE;
 #endif
 
 
-/*
+/**
  * Return a "feeling" (or NULL) about an item.  Method 1 (Heavy).
  */
 byte value_check_aux1(object_type *o_ptr)
@@ -134,7 +134,7 @@ byte value_check_aux1_magic(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Return a "feeling" (or NULL) about an item.  Method 2 (Light).
  */
 byte value_check_aux2(object_type *o_ptr)
@@ -223,7 +223,7 @@ byte value_check_aux2_magic(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Can a player be resurrected?
  */
 static bool granted_resurrection(void)
@@ -292,7 +292,7 @@ static byte select_sense(object_type *o_ptr)
 	return 0;
 }
 
-/*
+/**
  * Sense the inventory
  *
  * Combat items (weapons and armour) - Fast, weak if combat skill < 10, strong
@@ -433,7 +433,7 @@ void sense_inventory(void)
 }
 
 
-/*
+/**
  * Go to any level (ripped off from wiz_jump)
  */
 static void pattern_teleport(void)
@@ -492,7 +492,7 @@ static void pattern_teleport(void)
 }
 
 
-/*
+/**
  * Returns TRUE if we are on the Straight Road...
  */
 static bool pattern_effect(void)
@@ -551,7 +551,7 @@ static bool pattern_effect(void)
 }
 
 
-/*
+/**
  * If player has inscribed the object with "!!", let him know when it's
  * recharged. -LM-
  */
@@ -598,7 +598,7 @@ static void recharged_notice(object_type *o_ptr)
 
 
 
-/*
+/**
  * Regenerate hit points				-RAK-
  */
 static void regenhp(int percent)
@@ -656,7 +656,7 @@ static void regenhp(int percent)
 }
 
 
-/*
+/**
  * Regenerate mana points				-RAK-
  */
 static void regenmana(int percent)
@@ -716,7 +716,7 @@ static void regenmana(int percent)
 
 
 
-/*
+/**
  * Regenerate the monsters (once per 100 game turns)
  *
  * XXX XXX XXX Should probably be done during monster turns.
@@ -795,7 +795,7 @@ static void regen_monsters(void)
 }
 
 
-/*
+/**
  * Does an object decay?
  *
  * Should belong to object1.c, renamed to object_decays() -- pelpel
@@ -981,7 +981,7 @@ static void check_music()
 }
 
 
-/*
+/**
  * Generate the feature effect
  */
 void apply_effect(int y, int x)
@@ -1028,7 +1028,7 @@ void apply_effect(int y, int x)
 
 
 #if 0
-/*
+/**
  * Activate corruptions' effects on player
  *
  * All the rolls against arbitrarily chosen numbers are normalised
@@ -1045,7 +1045,7 @@ static void process_corruption_effects(void)
 
 #ifdef pelpel
 
-/*
+/**
  * Handle staying spell effects once every 10 game turns
  */
 static void process_effects(void)
@@ -1155,7 +1155,7 @@ static void process_effects(void)
 bool is_recall = FALSE;
 
 
-/*
+/**
  * Handle certain things once every 10 game turns
  *
  * Note that a single movement in the overhead wilderness mode
@@ -3342,7 +3342,7 @@ static void process_world(void)
 }
 
 
-/*
+/**
  * Verify use of "wizard" mode
  */
 static bool enter_wizard_mode(void)
@@ -3370,7 +3370,7 @@ static bool enter_wizard_mode(void)
 }
 
 
-/*
+/**
  * Verify use of "debug" commands
  */
 static bool enter_debug_mode(void)
@@ -3398,13 +3398,13 @@ static bool enter_debug_mode(void)
 }
 
 
-/*
+/**
  * Hack -- Declare the Debug Routines
  */
 extern void do_cmd_debug(void);
 
 
-/*
+/**
  * Parse and execute the current command
  * Give "Warning" on illegal commands.
  *
@@ -4523,7 +4523,7 @@ static void process_command(void)
 
 
 
-/*
+/**
  * Process the player
  *
  * Notice the annoying code to handle "pack overflow", which
@@ -4997,7 +4997,7 @@ void process_player(void)
 
 
 
-/*
+/**
  * Interact with the current dungeon level.
  *
  * This function will not exit until the level is completed,
@@ -5406,7 +5406,7 @@ static void dungeon(void)
 
 
 
-/*
+/**
  * Load some "user pref files"
  */
 static void load_all_pref_files(void)
@@ -5436,7 +5436,7 @@ static void load_all_pref_files(void)
 	tome_dofile_anywhere(ANGBAND_DIR_USER, format("%s.atm", player_name), FALSE);
 }
 
-/*
+/**
  * Actually play a game
  *
  * If the "new_game" parameter is true, then, after loading the

@@ -1,6 +1,6 @@
 /* File: bldg.c */
 
-/*
+/**
  * Purpose: Building commands
  * Created by Ken Wigle for Kangband - a variant of Angband 2.8.3
  * -KMW-
@@ -22,7 +22,7 @@ static bool leave_bldg = FALSE;
 static int building_loc = 0;
 
 
-/*
+/**
  * A helper function for is_state
  */
 bool is_state_aux(store_type *s_ptr, int state)
@@ -47,7 +47,7 @@ bool is_state_aux(store_type *s_ptr, int state)
 }
 
 
-/*
+/**
  * Test if the state accords with the player
  */
 bool is_state(store_type *s_ptr, int state)
@@ -66,7 +66,7 @@ bool is_state(store_type *s_ptr, int state)
 }
 
 
-/*
+/**
  * Clear the building information
  */
 static void clear_bldg(int min_row, int max_row)
@@ -81,7 +81,7 @@ static void clear_bldg(int min_row, int max_row)
 }
 
 
-/*
+/**
  * Display a building.
  */
 void show_building(store_type *s_ptr)
@@ -217,7 +217,7 @@ static void reset_tim_flags()
 }
 
 
-/*
+/**
  * arena commands
  */
 static void arena_comm(int cmd)
@@ -300,7 +300,7 @@ static void arena_comm(int cmd)
 }
 
 
-/*
+/**
  * display fruit for dice slots
  */
 static void display_fruit(int row, int col, int fruit)
@@ -400,7 +400,7 @@ static void display_fruit(int row, int col, int fruit)
 }
 
 
-/*
+/**
  * gamble_comm
  */
 static bool gamble_comm(int cmd)
@@ -655,7 +655,7 @@ static bool gamble_comm(int cmd)
 }
 
 
-/*
+/**
  * inn commands
  * Note that resting for the night was a perfect way to avoid player
  * ghosts in the town *if* you could only make it to the inn in time (-:
@@ -784,7 +784,7 @@ static bool inn_comm(int cmd)
 
 #if 0 /* removes compiler warning */
 
-/*
+/**
  * share gold for thieves
  */
 static void share_gold(void)
@@ -800,7 +800,7 @@ static void share_gold(void)
 
 #endif
 
-/*
+/**
  * Display quest information
  */
 static void get_questinfo(int questnum)
@@ -822,7 +822,7 @@ static void get_questinfo(int questnum)
 }
 
 
-/*
+/**
  * Request a quest from the Lord.
  */
 static bool castle_quest(int y, int x)
@@ -895,7 +895,7 @@ static bool castle_quest(int y, int x)
 	return FALSE;
 }
 
-/*
+/**
  * Displaying town history -KMW-
  */
 static void town_history(void)
@@ -911,7 +911,7 @@ static void town_history(void)
 }
 
 
-/*
+/**
  * compare_weapon_aux2 -KMW-
  */
 static void compare_weapon_aux2(object_type *o_ptr, int numblows, int r, int c, int mult, char attr[80], u32b f1, u32b f2, u32b f3, byte color)
@@ -927,7 +927,7 @@ static void compare_weapon_aux2(object_type *o_ptr, int numblows, int r, int c, 
 }
 
 
-/*
+/**
  * compare_weapon_aux1 -KMW-
  */
 static void compare_weapon_aux1(object_type *o_ptr, int col, int r)
@@ -1010,7 +1010,7 @@ static void compare_weapon_aux1(object_type *o_ptr, int col, int r)
 }
 
 
-/*
+/**
  * list_weapon -KMW-
  */
 static void list_weapon(object_type *o_ptr, int row, int col)
@@ -1038,7 +1038,7 @@ static void list_weapon(object_type *o_ptr, int row, int col)
 }
 
 
-/*
+/**
  * Select melee weapons
  */
 static bool item_tester_hook_melee_weapon(object_type *o_ptr)
@@ -1046,7 +1046,7 @@ static bool item_tester_hook_melee_weapon(object_type *o_ptr)
 	return (wield_slot(o_ptr) == INVEN_WIELD);
 }
 
-/*
+/**
  * compare_weapons -KMW-
  */
 static bool compare_weapons(void)
@@ -1134,7 +1134,7 @@ static bool compare_weapons(void)
 }
 
 
-/*
+/**
  * general all-purpose fixing routine for items from building personnel
  * sharpen arrows, repair armor, repair weapon
  * -KMW-
@@ -1244,7 +1244,7 @@ static bool fix_item(int istart, int iend, int ispecific, bool iac,
 }
 
 
-/*
+/**
  * Research Item
  */
 static bool research_item(void)
@@ -1254,7 +1254,7 @@ static bool research_item(void)
 }
 
 
-/*
+/**
  * Show the current quest monster. 
  */
 static void show_quest_monster(void)
@@ -1270,7 +1270,7 @@ static void show_quest_monster(void)
 }
 
 
-/*
+/**
  * Show the current bounties.
  */
 static void show_bounties(void)
@@ -1306,7 +1306,7 @@ static void show_bounties(void)
 }
 
 
-/*
+/**
  * Filter for corpses that currently have a bounty on them.
  */
 static bool item_tester_hook_bounty(object_type* o_ptr)
@@ -1334,7 +1334,7 @@ static bool item_tester_hook_quest_monster(object_type* o_ptr)
 }
 
 
-/*
+/**
  * Return the boost in the corpse's value depending on how rare the body
  * part is.
  */
@@ -1356,7 +1356,7 @@ static int corpse_value_boost(int sval)
 	}
 }
 
-/*
+/**
  * Sell a corpse, if there's currently a bounty on it.
  */
 static void sell_corpses(void)
@@ -1410,7 +1410,7 @@ static void sell_corpses(void)
 
 
 
-/*
+/**
  * Hook for bounty monster selection.
  */
 static bool mon_hook_bounty(int r_idx)
@@ -1478,7 +1478,7 @@ static void select_quest_monster(void)
 
 
 
-/*
+/**
  * Sell a corpse for a reward.
  */
 static void sell_quest_monster(void)
@@ -1576,7 +1576,7 @@ static void sell_quest_monster(void)
 
 
 
-/*
+/**
  * Fill the bounty list with monsters.
  */
 void select_bounties(void)
@@ -1633,7 +1633,7 @@ void select_bounties(void)
 	get_mon_num_prep();
 }
 
-/*
+/**
  * Execute a building command
  */
 bool bldg_process_command(store_type *s_ptr, int i)
@@ -2125,7 +2125,7 @@ bool bldg_process_command(store_type *s_ptr, int i)
 }
 
 
-/*
+/**
  * Enter quest level
  */
 void enter_quest(void)
@@ -2152,7 +2152,7 @@ void enter_quest(void)
 }
 
 
-/*
+/**
  * Do building commands
  */
 void do_cmd_bldg(void)

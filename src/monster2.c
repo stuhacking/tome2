@@ -2,7 +2,7 @@
 
 /* Purpose: misc code for monsters */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -224,7 +224,7 @@ int pick_ego_monster(int r_idx)
 	return 0;
 }
 
-/*
+/**
  * Return a (monster_race*) with the combination of the monster
  * properties and the ego type
  */
@@ -395,7 +395,7 @@ int get_wilderness_flag(void)
 }
 
 
-/*
+/**
  * Delete a monster by index.
  *
  * When a monster is deleted, all of its objects are deleted.
@@ -525,7 +525,7 @@ void delete_monster_idx(int i)
 }
 
 
-/*
+/**
  * Delete the monster, if any, at a given location
  */
 void delete_monster(int y, int x)
@@ -543,7 +543,7 @@ void delete_monster(int y, int x)
 }
 
 
-/*
+/**
  * Move an object from index i1 to index i2 in the object list
  */
 static void compact_monsters_aux(int i1, int i2)
@@ -626,7 +626,7 @@ static void compact_monsters_aux(int i1, int i2)
 }
 
 
-/*
+/**
  * Compact and Reorder the monster list
  *
  * This function can be very dangerous, use with caution!
@@ -711,7 +711,7 @@ void compact_monsters(int size)
 	}
 }
 
-/*
+/**
  * Delete/Remove all the monsters when the player leaves the level
  *
  * This is an efficient method of simulating multiple calls to the
@@ -770,7 +770,7 @@ void wipe_m_list(void)
 }
 
 
-/*
+/**
  * Acquires and returns the index of a "free" monster.
  *
  * This routine should almost never fail, but it *can* happen.
@@ -826,7 +826,7 @@ s16b m_pop(void)
 
 
 
-/*
+/**
  * Apply a "monster restriction function" to the "monster allocation table"
  */
 errr get_mon_num_prep(void)
@@ -859,7 +859,7 @@ errr get_mon_num_prep(void)
 	return (0);
 }
 
-/*
+/**
  * Some dungeon types restrict the possible monsters.
  * Return TRUE is the monster is OK and FALSE otherwise
  */
@@ -977,7 +977,7 @@ bool restrict_monster_to_dungeon(int r_idx)
 /* Ugly hack, let summon unappropriate monsters */
 bool summon_hack = FALSE;
 
-/*
+/**
  * Choose a monster race that seems "appropriate" to the given level
  *
  * This function uses the "prob2" field of the "monster allocation table",
@@ -1176,7 +1176,7 @@ s16b get_mon_num(int level)
 
 
 
-/*
+/**
  * Build a string describing a monster in some way.
  *
  * We can correctly describe monsters based on their visibility.
@@ -1466,7 +1466,7 @@ void monster_race_desc(char *desc, int r_idx, int ego)
 
 
 
-/*
+/**
  * Learn about a monster (by "probing" it)
  */
 void lore_do_probe(int m_idx)
@@ -1489,7 +1489,7 @@ void lore_do_probe(int m_idx)
 }
 
 
-/*
+/**
  * Take note that the given monster just dropped some treasure
  *
  * Note that learning the "GOOD"/"GREAT" flags gives information
@@ -1669,7 +1669,7 @@ void sanity_blast(monster_type * m_ptr, bool necro)
 }
 
 
-/*
+/**
  * This function updates the monster record of the given monster
  *
  * This involves extracting the distance to the player, checking
@@ -2004,7 +2004,7 @@ void update_mon(int m_idx, bool full)
 
 
 
-/*
+/**
  * This function simply updates all the (non-dead) monsters (see above).
  */
 void update_monsters(bool full)
@@ -2107,7 +2107,7 @@ bool kind_is_randart(int k_idx)
 	return (FALSE);
 }
 
-/*
+/**
  * Attempt to place a monster of the given race at the given location.
  *
  * To give the player a sporting chance, any monster that appears in
@@ -2702,13 +2702,13 @@ s16b place_monster_one(int y, int x, int r_idx, int ego, bool slp, int status)
 	return c_ptr->m_idx;
 }
 
-/*
+/**
  * Maximum size of a group of monsters
  */
 #define GROUP_MAX	32
 
 
-/*
+/**
  * Attempt to place a "group" of monsters around the given location
  */
 static bool place_monster_group(int y, int x, int r_idx, bool slp, int status)
@@ -2798,12 +2798,12 @@ static bool place_monster_group(int y, int x, int r_idx, bool slp, int status)
 }
 
 
-/*
+/**
  * Hack -- help pick an escort type
  */
 static int place_monster_idx = 0;
 
-/*
+/**
  * Hack -- help pick an escort type
  */
 static bool place_monster_okay(int r_idx)
@@ -2832,7 +2832,7 @@ static bool place_monster_okay(int r_idx)
 }
 
 
-/*
+/**
  * Attempt to place a monster of the given race at the given location
  *
  * Note that certain monsters are now marked as requiring "friends".
@@ -2939,7 +2939,7 @@ bool place_monster_aux(int y, int x, int r_idx, bool slp, bool grp, int status)
 }
 
 
-/*
+/**
  * Hack -- attempt to place a monster at the given location
  *
  * Attempt to find a monster appropriate to the "monster_level"
@@ -3035,7 +3035,7 @@ bool alloc_horde(int y, int x)
 
 #endif /* MONSTER_HORDES */
 
-/*
+/**
  * Attempt to allocate a random monster in the dungeon.
  *
  * Place the monster at least "dis" distance from the player.
@@ -3101,13 +3101,13 @@ bool alloc_monster(int dis, bool slp)
 
 
 
-/*
+/**
  * Hack -- the "type" of the current "summon specific"
  */
 static int summon_specific_type = 0;
 
 
-/*
+/**
  * Hack -- help decide if a monster race is "okay" to summon
  */
 bool summon_specific_okay(int r_idx)
@@ -3401,7 +3401,7 @@ bool summon_specific_okay(int r_idx)
 }
 
 
-/*
+/**
  * Place a monster (of the specified "type") near the given
  * location.  Return TRUE if a monster was actually summoned.
  *
@@ -3591,7 +3591,7 @@ bool summon_specific_friendly(int y1, int x1, int lev, int type, bool Group_ok)
 }
 
 
-/*
+/**
  * Swap the players/monsters (if any) at two locations XXX XXX XXX
  */
 void monster_swap(int y1, int x1, int y2, int x2)
@@ -3695,7 +3695,7 @@ void monster_swap(int y1, int x1, int y2, int x2)
 }
 
 
-/*
+/**
  * Hack -- help decide if a monster race is "okay" to summon
  */
 static bool mutate_monster_okay(int r_idx)
@@ -3714,7 +3714,7 @@ static bool mutate_monster_okay(int r_idx)
 }
 
 
-/*
+/**
  * Let the given monster attempt to reproduce.
  *
  * Note that "reproduction" REQUIRES empty space.
@@ -3791,7 +3791,7 @@ bool multiply_monster(int m_idx, bool charm, bool clone)
 
 
 
-/*
+/**
  * Dump a message describing a monster's reaction to damage
  *
  * Technically should attempt to treat "Beholder"'s as jelly's
@@ -3927,7 +3927,7 @@ void message_pain(int m_idx, int dam)
 
 
 
-/*
+/**
  * Learn about an "observed" resistance.
  */
 void update_smart_learn(int m_idx, int what)
@@ -4042,7 +4042,7 @@ void update_smart_learn(int m_idx, int what)
 }
 
 
-/*
+/**
  * Place the player in the dungeon XXX XXX
  */
 s16b player_place(int y, int x)
@@ -4058,7 +4058,7 @@ s16b player_place(int y, int x)
 	return ( -1);
 }
 
-/*
+/**
  * Drop all items carried by a monster
  */
 void monster_drop_carried_objects(monster_type *m_ptr)

@@ -2,7 +2,7 @@
 
 /* Purpose: Randart creation code */
 
-/*
+/**
  * Copyright (c) 2001 DarkGod
  *
  * This software may be copied and distributed for educational, research, and
@@ -18,7 +18,7 @@
 #define WEIRD_LUCK      12
 #define ACTIVATION_CHANCE 3
 
-/*
+/**
  * Attempt to add a power to a randart
  */
 static bool grab_one_power(int *ra_idx, object_type *o_ptr, bool good, s16b *max_times)
@@ -151,7 +151,7 @@ int get_activation_power()
 static long lprobs[S_WORD + 1][S_WORD + 1][S_WORD + 1];
 static long ltotal[S_WORD + 1][S_WORD + 1];
 
-/*
+/**
  * Use W. Sheldon Simms' random name generator.  This function builds
  * probability tables which are used later on for letter selection.  It
  * relies on the ASCII character set.
@@ -190,7 +190,7 @@ void build_prob(cptr learn)
 }
 
 
-/*
+/**
  * Use W. Sheldon Simms' random name generator.  Generate a random word using
  * the probability tables we built earlier.  Relies on the ASCII character
  * set.  Relies on European vowels (a, e, i, o, u).  The generated name should

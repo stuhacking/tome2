@@ -5,7 +5,7 @@
 #include "angband.h"
 
 
-/*
+/**
  * This file is used to initialise various variables and arrays for the
  * Angband game.  Note the use of "fd_read()" and "fd_write()" to bypass
  * the common limitation of "read()" and "write()" to only 32767 bytes
@@ -26,7 +26,7 @@
 
 
 
-/*
+/**
  * Find the default paths to all of our important sub-directories.
  *
  * The purpose of each sub-directory is described in "variable.c".
@@ -281,14 +281,14 @@ static void z_realloc(char **p, size_t n) {
         }
 }
 
-/*
+/**
  * Hack -- help give useful error messages
  */
 s16b error_idx;
 s16b error_line;
 
 
-/*
+/**
  * Hack -- help initialise the fake "name" and "text" arrays when
  * parsing an "ascii" template file.
  */
@@ -296,7 +296,7 @@ u32b fake_name_size;
 u32b fake_text_size;
 
 
-/*
+/**
  * Standard error message text
  */
 static cptr err_str[9] =
@@ -313,7 +313,7 @@ static cptr err_str[9] =
 };
 
 
-/*
+/**
  * Hack -- take notes on line 23
  */
 static void note(cptr str)
@@ -325,7 +325,7 @@ static void note(cptr str)
 
 
 
-/*
+/**
  * Initialise the "f_info" array
  *
  * Note that we let each entry have a unique "name" and "text" string,
@@ -426,7 +426,7 @@ static errr init_f_info(void)
 
 
 
-/*
+/**
  * Initialise the "k_info" array
  *
  * Note that we let each entry have a unique "name" and "text" string,
@@ -527,7 +527,7 @@ static errr init_k_info(void)
 
 
 
-/*
+/**
  * Initialise the "set_info" array
  *
  * Note that we let each entry have a unique "name" and "text" string,
@@ -627,7 +627,7 @@ static errr init_set_info(void)
 }
 
 
-/*
+/**
  * Initialise the "a_info" array
  *
  * Note that we let each entry have a unique "name" and "text" string,
@@ -727,7 +727,7 @@ static errr init_a_info(void)
 }
 
 
-/*
+/**
  * Initialise the "s_info" array
  *
  * Note that we let each entry have a unique "name" and "text" string,
@@ -824,7 +824,7 @@ static errr init_s_info(void)
 	return (0);
 }
 
-/*
+/**
  * Initialise the "ab_info" array
  *
  * Note that we let each entry have a unique "name" and "text" string,
@@ -924,7 +924,7 @@ static errr init_ab_info(void)
 
 
 
-/*
+/**
  * Initialise the "e_info" array
  *
  * Note that we let each entry have a unique "name" and "text" string,
@@ -1024,7 +1024,7 @@ static errr init_e_info(void)
 
 
 
-/*
+/**
  * Initialise the "ra_info" array
  *
  * Note that we let each entry have a unique "name" and "text" string,
@@ -1115,7 +1115,7 @@ static errr init_ra_info(void)
 
 
 
-/*
+/**
  * Initialise the "r_info" array
  *
  * Note that we let each entry have a unique "name" and "text" string,
@@ -1214,7 +1214,7 @@ static errr init_r_info(void)
 }
 
 
-/*
+/**
  * Initialise the "re_info" array
  *
  * Note that we let each entry have a unique "name" string,
@@ -1310,7 +1310,7 @@ static errr init_re_info(void)
 }
 
 
-/*
+/**
  * Initialise the "d_info" array
  *
  * Note that we let each entry have a unique "name" and "short name" string,
@@ -1409,7 +1409,7 @@ static errr init_d_info(void)
 }
 
 
-/*
+/**
  * Initialise the "player" arrays
  *
  * Note that we let each entry have a unique "name" and "short name" string,
@@ -1574,7 +1574,7 @@ static errr init_player_info(void)
 	return (0);
 }
 
-/*
+/**
  * Initialise the "st_info" array
  *
  * Note that we let each entry have a unique "name" and "short name" string,
@@ -1669,7 +1669,7 @@ static errr init_st_info(void)
 	return (0);
 }
 
-/*
+/**
  * Initialise the "ow_info" array
  *
  * Note that we let each entry have a unique "name" and "short name" string,
@@ -1764,7 +1764,7 @@ static errr init_ow_info(void)
 	return (0);
 }
 
-/*
+/**
  * Initialise the "ba_info" array
  *
  * Note that we let each entry have a unique "name" and "short name" string,
@@ -1859,7 +1859,7 @@ static errr init_ba_info(void)
 	return (0);
 }
 
-/*
+/**
  * Initialise the "wf_info" array
  *
  * Note that we let each entry have a unique "name" and "short name" string,
@@ -1958,7 +1958,7 @@ static errr init_wf_info(void)
 }
 
 
-/*
+/**
  * Initialise the "t_info" array
  *
  * Note that we let each entry have a unique "name" and "text" string,
@@ -2057,7 +2057,7 @@ static errr init_t_info(void)
 }
 
 
-/*
+/**
  * Initialise the "al_info" array
  *
  * Not a flat array, but an array none the less
@@ -2163,7 +2163,7 @@ errr init_al_info(void)
 }
 
 
-/*
+/**
  * Initialise the "v_info" array
  *
  * Note that we let each entry have a unique "name" and "text" string,
@@ -2261,7 +2261,7 @@ errr init_v_info(void)
 	return (0);
 }
 
-/*
+/**
  * Initialize the very basic arrays
  */
 static void init_basic()
@@ -2286,7 +2286,7 @@ static void init_basic()
 	}
 }
 
-/*
+/**
  * Pseudo, dummy quest initializer, to actualy disable them
  */
 static bool quest_disable_init_hook(int q_idx)
@@ -2296,7 +2296,7 @@ static bool quest_disable_init_hook(int q_idx)
 }
 
 
-/*
+/**
  * Initialise misc. values
  */
 static errr init_misc(void)
@@ -2376,7 +2376,7 @@ static errr init_misc(void)
 }
 
 
-/*
+/**
  * Initialise town array
  */
 static errr init_towns(void)
@@ -2431,12 +2431,12 @@ void create_stores_stock(int t)
 	t_ptr->stocked = TRUE;
 }
 
-/*
+/**
  * Pointer to wilderness_map
  */
 typedef wilderness_map *wilderness_map_ptr;
 
-/*
+/**
  * Initialise wilderness map array
  */
 static errr init_wilderness(void)
@@ -2457,7 +2457,7 @@ static errr init_wilderness(void)
 	return 0;
 }
 
-/*
+/**
  * XXX XXX XXX XXX XXX Realloc is not guaranteed to work (see main-gtk.c
  * and main-mac.c.
  */
@@ -2544,7 +2544,7 @@ void init_corruptions(s16b new_size)
 	max_corruptions = new_size;
 }
 
-/*
+/**
  * Initialise some other arrays
  */
 static errr init_other(void)
@@ -2673,7 +2673,7 @@ static errr init_other(void)
 
 
 
-/*
+/**
  * Initialise some other arrays
  */
 static errr init_alloc(void)
@@ -2884,7 +2884,7 @@ void init_sets_aux()
 	}
 }
 
-/*
+/**
  * Mark guardians and their artifacts with SPECIAL_GENE flag
  */
 static void init_guardians(void)
@@ -2928,7 +2928,7 @@ static void init_guardians(void)
 	}
 }
 
-/*
+/**
  * Hack -- Explain a broken "lib" folder and quit (see below).
  *
  * XXX XXX XXX This function is "messy" because various things
@@ -2953,7 +2953,7 @@ static void init_angband_aux(cptr why)
 	quit("Fatal Error.");
 }
 
-/*
+/**
  * Hack -- main Angband initialisation entry point
  *
  * Verify some files, display the "news.txt" file, create

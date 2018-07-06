@@ -2,7 +2,7 @@
 
 /* Purpose: irc chat */
 
-/*
+/**
  * Copyright (c) 2001 DarkGod, Andrew Sidwell
  *
  * This software may be copied and distributed for educational, research, and
@@ -16,7 +16,7 @@
 #define IRC_PORT "6667"
 #define IRC_CHANNEL "#tome"
 
-/*
+/**
  * By the way, CTCP's for unique kills and artefact finds would be nice to
  * have, for example:
  *

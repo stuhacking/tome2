@@ -2,7 +2,7 @@
 
 /* Purpose: T-engine modules */
 
-/*
+/**
  * Copyright (c) 2003 DarkGod
  *
  * This software may be copied and distributed for educational, research, and

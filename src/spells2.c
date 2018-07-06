@@ -2,7 +2,7 @@
 
 /* Purpose: Spell code (part 2) */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -14,7 +14,7 @@
 
 #define WEIRD_LUCK      12
 #define BIAS_LUCK       20
-/*
+/**
  * Bias luck needs to be higher than weird luck,
  * since it is usually tested several times...
  */
@@ -22,7 +22,7 @@
 void summon_dragon_riders();
 
 
-/*
+/**
  * Grow things
  */
 void grow_things(s16b type, int rad)
@@ -44,7 +44,7 @@ void grow_things(s16b type, int rad)
 	}
 }
 
-/*
+/**
  * Grow trees
  */
 void grow_trees(int rad)
@@ -66,7 +66,7 @@ void grow_trees(int rad)
 	}
 }
 
-/*
+/**
  * Grow grass
  */
 void grow_grass(int rad)
@@ -88,7 +88,7 @@ void grow_grass(int rad)
 	}
 }
 
-/*
+/**
  * Increase players hit points, notice effects
  */
 bool hp_player(int num)
@@ -150,7 +150,7 @@ bool hp_player(int num)
 
 
 
-/*
+/**
  * Leave a "glyph of warding" which prevents monster movement
  */
 void warding_glyph(void)
@@ -181,7 +181,7 @@ void explosive_rune(void)
 
 
 
-/*
+/**
  * Array of stat "descriptions"
  */
 static cptr desc_stat_pos[] =
@@ -194,7 +194,7 @@ static cptr desc_stat_pos[] =
 	"cute"
 };
 
-/*
+/**
  * Array of long descriptions of stat
  */
 
@@ -208,7 +208,7 @@ static cptr long_desc_stat[] =
 	"charisma"
 };
 
-/*
+/**
  * Array of stat "descriptions"
  */
 static cptr desc_stat_neg[] =
@@ -222,7 +222,7 @@ static cptr desc_stat_neg[] =
 };
 
 
-/*
+/**
  * Lose a "point"
  */
 bool do_dec_stat(int stat, int mode)
@@ -278,7 +278,7 @@ bool do_dec_stat(int stat, int mode)
 }
 
 
-/*
+/**
  * Restore lost "points" in a stat
  */
 bool do_res_stat(int stat, bool full)
@@ -308,7 +308,7 @@ bool do_res_stat(int stat, bool full)
 }
 
 
-/*
+/**
  * Gain a "point" in a stat
  */
 bool do_inc_stat(int stat)
@@ -344,7 +344,7 @@ bool do_inc_stat(int stat)
 
 
 
-/*
+/**
  * Identify everything being carried.
  * Done by a potion of "self knowledge".
  */
@@ -372,7 +372,7 @@ void identify_pack(void)
 	p_ptr->window |= (PW_INVEN | PW_EQUIP | PW_PLAYER);
 }
 
-/*
+/**
  * common portions of identify_fully and identify_pack_fully
  */
 static void make_item_fully_identified(object_type *o_ptr)
@@ -388,7 +388,7 @@ static void make_item_fully_identified(object_type *o_ptr)
 	alchemist_learn_object(o_ptr);
 }
 
-/*
+/**
  * Identify everything being carried.
  * Done by a potion of "self knowledge".
  */
@@ -415,7 +415,7 @@ void identify_pack_fully(void)
 	p_ptr->window |= (PW_INVEN | PW_EQUIP | PW_PLAYER);
 }
 
-/*
+/**
  * Used by the "enchant" function (chance of failure)
  * (modified for Zangband, we need better stuff there...) -- TY
  */
@@ -486,7 +486,7 @@ bool remove_curse_object(object_type *o_ptr, bool all)
 	return TRUE;
 }
 
-/*
+/**
  * Removes curses from items in inventory
  *
  * Note that Items which are "Perma-Cursed" (The One Ring,
@@ -516,7 +516,7 @@ static int remove_curse_aux(int all)
 }
 
 
-/*
+/**
  * Remove most curses
  */
 bool remove_curse(void)
@@ -524,7 +524,7 @@ bool remove_curse(void)
 	return (remove_curse_aux(FALSE) ? TRUE : FALSE);
 }
 
-/*
+/**
  * Remove all curses
  */
 bool remove_all_curse(void)
@@ -534,7 +534,7 @@ bool remove_all_curse(void)
 
 
 
-/*
+/**
  * Restores any drained experience
  */
 bool restore_level(void)
@@ -692,7 +692,7 @@ bool alchemy(void) /* Turns an object into gold, gain some of its value in a sho
 
 
 
-/*
+/**
  * self-knowledge... idea from nethack.  Useful for determining powers and
  * resistances of items.  It saves the screen, clears it, then starts listing
  * attributes, a screenful at a time.  (There are a LOT of attributes to
@@ -1906,7 +1906,7 @@ void report_magics(void)
 
 
 
-/*
+/**
  * Forget everything
  */
 bool lose_all_info(void)
@@ -1956,7 +1956,7 @@ bool lose_all_info(void)
 
 
 
-/*
+/**
  * Detect all traps on current panel
  */
 bool detect_traps(int rad)
@@ -2024,7 +2024,7 @@ bool detect_traps(int rad)
 
 
 
-/*
+/**
  * Detect all doors on current panel
  */
 bool detect_doors(int rad)
@@ -2089,7 +2089,7 @@ bool detect_doors(int rad)
 }
 
 
-/*
+/**
  * Detect all stairs on current panel
  */
 bool detect_stairs(int rad)
@@ -2143,7 +2143,7 @@ bool detect_stairs(int rad)
 }
 
 
-/*
+/**
  * Detect any treasure on the current panel
  */
 bool detect_treasure(int rad)
@@ -2210,7 +2210,7 @@ bool detect_treasure(int rad)
 
 
 
-/*
+/**
  * Detect all "gold" objects on the current panel
  */
 bool hack_no_detect_message = FALSE;
@@ -2284,7 +2284,7 @@ bool detect_objects_gold(int rad)
 }
 
 
-/*
+/**
  * Detect all "normal" objects on the current panel
  */
 bool detect_objects_normal(int rad)
@@ -2357,7 +2357,7 @@ bool detect_objects_normal(int rad)
 }
 
 
-/*
+/**
  * Detect all "magic" objects on the current panel.
  *
  * This will light up all spaces with "magic" items, including artifacts,
@@ -2440,7 +2440,7 @@ bool detect_objects_magic(int rad)
 }
 
 
-/*
+/**
  * Detect all "normal" monsters on the current panel
  */
 bool detect_monsters_normal(int rad)
@@ -2499,7 +2499,7 @@ bool detect_monsters_normal(int rad)
 }
 
 
-/*
+/**
  * Detect all "invisible" monsters on current panel
  */
 bool detect_monsters_invis(int rad)
@@ -2566,7 +2566,7 @@ bool detect_monsters_invis(int rad)
 
 
 
-/*
+/**
  * Detect all "evil" monsters on current panel
  */
 bool detect_monsters_evil(int rad)
@@ -2635,7 +2635,7 @@ bool detect_monsters_evil(int rad)
 
 
 
-/*
+/**
  * Detect all (string) monsters on current panel
  */
 bool detect_monsters_string(cptr chars, int rad)
@@ -2700,7 +2700,7 @@ bool detect_monsters_string(cptr chars, int rad)
 }
 
 
-/*
+/**
  * A "generic" detect monsters routine, tagged to flags3
  */
 bool detect_monsters_xxx(u32b match_flag, int rad)
@@ -2788,7 +2788,7 @@ bool detect_monsters_good(int rad)
 }
 
 
-/*
+/**
  * Detect everything
  */
 bool detect_all(int rad)
@@ -2811,7 +2811,7 @@ bool detect_all(int rad)
 
 
 
-/*
+/**
  * Create stairs at the player location
  */
 void stair_creation(void)
@@ -2867,7 +2867,7 @@ void stair_creation(void)
 
 
 
-/*
+/**
  * Hook to specify "weapon"
  */
 static bool item_tester_hook_weapon(object_type *o_ptr)
@@ -2903,7 +2903,7 @@ static bool item_tester_hook_weapon(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Hook to specify "armour"
  */
 bool item_tester_hook_armour(object_type *o_ptr)
@@ -2939,7 +2939,7 @@ bool item_tester_hook_armour(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Check if an object is weapon or armour (but not arrow, bolt, or shot)
  */
 bool item_tester_hook_weapon_armour(object_type *o_ptr)
@@ -2948,7 +2948,7 @@ bool item_tester_hook_weapon_armour(object_type *o_ptr)
 	        item_tester_hook_armour(o_ptr));
 }
 
-/*
+/**
  * Check if an object is artifactable
  */
 bool item_tester_hook_artifactable(object_type *o_ptr)
@@ -2962,7 +2962,7 @@ bool item_tester_hook_artifactable(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Enchants a plus onto an item. -RAK-
  *
  * Revamped!  Now takes item pointer, number of times to try enchanting,
@@ -3149,7 +3149,7 @@ bool enchant(object_type *o_ptr, int n, int eflag)
 
 
 
-/*
+/**
  * Enchant an item (in the inventory or on the floor)
  * Note that "num_ac" requires armour, else weapon
  * Returns TRUE if attempted, FALSE if cancelled
@@ -3235,7 +3235,7 @@ void curse_artifact(object_type * o_ptr)
 }
 
 
-/*
+/**
  * Should be merged with randart code.
  * looks like BASIC coder's work...
  */
@@ -4259,7 +4259,7 @@ void random_slay (object_type * o_ptr, bool is_scroll)
 
 
 
-/*
+/**
  * Determines if an item is not identified
  */
 static bool item_tester_hook_unknown(object_type *o_ptr)
@@ -4268,7 +4268,7 @@ static bool item_tester_hook_unknown(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Identify an object in the inventory (or on the floor)
  * This routine does *not* automatically combine objects.
  * Returns TRUE if something was identified, else FALSE.
@@ -4356,7 +4356,7 @@ bool ident_spell(void)
 	return (TRUE);
 }
 
-/*
+/**
  * Identify all objects in the level
  */
 bool ident_all(void)
@@ -4398,7 +4398,7 @@ bool ident_all(void)
 
 
 
-/*
+/**
  * Determine if an object is not fully identified
  */
 static bool item_tester_hook_no_mental(object_type *o_ptr)
@@ -4406,7 +4406,7 @@ static bool item_tester_hook_no_mental(object_type *o_ptr)
 	return ((o_ptr->ident & (IDENT_MENTAL)) ? FALSE : TRUE);
 }
 
-/*
+/**
  * Fully "identify" an object in the inventory  -BEN-
  * This routine returns TRUE if an item was identified.
  */
@@ -4496,7 +4496,7 @@ bool identify_fully(void)
 
 
 
-/*
+/**
  * Hook for "get_item()".  Determine if something is rechargable.
  */
 bool item_tester_hook_recharge(object_type *o_ptr)
@@ -4523,7 +4523,7 @@ bool item_tester_hook_recharge(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Recharge a wand/staff/rod from the pack or on the floor.
  * This function has been rewritten in Oangband. -LM-
  *
@@ -4839,7 +4839,7 @@ bool recharge(int power)
 
 
 
-/*
+/**
  * Apply a "project()" directly to all viewable monsters
  *
  * Note that affected monsters are NOT auto-tracked by this usage.
@@ -4874,7 +4874,7 @@ bool project_hack(int typ, int dam)
 	return (obvious);
 }
 
-/*
+/**
  * Apply a "project()" a la meteor shower
  */
 void project_meteor(int radius, int typ, int dam, u32b flg)
@@ -4909,7 +4909,7 @@ void project_meteor(int radius, int typ, int dam, u32b flg)
 }
 
 
-/*
+/**
  * Speed monsters
  */
 bool speed_monsters(void)
@@ -4917,7 +4917,7 @@ bool speed_monsters(void)
 	return (project_hack(GF_OLD_SPEED, p_ptr->lev));
 }
 
-/*
+/**
  * Slow monsters
  */
 bool slow_monsters(void)
@@ -4925,7 +4925,7 @@ bool slow_monsters(void)
 	return (project_hack(GF_OLD_SLOW, p_ptr->lev));
 }
 
-/*
+/**
  * Paralyzation monsters
  */
 bool conf_monsters(void)
@@ -4933,7 +4933,7 @@ bool conf_monsters(void)
 	return (project_hack(GF_OLD_CONF, p_ptr->lev));
 }
 
-/*
+/**
  * Sleep monsters
  */
 bool sleep_monsters(void)
@@ -4941,7 +4941,7 @@ bool sleep_monsters(void)
 	return (project_hack(GF_OLD_SLEEP, p_ptr->lev));
 }
 
-/*
+/**
  * Scare monsters
  */
 bool scare_monsters(void)
@@ -4950,7 +4950,7 @@ bool scare_monsters(void)
 }
 
 
-/*
+/**
  * Banish evil monsters
  */
 bool banish_evil(int dist)
@@ -4959,7 +4959,7 @@ bool banish_evil(int dist)
 }
 
 
-/*
+/**
  * Turn undead
  */
 bool turn_undead(void)
@@ -4968,7 +4968,7 @@ bool turn_undead(void)
 }
 
 
-/*
+/**
  * Dispel undead monsters
  */
 bool dispel_undead(int dam)
@@ -4976,7 +4976,7 @@ bool dispel_undead(int dam)
 	return (project_hack(GF_DISP_UNDEAD, dam));
 }
 
-/*
+/**
  * Dispel evil monsters
  */
 bool dispel_evil(int dam)
@@ -4984,7 +4984,7 @@ bool dispel_evil(int dam)
 	return (project_hack(GF_DISP_EVIL, dam));
 }
 
-/*
+/**
  * Dispel good monsters
  */
 bool dispel_good(int dam)
@@ -4992,7 +4992,7 @@ bool dispel_good(int dam)
 	return (project_hack(GF_DISP_GOOD, dam));
 }
 
-/*
+/**
  * Dispel all monsters
  */
 bool dispel_monsters(int dam)
@@ -5000,7 +5000,7 @@ bool dispel_monsters(int dam)
 	return (project_hack(GF_DISP_ALL, dam));
 }
 
-/*
+/**
  * Dispel 'living' monsters
  */
 bool dispel_living(int dam)
@@ -5008,7 +5008,7 @@ bool dispel_living(int dam)
 	return (project_hack(GF_DISP_LIVING, dam));
 }
 
-/*
+/**
  * Dispel demons
  */
 bool dispel_demons(int dam)
@@ -5017,7 +5017,7 @@ bool dispel_demons(int dam)
 }
 
 
-/*
+/**
  * Wake up all monsters, and speed up "los" monsters.
  */
 void aggravate_monsters(int who)
@@ -5078,7 +5078,7 @@ void aggravate_monsters(int who)
 	else if (sleep) msg_print("You hear a sudden stirring in the distance!");
 }
 
-/*
+/**
  * Generic genocide race selection
  */
 bool get_genocide_race(cptr msg, char *typ)
@@ -5104,7 +5104,7 @@ bool get_genocide_race(cptr msg, char *typ)
 	return FALSE;
 }
 
-/*
+/**
  * Inflict dam damage of type typee to all monster of the given race
  */
 bool invoke(int dam, int typee)
@@ -5169,7 +5169,7 @@ bool invoke(int dam, int typee)
 }
 
 
-/*
+/**
  * Delete all non-unique/non-quest monsters of a given "type" from the level
  */
 bool genocide_aux(bool player_cast, char typ)
@@ -5285,7 +5285,7 @@ bool genocide(bool player_cast)
 }
 
 
-/*
+/**
  * Delete all nearby (non-unique) monsters
  */
 bool mass_genocide(bool player_cast)
@@ -5428,7 +5428,7 @@ void do_probe(int m_idx)
 	lore_do_probe(m_idx);
 }
 
-/*
+/**
  * Probe nearby monsters
  */
 bool probing(void)
@@ -5474,7 +5474,7 @@ bool probing(void)
 }
 
 
-/*
+/**
  * Wipe -- Empties a part of the dungeon
  */
 void wipe(int y1, int x1, int r)
@@ -5557,7 +5557,7 @@ void wipe(int y1, int x1, int r)
 }
 
 
-/*
+/**
  * The spell of destruction
  *
  * This spell "deletes" monsters (instead of "killing" them).
@@ -5702,7 +5702,7 @@ void destroy_area(int y1, int x1, int r, bool full, bool bypass)
 }
 
 
-/*
+/**
  * Induce an "earthquake" of the given radius at the given location.
  *
  * This will turn some walls into floors and some floors into walls.
@@ -6104,7 +6104,7 @@ void earthquake(int cy, int cx, int r)
 
 
 
-/*
+/**
  * This routine clears the entire "temp" set.
  *
  * This routine will Perma-Lite all "temp" grids.
@@ -6203,7 +6203,7 @@ static void cave_temp_room_lite(void)
 
 
 
-/*
+/**
  * This routine clears the entire "temp" set.
  *
  * This routine will "darken" all "temp" grids.
@@ -6266,7 +6266,7 @@ static void cave_temp_room_unlite(void)
 
 
 
-/*
+/**
  * Aux function -- see below
  */
 static void cave_temp_room_aux(int y, int x)
@@ -6294,7 +6294,7 @@ static void cave_temp_room_aux(int y, int x)
 
 
 
-/*
+/**
  * Illuminate any room containing the given location.
  */
 void lite_room(int y1, int x1)
@@ -6330,7 +6330,7 @@ void lite_room(int y1, int x1)
 }
 
 
-/*
+/**
  * Darken all rooms containing the given location
  */
 void unlite_room(int y1, int x1)
@@ -6367,7 +6367,7 @@ void unlite_room(int y1, int x1)
 
 
 
-/*
+/**
  * Hack -- call light around the player
  * Affect all monsters in the projection radius
  */
@@ -6392,7 +6392,7 @@ bool lite_area(int dam, int rad)
 }
 
 
-/*
+/**
  * Hack -- call darkness around the player
  * Affect all monsters in the projection radius
  */
@@ -6417,7 +6417,7 @@ bool unlite_area(int dam, int rad)
 }
 
 
-/*
+/**
  * Cast a ball spell
  * Stop if we hit a monster, act as a "ball"
  * Allow "target" mode to pass over monsters
@@ -6445,7 +6445,7 @@ bool fire_ball(int typ, int dir, int dam, int rad)
 	return (project(0, (rad > 16) ? 16 : rad, ty, tx, dam, typ, flg));
 }
 
-/*
+/**
  * Cast a cloud spell
  * Stop if we hit a monster, act as a "ball"
  * Allow "target" mode to pass over monsters
@@ -6474,7 +6474,7 @@ bool fire_cloud(int typ, int dir, int dam, int rad, int time)
 	return (project(0, (rad > 16) ? 16 : rad, ty, tx, dam, typ, flg));
 }
 
-/*
+/**
  * Cast a wave spell
  * Stop if we hit a monster, act as a "ball"
  * Allow "target" mode to pass over monsters
@@ -6486,7 +6486,7 @@ bool fire_wave(int typ, int dir, int dam, int rad, int time, s32b eff)
 	return (fire_cloud(typ, dir, dam, rad, time));
 }
 
-/*
+/**
  * Cast a persistant beam spell
  * Pass through monsters, as a "beam"
  * Affect monsters (not grids or objects)
@@ -6498,7 +6498,7 @@ bool fire_wall(int typ, int dir, int dam, int time)
 	return (project_hook(typ, dir, dam, flg));
 }
 
-/*
+/**
  * Cast a druidistic ball spell
  * Stop if we hit a monster, act as a "ball"
  * Allow "target" mode to pass over monsters
@@ -6527,7 +6527,7 @@ bool fire_druid_ball(int typ, int dir, int dam, int rad)
 }
 
 
-/*
+/**
  * Cast a ball-beamed spell
  * Stop if we hit a monster, act as a "ball"
  * Allow "target" mode to pass over monsters
@@ -6767,7 +6767,7 @@ void swap_position(int lty, int ltx)
 }
 
 
-/*
+/**
  * Hack -- apply a "projection()" in a direction (or at the target)
  */
 bool project_hook(int typ, int dir, int dam, int flg)
@@ -6793,7 +6793,7 @@ bool project_hook(int typ, int dir, int dam, int flg)
 }
 
 
-/*
+/**
  * Cast a bolt spell
  * Stop if we hit a monster, as a "bolt"
  * Affect monsters (not grids or objects)
@@ -6804,7 +6804,7 @@ bool fire_bolt(int typ, int dir, int dam)
 	return (project_hook(typ, dir, dam, flg));
 }
 
-/*
+/**
  * Cast a druidistic bolt spell
  * Stop if we hit a monster, as a "bolt"
  * Affect monsters (not grids or objects)
@@ -6816,7 +6816,7 @@ bool fire_druid_bolt(int typ, int dir, int dam)
 }
 
 
-/*
+/**
  * Cast a druidistic beam spell
  * Pass through monsters, as a "beam"
  * Affect monsters (not grids or objects)
@@ -6827,7 +6827,7 @@ bool fire_druid_beam(int typ, int dir, int dam)
 	return (project_hook(typ, dir, dam, flg));
 }
 
-/*
+/**
  * Cast a beam spell
  * Pass through monsters, as a "beam"
  * Affect monsters (not grids or objects)
@@ -6839,7 +6839,7 @@ bool fire_beam(int typ, int dir, int dam)
 }
 
 
-/*
+/**
  * Cast a bolt spell, or rarely, a beam spell
  */
 bool fire_bolt_or_beam(int prob, int typ, int dir, int dam)
@@ -6868,7 +6868,7 @@ bool fire_explosion(int y, int x, int typ, int rad, int dam)
 	return (project(0, rad, y, x, dam, typ, flg));
 }
 
-/*
+/**
  * Some of the old functions
  */
 bool lite_line(int dir)
@@ -7004,7 +7004,7 @@ bool teleport_monster(int dir)
 }
 
 
-/*
+/**
  * Hooks -- affect adjacent grids (radius 1 ball attack)
  */
 bool door_creation(void)
@@ -7128,7 +7128,7 @@ void call_chaos(void)
 }
 
 
-/*
+/**
  * Activate the evil Topi Ylinen curse
  * rr9: Stop the nasty things when a Cyberdemon is summoned
  * or the player gets paralyzed.
@@ -7209,7 +7209,7 @@ case 21: case 22: case 23:
 	while ((randint(3) == 1) && !stop_ty);
 }
 
-/*
+/**
  * Activate the ultra evil Dark God curse
  */
 void activate_dg_curse(void)
@@ -7581,7 +7581,7 @@ void bless_weapon(void)
 }
 
 
-/*
+/**
  * Detect all "nonliving", "undead" or "demonic" monsters on current panel
  */
 bool detect_monsters_nonliving(int rad)
@@ -7646,7 +7646,7 @@ bool detect_monsters_nonliving(int rad)
 }
 
 
-/*
+/**
  * Confuse monsters
  */
 bool confuse_monsters(int dam)
@@ -7655,7 +7655,7 @@ bool confuse_monsters(int dam)
 }
 
 
-/*
+/**
  * Charm monsters
  */
 bool charm_monsters(int dam)
@@ -7664,7 +7664,7 @@ bool charm_monsters(int dam)
 }
 
 
-/*
+/**
  * Charm animals
  */
 bool charm_animals(int dam)
@@ -7672,7 +7672,7 @@ bool charm_animals(int dam)
 	return (project_hack(GF_CONTROL_ANIMAL, dam));
 }
 
-/*
+/**
  * Charm demons
  */
 bool charm_demons(int dam)
@@ -7681,7 +7681,7 @@ bool charm_demons(int dam)
 }
 
 
-/*
+/**
  * Stun monsters
  */
 bool stun_monsters(int dam)
@@ -7690,7 +7690,7 @@ bool stun_monsters(int dam)
 }
 
 
-/*
+/**
  * Stasis monsters
  */
 bool stasis_monsters(int dam)
@@ -7699,7 +7699,7 @@ bool stasis_monsters(int dam)
 }
 
 
-/*
+/**
  * Mindblast monsters
  */
 bool mindblast_monsters(int dam)
@@ -7708,7 +7708,7 @@ bool mindblast_monsters(int dam)
 }
 
 
-/*
+/**
  * Banish all monsters
  */
 bool banish_monsters(int dist)
@@ -7717,7 +7717,7 @@ bool banish_monsters(int dist)
 }
 
 
-/*
+/**
  * Turn evil
  */
 bool turn_evil(int dam)
@@ -7726,7 +7726,7 @@ bool turn_evil(int dam)
 }
 
 
-/*
+/**
  * Turn everyone
  */
 bool turn_monsters(int dam)
@@ -7735,7 +7735,7 @@ bool turn_monsters(int dam)
 }
 
 
-/*
+/**
  * Death-ray all monsters (note: OBSCENELY powerful)
  */
 bool deathray_monsters(void)
@@ -7853,7 +7853,7 @@ bool heal_insanity(int val)
 	return FALSE;
 }
 
-/*
+/**
  * Send the player shooting through walls in the given direction until
  * they reach a non-wall space, or a monster, or a permanent wall.
  */
@@ -7948,7 +7948,7 @@ bool passwall(int dir, bool safe)
 	return (TRUE);
 }
 
-/*
+/**
  * Print a batch of dungeons.
  */
 static void print_dungeon_batch(int *p, int start, int max, bool mode)
@@ -8166,7 +8166,7 @@ void remove_dg_curse()
 	}
 }
 
-/*
+/**
  * Creates a between gate
  */
 void create_between_gate(int dist, int y, int x)

@@ -2,7 +2,7 @@
 
 /* Purpose: Wilderness & Town related things */
 
-/*
+/**
  * Copyright (c) 2001 James E. Wilson, Robert A. Koeneke, DarkGod
  *
  * This software may be copied and distributed for educational, research, and
@@ -14,19 +14,19 @@
 
 
 
-/*
+/**
  * Various defines for the wilderness
  */
 #define DUN_WILD_VAULT          50      /* Chance of finding a wilderness vault. */
 
-/*
+/**
  * Various defines for the towns
  */
 #define TOWN_NORMAL_FLOOR       70
 #define TOWN_BORDER             90
 
 
-/*
+/**
  * Helper for plasma generation.
  */
 static void perturb_point_mid(int x1, int x2, int x3, int x4,
@@ -77,7 +77,7 @@ static void perturb_point_end(int x1, int x2, int x3,
 }
 
 
-/*
+/**
  * A generic function to generate the plasma fractal.
  * Note that it uses ``cave_feat'' as temporary storage.
  * The values in ``cave_feat'' after this function
@@ -121,7 +121,7 @@ static void plasma_recursive(int x1, int y1, int x2, int y2,
 }
 
 
-/*
+/**
  * Load a town or generate a terrain level using "plasma" fractals.
  *
  * x and y are the coordinates of the area in the wilderness.
@@ -373,12 +373,12 @@ int generate_area(int y, int x, bool border, bool corner, bool refresh)
 	return hack_floor;
 }
 
-/*
+/**
  * Border of the wilderness area
  */
 static border_type border;
 
-/*
+/**
  * Build the wilderness area outside of the town.
  * -KMW-
  */
@@ -575,7 +575,7 @@ void wilderness_gen(int refresh)
 	process_hooks(HOOK_WILD_GEN, "(d)", FALSE);
 }
 
-/*
+/**
  * Build the wilderness area.
  * -DG-
  */
@@ -701,7 +701,7 @@ void reveal_wilderness_around_player(int y, int x, int h, int w)
 	}
 }
 
-/*
+/**
  * Builds a store at a given pseudo-location
  *
  * As of 2.8.1 (?) the town is actually centered in the middle of a
@@ -981,7 +981,7 @@ static bool create_townpeople_hook(int r_idx)
 }
 
 
-/*
+/**
  * Generate the "consistent" town features, and place the player
  *
  * Hack -- play with the R.N.G. to always yield the same town
@@ -1247,7 +1247,7 @@ static void town_gen_hidden(int t_idx, int qy, int qx)
 
 
 
-/*
+/**
  * Town logic flow for generation of new town
  *
  * We start with a fully wiped cave of normal floors.

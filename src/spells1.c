@@ -2,7 +2,7 @@
 
 /* Purpose: Spell code (part 1) */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -22,7 +22,7 @@
 #define MAX_TRIES 100
 
 
-/*
+/**
  * Helper function -- return a "nearby" race for polymorphing
  *
  * Note that this function is one of the more "dangerous" ones...
@@ -74,7 +74,7 @@ s16b poly_r_idx(int r_idx)
 	return (r_idx);
 }
 
-/*
+/**
  * Teleport player, using a distance and a direction as a rough guide.
  *
  * This function is not at all obsessive about correctness.
@@ -192,7 +192,7 @@ void teleport_player_directed(int rad, int dir)
 }
 
 
-/*
+/**
  * Teleport a monster, normally up to "dis" grids away.
  *
  * Attempt to move the monster at least "dis/2" grids away.
@@ -309,7 +309,7 @@ void teleport_away(int m_idx, int dis)
 }
 
 
-/*
+/**
  * Teleport monster next to the player
  */
 void teleport_to_player(int m_idx)
@@ -423,7 +423,7 @@ void teleport_to_player(int m_idx)
 }
 
 
-/*
+/**
  * Teleport the player to a location up to "dis" grids away.
  *
  * If no such spaces are readily available, the distance may increase.
@@ -590,7 +590,7 @@ void teleport_player(int dis)
 }
 
 
-/*
+/**
  * get a grid near the given location
  *
  * This function is slightly obsessive about correctness.
@@ -657,7 +657,7 @@ void get_pos_player(int dis, int *ny, int *nx)
 	*nx = x;
 }
 
-/*
+/**
  * Teleport a monster to a grid near the given location
  *
  * This function is slightly obsessive about correctness.
@@ -728,7 +728,7 @@ void teleport_monster_to(int m_idx, int ny, int nx)
 }
 
 
-/*
+/**
  * Teleport player to a grid near the given location
  *
  * This function is slightly obsessive about correctness.
@@ -821,7 +821,7 @@ void teleport_player_to(int ny, int nx)
 
 
 
-/*
+/**
  * Teleport the player one level up or down (random when legal)
  */
 void teleport_player_level(void)
@@ -940,7 +940,7 @@ void teleport_player_level(void)
 
 
 
-/*
+/**
  * Recall the player to town or dungeon
  */
 void recall_player(int d, int f)
@@ -983,7 +983,7 @@ void recall_player(int d, int f)
 
 
 
-/*
+/**
  * Get a legal "multi-hued" color for drawing "spells"
  */
 static byte mh_attr(int max)
@@ -1026,7 +1026,7 @@ static byte mh_attr(int max)
 }
 
 
-/*
+/**
  * Return a color to use for the bolt/ball spells
  */
 byte spell_color(int type)
@@ -1212,7 +1212,7 @@ byte spell_color(int type)
 }
 
 
-/*
+/**
  * Find the attr/char pair to use for a spell effect
  *
  * It is moving (or has moved) from (x,y) to (nx,ny).
@@ -1257,7 +1257,7 @@ static u16b bolt_pict(int y, int x, int ny, int nx, int typ)
 	return (PICT(a, c));
 }
 
-/*
+/**
  * Cast the spelbound spells
  */
 void spellbinder_trigger()
@@ -1275,7 +1275,7 @@ void spellbinder_trigger()
 }
 
 
-/*
+/**
  * Decreases players hit points and sets death flag if necessary
  *
  * XXX XXX XXX Invulnerability needs to be changed into a "shield"
@@ -1601,13 +1601,13 @@ void take_sanity_hit(int damage, cptr hit_from)
 }
 
 
-/*
+/**
  * Note that amulets, rods, and high-level spell books are immune
  * to "inventory damage" of any kind.  Also sling ammo and shovels.
  */
 
 
-/*
+/**
  * Does a given class of objects (usually) hate acid?
  * Note that acid can either melt or corrode something.
  */
@@ -1663,7 +1663,7 @@ static bool hates_acid(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Does a given object (usually) hate electricity?
  */
 static bool hates_elec(object_type *o_ptr)
@@ -1682,7 +1682,7 @@ static bool hates_elec(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Does a given object (usually) hate fire?
  * Hafted/Polearm weapons have wooden shafts.
  * Arrows/Bows are mostly wooden.
@@ -1738,7 +1738,7 @@ static bool hates_fire(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Does a given object (usually) hate cold?
  */
 static bool hates_cold(object_type *o_ptr)
@@ -1766,7 +1766,7 @@ static bool hates_cold(object_type *o_ptr)
 
 
 
-/*
+/**
  * Melt something
  */
 static int set_acid_destroy(object_type *o_ptr)
@@ -1781,7 +1781,7 @@ static int set_acid_destroy(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Electrical damage
  */
 static int set_elec_destroy(object_type *o_ptr)
@@ -1796,7 +1796,7 @@ static int set_elec_destroy(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Burn something
  */
 static int set_fire_destroy(object_type *o_ptr)
@@ -1811,7 +1811,7 @@ static int set_fire_destroy(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Freeze things
  */
 static int set_cold_destroy(object_type *o_ptr)
@@ -1828,12 +1828,12 @@ static int set_cold_destroy(object_type *o_ptr)
 
 
 
-/*
+/**
  * This seems like a pretty standard "typedef"
  */
 typedef int (*inven_func)(object_type *);
 
-/*
+/**
  * Destroys a type of item on a given percent chance
  * Note that missiles are no longer necessarily all destroyed
  * Destruction taken from "melee.c" code for "stealing".
@@ -1919,7 +1919,7 @@ static int inven_damage(inven_func typ, int perc)
 
 
 
-/*
+/**
  * Acid has hit the player, attempt to affect some armor.
  *
  * Note that the "base armor" of an object never changes.
@@ -1996,7 +1996,7 @@ static int minus_ac(void)
 }
 
 
-/*
+/**
  * Hurt the player with Acid
  */
 void acid_dam(int dam, cptr kb_str)
@@ -2026,7 +2026,7 @@ void acid_dam(int dam, cptr kb_str)
 }
 
 
-/*
+/**
  * Hurt the player with electricity
  */
 void elec_dam(int dam, cptr kb_str)
@@ -2055,7 +2055,7 @@ void elec_dam(int dam, cptr kb_str)
 
 
 
-/*
+/**
  * Hurt the player with Fire
  */
 void fire_dam(int dam, cptr kb_str)
@@ -2084,7 +2084,7 @@ void fire_dam(int dam, cptr kb_str)
 }
 
 
-/*
+/**
  * Hurt the player with Cold
  */
 void cold_dam(int dam, cptr kb_str)
@@ -2114,7 +2114,7 @@ void cold_dam(int dam, cptr kb_str)
 
 
 
-/*
+/**
  * Increases a stat by one randomized level             -RAK-
  *
  * Note that this function (used by stat potions) now restores
@@ -2181,7 +2181,7 @@ bool inc_stat(int stat)
 
 
 
-/*
+/**
  * Decreases a stat by an amount indended to vary from 0 to 100 percent.
  *
  * Amount could be a little higher in extreme cases to mangle very high
@@ -2326,7 +2326,7 @@ bool dec_stat(int stat, int amount, int mode)
 }
 
 
-/*
+/**
  * Restore a stat.  Return TRUE only if this actually makes a difference.
  */
 bool res_stat(int stat, bool full)
@@ -2380,7 +2380,7 @@ bool res_stat(int stat, bool full)
 
 
 
-/*
+/**
  * Apply disenchantment to the player's stuff
  *
  * XXX XXX XXX This function is also called from the "melee" code
@@ -2510,7 +2510,7 @@ void corrupt_player(void)
 }
 
 
-/*
+/**
  * Apply Nexus
  */
 static void apply_nexus(monster_type *m_ptr)
@@ -2565,7 +2565,7 @@ static void apply_nexus(monster_type *m_ptr)
 	}
 }
 
-/*
+/**
  * Convert 2 couples of coordonates to a direction
  */
 int yx_to_dir(int y2, int x2, int y1, int x1)
@@ -2584,7 +2584,7 @@ int yx_to_dir(int y2, int x2, int y1, int x1)
 	return 5;
 }
 
-/*
+/**
  * Give the opposate direction of the given one
  */
 int invert_dir(int dir)
@@ -2601,7 +2601,7 @@ int invert_dir(int dir)
 }
 
 
-/*
+/**
  * Determine which way the mana path follow
  */
 int get_mana_path_dir(int y, int x, int oy, int ox, int pdir, int mana)
@@ -2666,7 +2666,7 @@ int get_mana_path_dir(int y, int x, int oy, int ox, int pdir, int mana)
 }
 
 
-/*
+/**
  * Determine the path taken by a projection.
  *
  * The projection will always start from the grid (y1,x1), and will travel
@@ -2975,7 +2975,7 @@ sint project_path(u16b *gp, int range, int y1, int x1, int y2, int x2, int flg)
 
 
 
-/*
+/**
  * Mega-Hack -- track "affected" monsters (see "project()" comments)
  */
 static int project_m_n;
@@ -2984,7 +2984,7 @@ static int project_m_y;
 
 
 
-/*
+/**
  * We are called from "project()" to "damage" terrain features
  *
  * We are called both for "beam" effects and "ball" effects.
@@ -3886,7 +3886,7 @@ static int raise_ego[MAX_RAISE] =
 };
 
 
-/*
+/**
  * We are called from "project()" to "damage" objects
  *
  * We are called both for "beam" effects and "ball" effects.
@@ -4294,7 +4294,7 @@ bool hurt_monster(monster_type *m_ptr)
 	else return TRUE;
 }
 
-/*
+/**
  * Helper function for "project()" below.
  *
  * Handle a beam/bolt/ball causing damage to a monster.
@@ -7166,7 +7166,7 @@ bool project_m(int who, int r, int y, int x, int dam, int typ)
 bool unsafe = FALSE;
 
 
-/*
+/**
  * Helper function for "project()" below.
  *
  * Handle a beam/bolt/ball causing damage to the player.
@@ -8194,7 +8194,7 @@ static bool project_p(int who, int r, int y, int x, int dam, int typ, int a_rad)
 
 
 
-/*
+/**
  * Generic "beam"/"bolt"/"ball" projection routine.
  *
  * Input:
@@ -8857,7 +8857,7 @@ bool project(int who, int rad, int y, int x, int dam, int typ, int flg)
 
 
 
-/*
+/**
  * Potions "smash open" and cause an area effect when
  * (1) they are shattered while in the player's inventory,
  * due to cold (etc) attacks;
@@ -9066,7 +9066,7 @@ static const int attack_types[25] =
 	GF_DISENCHANT,
 };
 
-/*
+/**
  * Describe the attack using normal names.
  */
 
@@ -9183,7 +9183,7 @@ void describe_attack_fully(int type, char* r)
 	}
 }
 
-/*
+/**
  * Give a randomly-generated spell a name.
  * Note that it only describes the first effect!
  */
@@ -9356,7 +9356,7 @@ void generate_spell(int plev)
 	spell_num++;
 }
 
-/*
+/**
  * Polymorph a monster at given location.
  */
 s16b do_poly_monster(int y, int x)

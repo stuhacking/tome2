@@ -2,7 +2,7 @@
 
 /* Purpose: Store commands */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -126,7 +126,7 @@ static cptr comment_6[MAX_COMMENT_6] =
 
 
 
-/*
+/**
  * Successful haggle.
  */
 static void say_comment_1(void)
@@ -144,7 +144,7 @@ static void say_comment_1(void)
 }
 
 
-/*
+/**
  * Continue haggling (player is buying)
  */
 static void say_comment_2(s32b value, int annoyed)
@@ -170,7 +170,7 @@ static void say_comment_2(s32b value, int annoyed)
 }
 
 
-/*
+/**
  * Continue haggling (player is selling)
  */
 static void say_comment_3(s32b value, int annoyed)
@@ -196,7 +196,7 @@ static void say_comment_3(s32b value, int annoyed)
 }
 
 
-/*
+/**
  * Kick 'da bum out.					-RAK-
  */
 static void say_comment_4(void)
@@ -206,7 +206,7 @@ static void say_comment_4(void)
 }
 
 
-/*
+/**
  * You are insulting me
  */
 static void say_comment_5(void)
@@ -215,7 +215,7 @@ static void say_comment_5(void)
 }
 
 
-/*
+/**
  * That makes no sense.
  */
 static void say_comment_6(void)
@@ -225,7 +225,7 @@ static void say_comment_6(void)
 
 
 
-/*
+/**
  * Messages for reacting to purchase prices.
  */
 
@@ -269,7 +269,7 @@ static cptr comment_7d[MAX_COMMENT_7D] =
 	"The shopkeeper smiles gleefully."
 };
 
-/*
+/**
  * Let a shop-keeper React to a purchase
  *
  * We paid "price", it was worth "value", and we thought it was worth "guess"
@@ -321,29 +321,29 @@ static void purchase_analyze(s32b price, s32b value, s32b guess)
 
 
 
-/*
+/**
  * We store the current "store number" here so everyone can access it
  */
 static int cur_store_num = 7;
 
-/*
+/**
  * We store the current "store page" here so everyone can access it
  */
 static int store_top = 0;
 
-/*
+/**
  * We store the current "store pointer" here so everyone can access it
  */
 static store_type *st_ptr = NULL;
 
-/*
+/**
  * We store the current "owner type" here so everyone can access it
  */
 static owner_type *ot_ptr = NULL;
 
 
 
-/*
+/**
  * Determine the price of an item (qty one) in a store.
  *
  * This function takes into account the player's charisma, and the
@@ -444,7 +444,7 @@ static s32b price_item(object_type *o_ptr, int greed, bool flip)
 }
 
 
-/*
+/**
  * Special "mass production" computation
  */
 static int mass_roll(int num, int max)
@@ -455,7 +455,7 @@ static int mass_roll(int num, int max)
 }
 
 
-/*
+/**
  * Certain "cheap" objects should be created in "piles"
  * Some objects can be sold at a "discount" (in small piles)
  */
@@ -592,7 +592,7 @@ static void mass_produce(object_type *o_ptr)
 
 
 
-/*
+/**
  * Determine if a store item can "absorb" another item
  *
  * See "object_similar()" for the same function for the "player"
@@ -665,7 +665,7 @@ static bool store_object_similar(object_type *o_ptr, object_type *j_ptr)
 }
 
 
-/*
+/**
  * Allow a store item to absorb another item
  */
 static void store_object_absorb(object_type *o_ptr, object_type *j_ptr)
@@ -683,7 +683,7 @@ static void store_object_absorb(object_type *o_ptr, object_type *j_ptr)
 }
 
 
-/*
+/**
  * Check to see if the shop will be carrying too many objects	-RAK-
  * Note that the shop, just like a player, will not accept things
  * it cannot hold.	Before, one could "nuke" potions this way.
@@ -740,7 +740,7 @@ bool is_blessed(object_type *o_ptr)
 
 
 
-/*
+/**
  * Determine if the current store will purchase the given item
  *
  * Note that a shop-keeper must refuse to buy "worthless" items
@@ -767,7 +767,7 @@ static bool store_will_buy(object_type *o_ptr)
 
 
 
-/*
+/**
  * Add the item "o_ptr" to the inventory of the "Home"
  *
  * In all cases, return the slot (or -1) where the object was placed
@@ -865,7 +865,7 @@ static int home_carry(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Add the item "o_ptr" to a real stores inventory.
  *
  * If the item is "worthless", it is thrown away (except in the home).
@@ -967,7 +967,7 @@ static int store_carry(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Increase, by a given amount, the number of a certain item
  * in a certain store.	This can result in zero items.
  */
@@ -990,7 +990,7 @@ static void store_item_increase(int item, int num)
 }
 
 
-/*
+/**
  * Remove a slot if it is empty
  */
 static void store_item_optimize(int item)
@@ -1021,7 +1021,7 @@ static void store_item_optimize(int item)
 }
 
 
-/*
+/**
  * This function will keep 'crap' out of the black market.
  * Crap is defined as any item that is "available" elsewhere
  * Based on a suggestion by "Lee Vogt" <lvogt@cig.mcel.mot.com>
@@ -1059,7 +1059,7 @@ static bool black_market_crap(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Attempt to delete (some of) a random item from the store
  * Hack -- we attempt to "maintain" piles of items when possible.
  */
@@ -1113,7 +1113,7 @@ int return_level()
 /* Is it an ok object ? */
 static int store_tval = 0, store_level = 0;
 
-/*
+/**
  * Hack -- determine if a template is "good"
  */
 static bool kind_is_storeok(int k_idx)
@@ -1134,7 +1134,7 @@ static bool kind_is_storeok(int k_idx)
 	return (TRUE);
 }
 
-/*
+/**
  * Creates a random item and gives it to a store
  * This algorithm needs to be rethought.  A lot.
  *
@@ -1333,7 +1333,7 @@ static void store_create(void)
 
 
 
-/*
+/**
  * Eliminate need to bargain if player has haggled well in the past
  */
 static bool noneedtobargain(s32b minprice)
@@ -1355,7 +1355,7 @@ static bool noneedtobargain(s32b minprice)
 }
 
 
-/*
+/**
  * Update the bargain info
  */
 static void updatebargain(s32b price, s32b minprice)
@@ -1389,7 +1389,7 @@ static void updatebargain(s32b price, s32b minprice)
 
 
 
-/*
+/**
  * Re-displays a single store entry
  */
 static void display_entry(int pos)
@@ -1530,7 +1530,7 @@ static void display_entry(int pos)
 }
 
 
-/*
+/**
  * Displays a store's inventory 		-RAK-
  * All prices are listed as "per individual object".  -BEN-
  */
@@ -1566,7 +1566,7 @@ static void display_inventory(void)
 }
 
 
-/*
+/**
  * Displays players gold					-RAK-
  */
 void store_prt_gold(void)
@@ -1580,7 +1580,7 @@ void store_prt_gold(void)
 }
 
 
-/*
+/**
  * Displays store (after clearing screen)		-RAK-
  */
 void display_store(void)
@@ -1666,7 +1666,7 @@ void display_store(void)
 
 
 
-/*
+/**
  * Get the ID of a store item and return its value	-RAK-
  */
 static int get_stock(int *com_val, cptr pmt, int i, int j)
@@ -1741,7 +1741,7 @@ static int get_stock(int *com_val, cptr pmt, int i, int j)
 }
 
 
-/*
+/**
  * Increase the insult counter and get angry if too many -RAK-
  */
 static int increase_insults(void)
@@ -1772,7 +1772,7 @@ static int increase_insults(void)
 }
 
 
-/*
+/**
  * Decrease insults 				-RAK-
  */
 static void decrease_insults(void)
@@ -1782,7 +1782,7 @@ static void decrease_insults(void)
 }
 
 
-/*
+/**
  * Have insulted while haggling 			-RAK-
  */
 static int haggle_insults(void)
@@ -1798,18 +1798,18 @@ static int haggle_insults(void)
 }
 
 
-/*
+/**
  * Mega-Hack -- Enable "increments"
  */
 static bool allow_inc = FALSE;
 
-/*
+/**
  * Mega-Hack -- Last "increment" during haggling
  */
 static s32b last_inc = 0L;
 
 
-/*
+/**
  * Get a haggle
  */
 static int get_haggle(cptr pmt, s32b *poffer, s32b price, int final)
@@ -1925,7 +1925,7 @@ static int get_haggle(cptr pmt, s32b *poffer, s32b price, int final)
 }
 
 
-/*
+/**
  * Receive an offer (from the player)
  *
  * Return TRUE if offer is NOT okay
@@ -1955,7 +1955,7 @@ static bool receive_offer(cptr pmt, s32b *poffer,
 }
 
 
-/*
+/**
  * Haggling routine 				-RAK-
  *
  * Return TRUE if purchase is NOT successful
@@ -2135,7 +2135,7 @@ static bool purchase_haggle(object_type *o_ptr, s32b *price)
 }
 
 
-/*
+/**
  * Haggling routine 				-RAK-
  *
  * Return TRUE if purchase is NOT successful
@@ -2331,7 +2331,7 @@ static bool sell_haggle(object_type *o_ptr, s32b *price)
 	return (FALSE);
 }
 
-/*
+/**
  * Will the owner retire?
  */
 static bool retire_owner_p(void)
@@ -2354,7 +2354,7 @@ static bool retire_owner_p(void)
 	return TRUE;
 }
 
-/*
+/**
  * Stole an item from a store                   -DG-
  */
 void store_stole(void)
@@ -2573,7 +2573,7 @@ void store_stole(void)
 	return;
 }
 
-/*
+/**
  * Buy an item from a store 			-RAK-
  */
 void store_purchase(void)
@@ -2940,7 +2940,7 @@ void store_purchase(void)
 }
 
 
-/*
+/**
  * Sell an item to the store (or home)
  */
 void store_sell(void)
@@ -3281,7 +3281,7 @@ void store_sell(void)
 
 
 
-/*
+/**
  * Examine an item in a store			   -JDL-
  */
 void store_examine(void)
@@ -3364,13 +3364,13 @@ void store_examine(void)
 
 
 
-/*
+/**
  * Hack -- set this to leave the store
  */
 static bool leave_store = FALSE;
 
 
-/*
+/**
  * Process a command in a store
  *
  * Note that we must allow the use of a few "special" commands
@@ -3707,7 +3707,7 @@ static bool store_process_command(void)
 }
 
 
-/*
+/**
  * Enter a store, and interact with it.
  *
  * Note that we use the standard "request_command()" function
@@ -3987,7 +3987,7 @@ void do_cmd_store(void)
 
 
 
-/*
+/**
  * Shuffle one of the stores.
  */
 void store_shuffle(int which)
@@ -4046,7 +4046,7 @@ void store_shuffle(int which)
 }
 
 
-/*
+/**
  * Maintain the inventory at the stores.
  */
 void store_maint(int town_num, int store_num)
@@ -4137,7 +4137,7 @@ void store_maint(int town_num, int store_num)
 }
 
 
-/*
+/**
  * Initialize the stores
  */
 void store_init(int town_num, int store_num)
@@ -4188,7 +4188,7 @@ void move_to_black_market(object_type * o_ptr)
 	object_wipe(o_ptr);  /* Don't leave a bogus object behind... */
 }
 
-/*
+/**
  * Enter the home, and interact with it from the dungeon (trump magic).
  *
  * Note that we use the standard "request_command()" function
@@ -4478,7 +4478,7 @@ static void pay_for_requested_item(int value, object_type *q_ptr)
 	}
 }
 
-/*
+/**
  * Request item for merchants
  */
 void store_request_item(void)

@@ -1,6 +1,6 @@
 /* File: z-sock.h */
 
-/*
+/**
  * Copyright (c) 2002 DarkGod
  *
  * This software may be copied and distributed for educational, research,
@@ -13,7 +13,7 @@
 
 #include "h-basic.h"
 
-/*
+/**
  * This represents an IP connection
  */
 typedef struct ip_connection ip_connection;
@@ -37,14 +37,14 @@ struct ip_connection
 	bool server;                    /* Is it a server socket ? */
 };
 
-/*
+/**
  * Possible connection types
  */
 #define ZSOCK_TYPE_TCP  	1
 /* #define ZSOCK_TYPE_UDP  	2 */
 
 
-/*
+/**
  * The time in milliseconds when to call the sockets callbacks for the timer
  */
 #define ZSOCK_TIMER_DELAY       100
@@ -58,7 +58,7 @@ struct timer_callback_list
 	timer_callback_list *next;
 };
 
-/*
+/**
  * Hooks needed for a main-foo.c to be sock-able
  */
 typedef struct zsock_hooks zsock_hooks;

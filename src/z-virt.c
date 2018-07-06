@@ -1,6 +1,6 @@
 /* File: z-virt.c */
 
-/*
+/**
  * Copyright (c) 1997 Ben Harrison
  *
  * This software may be copied and distributed for educational, research,
@@ -15,7 +15,7 @@
 #include "z-util.h"
 
 
-/*
+/**
  * Allow debugging messages to track memory usage.
  */
 #ifdef VERBOSE_RALLOC
@@ -25,12 +25,12 @@ static long virt_size = 0;
 #endif
 
 
-/*
+/**
  * Optional auxiliary "rnfree" function
  */
 vptr (*rnfree_aux)(vptr, huge) = NULL;
 
-/*
+/**
  * Free some memory (allocated by ralloc), return NULL
  */
 vptr rnfree(vptr p, huge len)
@@ -65,12 +65,12 @@ vptr rnfree(vptr p, huge len)
 }
 
 
-/*
+/**
  * Optional auxiliary "rpanic" function
  */
 vptr (*rpanic_aux)(huge) = NULL;
 
-/*
+/**
  * The system is out of memory, so panic.  If "rpanic_aux" is set,
  * it can be used to free up some memory and do a new "ralloc()",
  * or if not, it can be used to save things, clean up, and exit.
@@ -89,13 +89,13 @@ vptr rpanic(huge len)
 }
 
 
-/*
+/**
  * Optional auxiliary "ralloc" function
  */
 vptr (*ralloc_aux)(huge) = NULL;
 
 
-/*
+/**
  * Allocate some memory
  */
 vptr ralloc(huge len)
@@ -137,7 +137,7 @@ vptr ralloc(huge len)
 
 
 
-/*
+/**
  * Allocate a constant string, containing the same thing as 'str'
  */
 cptr string_make(cptr str)
@@ -163,7 +163,7 @@ cptr string_make(cptr str)
 }
 
 
-/*
+/**
  * Un-allocate a string allocated above.
  * Depends on no changes being made to the string.
  */

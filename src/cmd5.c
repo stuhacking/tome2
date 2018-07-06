@@ -2,7 +2,7 @@
 
 /* Purpose: Class commands */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -67,7 +67,7 @@ bool item_tester_hook_browsable(object_type *o_ptr)
 	return FALSE;
 }
 
-/*
+/**
  * Are we using a mage staff
  */
 bool is_magestaff()
@@ -95,7 +95,7 @@ bool is_magestaff()
 	return (FALSE);
 }
 
-/*
+/**
  * Peruse the spells/prayers in a book
  *
  * Note that *all* spells in the book are listed
@@ -353,7 +353,7 @@ void do_poly_self(void)
 }
 
 
-/*
+/**
  * Brand the current weapon
  */
 void brand_weapon(int brand_type)
@@ -458,7 +458,7 @@ void brand_weapon(int brand_type)
 	enchant(o_ptr, rand_int(3) + 4, ENCH_TOHIT | ENCH_TODAM);
 }
 
-/*
+/**
  * Fetch an item (teleport it right underneath the caster)
  */
 void fetch(int dir, int wgt, bool require_los)
@@ -551,7 +551,7 @@ void fetch(int dir, int wgt, bool require_los)
 }
 
 
-/*
+/**
  * Handle random effects of player shrieking
  */
 void shriek_effect()
@@ -595,7 +595,7 @@ void shriek_effect()
 }
 
 
-/*
+/**
  * Like all the random effect codes, this is *ugly*,
  * and there is not a single line of comment, so I can't tell
  * some fall throughs are really intended. Well, I know it's
@@ -784,7 +784,7 @@ void wild_magic(int spell)
 }
 
 
-/*
+/**
  * Hack -- Determine if the player is wearing an artefact ring
  * specified by art_type, that should be an index into a_info
  */
@@ -813,7 +813,7 @@ bool check_ring(int art_type)
 	return (FALSE);
 }
 
-/*
+/**
  * Return the symbiote's name or description.
  */
 cptr symbiote_name(bool capitalize)
@@ -856,7 +856,7 @@ cptr symbiote_name(bool capitalize)
 	return buf;
 }
 
-/*
+/**
  * Use a power of the monster in symbiosis
  */
 int use_symbiotic_power(int r_idx, bool great, bool only_number, bool no_cost)
@@ -2099,11 +2099,11 @@ int use_symbiotic_power(int r_idx, bool great, bool only_number, bool no_cost)
 	return (num);
 }
 
-/*
+/**
  * Schooled magic
  */
 
-/*
+/**
  * Find a spell in any books/objects
  */
 static int hack_force_spell = -1;
@@ -2169,7 +2169,7 @@ bool get_item_hook_find_spell(int *item)
 	return FALSE;
 }
 
-/*
+/**
  * Get a spell from a book
  */
 s32b get_school_spell(cptr do_what, cptr check_fct, s16b force_book)
@@ -2529,7 +2529,7 @@ static bool hook_school_can_spellable(object_type *o_ptr)
 	return FALSE;
 }
 
-/*
+/**
  * Copy a spell from a bok to an object
  */
 void do_cmd_copy_spell()
@@ -2556,7 +2556,7 @@ void do_cmd_copy_spell()
 	inven_item_describe(item);
 }
 
-/*
+/**
  * Finds a spell by name, optimized for speed
  */
 int find_spell(char *name)

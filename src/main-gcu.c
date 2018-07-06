@@ -1,6 +1,6 @@
 /* File: main-gcu.c */
 
-/*
+/**
  * Copyright (c) 1997 Ben Harrison, and others
  *
  * This software may be copied and distributed for educational, research,
@@ -9,7 +9,7 @@
  */
 
 
-/*
+/**
  * This file helps Angband run on Unix/Curses machines.
  *
  *
@@ -50,7 +50,7 @@
 
 #include <limits.h>
 
-/*
+/**
  * Hack -- play games with "bool" and "term"
  */
 #undef bool
@@ -58,7 +58,7 @@
 /* Avoid 'struct term' name conflict with <curses.h> (via <term.h>) on AIX */
 #define term System_term
 
-/*
+/**
  * Include the proper "header" file
  */
 #ifdef USE_NCURSES
@@ -69,13 +69,13 @@
 
 #undef term
 
-/*
+/**
  * Try redefining the colors at startup.
  */
 #define REDEFINE_COLORS
 
 
-/*
+/**
  * Hack -- try to guess which systems use what commands
  * Hack -- allow one of the "USE_Txxxxx" flags to be pre-set.
  * Mega-Hack -- try to guess when "POSIX" is available.
@@ -95,7 +95,7 @@
 # endif
 #endif
 
-/*
+/**
  * POSIX stuff
  */
 #ifdef USE_TPOSIX
@@ -103,7 +103,7 @@
 # include <termios.h>
 #endif
 
-/*
+/**
  * One version needs these files
  */
 #ifdef USE_TERMIO
@@ -111,7 +111,7 @@
 # include <termio.h>
 #endif
 
-/*
+/**
  * The other needs these files
  */
 #ifdef USE_TCHARS
@@ -133,7 +133,7 @@
 
 
 
-/*
+/**
  * XXX XXX Hack -- POSIX uses "O_NONBLOCK" instead of "O_NDELAY"
  *
  * They should both work due to the "(i != 1)" test below.
@@ -143,14 +143,14 @@
 #endif
 
 
-/*
+/**
  * OPTION: some machines lack "cbreak()"
  * On these machines, we use an older definition
  */
 /* #define cbreak() crmode() */
 
 
-/*
+/**
  * OPTION: some machines cannot handle "nonl()" and "nl()"
  * On these machines, we can simply ignore those commands.
  */
@@ -158,7 +158,7 @@
 /* #define nl() */
 
 
-/*
+/**
  * Save the "normal" and "angband" terminal settings
  */
 
@@ -192,7 +192,7 @@ static int game_local_chars;
 
 #endif
 
-/*
+/**
  * Information about a term
  */
 typedef struct term_data term_data;
@@ -211,7 +211,7 @@ struct term_data
 static term_data data[MAX_TERM_DATA];
 
 
-/*
+/**
  * Hack -- Number of initialized "term" structures
  */
 static int active = 0;
@@ -219,7 +219,7 @@ static int active = 0;
 
 #ifdef A_COLOR
 
-/*
+/**
  * Hack -- define "A_BRIGHT" to be "A_BOLD", because on many
  * machines, "A_BRIGHT" produces ugly "inverse" video.
  */
@@ -227,17 +227,17 @@ static int active = 0;
 # define A_BRIGHT A_BOLD
 #endif
 
-/*
+/**
  * Software flag -- we are allowed to use color
  */
 static int can_use_color = FALSE;
 
-/*
+/**
  * Software flag -- we are allowed to change the colors
  */
 static int can_fix_color = FALSE;
 
-/*
+/**
  * Simple Angband to Curses color conversion table
  */
 static int colortable[16];
@@ -246,7 +246,7 @@ static int colortable[16];
 
 
 
-/*
+/**
  * Place the "keymap" into its "normal" state
  */
 static void keymap_norm(void)
@@ -279,7 +279,7 @@ static void keymap_norm(void)
 }
 
 
-/*
+/**
  * Place the "keymap" into the "game" state
  */
 static void keymap_game(void)
@@ -312,7 +312,7 @@ static void keymap_game(void)
 }
 
 
-/*
+/**
  * Save the normal keymap
  */
 static void keymap_norm_prepare(void)
@@ -345,7 +345,7 @@ static void keymap_norm_prepare(void)
 }
 
 
-/*
+/**
  * Save the keymaps (normal and game)
  */
 static void keymap_game_prepare(void)
@@ -452,7 +452,7 @@ static void keymap_game_prepare(void)
 
 
 
-/*
+/**
  * Suspend/Resume
  */
 static errr Term_xtra_gcu_alive(int v)
@@ -522,7 +522,7 @@ const char help_gcu[] = "Curses, for terminal console, subopts -b(ig screen)";
 #endif
 
 
-/*
+/**
  * Init the "curses" system
  */
 static void Term_init_gcu(term *t)
@@ -546,7 +546,7 @@ static void Term_init_gcu(term *t)
 }
 
 
-/*
+/**
  * Nuke the "curses" system
  */
 static void Term_nuke_gcu(term *t)
@@ -592,7 +592,7 @@ static void Term_nuke_gcu(term *t)
 
 #ifdef USE_GETCH
 
-/*
+/**
  * Process events, with optional wait
  */
 static errr Term_xtra_gcu_event(int v)
@@ -642,7 +642,7 @@ static errr Term_xtra_gcu_event(int v)
 
 #else	/* USE_GETCH */
 
-/*
+/**
 * Process events (with optional wait)
 */
 static errr Term_xtra_gcu_event(int v)
@@ -692,7 +692,7 @@ static errr Term_xtra_gcu_event(int v)
 
 #endif	/* USE_GETCH */
 
-/*
+/**
  * React to changes
  */
 static errr Term_xtra_gcu_react(void)
@@ -722,7 +722,7 @@ static errr Term_xtra_gcu_react(void)
 }
 
 
-/*
+/**
  * Handle a "special request"
  */
 static errr Term_xtra_gcu(int n, int v)
@@ -828,7 +828,7 @@ static errr Term_xtra_gcu(int n, int v)
 }
 
 
-/*
+/**
  * Actually MOVE the hardware cursor
  */
 static errr Term_curs_gcu(int x, int y)
@@ -843,7 +843,7 @@ static errr Term_curs_gcu(int x, int y)
 }
 
 
-/*
+/**
  * Erase a grid of space
  * Hack -- try to be "semi-efficient".
  */
@@ -871,7 +871,7 @@ static errr Term_wipe_gcu(int x, int y, int n)
 }
 
 
-/*
+/**
  * Place some text on the screen using an attribute
  */
 static errr Term_text_gcu(int x, int y, int n, byte a, cptr s)
@@ -936,7 +936,7 @@ static errr Term_text_gcu(int x, int y, int n, byte a, cptr s)
 }
 
 
-/*
+/**
  * Create a window for the given "term_data" argument.
  *
  * Assumes legal arguments.
@@ -996,7 +996,7 @@ static void hook_quit(cptr str)
 }
 
 
-/*
+/**
  * Prepare "curses" for use by the file "z-term.c"
  *
  * Installs the "hook" functions defined above, and then activates

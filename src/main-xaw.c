@@ -1,6 +1,6 @@
 /* File: main-xaw.c */
 
-/*
+/**
  * Copyright (c) 1997 Ben Harrison, Torbjorn Lindgren, and others
  *
  * This software may be copied and distributed for educational, research,
@@ -9,7 +9,7 @@
  */
 
 
-/*
+/**
  * This file helps Angband work with UNIX/X11 computers.
  *
  * To use this file, compile with "USE_XAW" defined, and link against all
@@ -65,7 +65,7 @@
 #endif
 
 
-/*
+/**
  * Include some helpful X11 code.
  */
 #include "maid-x11.c"
@@ -75,7 +75,7 @@
 /**** Resources ****/
 
 
-/*
+/**
 
 Name                Class              RepType         Default Value
 ----                -----              -------         -------------
@@ -104,7 +104,7 @@ the other colors are unused.
 */
 
 
-/*
+/**
  * New resource names
  */
 #define XtNstartRows        "startRows"
@@ -116,12 +116,12 @@ the other colors are unused.
 #define XtNinternalBorder   "internalBorder"
 #define XtNredrawCallback   "redrawCallback"
 
-/*
+/**
  * Total normal colors
  */
 #define NUM_COLORS 256
 
-/*
+/**
  * Special "XOR" color
  */
 #define COLOR_XOR 256
@@ -131,7 +131,7 @@ the other colors are unused.
 /**** The Widget Code ****/
 
 
-/*
+/**
  * Forward declarations
  */
 typedef struct AngbandPart AngbandPart;
@@ -144,7 +144,7 @@ typedef struct AngbandClassRec AngbandClassRec;
 typedef struct term_data term_data;
 
 
-/*
+/**
  * A structure for each "term"
  */
 struct term_data
@@ -155,25 +155,25 @@ struct term_data
 };
 
 
-/*
+/**
  * Maximum number of windows
  */
 #define MAX_TERM_DATA 8
 
 
-/*
+/**
  * An array of term_data's
  */
 static term_data data[MAX_TERM_DATA];
 
 
-/*
+/**
  * Current number of windows open
  */
 static int num_term = MAX_TERM_DATA;
 
 
-/*
+/**
  * New fields for the Angband widget record
  */
 struct AngbandPart
@@ -218,7 +218,7 @@ struct AngbandPart
 };
 
 
-/*
+/**
  * Full instance record declaration
  */
 struct AngbandRec
@@ -229,7 +229,7 @@ struct AngbandRec
 };
 
 
-/*
+/**
  * New fields for the Angband widget class record
  */
 struct AngbandClassPart
@@ -238,7 +238,7 @@ struct AngbandClassPart
 };
 
 
-/*
+/**
  * Full class record declaration
  */
 struct AngbandClassRec
@@ -250,13 +250,13 @@ struct AngbandClassRec
 
 
 
-/*
+/**
  * Hack -- see below
  */
 #define offset(field) XtOffsetOf(AngbandRec, angband.field)
 
 
-/*
+/**
  * Fallback resources for Angband widget
  */
 static XtResource resources[] =
@@ -282,13 +282,13 @@ static XtResource resources[] =
 };
 
 
-/*
+/**
  * Hack -- see above
  */
 #undef offset
 
 
-/*
+/**
  * Forward declarations for Widget functions
  */
 static void Initialize(AngbandWidget request, AngbandWidget wnew);
@@ -298,7 +298,7 @@ static Boolean SetValues(AngbandWidget current, AngbandWidget request,
 static void Destroy(AngbandWidget widget);
 static void Resize_term(AngbandWidget wnew);
 
-/*
+/**
  * Forward declaration for internal functions
  */
 static void calculateSizeHints(AngbandWidget wnew);
@@ -306,13 +306,13 @@ static XFontStruct *getFont(AngbandWidget widget,
                             String font, Boolean fallback);
 
 
-/*
+/**
  * Hack -- see below
  */
 #define superclass (&simpleClassRec)
 
 
-/*
+/**
  * Class record constanst
  */
 AngbandClassRec angbandClassRec =
@@ -365,23 +365,23 @@ AngbandClassRec angbandClassRec =
 	}
 };
 
-/*
+/**
  * Hack -- see above
  */
 #undef superclass
 
 
-/*
+/**
  * Class record pointer
  */
 WidgetClass angbandWidgetClass = (WidgetClass) &angbandClassRec;
 
 
-/*
+/**
  * Public procedures
  */
 
-/*
+/**
  * Simple routine to save the state of the game when the display connection
  * is broken. Remember, you cannot do anything in this function that will
  * generate X protocol requests.
@@ -398,7 +398,7 @@ static int x_io_error_handler(Display *d)
 }
 
 
-/*
+/**
  * Clear an area
  */
 static void AngbandClearArea(AngbandWidget widget,
@@ -418,7 +418,7 @@ static void AngbandClearArea(AngbandWidget widget,
 
 
 
-/*
+/**
  * Output some text
  */
 static void AngbandOutputText(AngbandWidget widget, int x, int y,
@@ -443,7 +443,7 @@ static void AngbandOutputText(AngbandWidget widget, int x, int y,
 
 #ifdef USE_GRAPHICS
 
-/*
+/**
  * Draw some graphical characters.
  */
 # ifdef USE_TRANSPARENCY
@@ -690,12 +690,12 @@ static void AngbandOutputPict(AngbandWidget widget, int x, int y, int n,
 
 #endif /* USE_GRAPHICS */
 
-/*
+/**
  * Private procedures
  */
 
 
-/*
+/**
  * Procedure Initialize() is called during the widget creation
  * process.  Initialize() load fonts and calculates window geometry.
  * The request parameter is filled in by parents to this widget.  The
@@ -801,7 +801,7 @@ static void Initialize(AngbandWidget request, AngbandWidget wnew)
 }
 
 
-/*
+/**
  * Procedure Destroy() is called during the destruction of the widget.
  * Destroy() releases and frees GCs, frees the pixmaps and frees the
  * fonts.
@@ -885,7 +885,7 @@ static void Resize_term(AngbandWidget wnew)
 	Term_activate(&old_td->t);
 }
 
-/*
+/**
  * Procedure Redisplay() is called as the result of an Expose event.
  * Use the redraw callback to do a full redraw
  */
@@ -944,7 +944,7 @@ static void Redisplay(AngbandWidget wnew, XEvent *xev, Region region)
 }
 
 
-/*
+/**
  * Font and internal_border can be changed on the fly.
  *
  * The entire widget is redrawn if any of those parameters change (all
@@ -1053,7 +1053,7 @@ static Boolean SetValues(AngbandWidget current, AngbandWidget request,
 }
 
 
-/*
+/**
  * Calculate size hints
  */
 static void calculateSizeHints(AngbandWidget wnew)
@@ -1099,7 +1099,7 @@ static void calculateSizeHints(AngbandWidget wnew)
 }
 
 
-/*
+/**
  * Load a font
  */
 static XFontStruct *getFont(AngbandWidget widget,
@@ -1130,14 +1130,14 @@ static XFontStruct *getFont(AngbandWidget widget,
 
 
 
-/*
+/**
  * Number of fallback resources per window
  */
 #define TERM_FALLBACKS 6
 
 
 
-/*
+/**
  * The names of the term_data's
  */
 char *termNames[MAX_TERM_DATA] =
@@ -1153,7 +1153,7 @@ char *termNames[MAX_TERM_DATA] =
 };
 
 
-/*
+/**
  * The special Arg's
  */
 Arg specialArgs[TERM_FALLBACKS] =
@@ -1167,7 +1167,7 @@ Arg specialArgs[TERM_FALLBACKS] =
 };
 
 
-/*
+/**
  * The default Arg's
  */
 Arg defaultArgs[TERM_FALLBACKS] =
@@ -1181,13 +1181,13 @@ Arg defaultArgs[TERM_FALLBACKS] =
 };
 
 
-/*
+/**
  * The application context
  */
 XtAppContext appcon;
 
 
-/*
+/**
  * User changable information about widgets
  */
 static String fallback[] =
@@ -1213,7 +1213,7 @@ static String fallback[] =
 
 
 
-/*
+/**
  * Do a redraw
  */
 static void react_redraw(Widget widget,
@@ -1234,7 +1234,7 @@ static void react_redraw(Widget widget,
 
 
 
-/*
+/**
  * Process a keypress event
  *
  * Also appears in "main-x11.c".
@@ -1346,7 +1346,7 @@ static void react_keypress(XKeyEvent *xev)
 }
 
 
-/*
+/**
  * Handle an event
  */
 static void handle_event(Widget widget, XtPointer client_data, XEvent *event,
@@ -1391,7 +1391,7 @@ static void handle_event(Widget widget, XtPointer client_data, XEvent *event,
 }
 
 
-/*
+/**
  * Process an event (or just check for one)
  */
 errr CheckEvent(bool wait)
@@ -1413,7 +1413,7 @@ errr CheckEvent(bool wait)
 }
 
 
-/*
+/**
  * Monstrous hack.
  */
 static void Term_xtra_xaw_react_aux(term_data *td)
@@ -1459,7 +1459,7 @@ static void Term_xtra_xaw_react_aux(term_data *td)
 }
 
 
-/*
+/**
  * Monstrous hack.
  */
 static errr Term_xtra_xaw_react(void)
@@ -1480,7 +1480,7 @@ static errr Term_xtra_xaw_react(void)
 }
 
 
-/*
+/**
  * Handle a "special request"
  */
 static errr Term_xtra_xaw(int n, int v)
@@ -1581,7 +1581,7 @@ static errr Term_xtra_xaw(int n, int v)
 
 
 
-/*
+/**
  * Erase a number of characters
  */
 static errr Term_wipe_xaw(int x, int y, int n)
@@ -1597,7 +1597,7 @@ static errr Term_wipe_xaw(int x, int y, int n)
 
 
 
-/*
+/**
  * Draw the cursor, by hiliting with XOR
  *
  * Should perhaps use rectangle outline, ala "main-mac.c".  XXX XXX XXX
@@ -1614,7 +1614,7 @@ static errr Term_curs_xaw(int x, int y)
 }
 
 
-/*
+/**
  * Draw a number of characters
  */
 static errr Term_text_xaw(int x, int y, int n, byte a, cptr s)
@@ -1631,7 +1631,7 @@ static errr Term_text_xaw(int x, int y, int n, byte a, cptr s)
 
 #ifdef USE_GRAPHICS
 
-/*
+/**
  * Draw some graphical characters.
  */
 # ifdef USE_TRANSPARENCY
@@ -1666,7 +1666,7 @@ static errr Term_pict_xaw(int x, int y, int n, const byte *ap, const char *cp)
 #endif /* USE_GRAPHICS */
 
 
-/*
+/**
  * Raise a term
  */
 static void term_raise(term_data *td)
@@ -1677,7 +1677,7 @@ static void term_raise(term_data *td)
 }
 
 
-/*
+/**
  * Initialize a term_data
  */
 static errr term_data_init(term_data *td, Widget topLevel,
@@ -1769,7 +1769,7 @@ static errr term_data_init(term_data *td, Widget topLevel,
 }
 
 
-/*
+/**
  * Initialization function for an X Athena Widget module to Angband
  *
  * We should accept "-d<dpy>" requests in the "argv" array.  XXX XXX XXX

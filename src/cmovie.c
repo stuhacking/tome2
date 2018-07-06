@@ -4,7 +4,7 @@
 
 #include "angband.h"
 
-/*
+/**
  * Play a given cmovie
  */
 s16b do_play_cmovie(cptr cmov_file)
@@ -304,7 +304,7 @@ s16b do_play_cmovie(cptr cmov_file)
 }
 
 
-/*
+/**
  * Start the recording of a cmovie
  */
 void do_record_cmovie(cptr cmovie)
@@ -380,7 +380,7 @@ void do_record_cmovie(cptr cmovie)
 }
 
 
-/*
+/**
  * Stop the recording
  */
 void do_stop_cmovie()
@@ -393,7 +393,7 @@ void do_stop_cmovie()
 }
 
 
-/*
+/**
  * Start a cmovie
  */
 void do_start_cmovie()
@@ -472,7 +472,7 @@ void cmovie_clean_line(int y, char *abuf, char *cbuf)
 }
 
 
-/*
+/**
  * Write a record of a screen row into a cmovie file
  */
 void cmovie_record_line(int y)
@@ -490,7 +490,7 @@ void cmovie_record_line(int y)
 }
 
 
-/*
+/**
  * Record a "text box"
  */
 void do_cmovie_insert()

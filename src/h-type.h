@@ -3,7 +3,7 @@
 #ifndef INCLUDED_H_TYPE_H
 #define INCLUDED_H_TYPE_H
 
-/*
+/**
  * Basic "types".
  *
  * Note the attempt to make all basic types have 4 letters.
@@ -60,25 +60,25 @@ typedef double real;
 typedef int errr;
 
 
-/*
+/**
  * Hack -- prevent problems with non-MACINTOSH
  */
 #undef uint
 #define uint uint_hack
 
-/*
+/**
  * Hack -- prevent problems with MSDOS and WINDOWS
  */
 #undef huge
 #define huge huge_hack
 
-/*
+/**
  * Hack -- prevent problems with AMIGA
  */
 #undef byte
 #define byte byte_hack
 
-/*
+/**
  * Hack -- prevent problems with C++
  */
 #undef bool

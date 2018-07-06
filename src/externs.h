@@ -2,13 +2,13 @@
 
 /* Purpose: extern declarations (variables and functions) */
 
-/*
+/**
  * Note that some files have their own header files
  * (z-virt.h, z-util.h, z-form.h, term.h, random.h)
  */
 
 
-/*
+/**
  * Automatically generated "variable" declarations
  */
 
@@ -1694,7 +1694,7 @@ extern bool automatizer_create;
 
 
 
-/*
+/**
  * Hack -- conditional (or "bizarre") externs
  */
 

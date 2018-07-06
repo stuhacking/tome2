@@ -2,7 +2,7 @@
 
 /* Purpose: Interface commands */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -13,7 +13,7 @@
 #include "angband.h"
 
 
-/*
+/**
  * Hack -- redraw the screen
  *
  * This command performs various low level updates, clears all the "extra"
@@ -92,7 +92,7 @@ void do_cmd_redraw(void)
 }
 
 
-/*
+/**
  * Hack -- change name
  */
 void do_cmd_change_name(void)
@@ -214,7 +214,7 @@ void do_cmd_change_name(void)
 }
 
 
-/*
+/**
  * Recall the most recent message
  */
 void do_cmd_message_one(void)
@@ -226,7 +226,7 @@ void do_cmd_message_one(void)
 }
 
 
-/*
+/**
  * Show previous messages to the user	-BEN-
  *
  * The screen format uses line 0 and (Term->hgt - 1) for headers and prompts,
@@ -450,12 +450,12 @@ void do_cmd_messages(void)
 
 
 
-/*
+/**
  * Number of cheating options
  */
 #define CHEAT_MAX 6
 
-/*
+/**
  * Cheating options
  */
 static option_type cheat_info[CHEAT_MAX] =
@@ -468,7 +468,7 @@ static option_type cheat_info[CHEAT_MAX] =
 	{ &cheat_live, FALSE, 0, 5, "cheat_live", "Allow player to avoid death" }
 };
 
-/*
+/**
  * Interact with some options for cheating
  */
 static void do_cmd_options_cheat(cptr info)
@@ -602,7 +602,7 @@ s16b toggle_frequency(s16b current)
 }
 
 
-/*
+/**
  * Interact with some options for cheating
  */
 static void do_cmd_options_autosave(cptr info)
@@ -749,7 +749,7 @@ bool change_option(cptr name, bool value)
 	return FALSE;
 }
 
-/*
+/**
  * Interact with some options
  */
 void do_cmd_options_aux(int page, cptr info, bool read_only)
@@ -876,7 +876,7 @@ void do_cmd_options_aux(int page, cptr info, bool read_only)
 }
 
 
-/*
+/**
  * Modify the "window" options
  */
 static void do_cmd_options_win(void)
@@ -1054,7 +1054,7 @@ static void do_cmd_options_win(void)
 }
 
 
-/*
+/**
  * Write all current options to the given preference file in the
  * lib/user directory. Modified from KAmband 1.8.
  */
@@ -1151,7 +1151,7 @@ static errr option_dump(cptr fname)
 }
 
 
-/*
+/**
  * Ask for a "user pref file" and process it.
  *
  * This function should only be used by standard interaction commands,
@@ -1190,7 +1190,7 @@ static void do_cmd_pref_file_hack(int row)
 }
 
 
-/*
+/**
  * Set or unset various options.
  *
  * The user must use the "Ctrl-R" command to "adapt" to changes
@@ -1460,7 +1460,7 @@ void do_cmd_options(void)
 
 
 
-/*
+/**
  * Ask for a "user pref line" and process it
  *
  * XXX XXX XXX Allow absolute file names?
@@ -1481,7 +1481,7 @@ void do_cmd_pref(void)
 }
 
 
-/*
+/**
  * Hack -- append all current macros to the given file
  */
 static errr macro_dump(cptr fname)
@@ -1546,7 +1546,7 @@ static errr macro_dump(cptr fname)
 }
 
 
-/*
+/**
  * Hack -- ask for a "trigger" (see below)
  *
  * Note the complex use of the "inkey()" function from "util.c".
@@ -1602,7 +1602,7 @@ static void do_cmd_macro_aux(char *buf, bool macro_screen)
 	}
 }
 
-/*
+/**
  * Hack -- ask for a keymap "trigger" (see below)
  *
  * Note that both "flush()" calls are extremely important.  This may
@@ -1634,7 +1634,7 @@ static void do_cmd_macro_aux_keymap(char *buf)
 }
 
 
-/*
+/**
  * Hack -- append all keymaps to the given file
  */
 static errr keymap_dump(cptr fname)
@@ -1718,7 +1718,7 @@ static errr keymap_dump(cptr fname)
 
 
 
-/*
+/**
  * Interact with "macros"
  *
  * Note that the macro "action" must be defined before the trigger.
@@ -2101,7 +2101,7 @@ void do_cmd_macros(void)
 }
 
 
-/*
+/**
  * Interact with "visuals"
  */
 void do_cmd_visuals(void)
@@ -2578,7 +2578,7 @@ void do_cmd_visuals(void)
 }
 
 
-/*
+/**
  * Interact with "colors"
  */
 void do_cmd_colors(void)
@@ -2873,7 +2873,7 @@ void do_cmd_colors(void)
 }
 
 
-/*
+/**
  * Take notes.  There are two ways this can happen, either in the message
  * recall or a file.
  */
@@ -2903,7 +2903,7 @@ void do_cmd_note(void)
 }
 
 
-/*
+/**
  * Mention the current version
  */
 void do_cmd_version(void)
@@ -2922,7 +2922,7 @@ void do_cmd_version(void)
 
 
 
-/*
+/**
  * Array of feeling strings
  */
 static cptr do_cmd_feeling_text[11] =
@@ -2941,7 +2941,7 @@ static cptr do_cmd_feeling_text[11] =
 };
 
 
-/*
+/**
  * Note that "feeling" is set to zero unless some time has passed.
  * Note that this is done when the level is GENERATED, not entered.
  */
@@ -3006,13 +3006,13 @@ void do_cmd_feeling(void)
 
 
 
-/*
+/**
  * Encode the screen colors
  */
 static char hack[17] = "dwsorgbuDWvyRGBU";
 
 
-/*
+/**
  * Hack -- load a screen dump from a file
  */
 void do_cmd_load_screen(void)
@@ -3136,7 +3136,7 @@ void do_cmd_load_screen(void)
 
 
 
-/*
+/**
  * Redefinable "save_screen" action
  */
 void (*screendump_aux)(void) = NULL;
@@ -3146,7 +3146,7 @@ void (*screendump_aux)(void) = NULL;
 
 
 
-/*
+/**
  * Hack -- save a screen dump to a file
  */
 void do_cmd_save_screen(void)
@@ -3261,7 +3261,7 @@ void do_cmd_save_screen(void)
 }
 
 
-/*
+/**
  * Check the status of "artifacts"
  */
 void do_cmd_knowledge_artifacts(void)
@@ -3516,7 +3516,7 @@ void do_cmd_knowledge_artifacts(void)
 }
 
 
-/*
+/**
  * Check the status of traps
  */
 void do_cmd_knowledge_traps(void)
@@ -3563,7 +3563,7 @@ void do_cmd_knowledge_traps(void)
 }
 
 
-/*
+/**
  * Display known uniques
  *
  * Note that the player ghosts are ignored.  XXX XXX XXX
@@ -3792,7 +3792,7 @@ void plural_aux(char *name)
 }
 
 
-/*
+/**
  * Display current pets
  */
 static void do_cmd_knowledge_pets(void)
@@ -3876,7 +3876,7 @@ static void do_cmd_knowledge_pets(void)
 
 
 
-/*
+/**
  * Total kill count
  *
  * Note that the player ghosts are ignored.  XXX XXX XXX
@@ -4004,7 +4004,7 @@ static void do_cmd_knowledge_kill_count(void)
 }
 
 
-/*
+/**
  * Display known objects
  */
 static void do_cmd_knowledge_objects(void)
@@ -4063,7 +4063,7 @@ static void do_cmd_knowledge_objects(void)
 }
 
 
-/*
+/**
  * List recall depths
  */
 static void do_cmd_knowledge_dungeons(void)
@@ -4106,7 +4106,7 @@ static void do_cmd_knowledge_dungeons(void)
 }
 
 
-/*
+/**
  * List known towns
  */
 void do_cmd_knowledge_towns(void)
@@ -4159,7 +4159,7 @@ void do_cmd_knowledge_towns(void)
 }
 
 
-/*
+/**
  * List corruptions
  */
 void do_cmd_knowledge_corruptions(void)
@@ -4189,7 +4189,7 @@ void do_cmd_knowledge_corruptions(void)
 }
 
 
-/*
+/**
  * Helper function for do_cmd_knowledge_quests
  */
 static void insert_sort_quest(int *order, int *num, int q_idx)
@@ -4222,7 +4222,7 @@ static void insert_sort_quest(int *order, int *num, int q_idx)
 }
 
 
-/*
+/**
  * Print quest status of all active quests
  */
 static void do_cmd_knowledge_quests(void)
@@ -4332,7 +4332,7 @@ static void do_cmd_knowledge_quests(void)
 }
 
 
-/*
+/**
  * Print fate status
  */
 static void do_cmd_knowledge_fates(void)
@@ -4361,7 +4361,7 @@ static void do_cmd_knowledge_fates(void)
 }
 
 
-/*
+/**
  * Print the note file
  */
 void do_cmd_knowledge_notes(void)
@@ -4374,7 +4374,7 @@ void do_cmd_knowledge_notes(void)
 }
 
 
-/*
+/**
  * Interact with "knowledge"
  */
 void do_cmd_knowledge(void)
@@ -4545,7 +4545,7 @@ void do_cmd_knowledge(void)
 }
 
 
-/*
+/**
  * Check on the status of an active quest -KMW-
  * TODO: Spill out status when not a simple kill # monster.
  */
@@ -4571,7 +4571,7 @@ void do_cmd_checkquest(void)
 }
 
 
-/*
+/**
  * Change player's "tactic" setting
  */
 void do_cmd_change_tactic(int i)
@@ -4586,7 +4586,7 @@ void do_cmd_change_tactic(int i)
 }
 
 
-/*
+/**
  * Change player's "movement" setting
  */
 void do_cmd_change_movement(int i)
@@ -4601,7 +4601,7 @@ void do_cmd_change_movement(int i)
 }
 
 
-/*
+/**
  * Display the time and date
  */
 void do_cmd_time()
@@ -4715,7 +4715,7 @@ void do_cmd_time()
 	my_fclose(fff);
 }
 
-/*
+/**
  * Macro recorder!
  * It records all keypresses and then put them in a macro
  * Not as powerful as the macro screen, but much easier for newbies

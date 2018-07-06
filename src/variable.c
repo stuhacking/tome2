@@ -2,7 +2,7 @@
 
 /* Purpose: Angband variables */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -13,7 +13,7 @@
 #include "angband.h"
 
 
-/*
+/**
  * Hack -- Link a copyright message into the executable
  */
 cptr copyright[5] =
@@ -32,7 +32,7 @@ char *macro_modifier_name[MAX_MACRO_MOD];
 char *macro_trigger_name[MAX_MACRO_TRIG];
 char *macro_trigger_keycode[2][MAX_MACRO_TRIG];
 
-/*
+/**
  * Executable version
  */
 byte version_major;
@@ -40,7 +40,7 @@ byte version_minor;
 byte version_patch;
 byte version_extra = VERSION_EXTRA;
 
-/*
+/**
  * Savefile version
  */
 byte sf_major; 			/* Savefile's "version_major" */
@@ -49,7 +49,7 @@ byte sf_patch; 			/* Savefile's "version_patch" */
 byte sf_extra; 			/* Savefile's "version_extra" */
 u32b vernum;
 
-/*
+/**
  * Savefile information
  */
 u32b sf_xtra; 			/* Operating system info */
@@ -57,7 +57,7 @@ u32b sf_when; 			/* Time when savefile created */
 u16b sf_lives; 			/* Number of past "lives" with this file */
 u16b sf_saves; 			/* Number of "saves" during this life */
 
-/*
+/**
  * Run-time arguments
  */
 bool arg_fiddle; 			/* Command arg -- Request fiddle mode */
@@ -68,7 +68,7 @@ bool arg_force_original; 	/* Command arg -- Request original keyset */
 bool arg_force_roguelike; 	/* Command arg -- Request roguelike keyset */
 bool arg_bigtile = FALSE; 	/* Command arg -- Request big tile mode */
 
-/*
+/**
  * Various things
  */
 
@@ -178,39 +178,39 @@ int leaving_quest = 0;
 
 
 
-/*
+/**
  * Hack - the destination file for text_out_to_file.
  */
 FILE *text_out_file = NULL;
 
 
-/*
+/**
  * Hack -- function hook to output (colored) text to the
  * screen or to a file.
  */
 void (*text_out_hook)(byte a, cptr str) = text_out_to_screen;
 
 
-/*
+/**
  * Hack -- Where to wrap the text when using text_out().  Use the default
  * value (for example the screen width) when 'text_out_wrap' is 0.
  */
 int text_out_wrap = 0;
 
 
-/*
+/**
  * Hack -- Indentation for the text when using text_out().
  */
 int text_out_indent = 0;
 
 
-/*
+/**
  * The "highscore" file descriptor, if available.
  */
 int highscore_fd = -1;
 
 
-/*
+/**
  * Software options (set via the '=' command).  See "tables.c"
  */
 
@@ -356,7 +356,7 @@ bool autosave_t;         /* Timed autosave */
 s16b autosave_freq;      /* Autosave frequency */
 
 
-/*
+/**
  * Dungeon variables
  */
 
@@ -367,7 +367,7 @@ bool good_item_flag; 		/* True if "Artifact" on this level */
 
 bool closing_flag; 		/* Dungeon is closing */
 
-/*
+/**
  * Dungeon size info
  */
 
@@ -376,7 +376,7 @@ s16b panel_row_min, panel_row_max;
 s16b panel_col_min, panel_col_max;
 s16b panel_col_prt, panel_row_prt;
 
-/*
+/**
  * Dungeon graphics info
  * Why the first two are byte and the rest s16b???
  */
@@ -385,80 +385,80 @@ byte feat_wall_inner = FEAT_WALL_INNER; 	/* Inner wall of rooms */
 s16b floor_type[100]; 	/* Dungeon floor */
 s16b fill_type[100]; 	/* Dungeon filler */
 
-/*
+/**
  * Targetting variables
  */
 s16b target_who;
 s16b target_col;
 s16b target_row;
 
-/*
+/**
  * Health bar variable -DRS-
  */
 s16b health_who;
 
-/*
+/**
  * Monster race to track
  */
 s16b monster_race_idx;
 s16b monster_ego_idx;
 
-/*
+/**
  * Object to track
  */
 object_type *tracked_object;
 
 
 
-/*
+/**
  * User info
  */
 int player_uid;
 int player_euid;
 int player_egid;
 
-/*
+/**
  * Current player's character name
  */
 char player_name[32];
 
-/*
+/**
  * Stripped version of "player_name"
  */
 char player_base[32];
 
-/*
+/**
  * What killed the player
  */
 char died_from[80];
 
-/*
+/**
  * Hack -- Textual "history" for the Player
  */
 char history[4][60];
 
-/*
+/**
  * Buffer to hold the current savefile name
  */
 char savefile[1024];
 bool savefile_setuid = TRUE;
 
 
-/*
+/**
  * Array of grids lit by player lite (see "cave.c")
  */
 s16b lite_n;
 s16b lite_y[LITE_MAX];
 s16b lite_x[LITE_MAX];
 
-/*
+/**
  * Array of grids viewable to the player (see "cave.c")
  */
 s16b view_n;
 byte view_y[VIEW_MAX];
 byte view_x[VIEW_MAX];
 
-/*
+/**
  * Array of grids for use by various functions (see "cave.c")
  */
 s16b temp_n;
@@ -466,110 +466,110 @@ byte temp_y[TEMP_MAX];
 byte temp_x[TEMP_MAX];
 
 
-/*
+/**
  * Number of active macros.
  */
 s16b macro__num;
 
-/*
+/**
  * Array of macro patterns [MACRO_MAX]
  */
 cptr *macro__pat;
 
-/*
+/**
  * Array of macro actions [MACRO_MAX]
  */
 cptr *macro__act;
 
-/*
+/**
  * Array of macro types [MACRO_MAX]
  */
 bool *macro__cmd;
 
-/*
+/**
  * Current macro action [1024]
  */
 char *macro__buf;
 
 
-/*
+/**
  * The number of quarks
  */
 s16b quark__num;
 
-/*
+/**
  * The pointers to the quarks [QUARK_MAX]
  */
 cptr *quark__str;
 
 
-/*
+/**
  * The next "free" index to use
  */
 u16b message__next;
 
-/*
+/**
  * The index of the oldest message (none yet)
  */
 u16b message__last;
 
-/*
+/**
  * The next "free" offset
  */
 u16b message__head;
 
-/*
+/**
  * The offset to the oldest used char (none yet)
  */
 u16b message__tail;
 
-/*
+/**
  * The array of offsets, by index [MESSAGE_MAX]
  */
 u16b *message__ptr;
 
-/*
+/**
  * The array of colors, by index [MESSAGE_MAX]
  */
 byte *message__color;
 
-/*
+/**
  * The array of type, by index [MESSAGE_MAX]
  */
 byte *message__type;
 
-/*
+/**
  * The array of message counts, by index [MESSAGE_MAX]
  */
 u16b *message__count;
 
-/*
+/**
  * The array of chars, by offset [MESSAGE_BUF]
  */
 char *message__buf;
 
 
-/*
+/**
  * The array of normal options
  */
 u32b option_flag[8];
 u32b option_mask[8];
 
 
-/*
+/**
  * The array of window options
  */
 u32b window_flag[8];
 u32b window_mask[8];
 
 
-/*
+/**
  * The array of window pointers
  */
 term *angband_term[ANGBAND_TERM_MAX];
 
 
-/*
+/**
  * Standard window names
  */
 char angband_term_name[ANGBAND_TERM_MAX][80] =
@@ -585,7 +585,7 @@ char angband_term_name[ANGBAND_TERM_MAX][80] =
 };
 
 
-/*
+/**
  * Global table of color definitions
  */
 byte angband_color_table[256][4] =
@@ -611,7 +611,7 @@ byte angband_color_table[256][4] =
 
 #ifdef SUPPORT_GAMMA
 
-/*
+/**
  * Gamma correction - gamma_val == (int)(256 / gamma)
  * The value of 0 means no gamma correction (== 1.0)
  */
@@ -620,7 +620,7 @@ u16b gamma_val;
 #endif /* SUPPORT_GAMMA */
 
 
-/*
+/**
  * Standard sound names
  */
 char angband_sound_name[SOUND_MAX][16] =
@@ -693,69 +693,69 @@ char angband_sound_name[SOUND_MAX][16] =
 };
 
 
-/*
+/**
  * The array of "cave grids" [MAX_WID][MAX_HGT].
  * Not completely allocated, that would be inefficient
  * Not completely hardcoded, that would overflow memory
  */
 cave_type *cave[MAX_HGT];
 
-/*
+/**
  * The array of dungeon items [max_o_idx]
  */
 object_type *o_list;
 
-/*
+/**
  * The array of dungeon monsters [max_m_idx]
  */
 monster_type *m_list;
 
-/*
+/**
  * The array of to keep monsters [max_m_idx]
  */
 monster_type *km_list;
 
 
-/*
+/**
  * Maximum number of towns
  */
 u16b max_towns;
 u16b max_real_towns;
 
-/*
+/**
  * The towns [max_towns]
  */
 town_type *town_info;
 
-/*
+/**
  * The size of "alloc_kind_table" (at most max_k_idx * 4)
  */
 s16b alloc_kind_size;
 
-/*
+/**
  * The entries in the "kind allocator table"
  */
 alloc_entry *alloc_kind_table;
 
-/*
+/**
  * The flag to tell if alloc_kind_table contains valid entries
  * for normal (i.e. kind_is_legal) object allocation
  */
 bool alloc_kind_table_valid = FALSE;
 
 
-/*
+/**
  * The size of "alloc_race_table" (at most max_r_idx)
  */
 s16b alloc_race_size;
 
-/*
+/**
  * The entries in the "race allocator table"
  */
 alloc_entry *alloc_race_table;
 
 
-/*
+/**
  * Specify attr/char pairs for visual special effects
  * Be sure to use "index & 0x7F" to avoid illegal access
  */
@@ -763,7 +763,7 @@ byte misc_to_attr[256];
 char misc_to_char[256];
 
 
-/*
+/**
  * Specify attr/char pairs for inventory items (by tval)
  * Be sure to use "index & 0x7F" to avoid illegal access
  */
@@ -771,7 +771,7 @@ byte tval_to_attr[128];
 char tval_to_char[128];
 
 
-/*
+/**
  * Keymaps for each "mode" associated with each keypress.
  */
 cptr keymap_act[KEYMAP_MODES][256];
@@ -780,17 +780,17 @@ cptr keymap_act[KEYMAP_MODES][256];
 
 /*** Player information ***/
 
-/*
+/**
  * Static player info record
  */
 player_type p_body;
 
-/*
+/**
  * Pointer to the player info
  */
 player_type *p_ptr = &p_body;
 
-/*
+/**
  * Pointer to the player tables
  * (sex, race, race mod, class, magic)
  */
@@ -801,7 +801,7 @@ player_class *cp_ptr;
 player_spec *spp_ptr;
 
 
-/*
+/**
  * More spell info
  */
 u32b alchemist_known_egos[32];
@@ -809,7 +809,7 @@ u32b alchemist_known_artifacts[6];
 u32b alchemist_gained;
 
 
-/*
+/**
  * Calculated base hp values for player at each level,
  * store them so that drain life + restore life does not
  * affect hit points.  Also prevents shameless use of backup
@@ -817,7 +817,7 @@ u32b alchemist_gained;
  */
 s16b player_hp[PY_MAX_LEVEL];
 
-/*
+/**
  * The alchemy recipe arrays
  */
 header *al_head;
@@ -825,7 +825,7 @@ alchemist_recipe *alchemist_recipes;
 char *al_name;
 artifact_select_flag *a_select_flags;
 
-/*
+/**
  * The vault generation arrays
  */
 header *v_head;
@@ -833,7 +833,7 @@ vault_type *v_info;
 char *v_name;
 char *v_text;
 
-/*
+/**
  * The terrain feature arrays
  */
 header *f_head;
@@ -841,7 +841,7 @@ feature_type *f_info;
 char *f_name;
 char *f_text;
 
-/*
+/**
  * The object kind arrays
  */
 header *k_head;
@@ -849,7 +849,7 @@ object_kind *k_info;
 char *k_name;
 char *k_text;
 
-/*
+/**
  * The artifact arrays
  */
 header *a_head;
@@ -857,7 +857,7 @@ artifact_type *a_info;
 char *a_name;
 char *a_text;
 
-/*
+/**
  * The item set arrays
  */
 header *set_head;
@@ -865,7 +865,7 @@ set_type *set_info;
 char *set_name;
 char *set_text;
 
-/*
+/**
  * The ego-item arrays
  */
 header *e_head;
@@ -873,7 +873,7 @@ ego_item_type *e_info;
 char *e_name;
 char *e_text;
 
-/*
+/**
  * The randart arrays
  */
 header *ra_head;
@@ -887,7 +887,7 @@ trap_type *t_info;
 char *t_name;
 char *t_text;
 
-/*
+/**
  * The monster race arrays
  */
 header *r_head;
@@ -895,14 +895,14 @@ monster_race *r_info;
 char *r_name;
 char *r_text;
 
-/*
+/**
  * The monster ego race arrays
  */
 header *re_head;
 monster_ego *re_info;
 char *re_name;
 
-/*
+/**
  * The dungeon types arrays
  */
 header *d_head;
@@ -910,7 +910,7 @@ dungeon_info_type *d_info;
 char *d_name;
 char *d_text;
 
-/*
+/**
  * Player abilities arrays
  */
 header *ab_head;
@@ -918,7 +918,7 @@ ability_type *ab_info;
 char *ab_name;
 char *ab_text;
 
-/*
+/**
  * Player skills arrays
  */
 header *s_head;
@@ -926,7 +926,7 @@ skill_type *s_info;
 char *s_name;
 char *s_text;
 
-/*
+/**
  * Player race arrays
  */
 header *rp_head;
@@ -934,7 +934,7 @@ player_race *race_info;
 char *rp_name;
 char *rp_text;
 
-/*
+/**
  * Player mod race arrays
  */
 header *rmp_head;
@@ -942,7 +942,7 @@ player_race_mod *race_mod_info;
 char *rmp_name;
 char *rmp_text;
 
-/*
+/**
  * Player class arrays
  */
 header *c_head;
@@ -951,7 +951,7 @@ char *c_name;
 char *c_text;
 meta_class_type *meta_class_info;
 
-/*
+/**
  * The wilderness features arrays
  */
 header *wf_head;
@@ -960,7 +960,7 @@ char *wf_name;
 char *wf_text;
 int wildc2i[256];
 
-/*
+/**
  * The store/building types arrays
  */
 header *st_head;
@@ -968,7 +968,7 @@ store_info_type *st_info;
 char *st_name;
 /* char *st_text; */
 
-/*
+/**
  * The building actions types arrays
  */
 header *ba_head;
@@ -976,7 +976,7 @@ store_action_type *ba_info;
 char *ba_name;
 /* char *ba_text; */
 
-/*
+/**
  * The owner types arrays
  */
 header *ow_head;
@@ -984,7 +984,7 @@ owner_type *ow_info;
 char *ow_name;
 /* char *ow_text; */
 
-/*
+/**
  * The dungeon types arrays
  */
 header *d_head;
@@ -992,13 +992,13 @@ dungeon_info_type *d_info;
 char *d_name;
 char *d_text;
 
-/*
+/**
  * Hack -- The special Angband "System Suffix"
  * This variable is used to choose an appropriate "pref-xxx" file
  */
 cptr ANGBAND_SYS = "xxx";
 
-/*
+/**
  * Hack -- The special Angband "Keyboard Suffix"
  * This variable is used to choose an appropriate macro-trigger definition
  */
@@ -1008,121 +1008,121 @@ cptr ANGBAND_KEYBOARD = "JAPAN";
 cptr ANGBAND_KEYBOARD = "0";
 #endif
 
-/*
+/**
  * Hack -- The special Angband "Graphics Suffix"
  * This variable is used to choose an appropriate "graf-xxx" file
  */
 cptr ANGBAND_GRAF = "old";
 
-/*
+/**
  * Path name: The main "lib" directory
  * This variable is not actually used anywhere in the code
  */
 cptr ANGBAND_DIR;
 
-/*
+/**
  * High score files (binary)
  * These files may be portable between platforms
  */
 cptr ANGBAND_DIR_APEX;
 
-/*
+/**
  * Core lua system
  * These files are portable between platforms
  */
 cptr ANGBAND_DIR_CORE;
 
-/*
+/**
  * Textual dungeon level definition files
  * These files are portable between platforms
  */
 cptr ANGBAND_DIR_DNGN;
 
-/*
+/**
  * Binary image files for the "*_info" arrays (binary)
  * These files are not portable between platforms
  */
 cptr ANGBAND_DIR_DATA;
 
-/*
+/**
  * Textual template files for the "*_info" arrays (ascii)
  * These files are portable between platforms
  */
 cptr ANGBAND_DIR_EDIT;
 
-/*
+/**
  * Various extra files (ascii)
  * These files may be portable between platforms
  */
 cptr ANGBAND_DIR_FILE;
 
-/*
+/**
  * Help files (normal) for the online help (ascii)
  * These files are portable between platforms
  */
 cptr ANGBAND_DIR_HELP;
 
-/*
+/**
  * Help files (spoilers) for the online help (ascii)
  * These files are portable between platforms
  */
 cptr ANGBAND_DIR_INFO;
 
-/*
+/**
  * Modules, those subdirectories are half-mirrors of lib/
  */
 cptr ANGBAND_DIR_MODULES;
 
-/*
+/**
  * Patches, contains one subdir per patch with a patch.lua file
  * in it and a patch_init() function in it
  */
 cptr ANGBAND_DIR_PATCH;
 
-/*
+/**
  * Textual template files for the plot files (ascii)
  * These files are portable between platforms
  */
 cptr ANGBAND_DIR_NOTE;
 
-/*
+/**
  * Savefiles for current characters (binary)
  * These files are portable between platforms
  */
 cptr ANGBAND_DIR_SAVE;
 
-/*
+/**
  * Scripts.
  * These files are portable between platforms
  */
 cptr ANGBAND_DIR_SCPT;
 
-/*
+/**
  * Default "preference" files (ascii)
  * These files are rarely portable between platforms
  */
 cptr ANGBAND_DIR_PREF;
 
-/*
+/**
  * User "preference" files (ascii)
  * These files are rarely portable between platforms
  */
 cptr ANGBAND_DIR_USER;
 
-/*
+/**
  * Various extra files (binary)
  * These files are rarely portable between platforms
  */
 cptr ANGBAND_DIR_XTRA;
 
-/*
+/**
  * Cmovie files of entire games (ascii)
  * Apart from possible newline things, likely portable btw platforms
  */
 
 cptr ANGBAND_DIR_CMOV;
 
-/*
+/**
  * Some variables values are created on the fly XXX XXX
  */
 
@@ -1130,21 +1130,21 @@ char pref_tmp_value[8];
 
 
 
-/*
+/**
  * Total Hack -- allow all items to be listed (even empty ones)
  * This is only used by "do_cmd_inven_e()" and is cleared there.
  */
 bool item_tester_full;
 
 
-/*
+/**
  * Here is a "pseudo-hook" used during calls to "get_item()" and
  * "show_inven()" and "show_equip()", and the choice window routines.
  */
 byte item_tester_tval;
 
 
-/*
+/**
  * Here is a "hook" used during calls to "get_item()" and
  * "show_inven()" and "show_equip()", and the choice window routines.
  */
@@ -1152,27 +1152,27 @@ bool (*item_tester_hook)(object_type*);
 
 
 
-/*
+/**
  * Current "comp" function for ang_sort()
  */
 bool (*ang_sort_comp)(vptr u, vptr v, int a, int b);
 
 
-/*
+/**
  * Current "swap" function for ang_sort()
  */
 void (*ang_sort_swap)(vptr u, vptr v, int a, int b);
 
 
 
-/*
+/**
  * Hack -- function hooks to restrict "get_mon_num_prep()" function
  */
 bool (*get_mon_num_hook)(int r_idx);
 bool (*get_mon_num2_hook)(int r_idx);
 
 
-/*
+/**
  * Hack -- function hook to restrict "get_obj_num_prep()" function
  */
 bool (*get_obj_num_hook)(int k_idx);
@@ -1193,90 +1193,90 @@ bool easy_disarm = TRUE;
 bool easy_tunnel = FALSE;
 
 
-/*
+/**
  * Maximum size of the wilderness map
  */
 u16b max_wild_x;
 u16b max_wild_y;
 
-/*
+/**
  * Wilderness map
  */
 wilderness_map **wild_map;
 
 
-/*
+/**
  * Maximum number of skills in s_info.txt
  */
 u16b old_max_s_idx = 0;
 u16b max_s_idx;
 
-/*
+/**
  * Maximum number of abilities in ab_info.txt
  */
 u16b max_ab_idx;
 
-/*
+/**
  * Maximum number of monsters in r_info.txt
  */
 u16b max_r_idx;
 
-/*
+/**
  * Maximum number of ego monsters in re_info.txt
  */
 u16b max_re_idx;
 
-/*
+/**
  * Maximum number of items in k_info.txt
  */
 u16b max_k_idx;
 
-/*
+/**
  * Maximum number of vaults in v_info.txt
  */
 u16b max_v_idx;
 
-/*
+/**
  * Maximum number of terrain features in f_info.txt
  */
 u16b max_f_idx;
 
-/*
+/**
  * Maximum number of alchemist recipies in al_info.txt
  */
 u16b max_al_idx;
 
-/*
+/**
  * Maximum number of artifacts in a_info.txt
  */
 u16b max_a_idx;
 
-/*
+/**
  * Maximum number of ego-items in e_info.txt
  */
 u16b max_e_idx;
 
-/*
+/**
  * Maximum number of randarts in ra_info.txt
  */
 u16b max_ra_idx;
 
-/*
+/**
  * Maximum number of dungeon types in d_info.txt
  */
 u16b max_d_idx;
 
-/*
+/**
  * Maximum number of stores types in st_info.txt
  */
 u16b max_st_idx;
 
-/*
+/**
  * Item sets
  */
 s16b max_set_idx = 1;
 
-/*
+/**
  * Maximum number of players info in p_info.txt
  */
 u16b max_rp_idx;
@@ -1284,37 +1284,37 @@ u16b max_rmp_idx;
 u16b max_c_idx;
 u16b max_mc_idx;
 
-/*
+/**
  * Maximum number of actions types in ba_info.txt
  */
 u16b max_ba_idx;
 
-/*
+/**
  * Maximum number of owner types in ow_info.txt
  */
 u16b max_ow_idx;
 
-/*
+/**
  * Maximum number of objects in the level
  */
 u16b max_o_idx;
 
-/*
+/**
  * Maximum number of monsters in the level
  */
 u16b max_m_idx;
 
-/*
+/**
  * Maximum number of traps in tr_info.txt
  */
 u16b max_t_idx;
 
-/*
+/**
  * Maximum number of wilderness features in wf_info.txt
  */
 u16b max_wf_idx;
 
-/*
+/**
  * Flags for initialization
  */
 int init_flags;
@@ -1331,7 +1331,7 @@ u16b no_breeds;
 /* Carried monsters can't take the damage if this is them which attack the player */
 bool carried_monster_hit = FALSE;
 
-/*
+/**
  * Random artifacts.
  */
 random_artifact random_artifacts[MAX_RANDARTS];
@@ -1340,41 +1340,41 @@ s32b RANDART_WEAPON;
 s32b RANDART_ARMOR;
 s32b RANDART_JEWEL;
 
-/*
+/**
  * Current bounties. An array of tuples of two, with the first being the
  * r_idx of the monster, and the second the monster's worth.
  */
 s16b bounties[MAX_BOUNTIES][2];
 
-/*
+/**
  * Spell description
  */
 bool info_spell = FALSE;
 char spell_txt[50];
 
-/*
+/**
  * Random spells.
  */
 random_spell random_spells[MAX_SPELLS];
 s16b spell_num;
 
-/*
+/**
  * Runecrafter's selfmade spells.
  */
 rune_spell rune_spells[MAX_RUNES];
 s16b rune_num;
 
-/*
+/**
  * Fate.
  */
 fate fates[MAX_FATES];
 
-/*
+/**
  * Vanilla town.
  */
 byte vanilla_town = FALSE;
 
-/*
+/**
  * Which dungeon ?
  * 0 = Wilderness
  * 1 = Mirkwood
@@ -1388,7 +1388,7 @@ byte vanilla_town = FALSE;
 byte dungeon_type;
 s16b *max_dlv;
 
-/*
+/**
  * Number of total bounties the player had had.
  */
 u32b total_bounties;
@@ -1419,115 +1419,115 @@ bool inventory_no_move;
 /* Notes patch */
 bool take_notes, auto_notes;
 
-/*
+/**
  * Such an ugly hack ...
  */
 bool *m_allow_special;
 bool *k_allow_special;
 bool *a_allow_special;
 
-/*
+/**
  * Gives a random object to newly created characters
  */
 bool rand_birth;
 
-/*
+/**
  * Fast autoroller
  */
 bool fast_autoroller;
 
-/*
+/**
  * Which monsters are allowed ?
  */
 bool joke_monsters;
 
-/*
+/**
  * How will mana staf & weapons of life act
  */
 bool munchkin_multipliers = TRUE;
 
-/*
+/**
  * Center view
  */
 bool center_player = FALSE;
 
-/*
+/**
  * Plots
  */
 s16b plots[MAX_PLOTS];
 
-/*
+/**
  * Random quest
  */
 random_quest random_quests[MAX_RANDOM_QUEST];
 
-/*
+/**
  * Show exp left
  */
 bool exp_need;
 
-/*
+/**
  * Auto load old colors;
  */
 bool autoload_old_colors;
 
-/*
+/**
  * Fated ?
  */
 bool fate_option;
 
-/*
+/**
  * Special levels
  */
 bool *special_lvl[MAX_DUNGEON_DEPTH];
 bool generate_special_feeling = FALSE;
 
-/*
+/**
  * Auto more
  */
 bool auto_more;
 
-/*
+/**
  * Dungeon flags
  */
 u32b dungeon_flags1;
 u32b dungeon_flags2;
 
-/*
+/**
  * The last character displayed
  */
 birther previous_char;
 
-/*
+/**
  * Race histories
  */
 hist_type *bg;
 int max_bg_idx;
 
-/*
+/**
  * Powers
  */
 s16b power_max = POWER_MAX_INIT;
 power_type *powers_type;
 
-/*
+/**
  * Variable savefile stuff
  */
 s32b extra_savefile_parts = 0;
 
-/*
+/**
  * Quests
  */
 s16b max_q_idx = MAX_Q_IDX_INIT;
 quest_type *quest;
 
-/*
+/**
  * Display the player as a special symbol when in bad health ?
  */
 bool player_char_health;
 
 
-/*
+/**
  * The spell list of schools
  */
 s16b max_spells;
@@ -1535,14 +1535,14 @@ spell_type *school_spells;
 s16b max_schools;
 school_type *schools;
 
-/*
+/**
  * Lasting spell effects
  */
 int project_time = 0;
 s32b project_time_effect = 0;
 effect_type effects[MAX_EFFECTS];
 
-/*
+/**
  * General skills set
  */
 char gen_skill_basem[MAX_SKILLS];
@@ -1550,44 +1550,44 @@ u32b gen_skill_base[MAX_SKILLS];
 char gen_skill_modm[MAX_SKILLS];
 s16b gen_skill_mod[MAX_SKILLS];
 
-/*
+/**
  * Display stats as linear
  */
 bool linear_stats;
 
-/*
+/**
  * Table of "cli" macros.
  */
 cli_comm *cli_info;
 int cli_total = 0;
 
-/*
+/**
  * max_bact, only used so that lua scripts can add new bacts without worrying about the numbers
  */
 int max_bact = 54;
 
-/*
+/**
  * Max corruptions
  */
 s16b max_corruptions = 0;
 
-/*
+/**
  * Ingame contextual help
  */
 bool option_ingame_help = TRUE;
 
-/*
+/**
  * Automatizer enabled status
  */
 bool automatizer_enabled = FALSE;
 
-/*
+/**
  * Location of the last teleportation thath affected the level
  */
 s16b last_teleportation_y = -1;
 s16b last_teleportation_x = -1;
 
-/*
+/**
  * The current game module
  */
 cptr game_module;
@@ -1595,19 +1595,19 @@ s32b VERSION_MAJOR;
 s32b VERSION_MINOR;
 s32b VERSION_PATCH;
 
-/*
+/**
  * Some module info
  */
 s32b max_plev = 50;
 s32b DUNGEON_DEATH = 28;
 
-/*
+/**
  * Gods
  */
 deity_type *deity_info;
 s32b max_gods = MAX_GODS_INIT;
 
-/*
+/**
  * Timers
  */
 timer_type *gl_timers = NULL;

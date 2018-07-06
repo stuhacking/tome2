@@ -1,6 +1,6 @@
 /* File: z-term.c */
 
-/*
+/**
  * Copyright (c) 1997 Ben Harrison
  *
  * This software may be copied and distributed for educational, research,
@@ -15,7 +15,7 @@
 #include "z-virt.h"
 
 
-/*
+/**
  * System independant functions
  */
 
@@ -116,7 +116,7 @@ bool zsock_read_simple(ip_connection *conn, char *str, int len)
 	return zsock.read(conn, str, &rlen, FALSE);
 }
 
-/*
+/**
  ******************************* Here comes the Windows socket part ********************************
  */
 #ifdef USE_WINSOCK
@@ -390,7 +390,7 @@ bool init_socks_win()
 }
 #endif
 
-/*
+/**
  ****************************** And there is the unix sockets **************************
  */
 #ifdef USE_UNIXSOCK
@@ -651,7 +651,7 @@ bool zsock_accept_unix(ip_connection *conn, ip_connection *child)
 /* The zsock hook list */
 zsock_hooks zsock;
 
-/*
+/**
  * Dummy hooks for systems without socks
  */
 bool zsock_setup_dummy(ip_connection *conn, cptr conn_ip, int port, byte conn_type, bool server)
@@ -724,7 +724,7 @@ void dummy_socks()
 	zsock.remove_timer = zsock_remove_timer_dummy;
 }
 
-/*
+/**
  * Initialize the hooks
  */
 static bool init_once = TRUE;

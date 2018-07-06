@@ -33,20 +33,20 @@
 #include <math.h>
 
 #ifdef USE_ISO
-/*
+/**
  * Simugraph system (Hj. Malthaner)
  */
 #include "iso/simsys.h"
 #include "iso/simgraph.h"
 #include "iso/world_adaptor.h"
 #include "iso/world_view.h"
-/*
+/**
  * Simugraph specific routines
  * by Hj. Malthaner
  */
 #include "iso/hackdef.h"
 
-/*
+/**
  * Text place marker function protype (Hj. Malthaner)
  */
 static void set_spots(int x, int y, int n, bool v);
@@ -63,7 +63,7 @@ bool spots[80][24];
  */
 int mx, my;
 
-/*
+/**
  * Hajo: this flags need to be set when opening windows
  */
 
@@ -1628,7 +1628,7 @@ void eraseTerminal(void)
 	
 }
 
-/*
+/**
  * Draw some text on the screen
  *
  * This function should actually display an array of characters
@@ -1736,7 +1736,7 @@ static errr Term_text_sdl(int x, int y, int n, byte a, const char *cp)
 	return (0);
 }
 
-/*
+/**
  * Draw some attr/char pairs on the screen
  *
  * This routine should display the given "n" attr/char pairs at

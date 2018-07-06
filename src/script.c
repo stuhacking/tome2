@@ -2,7 +2,7 @@
 
 /* Purpose: scripting in lua */
 
-/*
+/**
  * Copyright (c) 2001 Dark God
  *
  * This software may be copied and distributed for educational, research, and
@@ -27,7 +27,7 @@ int tolua_spells_open (lua_State *L);
 int tolua_quest_open (lua_State *L);
 int tolua_dungeon_open (lua_State *L);
 
-/*
+/**
  * Lua state
  */
 lua_State* L = NULL;
@@ -72,7 +72,7 @@ static struct luaL_reg tome_iolib[] =
 
 #if 0
 
-/*
+/**
  * Nuked because they can confuse some compilers (lcc for example),
  * and because of their obscurity -- pelpel
  */
@@ -110,7 +110,7 @@ return 1; \
 #endif
 
 
-/*
+/**
  * Monadic bit negation operation
  * MONADIC(not,     ~)
  */
@@ -121,7 +121,7 @@ static int int_not(lua_State* L)
 }
 
 
-/*
+/**
  * Dyadic integer modulus operation
  * DYADIC(mod,      %)
  */
@@ -132,7 +132,7 @@ static int int_mod(lua_State* L)
 }
 
 
-/*
+/**
  * Variable length bitwise AND operation
  * VARIADIC(and,    &)
  */
@@ -148,7 +148,7 @@ static int int_and(lua_State *L)
 }
 
 
-/*
+/**
  * Variable length bitwise OR operation
  * VARIADIC(or,     |)
  */
@@ -164,7 +164,7 @@ static int int_or(lua_State *L)
 }
 
 
-/*
+/**
  * Variable length bitwise XOR operation
  * VARIADIC(xor,    ^)
  */
@@ -180,7 +180,7 @@ static int int_xor(lua_State *L)
 }
 
 
-/*
+/**
  * Binary left shift operation
  * TDYADIC(lshift,  <<, , u)
  */
@@ -190,7 +190,7 @@ static int int_lshift(lua_State* L)
 	return 1;
 }
 
-/*
+/**
  * Binary logical right shift operation
  * TDYADIC(rshift,  >>, u, u)
  */
@@ -200,7 +200,7 @@ static int int_rshift(lua_State* L)
 	return 1;
 }
 
-/*
+/**
  * Binary arithmetic right shift operation
  * TDYADIC(arshift, >>, , u)
  */
@@ -223,7 +223,7 @@ static const struct luaL_reg bitlib[] =
 	{"arshift", int_arshift},
 };
 
-/*
+/**
  * Some special wrappers
  */
 static int lua_zsock_read(lua_State* L)
@@ -266,7 +266,7 @@ static int lua_zsock_read(lua_State* L)
 	}
 }
 
-/*
+/**
  * Initialize lua scripting
  */
 static bool init_lua_done = FALSE;

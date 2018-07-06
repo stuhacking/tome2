@@ -1,6 +1,6 @@
 /* File: main-win.c */
 
-/*
+/**
  * Copyright (c) 1997 Ben Harrison, Skirmantas Kligys, and others
  *
  * This software may be copied and distributed for educational, research,
@@ -9,7 +9,7 @@
  */
 
 
-/*
+/**
  * This file helps Angband work with Windows computers.
  *
  * To use this file, use an appropriate "Makefile" or "Project File",
@@ -79,7 +79,7 @@
 #ifdef WINDOWS
 
 
-/*
+/**
  * Extract the "WIN32" flag from the compiler
  */
 #if defined(__WIN32__) || defined(__WINNT__) || defined(__NT__)
@@ -89,12 +89,12 @@
 #endif
 
 
-/*
+/**
  * Hack -- allow use of "screen saver" mode
  */
 #define USE_SAVER
 
-/*
+/**
  * Menu constants -- see "ANGBAND.RC"
  */
 
@@ -183,12 +183,12 @@
 #define IDM_HELP_SPOILERS		902
 
 
-/*
+/**
  * This may need to be removed for some compilers XXX XXX XXX
  */
 #define STRICT
 
-/*
+/**
  * Exclude parts of WINDOWS.H that are not needed
  */
 #define NOCOMM            /* Comm driver APIs and definitions */
@@ -218,7 +218,7 @@
 /* Not defined since it breaks Borland C++ 5.5 */
 /* #define NOCTLMGR */    /* Control management and controls */
 
-/*
+/**
  * Exclude parts of WINDOWS.H that are not needed (Win32)
  */
 #define WIN32_LEAN_AND_MEAN
@@ -227,12 +227,12 @@
 #define NOKANJI           /* Kanji support stuff. */
 #define NOMCX             /* Modem Configuration Extensions */
 
-/*
+/**
  * Include the "windows" support file
  */
 #include <windows.h>
 
-/*
+/**
  * For IRC stuff
  */
 #ifdef USE_WINSOCK
@@ -241,7 +241,7 @@
 #endif
 
 
-/*
+/**
  * Exclude parts of MMSYSTEM.H that are not needed
  */
 #define MMNODRV          /* Installable driver support */
@@ -253,20 +253,20 @@
 #define MMNOMMIO         /* Multimedia file I/O support */
 #define MMNOMMSYSTEM     /* General MMSYSTEM functions */
 
-/*
+/**
  * Include some more files
  */
 #include <mmsystem.h>
 #include <commdlg.h>
 
-/*
+/**
  * Include the support for loading bitmaps
  */
 #ifdef USE_GRAPHICS
 # include "readdib.h"
 #endif
 
-/*
+/**
  * Hack -- Fake declarations from "dos.h" XXX XXX XXX
  */
 #ifdef WIN32
@@ -277,21 +277,21 @@
 unsigned _cdecl _dos_getfileattr(const char *, unsigned *);
 #endif /* WIN32 */
 
-/*
+/**
  * Silliness in WIN32 drawing routine
  */
 #ifdef WIN32
 # define MoveTo(H, X, Y) MoveToEx(H, X, Y, NULL)
 #endif /* WIN32 */
 
-/*
+/**
  * Silliness for Windows 95
  */
 #ifndef WS_EX_TOOLWINDOW
 # define WS_EX_TOOLWINDOW 0
 #endif
 
-/*
+/**
  * Foreground color bits (hard-coded by DOS)
  */
 #define VID_BLACK	0x00
@@ -303,12 +303,12 @@ unsigned _cdecl _dos_getfileattr(const char *, unsigned *);
 #define VID_YELLOW	0x06
 #define VID_WHITE	0x07
 
-/*
+/**
  * Bright text (hard-coded by DOS)
  */
 #define VID_BRIGHT	0x08
 
-/*
+/**
  * Background color bits (hard-coded by DOS)
  */
 #define VUD_BLACK	0x00
@@ -320,19 +320,19 @@ unsigned _cdecl _dos_getfileattr(const char *, unsigned *);
 #define VUD_YELLOW	0x60
 #define VUD_WHITE	0x70
 
-/*
+/**
  * Blinking text (hard-coded by DOS)
  */
 #define VUD_BRIGHT	0x80
 
 
 
-/*
+/**
  * Forward declare
  */
 typedef struct _term_data term_data;
 
-/*
+/**
  * Extra "term" data
  *
  * Note the use of "font_want" for the names of the font file requested by
@@ -389,57 +389,57 @@ struct _term_data
 };
 
 
-/*
+/**
  * Maximum number of windows XXX XXX XXX
  */
 #define MAX_TERM_DATA 8
 
-/*
+/**
  * An array of term_data's
  */
 static term_data data[MAX_TERM_DATA];
 
-/*
+/**
  * Hack -- global "window creation" pointer
  */
 static term_data *my_td;
 
-/*
+/**
  * game in progress
  */
 bool game_in_progress = FALSE;
 
-/*
+/**
  * note when "open"/"new" become valid
  */
 bool initialized = FALSE;
 
-/*
+/**
  * screen paletted, i.e. 256 colors
  */
 bool paletted = FALSE;
 
-/*
+/**
  * 16 colors screen, don't use RGB()
  */
 bool colors16 = FALSE;
 
-/*
+/**
  * Saved instance handle
  */
 static HINSTANCE hInstance;
 
-/*
+/**
  * Yellow brush for the cursor
  */
 static HBRUSH hbrYellow;
 
-/*
+/**
  * An icon
  */
 static HICON hIcon;
 
-/*
+/**
  * A palette
  */
 static HPALETTE hPal;
@@ -447,7 +447,7 @@ static HPALETTE hPal;
 
 #ifdef USE_SAVER
 
-/*
+/**
  * The screen saver window
  */
 static HWND hwndSaver;
@@ -457,19 +457,19 @@ static HWND hwndSaver;
 
 #ifdef USE_GRAPHICS
 
-/*
+/**
  * Flag set once "graphics" has been initialized
  */
 static bool can_use_graphics = FALSE;
 
-/*
+/**
  * The global bitmap
  */
 static DIBINIT infGraph;
 
 #ifdef USE_TRANSPARENCY
 
-/*
+/**
  * The global bitmap mask
  */
 static DIBINIT infMask;
@@ -481,12 +481,12 @@ static DIBINIT infMask;
 
 #ifdef USE_SOUND
 
-/*
+/**
  * Flag set once "sound" has been initialized
  */
 static bool can_use_sound = FALSE;
 
-/*
+/**
  * An array of sound file names
  */
 static cptr sound_file[SOUND_MAX];
@@ -494,22 +494,22 @@ static cptr sound_file[SOUND_MAX];
 #endif /* USE_SOUND */
 
 
-/*
+/**
  * Full path to ANGBAND.INI
  */
 static cptr ini_file = NULL;
 
-/*
+/**
  * Name of application
  */
 static cptr AppName = "ANGBAND";
 
-/*
+/**
  * Name of sub-window type
  */
 static cptr AngList = "AngList";
 
-/*
+/**
  * Directory names
  */
 static cptr ANGBAND_DIR_XTRA_FONT;
@@ -518,13 +518,13 @@ static cptr ANGBAND_DIR_XTRA_SOUND;
 static cptr ANGBAND_DIR_XTRA_HELP;
 
 
-/*
+/**
  * The "complex" color values
  */
 static COLORREF win_clr[256];
 
 
-/*
+/**
  * The "simple" color values
  *
  * See "main-ibm.c" for original table information
@@ -554,14 +554,14 @@ static BYTE win_pal[256] =
 };
 
 
-/*
+/**
  * Hack -- define which keys are "special"
  */
 static bool special_key[256];
 static bool ignore_key[256];
 
 #if 1
-/*
+/**
  * Hack -- initialization list for "special_key"
  */
 static byte special_key_list[] = {
@@ -587,7 +587,7 @@ static byte ignore_key_list[] = {
 };
 
 #else
-/*
+/**
 * Hack -- initialization list for "special_key"
 *
 * We ignore the modifier keys (shift, control, alt, num lock, scroll lock),
@@ -669,7 +669,7 @@ static byte special_key_list[] =
 #endif
 
 
-/*
+/**
  * Hack -- given a pathname, point at the filename
  */
 static cptr extract_file_name(cptr s)
@@ -687,7 +687,7 @@ static cptr extract_file_name(cptr s)
 }
 
 
-/*
+/**
  * Hack -- given a simple filename, extract the "font size" info
  *
  * Return a pointer to a static buffer holding the capitalized base name.
@@ -732,7 +732,7 @@ static char *analyze_font(char *path, int *wp, int *hp)
 }
 
 
-/*
+/**
  * Check for existance of a file
  */
 static bool check_file(cptr s)
@@ -781,7 +781,7 @@ static bool check_file(cptr s)
 }
 
 
-/*
+/**
  * Check for existance of a directory
  */
 static bool check_dir(cptr s)
@@ -838,7 +838,7 @@ static bool check_dir(cptr s)
 }
 
 
-/*
+/**
  * Validate a file
  */
 static void validate_file(cptr s)
@@ -851,7 +851,7 @@ static void validate_file(cptr s)
 }
 
 
-/*
+/**
  * Validate a directory
  */
 static void validate_dir(cptr s)
@@ -864,7 +864,7 @@ static void validate_dir(cptr s)
 }
 
 
-/*
+/**
  * Get the "size" for a window
  */
 static void term_getsize(term_data *td)
@@ -928,7 +928,7 @@ static void term_getsize(term_data *td)
 }
 
 
-/*
+/**
  * Write the "prefs" for a single term
  */
 static void save_prefs_aux(term_data *td, cptr sec_name)
@@ -981,7 +981,7 @@ static void save_prefs_aux(term_data *td, cptr sec_name)
 }
 
 
-/*
+/**
  * Write the "prefs"
  *
  * We assume that the windows have all been initialized
@@ -1022,7 +1022,7 @@ static void save_prefs(void)
 }
 
 
-/*
+/**
  * Load the "prefs" for a single term
  */
 static void load_prefs_aux(term_data *td, cptr sec_name)
@@ -1057,7 +1057,7 @@ static void load_prefs_aux(term_data *td, cptr sec_name)
 }
 
 
-/*
+/**
  * Load the "prefs"
  */
 static void load_prefs(void)
@@ -1093,7 +1093,7 @@ static void load_prefs(void)
 }
 
 
-/*
+/**
  * Create the new global palette based on the bitmap palette
  * (if any), and the standard 16 entry palette derived from
  * "win_clr[]" which is used for the basic 16 Angband colors.
@@ -1233,7 +1233,7 @@ static int new_palette(void)
 }
 
 
-/*
+/**
  * Initialize graphics
  */
 static bool init_graphics()
@@ -1320,7 +1320,7 @@ static bool init_graphics()
 }
 
 
-/*
+/**
  * Initialize sound
  */
 static bool init_sound()
@@ -1356,7 +1356,7 @@ static bool init_sound()
 
 
 
-/*
+/**
  * Resize a window
  */
 static void term_window_resize(term_data *td)
@@ -1375,7 +1375,7 @@ static void term_window_resize(term_data *td)
 
 
 
-/*
+/**
  * Force the use of a new "font file" for a term_data
  *
  * This function may be called before the "window" is ready
@@ -1486,7 +1486,7 @@ static errr term_force_font(term_data *td, cptr path)
 
 
 
-/*
+/**
  * Allow the user to change the font for this window.
  */
 static void term_change_font(term_data *td)
@@ -1540,7 +1540,7 @@ static void term_change_font(term_data *td)
 
 
 
-/*
+/**
  * Hack -- redraw a term_data
  */
 static void term_data_redraw(term_data *td)
@@ -1564,7 +1564,7 @@ static void term_data_redraw(term_data *td)
 
 #if 0
 
-/*
+/**
  * Initialize a new Term
  */
 static void Term_init_win(term *t)
@@ -1573,7 +1573,7 @@ static void Term_init_win(term *t)
 }
 
 
-/*
+/**
  * Nuke an old Term
  */
 static void Term_nuke_win(term *t)
@@ -1584,7 +1584,7 @@ static void Term_nuke_win(term *t)
 #endif
 
 
-/*
+/**
  * Interact with the User
  */
 static errr Term_user_win(int n)
@@ -1596,7 +1596,7 @@ static errr Term_user_win(int n)
 
 #ifdef SUPPORT_GAMMA
 
-/*
+/**
  * When set to TRUE, indicates that we can use gamma_table
  */
 static bool gamma_table_ready = FALSE;
@@ -1604,7 +1604,7 @@ static bool gamma_table_ready = FALSE;
 #endif /* SUPPORT_GAMMA */
 
 
-/*
+/**
  * React to global changes
  */
 static errr Term_xtra_win_react(void)
@@ -1775,7 +1775,7 @@ static errr Term_xtra_win_react(void)
 }
 
 
-/*
+/**
  * Process at least one event
  */
 static errr Term_xtra_win_event(int v)
@@ -1811,7 +1811,7 @@ static errr Term_xtra_win_event(int v)
 }
 
 
-/*
+/**
  * Process all pending events
  */
 static errr Term_xtra_win_flush(void)
@@ -1830,7 +1830,7 @@ static errr Term_xtra_win_flush(void)
 }
 
 
-/*
+/**
  * Hack -- clear the screen
  *
  * Make this more efficient XXX XXX XXX
@@ -1860,7 +1860,7 @@ static errr Term_xtra_win_clear(void)
 }
 
 
-/*
+/**
  * Hack -- make a noise
  */
 static errr Term_xtra_win_noise(void)
@@ -1870,7 +1870,7 @@ static errr Term_xtra_win_noise(void)
 }
 
 
-/*
+/**
  * Hack -- make a sound
  */
 static errr Term_xtra_win_sound(int v)
@@ -1905,7 +1905,7 @@ static errr Term_xtra_win_sound(int v)
 }
 
 
-/*
+/**
  * Delay for "x" milliseconds
  */
 static int Term_xtra_win_delay(int v)
@@ -1941,7 +1941,7 @@ static int Term_xtra_win_delay(int v)
 	return (0);
 }
 
-/*
+/**
  * Return the HWND of the main window
  */
 HWND get_main_hwnd()
@@ -1949,7 +1949,7 @@ HWND get_main_hwnd()
 	return data[0].w;
 }
 
-/*
+/**
  * Do a "special thing"
  */
 static errr Term_xtra_win(int n, int v)
@@ -2052,7 +2052,7 @@ static errr Term_xtra_win(int n, int v)
 
 
 
-/*
+/**
  * Low level graphics (Assumes valid input).
  *
  * Draw a "cursor" at (x,y), using a "yellow box".
@@ -2083,7 +2083,7 @@ static errr Term_curs_win(int x, int y)
 }
 
 
-/*
+/**
  * Low level graphics (Assumes valid input).
  *
  * Erase a "block" of "n" characters starting at (x,y).
@@ -2111,7 +2111,7 @@ static errr Term_wipe_win(int x, int y, int n)
 	return 0;
 }
 
-/*
+/**
  * Low level graphics.  Assumes valid input.
  *
  * Draw several ("n") chars, with an attr, at a given location.
@@ -2203,7 +2203,7 @@ static errr Term_text_win(int x, int y, int n, byte a, const char *s)
 }
 
 
-/*
+/**
  * Low level graphics.  Assumes valid input.
  *
  * Draw an array of "special" attr/char pairs at the given location.
@@ -2431,7 +2431,7 @@ static errr Term_pict_win(int x, int y, int n, const byte *ap, const char *cp)
 /*** Other routines ***/
 
 
-/*
+/**
  * Create and initialize a "term_data" given a title
  */
 static void term_data_link(term_data *td)
@@ -2470,7 +2470,7 @@ static void term_data_link(term_data *td)
 }
 
 
-/*
+/**
  * Create the windows
  *
  * First, instantiate the "default" values, then read the "ini_file"
@@ -2648,7 +2648,7 @@ static void init_windows(void)
 
 
 
-/*
+/**
  * Prepare the menus
  */
 static void setup_menus(void)
@@ -2873,7 +2873,7 @@ static void setup_menus(void)
 }
 
 
-/*
+/**
  * Check for double clicked (or dragged) savefile
  *
  * Apparently, Windows copies the entire filename into the first
@@ -2910,7 +2910,7 @@ static void check_for_save_file(LPSTR cmd_line)
 }
 
 
-/*
+/**
  * Process a menu command
  */
 static void process_menus(WORD wCmd)
@@ -4095,7 +4095,7 @@ WPARAM wParam, LPARAM lParam)
 /*** Temporary Hooks ***/
 
 
-/*
+/**
  * Display warning message (see "z-util.c")
  */
 static void hack_plog(cptr str)
@@ -4109,7 +4109,7 @@ static void hack_plog(cptr str)
 }
 
 
-/*
+/**
  * Display error message and quit (see "z-util.c")
  */
 static void hack_quit(cptr str)
@@ -4136,7 +4136,7 @@ static void hack_quit(cptr str)
 /*** Various hooks ***/
 
 
-/*
+/**
  * Display warning message (see "z-util.c")
  */
 static void hook_plog(cptr str)
@@ -4150,7 +4150,7 @@ static void hook_plog(cptr str)
 }
 
 
-/*
+/**
  * Display error message and quit (see "z-util.c")
  */
 static void hook_quit(cptr str)
@@ -4198,7 +4198,7 @@ static void hook_quit(cptr str)
 /*** Initialize ***/
 
 
-/*
+/**
  * Init some stuff
  */
 static void init_stuff(void)

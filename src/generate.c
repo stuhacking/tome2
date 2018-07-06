@@ -2,7 +2,7 @@
 
 /* Purpose: Dungeon generation */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -13,7 +13,7 @@
 #include "angband.h"
 #define SAFE_MAX_ATTEMPTS 5000
 
-/*
+/**
  * Note that Level generation is *not* an important bottleneck,
  * though it can be annoyingly slow on older machines...  Thus
  * we emphasize "simplicity" and "correctness" over "speed".
@@ -102,7 +102,7 @@
  */
 
 
-/*
+/**
  * Dungeon generation values
  */
 #define DUN_ROOMS      50	/* Number of rooms to attempt */
@@ -117,7 +117,7 @@
 #define DUN_WAT_CHG    50	/* 1 in 50 chance of junction in river */
 #define DUN_CAVERN     30	/* 1/chance of having a cavern level */
 
-/*
+/**
  * Dungeon tunnel generation values
  */
 #define DUN_TUN_RND    10	/* Chance of random direction */
@@ -126,7 +126,7 @@
 #define DUN_TUN_PEN    25	/* Chance of doors at room entrances */
 #define DUN_TUN_JCT    90	/* Chance of doors at tunnel junctions */
 
-/*
+/**
  * Dungeon streamer generation values
  */
 #define DUN_STR_DEN     5	/* Density of streamers */
@@ -141,7 +141,7 @@
 #define DUN_STR_DWLW    8	/* Density of water & lava streams -KMW- */
 
 
-/*
+/**
  * Dungeon treausre allocation values
  */
 #define DUN_AMT_ROOM    9	/* Amount of objects for rooms */
@@ -151,14 +151,14 @@
 #define DUN_AMT_BETWEEN 2	/* Amount of between gates */
 #define DUN_AMT_FOUNTAIN 1	/* Amount of fountains */
 
-/*
+/**
  * Hack -- Dungeon allocation "places"
  */
 #define ALLOC_SET_CORR  1	/* Hallway */
 #define ALLOC_SET_ROOM  2	/* Room */
 #define ALLOC_SET_BOTH  3	/* Anywhere */
 
-/*
+/**
  * Hack -- Dungeon allocation "types"
  */
 #define ALLOC_TYP_RUBBLE	1	/* Rubble */
@@ -170,20 +170,20 @@
 #define ALLOC_TYP_FOUNTAIN      8       /* Fountain */
 
 
-/*
+/**
  * The "size" of a "generation block" in grids
  */
 #define BLOCK_HGT	11
 #define BLOCK_WID	11
 
-/*
+/**
  * Maximum numbers of rooms along each axis (currently 6x6)
  */
 #define MAX_ROOMS_ROW	(MAX_HGT / BLOCK_HGT)
 #define MAX_ROOMS_COL	(MAX_WID / BLOCK_WID)
 
 
-/*
+/**
  * Bounds on some arrays used in the "dun_data" structure.
  * These bounds are checked, though usually this is a formality.
  */
@@ -193,14 +193,14 @@
 #define TUNN_MAX	900
 
 
-/*
+/**
  * Maximal number of room types
  */
 #define ROOM_MAX	12
 
 
 
-/*
+/**
  * Simple structure to hold a map location
  */
 
@@ -214,7 +214,7 @@ struct coord
 };
 
 
-/*
+/**
  * Room type information
  */
 
@@ -230,7 +230,7 @@ struct room_data
 };
 
 
-/*
+/**
  * Structure to hold all "dungeon generation" data
  */
 
@@ -265,7 +265,7 @@ struct dun_data
 	bool crowded;
 };
 
-/*
+/**
  * Level generator type
  */
 
@@ -285,7 +285,7 @@ struct level_generator_type
 
 static level_generator_type *level_generators = NULL;
 
-/*
+/**
  * Add a new generator
  */
 void add_level_generator(cptr name, bool (*generator)(cptr name), bool stairs, bool monsters, bool objects, bool miscs)
@@ -306,19 +306,19 @@ void add_level_generator(cptr name, bool (*generator)(cptr name), bool stairs, b
 }
 
 
-/*
+/**
  * Dungeon generation data -- see "cave_gen()"
  */
 static dun_data *dun;
 
-/*
+/**
  * ???
  */
 static int template_race;
 
 
 
-/*
+/**
  * Array of room types depths
  */
 static s16b roomdep[] =
@@ -339,7 +339,7 @@ static s16b roomdep[] =
 };
 
 
-/*
+/**
  * Always picks a correct direction
  */
 static void correct_dir(int *rdir, int *cdir, int y1, int x1, int y2, int x2)
@@ -363,7 +363,7 @@ static void correct_dir(int *rdir, int *cdir, int y1, int x1, int y2, int x2)
 }
 
 
-/*
+/**
  * Pick a random direction
  */
 static void rand_dir(int *rdir, int *cdir)
@@ -377,7 +377,7 @@ static void rand_dir(int *rdir, int *cdir)
 }
 
 
-/*
+/**
  * Convert existing terrain type to "up stairs"
  */
 static void place_up_stairs(int y, int x)
@@ -398,7 +398,7 @@ static void place_up_stairs(int y, int x)
 }
 
 
-/*
+/**
  * Convert existing terrain type to "down stairs" with dungeon changing.
  */
 static void place_magical_stairs(int y, int x, byte next)
@@ -411,7 +411,7 @@ static void place_magical_stairs(int y, int x, byte next)
 }
 
 
-/*
+/**
  * Convert existing terrain type to "down stairs"
  */
 static void place_down_stairs(int y, int x)
@@ -436,7 +436,7 @@ static void place_down_stairs(int y, int x)
 }
 
 
-/*
+/**
  * Helper function for place_new_way. Determine if y, x is one of
  * floor features of the current dungeon
  */
@@ -455,7 +455,7 @@ static bool is_safe_floor(int y, int x)
 }
 
 
-/*
+/**
  * Place a way to next / previoous level on flat places
  */
 void place_new_way(int *y, int *x)
@@ -706,7 +706,7 @@ void place_new_way(int *y, int *x)
 }
 
 
-/*
+/**
  * Returns random co-ordinates for player/monster/object
  */
 bool new_player_spot(int branch)
@@ -774,7 +774,7 @@ bool new_player_spot(int branch)
 
 
 
-/*
+/**
  * Count the number of walls adjacent to the given grid.
  *
  * Note -- Assumes "in_bounds(y, x)"
@@ -795,7 +795,7 @@ static int next_to_walls(int y, int x)
 
 
 
-/*
+/**
  * Convert existing terrain type to rubble
  */
 static void place_rubble(int y, int x)
@@ -805,7 +805,7 @@ static void place_rubble(int y, int x)
 }
 
 
-/*
+/**
  * Place an altar at the given location
  */
 static void place_altar(int y, int x)
@@ -815,7 +815,7 @@ static void place_altar(int y, int x)
 }
 
 
-/*
+/**
  * Place a fountain at the given location
  */
 static void place_fountain(int y, int x)
@@ -855,7 +855,7 @@ static void place_fountain(int y, int x)
 }
 
 
-/*
+/**
  * Place a between gate at the given location
  */
 static void place_between(int y, int x)
@@ -884,7 +884,7 @@ static void place_between(int y, int x)
 }
 
 
-/*
+/**
  * Place an up/down staircase at given location
  */
 static void place_random_stairs(int y, int x)
@@ -923,7 +923,7 @@ static void place_random_stairs(int y, int x)
 }
 
 
-/*
+/**
  * Place a locked door at the given location
  */
 static void place_locked_door(int y, int x)
@@ -933,7 +933,7 @@ static void place_locked_door(int y, int x)
 }
 
 
-/*
+/**
  * Place a secret door at the given location
  */
 static void place_secret_door(int y, int x)
@@ -972,7 +972,7 @@ static void place_secret_door(int y, int x)
 }
 
 
-/*
+/**
  * Place a random type of door at the given location
  */
 static void place_random_door(int y, int x)
@@ -1027,7 +1027,7 @@ static void place_random_door(int y, int x)
 
 
 
-/*
+/**
  * Places some staircases near walls
  */
 static void alloc_stairs(int feat, int num, int walls, int branch)
@@ -1119,7 +1119,7 @@ static void alloc_stairs(int feat, int num, int walls, int branch)
 
 
 
-/*
+/**
  * Allocates some objects (using "place" and "type")
  */
 static void alloc_object(int set, int typ, int num)
@@ -1217,7 +1217,7 @@ static void alloc_object(int set, int typ, int num)
 }
 
 
-/*
+/**
  * The following functions create a rectangle (e.g. outer wall of rooms)
  */
 void build_rectangle(int y1, int x1, int y2, int x2, int feat, int info)
@@ -1246,7 +1246,7 @@ void build_rectangle(int y1, int x1, int y2, int x2, int feat, int info)
 }
 
 
-/*
+/**
  * Place water through the dungeon using recursive fractal algorithm
  *
  * Why do those good at math and/or algorithms tend *not* to 
@@ -1363,7 +1363,7 @@ static void recursive_river(int x1, int y1, int x2, int y2,
 }
 
 
-/*
+/**
  * Places water through dungeon.
  */
 static void add_river(int feat1, int feat2)
@@ -1413,7 +1413,7 @@ static void add_river(int feat1, int feat2)
 }
 
 
-/*
+/**
  * Places "streamers" of rock through dungeon
  *
  * Note that their are actually six different terrain features used
@@ -1499,7 +1499,7 @@ static void build_streamer(int feat, int chance)
 
 
 
-/*
+/**
  * Place streams of water, lava, & trees -KMW-
  * This routine varies the placement based on dungeon level
  * otherwise is similar to build_streamer
@@ -1623,7 +1623,7 @@ static void build_streamer2(int feat, int killwall)
 
 
 
-/*
+/**
  * Build a destroyed level
  */
 static void destroy_level(void)
@@ -1718,7 +1718,7 @@ static void destroy_level(void)
 }
 
 
-/*
+/**
  * Function that sees if a square is a floor (Includes range checking)
  */
 static bool get_is_floor(int x, int y)
@@ -1733,7 +1733,7 @@ static bool get_is_floor(int x, int y)
 }
 
 
-/*
+/**
  * Tunnel around a room if it will cut off part of a cave system
  */
 static void check_room_boundary(int x1, int y1, int x2, int y2)
@@ -1815,7 +1815,7 @@ static void check_room_boundary(int x1, int y1, int x2, int y2)
 }
 
 
-/*
+/**
  * Create up to "num" objects near the given coordinates
  * Only really called by some of the "vault" routines.
  */
@@ -1872,7 +1872,7 @@ static void vault_objects(int y, int x, int num)
 }
 
 
-/*
+/**
  * Place a trap with a given displacement of point
  */
 static void vault_trap_aux(int y, int x, int yd, int xd)
@@ -1913,7 +1913,7 @@ static void vault_trap_aux(int y, int x, int yd, int xd)
 }
 
 
-/*
+/**
  * Place some traps with a given displacement of given location
  */
 static void vault_traps(int y, int x, int yd, int xd, int num)
@@ -1927,7 +1927,7 @@ static void vault_traps(int y, int x, int yd, int xd, int num)
 }
 
 
-/*
+/**
  * Hack -- Place some sleeping monsters near the given location
  */
 static void vault_monsters(int y1, int x1, int num)
@@ -1956,7 +1956,7 @@ static void vault_monsters(int y1, int x1, int num)
 	}
 }
 
-/*
+/**
  * Allocate the space needed by a room in the room_map array.
  *
  * width, height represent the size of the room (0...x-1) by (0...y-1).
@@ -2037,7 +2037,7 @@ bool room_alloc(int width, int height, bool crowded, int by0, int bx0, int *cx, 
 	return (TRUE);
 }
 
-/*
+/**
  * Room building routines.
  *
  * Room types:
@@ -2052,7 +2052,7 @@ bool room_alloc(int width, int height, bool crowded, int by0, int bx0, int *cx, 
  *   9 -- circular rooms
  */
 
-/*
+/**
  * Type 1 -- normal rectangular rooms
  */
 static void build_type1(int by0, int bx0)
@@ -2125,7 +2125,7 @@ static void build_type1(int by0, int bx0)
 	}
 }
 
-/*
+/**
  * Type 2 -- Overlapping rectangular rooms
  */
 static void build_type2(int by0, int bx0)
@@ -2179,7 +2179,7 @@ static void build_type2(int by0, int bx0)
 	}
 }
 
-/*
+/**
  * Type 3 -- Cross shaped rooms
  *
  * Builds a room at a row, column coordinate
@@ -2355,7 +2355,7 @@ static void build_type3(int by0, int bx0)
 	}
 }
 
-/*
+/**
  * Type 4 -- Large room with inner features
  *
  * Possible sub-types:
@@ -2664,7 +2664,7 @@ static void build_type4(int by0, int bx0)
 }
 
 
-/*
+/**
  * Determine if the given monster is appropriate for inclusion in
  * a monster nest or monster pit or the given type.
  *
@@ -2680,7 +2680,7 @@ static void build_type4(int by0, int bx0)
  */
 
 
-/*
+/**
  * Helper function for "monster nest (jelly)"
  */
 static bool vault_aux_jelly(int r_idx)
@@ -2701,7 +2701,7 @@ static bool vault_aux_jelly(int r_idx)
 }
 
 
-/*
+/**
  * Helper function for "monster nest (animal)"
  */
 static bool vault_aux_animal(int r_idx)
@@ -2719,7 +2719,7 @@ static bool vault_aux_animal(int r_idx)
 }
 
 
-/*
+/**
  * Helper function for "monster nest (undead)"
  */
 static bool vault_aux_undead(int r_idx)
@@ -2737,7 +2737,7 @@ static bool vault_aux_undead(int r_idx)
 }
 
 
-/*
+/**
  * Helper function for "monster nest (chapel)"
  */
 static bool vault_aux_chapel(int r_idx)
@@ -2759,7 +2759,7 @@ static bool vault_aux_chapel(int r_idx)
 }
 
 
-/*
+/**
  * Helper function for "monster nest (kennel)"
  */
 static bool vault_aux_kennel(int r_idx)
@@ -2775,7 +2775,7 @@ static bool vault_aux_kennel(int r_idx)
 }
 
 
-/*
+/**
  * Helper function for "monster nest (treasure)"
  */
 static bool vault_aux_treasure(int r_idx)
@@ -2798,7 +2798,7 @@ static bool vault_aux_treasure(int r_idx)
 }
 
 
-/*
+/**
  * Helper function for "monster nest (clone)"
  */
 static bool vault_aux_clone(int r_idx)
@@ -2807,7 +2807,7 @@ static bool vault_aux_clone(int r_idx)
 }
 
 
-/*
+/**
  * Helper function for "monster nest (symbol clone)"
  */
 static bool vault_aux_symbol(int r_idx)
@@ -2817,7 +2817,7 @@ static bool vault_aux_symbol(int r_idx)
 }
 
 
-/*
+/**
  * Helper function for "monster pit (orc)"
  */
 static bool vault_aux_orc(int r_idx)
@@ -2836,7 +2836,7 @@ static bool vault_aux_orc(int r_idx)
 
 
 
-/*
+/**
  * Helper function for "monster pit (troll)"
  */
 static bool vault_aux_troll(int r_idx)
@@ -2854,7 +2854,7 @@ static bool vault_aux_troll(int r_idx)
 }
 
 
-/*
+/**
  * Helper function for "monster pit (giant)"
  */
 static bool vault_aux_giant(int r_idx)
@@ -2872,13 +2872,13 @@ static bool vault_aux_giant(int r_idx)
 }
 
 
-/*
+/**
  * Hack -- breath type for "vault_aux_dragon()"
  */
 static u32b vault_aux_dragon_mask4;
 
 
-/*
+/**
  * Helper function for "monster pit (dragon)"
  */
 static bool vault_aux_dragon(int r_idx)
@@ -2899,7 +2899,7 @@ static bool vault_aux_dragon(int r_idx)
 }
 
 
-/*
+/**
  * Helper function for "monster pit (demon)"
  */
 static bool vault_aux_demon(int r_idx)
@@ -2917,7 +2917,7 @@ static bool vault_aux_demon(int r_idx)
 }
 
 
-/*
+/**
  * Type 5 -- Monster nests
  *
  * A monster nest is a "big" room, with an "inner" room, containing
@@ -3136,7 +3136,7 @@ static void build_type5(int by0, int bx0)
 
 
 
-/*
+/**
  * Type 6 -- Monster pits
  *
  * A monster pit is a "big" room, with an "inner" room, containing
@@ -3526,7 +3526,7 @@ static void build_type6(int by0, int bx0)
 	place_monster_aux(yval, xval, what[7], FALSE, FALSE, MSTATUS_ENEMY);
 }
 
-/*
+/**
  * Hack -- fill in "vault" rooms
  */
 static void build_vault(int yval, int xval, int ymax, int xmax, cptr data)
@@ -3793,7 +3793,7 @@ static void build_vault(int yval, int xval, int ymax, int xmax, cptr data)
 	}
 }
 
-/*
+/**
  * Type 7 -- simple vaults (see "v_info.txt")
  */
 static void build_type7(int by0, int bx0)
@@ -3853,7 +3853,7 @@ static void build_type7(int by0, int bx0)
 
 
 
-/*
+/**
  * Type 8 -- greater vaults (see "v_info.txt")
  */
 static void build_type8(int by0, int bx0)
@@ -3911,7 +3911,7 @@ static void build_type8(int by0, int bx0)
 	build_vault(yval, xval, v_ptr->hgt, v_ptr->wid, v_text + v_ptr->text);
 }
 
-/*
+/**
  * DAG:
  * Build an vertical oval room.
  * For every grid in the possible square, check the distance.
@@ -3951,7 +3951,7 @@ static void build_type9(int by0, int bx0)
 }
 
 
-/*
+/**
  * Store routine for the fractal cave generator
  * this routine probably should be an inline function or a macro
  */
@@ -3974,7 +3974,7 @@ static void store_height(int x, int y, int x0, int y0, byte val,
 
 
 
-/*
+/**
  * Explanation of the plasma fractal algorithm:
  *
  * A grid of points is created with the properties of a 'height-map'
@@ -4016,7 +4016,7 @@ static void store_height(int x, int y, int x0, int y0, byte val,
  */
 
 
-/*
+/**
  * Note that this uses the cave.feat array in a very hackish way
  * the values are first set to zero, and then each array location
  * is used as a "heightmap"
@@ -4225,7 +4225,7 @@ void generate_hmap(int y0, int x0, int xsiz, int ysiz, int grd,
 }
 
 
-/*
+/**
  * Convert from height-map back to the normal Angband cave format
  */
 static bool hack_isnt_wall(int y, int x, int cutoff)
@@ -4258,7 +4258,7 @@ static bool hack_isnt_wall(int y, int x, int cutoff)
 }
 
 
-/*
+/**
  * Quick and nasty fill routine used to find the connected region
  * of floor in the middle of the cave
  */
@@ -4529,7 +4529,7 @@ bool generate_fracave(int y0, int x0, int xsize, int ysize,
 }
 
 
-/*
+/**
  * Makes a cave system in the center of the dungeon
  */
 static void build_cavern(void)
@@ -4569,7 +4569,7 @@ static void build_cavern(void)
 	}
 }
 
-/*
+/**
  * Driver routine to create fractal cave system
  */
 static void build_type10(int by0, int bx0)
@@ -4616,11 +4616,11 @@ static void build_type10(int by0, int bx0)
 }
 
 
-/*
+/**
  * Random vault generation from Z 2.5.1
  */
 
-/*
+/**
  * Make a very small room centred at (x0, y0)
  *
  * This is used in crypts, and random elemental vaults.
@@ -4665,7 +4665,7 @@ static void build_small_room(int x0, int y0)
 }
 
 
-/*
+/**
  * Add a door to a location in a random vault
  *
  * Note that range checking has to be done in the calling routine.
@@ -4723,7 +4723,7 @@ static void add_door(int x, int y)
 }
 
 
-/*
+/**
  * Fill the empty areas of a room with treasure and monsters.
  */
 static void fill_treasure(int x1, int x2, int y1, int y2, int difficulty)
@@ -4862,7 +4862,7 @@ static void fill_treasure(int x1, int x2, int y1, int y2, int difficulty)
 }
 
 
-/*
+/**
  * Creates a random vault that looks like a collection of bubbles
  *
  * It works by getting a set of coordinates that represent the center of
@@ -5004,7 +5004,7 @@ static void build_bubble_vault(int x0, int y0, int xsize, int ysize)
 }
 
 
-/*
+/**
  * Convert FEAT_WALL_EXTRA (used by random vaults) to normal dungeon wall
  */
 static void convert_extra(int y1, int x1, int y2, int x2)
@@ -5024,7 +5024,7 @@ static void convert_extra(int y1, int x1, int y2, int x2)
 }
 
 
-/*
+/**
  * Overlay a rectangular room given its bounds
  *
  * This routine is used by build_room_vault (hence FEAT_WALL_OUTER)
@@ -5082,7 +5082,7 @@ static void build_room(int x1, int x2, int y1, int y2)
 }
 
 
-/*
+/**
  * Create a random vault that looks like a collection of overlapping rooms
  */
 static void build_room_vault(int x0, int y0, int xsize, int ysize)
@@ -5137,7 +5137,7 @@ static void build_room_vault(int x0, int y0, int xsize, int ysize)
 }
 
 
-/*
+/**
  * Create a random vault out of a fractal cave
  */
 static void build_cave_vault(int x0, int y0, int xsiz, int ysiz)
@@ -5190,7 +5190,7 @@ static void build_cave_vault(int x0, int y0, int xsiz, int ysiz)
 }
 
 
-/*
+/**
  * Maze vault -- rectangular labyrinthine rooms
  *
  * maze vault uses two routines:
@@ -5379,7 +5379,7 @@ static void build_maze_vault(int x0, int y0, int xsize, int ysize)
 }
 
 
-/*
+/**
  * Build a "mini" checkerboard vault
  *
  * This is done by making a permanent wall maze and setting
@@ -5475,7 +5475,7 @@ static void build_mini_c_vault(int x0, int y0, int xsize, int ysize)
 }
 
 
-/*
+/**
  * Build a town/ castle by using a recursive algorithm.
  * Basically divide each region in a probalistic way to create
  * smaller regions.  When the regions get too small stop.
@@ -5687,7 +5687,7 @@ static void build_recursive_room(int x1, int y1, int x2, int y2, int power)
 }
 
 
-/*
+/**
  * Build a castle
  *
  * Clear the region and call the recursive room routine.
@@ -5731,7 +5731,7 @@ static void build_castle_vault(int x0, int y0, int xsize, int ysize)
 }
 
 
-/*
+/**
  * Add outer wall to a floored region
  *
  * Note: no range checking is done so must be inside dungeon
@@ -5784,7 +5784,7 @@ static void add_outer_wall(int x, int y, int light, int x1, int y1,
 }
 
 
-/*
+/**
  * Hacked distance formula - gives the 'wrong' answer
  *
  * Used to build crypts
@@ -5814,7 +5814,7 @@ static int dist2(int x1, int y1, int x2, int y2,
 }
 
 
-/*
+/**
  * Build target vault
  *
  * This is made by two concentric "crypts" with perpendicular
@@ -5947,7 +5947,7 @@ static void build_target_vault(int x0, int y0, int xsize, int ysize)
 }
 
 
-/*
+/**
  * Random vaults
  */
 static void build_type11(int by0, int bx0)
@@ -6032,11 +6032,11 @@ static void build_type11(int by0, int bx0)
 	}
 }
 
-/*
+/**
  * Crypt room generation from Z 2.5.1
  */
 
-/*
+/**
  * Build crypt room.
  * For every grid in the possible square, check the (fake) distance.
  * If it's less than the radius, make it a room square.
@@ -6130,7 +6130,7 @@ static void build_type12(int by0, int bx0)
 }
 
 
-/*
+/**
  * Constructs a tunnel between two points
  *
  * This function must be called BEFORE any streamers are created,
@@ -6409,7 +6409,7 @@ static void build_tunnel(int row1, int col1, int row2, int col2, bool water)
 
 
 
-/*
+/**
  * Count the number of "corridor" grids adjacent to the given grid.
  *
  * Note -- Assumes "in_bounds(y1, x1)"
@@ -6457,7 +6457,7 @@ static int next_to_corr(int y1, int x1)
 }
 
 
-/*
+/**
  * Determine if the given location is "between" two walls,
  * and "next to" two corridor spaces.  XXX XXX XXX
  *
@@ -6490,7 +6490,7 @@ static bool possible_doorway(int y, int x)
 
 #if 0
 
-/*
+/**
  * Places door at y, x position if at least 2 walls found
  */
 static void try_door(int y, int x)
@@ -6518,7 +6518,7 @@ static void try_door(int y, int x)
 #endif /* 0 */
 
 
-/*
+/**
  * Places doors around y, x position
  */
 static void try_doors(int y, int x)
@@ -6630,7 +6630,7 @@ static void try_doors(int y, int x)
 }
 
 
-/*
+/**
  * Attempt to build a room of the given type at the given block
  *
  * Note that we restrict the number of "crowded" rooms to reduce
@@ -6694,7 +6694,7 @@ static bool room_build(int y, int x, int typ)
 	return (TRUE);
 }
 
-/*
+/**
  * Set level boundaries
  */
 void set_bounders(bool empty_level)
@@ -6749,7 +6749,7 @@ void set_bounders(bool empty_level)
 /* Needed to refill empty levels */
 static void fill_level(bool use_floor, byte smooth);
 
-/*
+/**
  * Generate a normal dungeon level
  */
 bool level_generate_dungeon(cptr name)
@@ -7235,7 +7235,7 @@ bool level_generate_dungeon(cptr name)
 	return TRUE;
 }
 
-/*
+/**
  * Bring the imprinted pets from the old level
  */
 void replace_all_friends()
@@ -7270,7 +7270,7 @@ void replace_all_friends()
 	}
 }
 
-/*
+/**
  * Save the imprinted pets from the old level
  */
 void save_all_friends()
@@ -7282,7 +7282,7 @@ void save_all_friends()
 
 
 
-/*
+/**
  * Return the dungeon type of the current level(it can only return the
  * principal dungeons)
  */
@@ -7301,7 +7301,7 @@ byte calc_dungeon_type()
 }
 
 
-/*
+/**
  * Build probability tables for walls and floors and set feat_wall_outer
  * and feat_wall_inner according to the current information in d_info.txt
  *
@@ -7383,7 +7383,7 @@ static void init_feat_info(void)
 }
 
 
-/*
+/**
  * Fill a level with wall type specified in A: or L: line of d_info.txt
  *
  * 'use_floor', when it is TRUE, tells the function to use floor type
@@ -7411,7 +7411,7 @@ static void init_feat_info(void)
  * -- pelpel
  */
 
-/*
+/**
  * Thou shalt not invoke the name of thy RNG in vain.
  * The Angband RNG generates 28 bit pseudo-random number, hence
  * 28 / 2 = 14
@@ -7584,7 +7584,7 @@ static void fill_level(bool use_floor, byte smooth)
 }
 
 
-/*
+/**
  * Generate a new dungeon level
  *
  * Note that "dun_body" adds about 4000 bytes of memory to the stack.
@@ -8155,7 +8155,7 @@ static bool cave_gen(void)
 }
 
 
-/*
+/**
  * Builds the arena after it is entered -KMW-
  */
 static void build_arena(void)
@@ -8220,7 +8220,7 @@ static void build_arena(void)
 }
 
 
-/*
+/**
  * Town logic flow for generation of arena -KMW-
  */
 static void arena_gen(void)
@@ -8281,7 +8281,7 @@ static void arena_gen(void)
 }
 
 
-/*
+/**
  * Generate a quest level
  */
 static void quest_gen(void)
@@ -8289,7 +8289,7 @@ static void quest_gen(void)
 	process_hooks(HOOK_GEN_QUEST, "(d)", is_quest(dun_level));
 }
 
-/*
+/**
  * Creates a special level
  */
 
@@ -8355,7 +8355,7 @@ bool build_special_level(void)
 	return TRUE;
 }
 
-/*
+/**
  * Prepare regeneration of a special level, which should not happen,
  * but just in case...
  */
@@ -8382,7 +8382,7 @@ static void wipe_special_level(void)
 		special_lvl[level][dungeon_type] = FALSE;
 }
 
-/*
+/**
  * Finalise generation of a special level
  */
 static void finalise_special_level(void)
@@ -8408,7 +8408,7 @@ static void finalise_special_level(void)
 		special_lvl[level][dungeon_type] = TRUE;
 }
 
-/*
+/**
  * Give some magical energy to the each grid of the level
  */
 void generate_grid_mana()
@@ -8448,7 +8448,7 @@ void generate_grid_mana()
 }
 
 
-/*
+/**
  * Generates a random dungeon level			-RAK-
  *
  * Hack -- regenerate any "overflow" levels

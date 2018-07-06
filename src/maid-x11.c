@@ -1,6 +1,6 @@
 /* File: maid-x11.c */
 
-/*
+/**
  * Copyright (c) 1997 Ben Harrison, and others
  *
  * This software may be copied and distributed for educational, research,
@@ -10,7 +10,7 @@
 
 #if defined(USE_X11) || defined(USE_XAW)
 
-/*
+/**
  * This file defines some "XImage" manipulation functions for X11.
  *
  * Original code by Desvignes Sebastien (desvigne@solar12.eerie.fr).
@@ -25,7 +25,7 @@
 
 #ifndef IsModifierKey
 
-/*
+/**
  * Keysym macros, used on Keysyms to test for classes of symbols
  * These were stolen from one of the X11 header files
  *
@@ -53,7 +53,7 @@
 #endif /* IsModifierKey */
 
 
-/*
+/**
  * Checks if the keysym is a special key or a normal key
  * Assume that XK_MISCELLANY keysyms are special
  *
@@ -68,7 +68,7 @@ static bool gamma_table_ready = FALSE;
 #endif /* SUPPORT_GAMMA */
 
 
-/*
+/**
  * Hack -- Convert an RGB value to an X11 Pixel, or die.
  */
 static unsigned long create_pixel(Display *dpy, byte red, byte green, byte blue)
@@ -133,7 +133,7 @@ static unsigned long create_pixel(Display *dpy, byte red, byte green, byte blue)
 
 #ifdef USE_GRAPHICS
 
-/*
+/**
  * The Win32 "BITMAPFILEHEADER" type.
  */
 typedef struct BITMAPFILEHEADER
@@ -147,7 +147,7 @@ typedef struct BITMAPFILEHEADER
 BITMAPFILEHEADER;
 
 
-/*
+/**
  * The Win32 "BITMAPINFOHEADER" type.
  */
 typedef struct BITMAPINFOHEADER
@@ -166,7 +166,7 @@ typedef struct BITMAPINFOHEADER
 }
 BITMAPINFOHEADER;
 
-/*
+/**
  * The Win32 "RGBQUAD" type.
  */
 typedef struct RGBQUAD
@@ -205,7 +205,7 @@ static void rd_u32b(FILE *fff, u32b *ip)
 }
 
 
-/*
+/**
  * Read a Win32 BMP file.
  *
  * This function replaces the old ReadRaw and RemapColors functions.
@@ -367,7 +367,7 @@ static XImage *ReadBMP(Display *dpy, char *Name)
 /* Code for smooth icon rescaling from Uwe Siems, Jan 2000 */
 /* ========================================================*/
 
-/*
+/**
  * to save ourselves some labour, define a maximum expected icon width here:
  */
 #define MAX_ICON_WIDTH 32
@@ -380,13 +380,13 @@ static unsigned long redMask, greenMask, blueMask;
 static int redShift, greenShift, blueShift;
 
 
-/*
+/**
  * Use smooth rescaling?
  */
 static bool smoothRescaling = TRUE;
 
 
-/*
+/**
  * GetScaledRow reads a scan from the given XImage, scales it smoothly
  * and returns the red, green and blue values in arrays.
  * The values in this arrays must be divided by a certain value that is
@@ -530,7 +530,7 @@ static void GetScaledRow(XImage *Im, int x, int y, int iw, int ow,
 }
 
 
-/*
+/**
  * PutRGBScan takes arrays for red, green and blue and writes pixel values
  * according to this values in the XImage-structure. w is the number of
  * pixels to write and div is the value by which all red/green/blue values
@@ -553,7 +553,7 @@ static void PutRGBScan(XImage *Im, int x, int y, int w, int div,
 }
 
 
-/*
+/**
  * ScaleIcon transfers an area from XImage ImIn, locate (x1,y1) to ImOut,
  * locate (x2, y2).
  * Source size is (ix, iy) and destination size is (ox, oy).
@@ -789,7 +789,7 @@ static XImage *ResizeImageSmooth(Display *dpy, XImage *Im,
 	return Tmp;
 }
 
-/*
+/**
  * Resize an image. XXX XXX XXX
  *
  * Also appears in "main-xaw.c".

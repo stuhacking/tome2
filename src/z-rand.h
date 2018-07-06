@@ -10,7 +10,7 @@
 /**** Available constants ****/
 
 
-/*
+/**
  * Random Number Generator -- Degree of "complex" RNG -- see "misc.c"
  * This value is hard-coded at 63 for a wide variety of reasons.
  */
@@ -22,7 +22,7 @@
 /**** Available macros ****/
 
 
-/*
+/**
  * Generates a random long integer X where O<=X<M.
  * The integer X falls along a uniform distribution.
  * For example, if M is 100, you get "percentile dice"
@@ -30,7 +30,7 @@
 #define rand_int(M) \
 	(Rand_div(M))
 
-/*
+/**
  * Generates a random long integer X where A<=X<=B
  * The integer X falls along a uniform distribution.
  * Note: rand_range(0,N-1) == rand_int(N)
@@ -38,7 +38,7 @@
 #define rand_range(A,B) \
 	((A) + (rand_int(1+(B)-(A))))
 
-/*
+/**
  * Generate a random long integer X where A-D<=X<=A+D
  * The integer X falls along a uniform distribution.
  * Note: rand_spread(A,D) == rand_range(A-D,A+D)
@@ -47,7 +47,7 @@
 	((A) + (rand_int(1+(D)+(D))) - (D))
 
 
-/*
+/**
  * Generate a random long integer X where 1<=X<=M
  * Also, "correctly" handle the case of M<=1
  */
@@ -55,7 +55,7 @@
 	(rand_int(M) + 1)
 
 
-/*
+/**
  * Evaluate to TRUE "P" percent of the time
  */
 #define magik(P) \

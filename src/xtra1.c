@@ -2,7 +2,7 @@
 
 /* Purpose: misc code */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -13,7 +13,7 @@
 #include "angband.h"
 
 
-/*
+/**
  * Converts stat num into a six-char (right justified) string
  */
 void cnv_stat(int val, char *out_val)
@@ -72,7 +72,7 @@ void cnv_stat(int val, char *out_val)
 
 
 
-/*
+/**
  * Modify a stat value by a "modifier", return new value
  *
  * Stats go up: 3,4,...,17,18,18/10,18/20,...,18/220
@@ -122,7 +122,7 @@ s16b modify_stat_value(int value, int amount)
 
 
 
-/*
+/**
  * Print character info at given row, column in a 13 char field
  */
 static void prt_field(cptr info, int row, int col)
@@ -134,7 +134,7 @@ static void prt_field(cptr info, int row, int col)
 	c_put_str(TERM_L_BLUE, info, row, col);
 }
 
-/*
+/**
  * Prints players max/cur piety
  */
 static void prt_piety(void)
@@ -153,7 +153,7 @@ static void prt_piety(void)
 }
 
 
-/*
+/**
  * Prints the player's current sanity.
  */
 static void prt_sane(void)
@@ -192,7 +192,7 @@ static void prt_sane(void)
 }
 
 
-/*
+/**
  * Print character stat in given row, column
  */
 static void prt_stat(int stat)
@@ -239,7 +239,7 @@ static void prt_stat(int stat)
 
 
 
-/*
+/**
  * Prints "title", including "wizard" or "winner" as needed.
  */
 static void prt_title(void)
@@ -281,7 +281,7 @@ static void prt_title(void)
 }
 
 
-/*
+/**
  * Prints level
  */
 static void prt_level(void)
@@ -303,7 +303,7 @@ static void prt_level(void)
 }
 
 
-/*
+/**
  * Display the experience
  */
 static void prt_exp(void)
@@ -339,7 +339,7 @@ static void prt_exp(void)
 }
 
 
-/*
+/**
  * Prints current gold
  */
 static void prt_gold(void)
@@ -353,7 +353,7 @@ static void prt_gold(void)
 
 
 
-/*
+/**
  * Prints current AC
  */
 static void prt_ac(void)
@@ -366,7 +366,7 @@ static void prt_ac(void)
 }
 
 
-/*
+/**
  * Prints Cur/Max hit points
  */
 static void prt_hp(void)
@@ -419,7 +419,7 @@ static void prt_hp(void)
 	}
 }
 
-/*
+/**
  * Prints Cur/Max monster hit points
  */
 static void prt_mh(void)
@@ -461,7 +461,7 @@ static void prt_mh(void)
 }
 
 
-/*
+/**
  * Prints players max/cur spell points
  */
 static void prt_sp(void)
@@ -489,7 +489,7 @@ static void prt_sp(void)
 }
 
 
-/*
+/**
  * Prints depth in stat area
  */
 static void prt_depth(void)
@@ -571,7 +571,7 @@ static void prt_depth(void)
 }
 
 
-/*
+/**
  * Prints status of hunger
  */
 static void prt_hunger(void)
@@ -614,7 +614,7 @@ static void prt_hunger(void)
 }
 
 
-/*
+/**
  * Prints Blind status
  */
 static void prt_blind(void)
@@ -630,7 +630,7 @@ static void prt_blind(void)
 }
 
 
-/*
+/**
  * Prints Confusion status
  */
 static void prt_confused(void)
@@ -646,7 +646,7 @@ static void prt_confused(void)
 }
 
 
-/*
+/**
  * Prints Fear status
  */
 static void prt_afraid(void)
@@ -662,7 +662,7 @@ static void prt_afraid(void)
 }
 
 
-/*
+/**
  * Prints Poisoned status
  */
 static void prt_poisoned(void)
@@ -678,7 +678,7 @@ static void prt_poisoned(void)
 }
 
 
-/*
+/**
  * Prints trap detection status
  */
 static void prt_dtrap(void)
@@ -694,7 +694,7 @@ static void prt_dtrap(void)
 }
 
 
-/*
+/**
  * Prints Searching, Resting, Paralysis, or 'count' status
  * Display is always exactly 10 characters wide (see below)
  *
@@ -810,7 +810,7 @@ static void prt_state(void)
 }
 
 
-/*
+/**
  * Prints the speed of a character.			-CJS-
  */
 static void prt_speed(void)
@@ -919,7 +919,7 @@ static void prt_stun(void)
 
 
 
-/*
+/**
  * Redraw the "monster health bar"	-DRS-
  * Rather extensive modifications by	-BEN-
  *
@@ -1019,7 +1019,7 @@ static void health_redraw(void)
 
 
 
-/*
+/**
  * Display basic info (mostly left of map)
  */
 static void prt_frame_basic(void)
@@ -1069,7 +1069,7 @@ static void prt_frame_basic(void)
 }
 
 
-/*
+/**
  * Display extra info (mostly below map)
  */
 static void prt_frame_extra(void)
@@ -1099,7 +1099,7 @@ static void prt_frame_extra(void)
 }
 
 
-/*
+/**
  * Hack -- display inventory in sub-windows
  */
 static void fix_inven(void)
@@ -1133,7 +1133,7 @@ static void fix_inven(void)
 
 
 
-/*
+/**
  * Hack -- display equipment in sub-windows
  */
 static void fix_equip(void)
@@ -1165,7 +1165,7 @@ static void fix_equip(void)
 	}
 }
 
-/*
+/**
  * Hack -- display character in sub-windows
  */
 static void fix_player(void)
@@ -1199,7 +1199,7 @@ static void fix_player(void)
 
 
 
-/*
+/**
  * Hack -- display recent messages in sub-windows
  *
  * XXX XXX XXX Adjust for width and split messages
@@ -1249,7 +1249,7 @@ void fix_message(void)
 }
 
 
-/*
+/**
  * Hack -- display recent IRC messages in sub-windows
  *
  * XXX XXX XXX Adjust for width and split messages
@@ -1310,7 +1310,7 @@ void fix_irc_message(void)
 }
 
 
-/*
+/**
  * Hack -- display overhead view in sub-windows
  *
  * Note that the "player" symbol does NOT appear on the map.
@@ -1347,7 +1347,7 @@ static void fix_overhead(void)
 }
 
 
-/*
+/**
  * Hack -- display monster recall in sub-windows
  */
 static void fix_monster(void)
@@ -1380,7 +1380,7 @@ static void fix_monster(void)
 }
 
 
-/*
+/**
  * Hack -- display object recall in sub-windows
  */
 static void fix_object(void)
@@ -1568,7 +1568,7 @@ static void fix_m_list(void)
 }
 
 
-/*
+/**
  * Calculate number of spells player should have, and forget,
  * or remember, spells until that number is properly reflected.
  *
@@ -1667,7 +1667,7 @@ static void calc_powers(void)
 }
 
 
-/*
+/**
  * Calculate the player's sanity
  */
 
@@ -1702,7 +1702,7 @@ void calc_sanity(void)
 }
 
 
-/*
+/**
  * Calculate maximum mana.  You do not need to know any spells.
  * Note that mana is lowered by heavy (or inappropriate) armor.
  *
@@ -1897,7 +1897,7 @@ static void calc_mana(void)
 
 
 
-/*
+/**
  * Calculate the players (maximal) hit points
  * Adjust current hitpoints if necessary
  */
@@ -2008,7 +2008,7 @@ void calc_hitpoints(void)
 
 
 
-/*
+/**
  * Extract and set the current "lite radius"
  *
  * SWD: Experimental modification: multiple light sources have additive effect.
@@ -2095,7 +2095,7 @@ static void calc_torch(void)
 
 
 
-/*
+/**
  * Computes current weight limit.
  */
 int weight_limit(void)
@@ -2135,7 +2135,7 @@ void calc_wield_monster()
 	}
 }
 
-/*
+/**
  * Calc which body parts the player have, based on the
  * monster he incarnate, note that that's bnot a hack
  * since body parts of the player when in it's own body
@@ -2687,7 +2687,7 @@ void apply_flags(u32b f1, u32b f2, u32b f3, u32b f4, u32b f5, u32b esp, s16b pva
 	}
 }
 
-/*
+/**
  * Calculate the players current "state", taking into account
  * not only race/class intrinsics, but also objects being worn
  * and temporary spell effects.
@@ -4039,7 +4039,7 @@ void calc_bonuses(bool silent)
 
 
 
-/*
+/**
  * Handle "p_ptr->notice"
  */
 void notice_stuff(void)
@@ -4064,7 +4064,7 @@ void notice_stuff(void)
 }
 
 
-/*
+/**
  * Handle "p_ptr->update"
  */
 void update_stuff(void)
@@ -4172,7 +4172,7 @@ void update_stuff(void)
 }
 
 
-/*
+/**
  * Handle "p_ptr->redraw"
  */
 void redraw_stuff(void)
@@ -4389,7 +4389,7 @@ void redraw_stuff(void)
 }
 
 
-/*
+/**
  * Handle "p_ptr->window"
  */
 void window_stuff(void)
@@ -4481,7 +4481,7 @@ void window_stuff(void)
 }
 
 
-/*
+/**
  * Handle "p_ptr->update" and "p_ptr->redraw" and "p_ptr->window"
  */
 void handle_stuff(void)
@@ -4848,7 +4848,7 @@ void dump_fates(FILE *outfile)
 	}
 }
 
-/*
+/**
  * Return a luck number between a certain range
  */
 int luck(int min, int max)

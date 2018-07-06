@@ -6,13 +6,13 @@
 #include "angband.h"
 
 
-/*
+/**
  * Support for Adam Bolt's tileset, lighting and transparency effects
  * by Robert Ruehlmann (rr9@angband.org)
  */
 
 
-/*
+/**
  * Approximate Distance between two points.
  *
  * When either the X or Y component dwarfs the other component,
@@ -38,7 +38,7 @@ int distance(int y1, int x1, int y2, int x2)
 }
 
 
-/*
+/**
  * Returns TRUE if a grid is considered to be a wall for the purpose
  * of magic mapping / clairvoyance
  */
@@ -71,7 +71,7 @@ static bool is_wall(cave_type *c_ptr)
 }
 
 
-/*
+/**
  * A simple, fast, integer-based line-of-sight algorithm.  By Joseph Hall,
  * 4116 Brewster Drive, Raleigh NC 27606.  Email to jnh@ecemwl.ncsu.edu.
  *
@@ -330,7 +330,7 @@ bool los(int y1, int x1, int y2, int x2)
 
 
 
-/*
+/**
  * Returns true if the player's grid is dark
  */
 bool no_lite(void)
@@ -340,7 +340,7 @@ bool no_lite(void)
 
 
 
-/*
+/**
  * Determine if a given location may be "destroyed"
  *
  * Used by destruction spells, and for placing stairs, etc.
@@ -377,12 +377,12 @@ bool cave_valid_bold(int y, int x)
 
 
 
-/*
+/**
  * Hack -- Legal monster codes
  */
 static cptr image_monster_hack = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-/*
+/**
  * Hack -- Legal monster codes for IBM pseudo-graphics
  *
  * Dropped. Although this option has long left unmaintained, hardcoding
@@ -390,7 +390,7 @@ static cptr image_monster_hack = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRST
  * flexibly. And the normal graphics code still works with it -- pelpel
  */
 
-/*
+/**
  * Mega-Hack -- Hallucinatory monster
  */
 static void image_monster(byte *ap, char *cp)
@@ -431,17 +431,17 @@ static void image_monster(byte *ap, char *cp)
 
 
 
-/*
+/**
  * Hack -- Legal object codes
  */
 static cptr image_object_hack = "?/|\\\"!$()_-=[]{},~";
 
-/*
+/**
  * Hardcoded IBM pseudo-graphics code points have been removed
  * for the same reason as stated above -- pelpel
  */
 
-/*
+/**
  * Mega-Hack -- Hallucinatory object
  */
 static void image_object(byte *ap, char *cp)
@@ -479,7 +479,7 @@ static void image_object(byte *ap, char *cp)
 }
 
 
-/*
+/**
  * Hack -- Random hallucination
  */
 static void image_random(byte *ap, char *cp)
@@ -498,7 +498,7 @@ static void image_random(byte *ap, char *cp)
 }
 
 
-/*
+/**
  * The 16x16 tile of the terrain supports lighting
  */
 #if 1
@@ -541,7 +541,7 @@ char get_shimmer_color()
 }
 
 
-/*
+/**
  * Table of breath colors.  Must match listings in a single set of 
  * monster spell flags.
  *
@@ -585,7 +585,7 @@ static byte breath_to_attr[32][2] =
 };
 
 
-/*
+/**
  * Multi-hued monsters shimmer acording to their breaths.
  *
  * If a monster has only one kind of breath, it uses both colors 
@@ -674,7 +674,7 @@ static byte multi_hued_attr(monster_race *r_ptr)
 }
 
 
-/*
+/**
  * Extract the attr/char to display at the given (legal) map location
  *
  * Note that this function, since it is called by "lite_spot()" which
@@ -840,7 +840,7 @@ static byte multi_hued_attr(monster_race *r_ptr)
  * single player, allows the player symbol to be hidden while running.
  */
 
-/*
+/**
  * Alternative colours for unseen grids
  *
  * Reduced colours - remembered interesting grids and perma-lit floors
@@ -1569,7 +1569,7 @@ void map_info(int y, int x, byte *ap, char *cp)
 }
 
 
-/*
+/**
  * Special version of map_info, for use by cmovie and HTML converter
  * to obtain pure-ASCII image of dungeon map
  */
@@ -2020,7 +2020,7 @@ void map_info_default(int y, int x, byte *ap, char *cp)
 }
 
 
-/*
+/**
  * Calculate panel colum of a location in the map
  */
 static int panel_col_of(int col)
@@ -2032,7 +2032,7 @@ static int panel_col_of(int col)
 
 
 
-/*
+/**
  * Moves the cursor to a given MAP (y,x) location
  */
 void move_cursor_relative(int row, int col)
@@ -2046,7 +2046,7 @@ void move_cursor_relative(int row, int col)
 
 
 
-/*
+/**
  * Place an attr/char pair at the given map coordinate, if legal.
  */
 void print_rel(char c, byte a, int y, int x)
@@ -2080,7 +2080,7 @@ void print_rel(char c, byte a, int y, int x)
 
 
 
-/*
+/**
  * Memorize interesting viewable object/features in the given grid
  *
  * This function should only be called on "legal" grids.
@@ -2184,7 +2184,7 @@ void note_spot(int y, int x)
 }
 
 
-/*
+/**
  * Redraw (on the screen) a given MAP location
  *
  * This function should only be called on "legal" grids
@@ -2287,7 +2287,7 @@ void lite_spot(int y, int x)
 
 
 
-/*
+/**
  * Prints the map of the dungeon
  *
  * Note that, for efficiency, we contain an "optimized" version
@@ -2398,17 +2398,17 @@ void prt_map(void)
 
 
 
-/*
+/**
  * Display highest priority object in the RATIO by RATIO area
  */
 
-/*
+/**
  * Display the entire map
  */
 #define MAP_HGT (MAX_HGT / RATIO)
 #define MAP_WID (MAX_WID / RATIO)
 
-/*
+/**
  * Hack -- priority array (see below)
  *
  * Note that all "walls" always look like "secret doors" (see "map_info()").
@@ -2484,7 +2484,7 @@ static byte priority_table[][2] =
 };
 
 
-/*
+/**
  * Hack -- a priority function (see below)
  */
 static byte priority(byte a, char c)
@@ -2517,7 +2517,7 @@ static byte priority(byte a, char c)
 }
 
 
-/*
+/**
  * Display a "small-scale" map of the dungeon in the active Term
  *
  * Note that the "map_info()" function must return fully colorized
@@ -2741,7 +2741,7 @@ void display_map(int *cy, int *cx)
 }
 
 
-/*
+/**
  * Display a "small-scale" map of the dungeon for the player
  *
  * Currently, the "player" is displayed on the map.  XXX XXX XXX
@@ -2793,7 +2793,7 @@ void do_cmd_view_map(void)
 
 
 
-/*
+/**
  * Some comments on the dungeon related data structures and functions...
  *
  * Angband is primarily a dungeon exploration game, and it should come as
@@ -3127,19 +3127,19 @@ void do_cmd_view_map(void)
 
 
 
-/*
+/**
  * Maximum number of grids in a single octant
  */
 #define VINFO_MAX_GRIDS 161
 
 
-/*
+/**
  * Maximum number of slopes in a single octant
  */
 #define VINFO_MAX_SLOPES 126
 
 
-/*
+/**
  * Mask of bits used in a single octant
  */
 #define VINFO_BITS_3 0x3FFFFFFF
@@ -3148,13 +3148,13 @@ void do_cmd_view_map(void)
 #define VINFO_BITS_0 0xFFFFFFFF
 
 
-/*
+/**
  * Forward declare
  */
 typedef struct vinfo_type vinfo_type;
 
 
-/*
+/**
  * The 'vinfo_type' structure
  */
 struct vinfo_type
@@ -3178,7 +3178,7 @@ struct vinfo_type
 
 
 
-/*
+/**
  * The array of "vinfo" objects, initialized by "vinfo_init()"
  */
 static vinfo_type vinfo[VINFO_MAX_GRIDS];
@@ -3186,13 +3186,13 @@ static vinfo_type vinfo[VINFO_MAX_GRIDS];
 
 
 
-/*
+/**
  * Slope scale factor
  */
 #define SCALE 100000L
 
 
-/*
+/**
  * The actual slopes (for reference)
  */
 
@@ -3327,13 +3327,13 @@ static vinfo_type vinfo[VINFO_MAX_GRIDS];
 
 
 
-/*
+/**
  * Forward declare
  */
 typedef struct vinfo_hack vinfo_hack;
 
 
-/*
+/**
  * Temporary data used by "vinfo_init()"
  *
  *	- Number of grids
@@ -3357,7 +3357,7 @@ struct vinfo_hack
 
 
 
-/*
+/**
  * Sorting hook -- comp function -- array of long's (see below)
  *
  * We use "u" to point to an array of long integers.
@@ -3370,7 +3370,7 @@ static bool ang_sort_comp_hook_longs(vptr u, vptr v, int a, int b)
 }
 
 
-/*
+/**
  * Sorting hook -- comp function -- array of long's (see below)
  *
  * We use "u" to point to an array of long integers.
@@ -3389,7 +3389,7 @@ static void ang_sort_swap_hook_longs(vptr u, vptr v, int a, int b)
 
 
 
-/*
+/**
  * Save a slope
  */
 static void vinfo_init_aux(vinfo_hack *hack, int y, int x, long m)
@@ -3427,7 +3427,7 @@ static void vinfo_init_aux(vinfo_hack *hack, int y, int x, long m)
 
 
 
-/*
+/**
  * Initialize the "vinfo" array
  *
  * Full Octagon (radius 20), Grids=1149
@@ -3675,7 +3675,7 @@ errr vinfo_init(void)
 
 
 
-/*
+/**
  * Forget the "CAVE_VIEW" grids, redrawing as needed
  */
 void forget_view(void)
@@ -3712,7 +3712,7 @@ void forget_view(void)
 
 
 
-/*
+/**
  * Calculate the complete field of view using a new algorithm
  *
  * If "view_y/x" and "temp_y/x" were global pointers to arrays of grids, as
@@ -4121,7 +4121,7 @@ void update_view(void)
 }
 
 
-/*
+/**
  * Clear monster light 
  */
 void forget_mon_lite(void)
@@ -4144,7 +4144,7 @@ void forget_mon_lite(void)
 }
 
 
-/*
+/**
  * Update squares illuminated by monsters
  *
  * Code taken from Steven Fuerst's work for ZAngband, without support
@@ -4427,7 +4427,7 @@ void update_mon_lite(void)
 
 
 
-/*
+/**
  * Hack -- provide some "speed" for the "flow" code
  * This entry is the "current index" for the "when" field
  * Note that a "when" value of "zero" means "not used".
@@ -4444,7 +4444,7 @@ void update_mon_lite(void)
 static int flow_n = 0;
 
 
-/*
+/**
  * Hack -- forget the "flow" information
  */
 void forget_flow(void)
@@ -4470,14 +4470,14 @@ void forget_flow(void)
 }
 
 
-/*
+/**
  * Hack -- Allow us to treat the "seen" array as a queue
  */
 static int flow_head = 0;
 static int flow_tail = 0;
 
 
-/*
+/**
  * Take note of a reachable grid.  Assume grid is legal.
  */
 static void update_flow_aux(int y, int x, int n)
@@ -4517,7 +4517,7 @@ static void update_flow_aux(int y, int x, int n)
 }
 
 
-/*
+/**
  * Hack -- fill in the "cost" field of every grid that the player
  * can "reach" with the number of steps needed to reach that grid.
  * This also yields the "distance" of the player from every grid.
@@ -4595,7 +4595,7 @@ void update_flow(void)
 
 
 
-/*
+/**
  * Hack -- map the current panel (plus some) ala "magic mapping"
  */
 void map_area(void)
@@ -4659,7 +4659,7 @@ void map_area(void)
 
 
 
-/*
+/**
  * Light up the dungeon using "clairvoyance"
  *
  * This function "illuminates" every grid in the dungeon, memorizes all
@@ -4772,7 +4772,7 @@ void wiz_lite_extra(void)
 	wiz_lite();
 }
 
-/*
+/**
  * Forget the dungeon map (ala "Thinking of Maud...").
  */
 void wiz_dark(void)
@@ -4821,7 +4821,7 @@ void wiz_dark(void)
 
 
 
-/*
+/**
  * Change the "feat" flag for a grid, and notice/redraw the grid
  */
 void cave_set_feat(int y, int x, int feat)
@@ -4867,7 +4867,7 @@ void cave_set_feat(int y, int x, int feat)
 }
 
 
-/*
+/**
  * Place floor terrain at (y, x) according to dungeon info
  */
 void place_floor(int y, int x)
@@ -4875,7 +4875,7 @@ void place_floor(int y, int x)
 	cave_set_feat(y, x, floor_type[rand_int(100)]);
 }
 
-/*
+/**
  * This routine is used when the current feature gets convert to a floor and
  * the possible floor types include glass which is permanent. An unpassable
  * feature is undesirable, so the glass gets convert to molten glass which
@@ -4888,7 +4888,7 @@ void place_floor_convert_glass(int y, int x)
 	if (cave[y][x].feat == 188) cave[y][x].feat = 103;
 }
 
-/*
+/**
  * Place a cave filler at (y, x)
  */
 void place_filler(int y, int x)
@@ -4897,7 +4897,7 @@ void place_filler(int y, int x)
 }
 
 
-/*
+/**
  * Calculate "incremental motion". Used by project() and shoot().
  * Assumes that (*y,*x) lies on the path from (y1,x1) to (y2,x2).
  */
@@ -4999,7 +4999,7 @@ void mmove2(int *y, int *x, int y1, int x1, int y2, int x2)
 
 
 
-/*
+/**
  * Determine if a bolt spell cast from (y1,x1) to (y2,x2) will arrive
  * at the final destination, assuming no monster gets in the way.
  *
@@ -5039,7 +5039,7 @@ bool projectable(int y1, int x1, int y2, int x2)
 
 
 
-/*
+/**
  * Standard "find me a location" function
  *
  * Obtains a legal location within the given distance of the initial
@@ -5087,7 +5087,7 @@ void scatter(int *yp, int *xp, int y, int x, int d, int m)
 
 
 
-/*
+/**
  * Track a new monster
  */
 void health_track(int m_idx)
@@ -5101,7 +5101,7 @@ void health_track(int m_idx)
 
 
 
-/*
+/**
  * Hack -- track the given monster race
  */
 void monster_race_track(int r_idx, int ego)
@@ -5116,7 +5116,7 @@ void monster_race_track(int r_idx, int ego)
 
 
 
-/*
+/**
  * Hack -- track the given object kind
  */
 void object_track(object_type *o_ptr)
@@ -5130,7 +5130,7 @@ void object_track(object_type *o_ptr)
 
 
 
-/*
+/**
  * Something has happened to disturb the player.
  *
  * The first arg indicates a major disturbance, which affects search.
@@ -5195,7 +5195,7 @@ void disturb(int stop_search, int unused_flag)
 }
 
 
-/*
+/**
  * Hack -- Check if a level is a "quest" level
  */
 int is_quest(int level)
@@ -5213,7 +5213,7 @@ int is_quest(int level)
 }
 
 
-/*
+/**
  * Return the index of the random quest on this level
  * (or zero)
  */
@@ -5233,7 +5233,7 @@ int random_quest_number()
 }
 
 
-/*
+/**
  * handle spell effects
  */
 int effect_pop()

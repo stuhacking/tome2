@@ -1,4 +1,4 @@
-/*
+/**
  * Here takes place the Good ultra ending
  */
 

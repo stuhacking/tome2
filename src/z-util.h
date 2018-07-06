@@ -6,7 +6,7 @@
 #include "h-basic.h"
 
 
-/*
+/**
  * Extremely basic stuff, like global temp and constant variables.
  * Also, some very useful low level functions, such as "streq()".
  * All variables and functions in this file are "addressable".

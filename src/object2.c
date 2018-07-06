@@ -2,7 +2,7 @@
 
 /* Purpose: Object code, part 2 */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -12,7 +12,7 @@
 
 #include "angband.h"
 
-/*
+/**
  * adds n flags to o_ptr chosen randomly from the masks f1..f4
  */
 #if 0
@@ -64,7 +64,7 @@ static void enhance_random(object_type *o_ptr, int n, u32b f1, u32b f2, u32b f3,
 }
 #endif
 
-/*
+/**
  * Calculate the player's total inventory weight.
  */
 s32b calc_total_weight(void)
@@ -80,7 +80,7 @@ s32b calc_total_weight(void)
 	return total;
 }
 
-/*
+/**
  * Excise a dungeon object from any stacks
  */
 void excise_object_idx(int o_idx)
@@ -206,7 +206,7 @@ void excise_object_idx(int o_idx)
 }
 
 
-/*
+/**
  * Delete a dungeon object
  *
  * Handle "stacks" of objects correctly.
@@ -242,7 +242,7 @@ void delete_object_idx(int o_idx)
 }
 
 
-/*
+/**
  * Deletes all objects at given location
  */
 void delete_object(int y, int x)
@@ -285,7 +285,7 @@ void delete_object(int y, int x)
 }
 
 
-/*
+/**
  * Move an object from index i1 to index i2 in the object list
  */
 static void compact_objects_aux(int i1, int i2)
@@ -368,7 +368,7 @@ static void compact_objects_aux(int i1, int i2)
 }
 
 
-/*
+/**
  * Compact and Reorder the object list
  *
  * This function can be very dangerous, use with caution!
@@ -506,7 +506,7 @@ void compact_objects(int size)
 
 
 
-/*
+/**
  * Delete all the items when player leaves the level
  *
  * Note -- we do NOT visually reflect these (irrelevant) changes
@@ -591,7 +591,7 @@ void wipe_o_list(void)
 }
 
 
-/*
+/**
  * Acquires and returns the index of a "free" object.
  *
  * This routine should almost never fail, but in case it does,
@@ -647,7 +647,7 @@ s16b o_pop(void)
 
 
 
-/*
+/**
  * Apply a "object restriction function" to the "object allocation table"
  */
 errr get_obj_num_prep(void)
@@ -681,7 +681,7 @@ errr get_obj_num_prep(void)
 
 
 
-/*
+/**
  * Choose an object kind that seems "appropriate" to the given level
  *
  * This function uses the "prob2" field of the "object allocation table",
@@ -824,7 +824,7 @@ s16b get_obj_num(int level)
 
 
 
-/*
+/**
  * Known is true when the "attributes" of an object are "known".
  * These include tohit, todam, toac, cost, and pval (charges).
  *
@@ -859,7 +859,7 @@ void object_known(object_type *o_ptr)
 
 
 
-/*
+/**
  * The player is now aware of the effects of the given object.
  */
 void object_aware(object_type *o_ptr)
@@ -870,7 +870,7 @@ void object_aware(object_type *o_ptr)
 
 
 
-/*
+/**
  * Something has been "sampled"
  */
 void object_tried(object_type *o_ptr)
@@ -881,7 +881,7 @@ void object_tried(object_type *o_ptr)
 
 
 
-/*
+/**
  * Return the "value" of an "unknown" item
  * Make a guess at the value of non-aware items
  */
@@ -1164,7 +1164,7 @@ s32b flag_cost(object_type * o_ptr, int plusses)
 
 
 
-/*
+/**
  * Return the "real" price of a "known" item, not including discounts
  *
  * Wand and staffs get cost for each charge
@@ -1492,7 +1492,7 @@ s32b object_value_real(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Return the price of an item including plusses (and charges)
  *
  * This function returns the "value" of the given item (qty one)
@@ -1541,7 +1541,7 @@ s32b object_value(object_type *o_ptr)
 
 
 
-/*
+/**
  * Determine if an item can "absorb" a second item
  *
  * See "object_absorb()" for the actual "absorption" code.
@@ -1897,7 +1897,7 @@ bool object_similar(object_type *o_ptr, object_type *j_ptr)
 }
 
 
-/*
+/**
  * Allow one item to "absorb" another, assuming they are similar
  */
 void object_absorb(object_type *o_ptr, object_type *j_ptr)
@@ -1937,7 +1937,7 @@ void object_absorb(object_type *o_ptr, object_type *j_ptr)
 
 
 
-/*
+/**
  * Find the index of the object_kind with the given tval and sval
  */
 s16b lookup_kind(int tval, int sval)
@@ -1961,7 +1961,7 @@ s16b lookup_kind(int tval, int sval)
 }
 
 
-/*
+/**
  * Wipe an object clean.
  */
 void object_wipe(object_type *o_ptr)
@@ -1971,7 +1971,7 @@ void object_wipe(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Prepare an object based on an existing object
  */
 void object_copy(object_type *o_ptr, object_type *j_ptr)
@@ -1981,7 +1981,7 @@ void object_copy(object_type *o_ptr, object_type *j_ptr)
 }
 
 
-/*
+/**
  * Prepare an object based on an object kind.
  */
 void object_prep(object_type *o_ptr, int k_idx)
@@ -2032,7 +2032,7 @@ void object_prep(object_type *o_ptr, int k_idx)
 }
 
 
-/*
+/**
  * Help determine an "enchantment bonus" for an object.
  *
  * To avoid floating point but still provide a smooth distribution of bonuses,
@@ -2114,7 +2114,7 @@ s16b m_bonus(int max, int level)
 }
 
 
-/*
+/**
  * Tinker with the random artifact to make it acceptable
  * for a certain depth; also connect a random artifact to an 
  * object.
@@ -2155,7 +2155,7 @@ static void finalize_randart(object_type* o_ptr, int lev)
 
 
 
-/*
+/**
  * Cheat -- describe a created object for the user
  */
 static void object_mention(object_type *o_ptr)
@@ -2277,7 +2277,7 @@ void random_artifact_resistance(object_type * o_ptr)
 }
 
 
-/*
+/**
  * Mega-Hack -- Attempt to create one of the "Special Objects"
  *
  * We are only called from "make_object()", and we assume that
@@ -2362,7 +2362,7 @@ static bool make_artifact_special(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Attempt to change an object into an artifact
  *
  * This routine should only be called by "apply_magic()"
@@ -2439,7 +2439,7 @@ static bool make_artifact(object_type *o_ptr)
 	return (FALSE);
 }
 
-/*
+/**
  * Attempt to change an object into an ego
  *
  * This routine should only be called by "apply_magic()"
@@ -2595,7 +2595,7 @@ static bool make_ego_item(object_type *o_ptr, bool good)
 }
 
 
-/*
+/**
  * Charge a new stick.
  */
 void charge_stick(object_type *o_ptr)
@@ -2603,7 +2603,7 @@ void charge_stick(object_type *o_ptr)
 	o_ptr->pval = exec_lua(format("return get_stick_charges(%d)", o_ptr->pval2));
 }
 
-/*
+/**
  * Apply magic to an item known to be a "weapon"
  *
  * Hack -- note special base damage dice boosting
@@ -2757,7 +2757,7 @@ static void dragon_resist(object_type * o_ptr)
 }
 
 
-/*
+/**
  * Apply magic to an item known to be "armor"
  *
  * Hack -- note special processing for crown/helm
@@ -2874,7 +2874,7 @@ static void a_m_aux_2(object_type *o_ptr, int level, int power)
 
 
 
-/*
+/**
  * Apply magic to an item known to be a "ring" or "amulet"
  *
  * Hack -- note special rating boost for ring of speed
@@ -3292,7 +3292,7 @@ static void a_m_aux_3(object_type *o_ptr, int level, int power)
 }
 
 
-/*
+/**
  * Apply magic to an item known to be "boring"
  *
  * Hack -- note the special code for various items
@@ -3975,7 +3975,7 @@ void add_random_ego_flag(object_type *o_ptr, int fego, bool *limit_blows)
 	}
 }
 
-/*
+/**
  * Complete the "creation" of an object by applying "magic" to the item
  *
  * This includes not only rolling for random bonuses, but also putting the
@@ -4419,7 +4419,7 @@ try_an_other_ego:
 /* The themed objects to use */
 static obj_theme match_theme;
 
-/*
+/**
  * XXX XXX XXX It relies on the fact that obj_theme is a four byte structure
  * for its efficient operation. A horrendous hack, I'd say.
  */
@@ -4429,7 +4429,7 @@ void init_match_theme(obj_theme theme)
 	match_theme = theme;
 }
 
-/*
+/**
  * Ditto XXX XXX XXX
  */
 static bool theme_changed(obj_theme theme)
@@ -4445,7 +4445,7 @@ static bool theme_changed(obj_theme theme)
 }
 
 
-/*
+/**
  * Maga-Hack -- match certain types of object only.
  */
 bool kind_is_theme(int k_idx)
@@ -4638,7 +4638,7 @@ bool kind_is_theme(int k_idx)
 	return (FALSE);
 }
 
-/*
+/**
  * Determine if an object must not be generated.
  */
 int kind_is_legal_special = -1;
@@ -4686,7 +4686,7 @@ bool kind_is_legal(int k_idx)
 }
 
 
-/*
+/**
  * Hack -- determine if a template is "good"
  */
 bool kind_is_good(int k_idx)
@@ -4783,7 +4783,7 @@ bool kind_is_good(int k_idx)
 	return (FALSE);
 }
 
-/*
+/**
 * Determine if template is suitable for building a randart -- dsb
 */
 bool kind_is_artifactable(int k_idx)
@@ -4815,7 +4815,7 @@ bool kind_is_artifactable(int k_idx)
 }
 
 
-/*
+/**
  * Attempt to make an object (normal or good/great)
  *
  * This routine plays nasty games to generate the "special artifacts".
@@ -4937,7 +4937,7 @@ bool make_object(object_type *j_ptr, bool good, bool great, obj_theme theme)
 
 
 
-/*
+/**
  * Attempt to place an object (normal or good/great) at the given location.
  *
  * This routine plays nasty games to generate the "special artifacts".
@@ -5047,13 +5047,13 @@ void place_object(int y, int x, bool good, bool great, int where)
 }
 
 
-/*
+/**
  * XXX XXX XXX Do not use these hard-coded values.
  */
 #define OBJ_GOLD_LIST   480     /* First "gold" entry */
 #define MAX_GOLD        18      /* Number of "gold" entries */
 
-/*
+/**
  * Make a treasure object
  *
  * The location must be a legal, clean, floor grid.
@@ -5094,7 +5094,7 @@ bool make_gold(object_type *j_ptr)
 }
 
 
-/*
+/**
  * Places a treasure (Gold or Gems) at given location
  *
  * The location must be a legal, clean, floor grid.
@@ -5162,7 +5162,7 @@ void place_gold(int y, int x)
 }
 
 
-/*
+/**
  * Let an object fall to the ground at or near a location.
  *
  * The initial location is assumed to be "in_bounds()".
@@ -5484,7 +5484,7 @@ s16b drop_near(object_type *j_ptr, int chance, int y, int x)
 
 
 
-/*
+/**
  * Scatter some "great" objects near the player
  */
 void acquirement(int y1, int x1, int num, bool great, bool known)
@@ -5517,7 +5517,7 @@ void acquirement(int y1, int x1, int num, bool great, bool known)
 
 
 
-/*
+/**
  * Hack -- instantiate a trap
  *
  * XXX XXX XXX This routine should be redone to reflect trap "level".
@@ -5540,7 +5540,7 @@ void pick_trap(int y, int x)
 	lite_spot(y, x);
 }
 
-/*
+/**
  * Describe the charges on an item in the inventory.
  */
 void inven_item_charges(int item)
@@ -5569,7 +5569,7 @@ void inven_item_charges(int item)
 }
 
 
-/*
+/**
  * Describe an item in the inventory.
  */
 void inven_item_describe(int item)
@@ -5585,7 +5585,7 @@ void inven_item_describe(int item)
 }
 
 
-/*
+/**
  * Increase the "number" of an item in the inventory
  */
 void inven_item_increase(int item, int num)
@@ -5623,7 +5623,7 @@ void inven_item_increase(int item, int num)
 }
 
 
-/*
+/**
  * Erase an inventory slot if it has no more items
  */
 bool inven_item_optimize(int item)
@@ -5690,7 +5690,7 @@ bool inven_item_optimize(int item)
 }
 
 
-/*
+/**
  * Describe the charges on an item on the floor.
  */
 void floor_item_charges(int item)
@@ -5720,7 +5720,7 @@ void floor_item_charges(int item)
 
 
 
-/*
+/**
  * Describe an item in the inventory.
  */
 void floor_item_describe(int item)
@@ -5736,7 +5736,7 @@ void floor_item_describe(int item)
 }
 
 
-/*
+/**
  * Increase the "number" of an item on the floor
  */
 void floor_item_increase(int item, int num)
@@ -5758,7 +5758,7 @@ void floor_item_increase(int item, int num)
 }
 
 
-/*
+/**
  * Optimize an item on the floor (destroy "empty" items)
  */
 void floor_item_optimize(int item)
@@ -5779,7 +5779,7 @@ void floor_item_optimize(int item)
 
 
 
-/*
+/**
  * Check if we have space for an item in the pack without overflow
  */
 bool inven_carry_okay(object_type *o_ptr)
@@ -5808,7 +5808,7 @@ bool inven_carry_okay(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Add an item to the players inventory, and return the slot used.
  *
  * If the new item can combine with an existing item in the inventory,
@@ -5976,7 +5976,7 @@ s16b inven_carry(object_type *o_ptr, bool final)
 
 
 
-/*
+/**
  * Take off (some of) a non-cursed equipment item
  *
  * Note that only one item at a time can be wielded per slot.
@@ -6090,7 +6090,7 @@ s16b inven_takeoff(int item, int amt, bool force_drop)
 
 
 
-/*
+/**
  * Drop (some of) a non-cursed inventory/equipment item
  *
  * The object will be dropped "near" the current location
@@ -6169,7 +6169,7 @@ void inven_drop(int item, int amt, int dy, int dx, bool silent)
 
 
 
-/*
+/**
  * Combine items in the pack
  *
  * Note special handling of the "overflow" slot
@@ -6236,7 +6236,7 @@ void combine_pack(void)
 }
 
 
-/*
+/**
  * Reorder items in the pack
  *
  * Note special handling of the "overflow" slot
@@ -6342,7 +6342,7 @@ void reorder_pack(void)
 	if (flag) msg_print("You reorder some items in your pack.");
 }
 
-/*
+/**
  * Hack -- display an object kind in the current window
  *
  * Include list of usable spells for readible books
@@ -6386,7 +6386,7 @@ void display_koff(int k_idx)
 }
 
 
-/*
+/**
  * Let the floor carry an object
  */
 s16b floor_carry(int y, int x, object_type *j_ptr)
@@ -6464,7 +6464,7 @@ s16b floor_carry(int y, int x, object_type *j_ptr)
 	return (o_idx);
 }
 
-/*
+/**
  * Notice a decaying object in the pack
  */
 void pack_decay(int item)
@@ -6550,7 +6550,7 @@ void pack_decay(int item)
 	}
 }
 
-/*
+/**
  *	Decay an object on the floor
  */
 void floor_decay(int item)

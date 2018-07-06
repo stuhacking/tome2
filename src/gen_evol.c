@@ -1,8 +1,8 @@
-/*
+/**
  * Generate a game of life level and make it evolve
  */
 
-/*
+/**
  * Copyright (c) 2003 DarkGod.
  *
  * This software may be copied and distributed for educational, research, and
@@ -13,7 +13,7 @@
 #include "angband.h"
 
 
-/*
+/**
  * Generate a game of life level :) and make it evolve
  */
 void evolve_level(bool noise)

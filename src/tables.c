@@ -2,7 +2,7 @@
 
 /* Purpose: Angband Tables */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -15,13 +15,13 @@
 
 
 
-/*
+/**
  * Global array for looping through the "keypad directions"
  */
 s16b ddd[9] =
 	{ 2, 8, 6, 4, 3, 1, 9, 7, 5 };
 
-/*
+/**
  * Global arrays for converting "keypad direction" into offsets
  */
 s16b ddx[10] =
@@ -30,7 +30,7 @@ s16b ddx[10] =
 s16b ddy[10] =
 	{ 0, 1, 1, 1, 0, 0, 0, -1, -1, -1 };
 
-/*
+/**
  * Global arrays for optimizing "ddx[ddd[i]]" and "ddy[ddd[i]]"
  */
 s16b ddx_ddd[9] =
@@ -41,7 +41,7 @@ s16b ddy_ddd[9] =
 
 
 
-/*
+/**
 * Global array for converting numbers to uppercase hexadecimal digit
  * This array can also be used to convert a number to an octal digit
  */
@@ -52,7 +52,7 @@ char hexsym[16] =
 	};
 
 
-/*
+/**
  * Stat Table (INT/WIS) -- Number of half-spells per level
  */
 byte adj_mag_study[] =
@@ -98,7 +98,7 @@ byte adj_mag_study[] =
 };
 
 
-/*
+/**
  * Stat Table (INT/WIS) -- extra half-mana-points per level
  */
 byte adj_mag_mana[] =
@@ -144,7 +144,7 @@ byte adj_mag_mana[] =
 };
 
 
-/*
+/**
  * Stat Table (INT/WIS) -- Minimum failure rate (percentage)
  */
 byte adj_mag_fail[] =
@@ -190,7 +190,7 @@ byte adj_mag_fail[] =
 };
 
 
-/*
+/**
  * Stat Table (INT/WIS) -- Various things
  */
 byte adj_mag_stat[] =
@@ -236,7 +236,7 @@ byte adj_mag_stat[] =
 };
 
 
-/*
+/**
  * Stat Table (CHR) -- payment percentages
  */
 byte adj_chr_gold[] =
@@ -282,7 +282,7 @@ byte adj_chr_gold[] =
 };
 
 
-/*
+/**
  * Stat Table (INT) -- Magic devices
  */
 byte adj_int_dev[] =
@@ -328,7 +328,7 @@ byte adj_int_dev[] =
 };
 
 
-/*
+/**
  * Stat Table (WIS) -- Saving throw
  */
 byte adj_wis_sav[] =
@@ -374,7 +374,7 @@ byte adj_wis_sav[] =
 };
 
 
-/*
+/**
  * Stat Table (DEX) -- disarming
  */
 byte adj_dex_dis[] =
@@ -420,7 +420,7 @@ byte adj_dex_dis[] =
 };
 
 
-/*
+/**
  * Stat Table (INT) -- disarming
  */
 byte adj_int_dis[] =
@@ -466,7 +466,7 @@ byte adj_int_dis[] =
 };
 
 
-/*
+/**
  * Stat Table (DEX) -- bonus to ac (plus 128)
  */
 byte adj_dex_ta[] =
@@ -512,7 +512,7 @@ byte adj_dex_ta[] =
 };
 
 
-/*
+/**
  * Stat Table (STR) -- bonus to dam (plus 128)
  */
 byte adj_str_td[] =
@@ -558,7 +558,7 @@ byte adj_str_td[] =
 };
 
 
-/*
+/**
  * Stat Table (DEX) -- bonus to hit (plus 128)
  */
 byte adj_dex_th[] =
@@ -604,7 +604,7 @@ byte adj_dex_th[] =
 };
 
 
-/*
+/**
  * Stat Table (STR) -- bonus to hit (plus 128)
  */
 byte adj_str_th[] =
@@ -650,7 +650,7 @@ byte adj_str_th[] =
 };
 
 
-/*
+/**
  * Stat Table (STR) -- weight limit in deca-pounds
  */
 byte adj_str_wgt[] =
@@ -696,7 +696,7 @@ byte adj_str_wgt[] =
 };
 
 
-/*
+/**
  * Stat Table (STR) -- weapon weight limit in pounds
  */
 byte adj_str_hold[] =
@@ -742,7 +742,7 @@ byte adj_str_hold[] =
 };
 
 
-/*
+/**
  * Stat Table (STR) -- digging value
  */
 byte adj_str_dig[] =
@@ -788,7 +788,7 @@ byte adj_str_dig[] =
 };
 
 
-/*
+/**
  * Stat Table (STR) -- help index into the "blow" table
  */
 byte adj_str_blow[] =
@@ -834,7 +834,7 @@ byte adj_str_blow[] =
 };
 
 
-/*
+/**
  * Stat Table (DEX) -- index into the "blow" table
  */
 byte adj_dex_blow[] =
@@ -880,7 +880,7 @@ byte adj_dex_blow[] =
 };
 
 
-/*
+/**
  * Stat Table (DEX) -- chance of avoiding "theft" and "falling"
  */
 byte adj_dex_safe[] =
@@ -926,7 +926,7 @@ byte adj_dex_safe[] =
 };
 
 
-/*
+/**
  * Stat Table (CON) -- base regeneration rate
  */
 byte adj_con_fix[] =
@@ -972,7 +972,7 @@ byte adj_con_fix[] =
 };
 
 
-/*
+/**
  * Stat Table (CON) -- extra half-hitpoints per level (plus 128)
  */
 byte adj_con_mhp[] =
@@ -1018,7 +1018,7 @@ byte adj_con_mhp[] =
 };
 
 
-/*
+/**
  * This table is used to help calculate the number of blows the player can
  * make in a single round of attacks (one player turn) with a normal weapon.
  *
@@ -1098,7 +1098,7 @@ s16b arena_monsters[MAX_ARENA_MONS] =
 };
 
 
-/*
+/**
  * This table allows quick conversion from "speed" to "energy"
  * The basic function WAS ((S>=110) ? (S-110) : (100 / (120-S)))
  * Note that table access is *much* quicker than computation.
@@ -1158,7 +1158,7 @@ byte extract_energy[300] =
 
 
 
-/*
+/**
  * Base experience levels, may be adjusted up for race and/or class
  */
 s32b player_exp[PY_MAX_LEVEL] =
@@ -1216,7 +1216,7 @@ s32b player_exp[PY_MAX_LEVEL] =
 };
 
 
-/*
+/**
  * Player Sexes
  *
  *      Title,
@@ -1239,7 +1239,7 @@ player_sex sex_info[MAX_SEXES] =
 }
 };
 
-/*
+/**
  * Hack -- the "basic" color names (see "TERM_xxx")
  */
 cptr color_names[16] =
@@ -1263,7 +1263,7 @@ cptr color_names[16] =
 };
 
 
-/*
+/**
  * Abbreviations of healthy stats
  */
 cptr stat_names[6] =
@@ -1271,7 +1271,7 @@ cptr stat_names[6] =
 	"STR", "INT", "WIS", "DEX", "CON", "CHR"
 };
 
-/*
+/**
  * Abbreviations of damaged stats
  */
 cptr stat_names_reduced[6] =
@@ -1280,7 +1280,7 @@ cptr stat_names_reduced[6] =
 };
 
 
-/*
+/**
  * Certain "screens" always use the main screen, including News, Birth,
  * Dungeon, Tomb-stone, High-scores, Macros, Colors, Visuals, Options.
  *
@@ -1331,7 +1331,7 @@ cptr window_flag_desc[32] =
 };
 
 
-/*
+/**
  * Available Options
  *
  * Option Screen Sets:
@@ -2490,7 +2490,7 @@ martial_arts ma_blows[MAX_MA] =
 	{ "You hit %s with a Crushing Blow.", 48, 35, 20, 12, MA_STUN, 18 },
 };
 
-/*
+/**
  *   cptr    desc;      A verbose attack description
  *   int     min_level; Minimum level to use
  *   int     chance;    Chance of 'success
@@ -2713,7 +2713,7 @@ magic_power symbiotic_powers[MAX_SYMBIOTIC_POWERS] =
 };
 
 
-/*
+/**
  * Textual translation of your god's "niceness".
  */
 
@@ -2731,7 +2731,7 @@ cptr deity_niceness[10] =
 	"an easily angered deity"
 };
 
-/*
+/**
  * Textual translation of your standing with your god.
  */
 
@@ -2750,7 +2750,7 @@ cptr deity_standing[11] =
 	"championed"
 };
 
-/*
+/**
  * Name and description (max. 10 lines) of the gods.
  * Only the first four lines are printed at birth. 
  */
@@ -2867,7 +2867,7 @@ tactic_info_type tactic_info[9] =
 	{ 8, 12, -25, -5, -18, -18, "berserker"}         /* 4+4 */
 };
 
-/*
+/**
  * Random artifact activations.
  */
 activation activation_info[MAX_T_ACT] =
@@ -2928,7 +2928,7 @@ activation activation_info[MAX_T_ACT] =
 #endif
 };
 
-/*
+/**
  * Possible movement type.
  */
 move_info_type move_info[9] =
@@ -2945,7 +2945,7 @@ move_info_type move_info[9] =
 	{ 4, -16, -10, -20, "running"}
 };
 
-/*
+/**
  * Possible inscriptions type.
  */
 inscription_info_type inscription_info[MAX_INSCRIPTIONS] =
@@ -3000,7 +3000,7 @@ inscription_info_type inscription_info[MAX_INSCRIPTIONS] =
 	},
 };
 
-/*
+/**
  * Inscriptions for pseudo-id
  */
 cptr sense_desc[] =
@@ -3018,7 +3018,7 @@ cptr sense_desc[] =
 	""
 };
 
-/*
+/**
  * Flag groups used for art creation, level gaining weapons, ...
  * -----
  * Name,
@@ -3592,7 +3592,7 @@ power_type powers_type_init[POWER_MAX_INIT] =
 	},
 };
 
-/*
+/**
  * The Quests
  */
 quest_type quest_init_tome[MAX_Q_IDX_INIT] =
@@ -4605,7 +4605,7 @@ tval_desc tval_descs[] =
 	{0, ""},
 };
 
-/*
+/**
  * List of the between exits
  *       s16b corresp;           Corresponding between gate
  *       bool dungeon;           Do we exit in a dungeon or in the wild ?
@@ -4634,7 +4634,7 @@ between_exit between_exits[MAX_BETWEEN_EXITS] =
 	},
 };
 
-/*
+/**
  * Months
  */
 int month_day[9] =
@@ -4671,7 +4671,7 @@ cptr month_name[9] =
 	"Mettare",
 };
 
-/*
+/**
  * max body parts
  */
 int max_body_part[BODY_MAX] =
@@ -4684,7 +4684,7 @@ int max_body_part[BODY_MAX] =
 	2,        /* Legs */
 };
 
-/*
+/**
  * Description of GF_FOO
  */
 gf_name_type gf_names[] =

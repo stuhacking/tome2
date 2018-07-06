@@ -7,7 +7,7 @@
 
 
 
-/*
+/**
  * Angband 2.7.9 introduced a new (optimized) random number generator,
  * based loosely on the old "random.c" from Berkeley but with some major
  * optimizations and algorithm changes.  See below for more details.
@@ -37,38 +37,38 @@
  */
 
 
-/*
+/**
  * Random Number Generator -- Linear Congruent RNG
  */
 #define LCRNG(X)        ((X) * 1103515245 + 12345)
 
 
 
-/*
+/**
  * Use the "simple" LCRNG
  */
 bool Rand_quick = TRUE;
 
 
-/*
+/**
  * Current "value" of the "simple" RNG
  */
 u32b Rand_value;
 
 
-/*
+/**
  * Current "index" for the "complex" RNG
  */
 u16b Rand_place;
 
-/*
+/**
  * Current "state" table for the "complex" RNG
  */
 u32b Rand_state[RAND_DEG];
 
 
 
-/*
+/**
  * Initialize the "complex" RNG using a new seed
  */
 void Rand_state_init(u32b seed)
@@ -97,7 +97,7 @@ void Rand_state_init(u32b seed)
 }
 
 
-/*
+/**
  * Extract a "random" number from 0 to m-1, via "modulus"
  *
  * Note that "m" should probably be less than 500000, or the
@@ -143,7 +143,7 @@ s32b Rand_mod(s32b m)
 }
 
 
-/*
+/**
  * Extract a "random" number from 0 to m-1, via "division"
  *
  * This method selects "random" 28-bit numbers, and then uses
@@ -214,17 +214,17 @@ s32b Rand_div(s32b m)
 
 
 
-/*
+/**
  * The number of entries in the "randnor_table"
  */
 #define RANDNOR_NUM	256
 
-/*
+/**
  * The standard deviation of the "randnor_table"
  */
 #define RANDNOR_STD	64
 
-/*
+/**
  * The normal distribution table for the "randnor()" function (below)
  */
 static s16b randnor_table[RANDNOR_NUM] =
@@ -268,7 +268,7 @@ static s16b randnor_table[RANDNOR_NUM] =
 
 
 
-/*
+/**
  * Generate a random integer number of NORMAL distribution
  *
  * The table above is used to generate a psuedo-normal distribution,
@@ -331,7 +331,7 @@ s16b randnor(int mean, int stand)
 
 
 
-/*
+/**
  * Generates damage for "2d6" style dice rolls
  */
 s32b damroll(s16b num, s16b sides)
@@ -343,7 +343,7 @@ s32b damroll(s16b num, s16b sides)
 }
 
 
-/*
+/**
  * Same as above, but always maximal
  */
 s32b maxroll(s16b num, s16b sides)

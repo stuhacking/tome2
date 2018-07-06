@@ -2,7 +2,7 @@
 
 /* Purpose: Angband specific configuration stuff */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -11,7 +11,7 @@
  */
 
 
-/*
+/**
  * Look through the following lines, and where a comment includes the
  * tag "OPTION:", examine the associated "#define" statements, and decide
  * whether you wish to keep, comment, or uncomment them.  You should not
@@ -26,7 +26,7 @@
  */
 
 
-/*
+/**
  * OPTION: See the Makefile(s), where several options may be declared.
  *
  * Some popular options include "USE_GCU" (allow use with Unix "curses"),
@@ -44,30 +44,30 @@
  */
 
 
-/*
+/**
  * OPTION: define "SPECIAL_BSD" for using certain versions of UNIX
  * that use the 4.4BSD Lite version of Curses in "main-gcu.c"
  */
 /* #define SPECIAL_BSD */
 
 
-/*
+/**
  * OPTION: Use the POSIX "termios" methods in "main-gcu.c"
  */
 /* #define USE_TPOSIX */
 
-/*
+/**
  * OPTION: Use the "termio" methods in "main-gcu.c"
  */
 /* #define USE_TERMIO */
 
-/*
+/**
  * OPTION: Use the icky BSD "tchars" methods in "main-gcu.c"
  */
 /* #define USE_TCHARS */
 
 
-/*
+/**
  * OPTION: Use "blocking getch() calls" in "main-gcu.c".
  * Hack -- Note that this option will NOT work on many BSD machines
  * Currently used whenever available, if you get a warning about
@@ -78,7 +78,7 @@
 #endif
 
 
-/*
+/**
  * OPTION: Use the "curs_set()" call in "main-gcu.c".
  * Hack -- This option will not work on most BSD machines
  */
@@ -87,13 +87,13 @@
 #endif
 
 
-/*
+/**
  * OPTION: Include "ncurses.h" instead of "curses.h" in "main-gcu.c"
  */
 /* #define USE_NCURSES */
 
 
-/*
+/**
  * OPTION: for multi-user machines running the game setuid to some other
  * user (like 'games') this SAFE_SETUID option allows the program to drop
  * its privileges when saving files that allow for user specified pathnames.
@@ -105,7 +105,7 @@
 #define SAFE_SETUID
 
 
-/*
+/**
  * This flag enables the "POSIX" methods for "SAFE_SETUID".
  */
 #if defined(_POSIX_SAVED_IDS) && !(defined(SUNOS) && !defined(SOLARIS)) && !defined(__APPLE__)
@@ -113,7 +113,7 @@
 #endif
 
 
-/*
+/**
  * OPTION: Verify savefile Checksums (Angband 2.7.0 and up)
  * This option can help prevent "corruption" of savefiles, and also
  * stop intentional modification by amateur users.
@@ -121,7 +121,7 @@
 #define VERIFY_CHECKSUMS
 
 
-/*
+/**
  * OPTION: Forbid the use of "fiddled" savefiles.  As far as I can tell,
  * a fiddled savefile is one with an internal timestamp different from
  * the actual timestamp.  Thus, turning this option on forbids one from
@@ -134,7 +134,7 @@
 /* #define VERIFY_TIMESTAMP */
 
 
-/*
+/**
  * OPTION: Forbid the "savefile over-write" cheat, in which you simply
  * run another copy of the game, loading a previously saved savefile,
  * and let that copy over-write the "dead" savefile later.  This option
@@ -144,77 +144,77 @@
 /* #define VERIFY_SAVEFILE */
 
 
-/*
+/**
  * OPTION: Allow characteres to be "auto-rolled"
  */
 #define ALLOW_AUTOROLLER
 
 
-/*
+/**
  * OPTION: Allow monsters to "flee" when hit hard
  */
 #define ALLOW_FEAR
 
-/*
+/**
  * OPTION: Allow monsters to "flee" from strong players
  */
 #define ALLOW_TERROR
 
 
-/*
+/**
  * OPTION: Handle signals
  */
 #define HANDLE_SIGNALS
 
 
-/*
+/**
  * Allow "Wizards" to yield "high scores"
  */
 /* #define SCORE_WIZARDS */
 
-/*
+/**
  * Allow "Borgs" to yield "high scores"
  */
 /*#define SCORE_BORGS*/
 
-/*
+/**
  * Allow "Cheaters" to yield "high scores"
  */
 /* #define SCORE_CHEATERS */
 
 
 
-/*
+/**
  * OPTION: Maximum flow depth
  */
 #define MONSTER_FLOW_DEPTH 32
 
 
 
-/*
+/**
  * OPTION: Allow use of extended spell info	-DRS-
  */
 #define DRS_SHOW_SPELL_INFO
 
-/*
+/**
  * OPTION: Allow use of the monster health bar	-DRS-
  */
 #define DRS_SHOW_HEALTH_BAR
 
 
 
-/*
+/**
  * OPTION: Allow the use of "sound" in various places.
  */
 #define USE_SOUND
 
-/*
+/**
  * OPTION: Allow the use of "graphics" in various places
  */
 #define USE_GRAPHICS
 
 
-/*
+/**
  * OPTION: Hack -- Macintosh stuff
  */
 #ifdef MACINTOSH
@@ -225,7 +225,7 @@
 #endif
 
 
-/*
+/**
  * OPTION: Hack -- Windows stuff
  */
 #ifdef WINDOWS
@@ -236,7 +236,7 @@
 #endif
 
 
-/*
+/**
  * OPTION: Hack -- EMX stuff
  */
 #ifdef USE_EMX
@@ -247,7 +247,7 @@
 #endif
 
 
-/*
+/**
  * OPTION: Set the "default" path to the angband "lib" directory.
  *
  * See "main.c" for usage, and note that this value is only used on
@@ -273,7 +273,7 @@
 #endif
 
 
-/*
+/**
  * OPTION: Create and use a hidden directory in the user's home directory
  * for storing pref-files and character-dumps.
  */
@@ -281,7 +281,7 @@
 #define PRIVATE_USER_PATH "~/.tome"
 #endif /* SET_UID && !MACH_O_CARBON */
 
-/*
+/**
  * Where to put the user's files on the Mac
  */
 #if defined(MACH_O_CARBON)
@@ -291,7 +291,7 @@
 #define PRIVATE_USER_PATH_MODULES
 #endif
 
-/*
+/**
  * On multiuser systems, add the "uid" to savefile names
  */
 #if defined(SET_UID) && !defined(MACH_O_CARBON)
@@ -299,19 +299,19 @@
 #endif /* SET_UID && !MACH_O_CARBON */
 
 
-/*
+/**
  * OPTION: Check the "time" against "lib/file/hours.txt"
  */
 /* #define CHECK_TIME */
 
-/*
+/**
  * OPTION: Check the "load" against "lib/file/load.txt"
  * This may require the 'rpcsvs' library
  */
 /* #define CHECK_LOAD */
 
 
-/*
+/**
  * OPTION: For some brain-dead computers with no command line interface,
  * namely Macintosh, there has to be some way of "naming" your savefiles.
  * The current "Macintosh" hack is to make it so whenever the character
@@ -327,7 +327,7 @@
 #endif
 
 
-/*
+/**
  * OPTION: Capitalize the "user_name" (for "default" player name)
  * This option is only relevant on SET_UID machines.
  */
@@ -335,18 +335,18 @@
 
 
 
-/*
+/**
  * OPTION: Person to bother if something goes wrong.
  */
 #define MAINTAINER      "darkgod@t-o-m-e.net"
 
 
-/*
+/**
  * OPTION: Default font (when using X11).
  */
 #define DEFAULT_X11_FONT		"9x15"
 
-/*
+/**
  * OPTION: Default fonts (when using X11)
  */
 #define DEFAULT_X11_FONT_SCREEN		DEFAULT_X11_FONT
@@ -356,13 +356,13 @@
 
 
 
-/*
+/**
  * OPTION: Attempt to prevent all "cheating"
  */
 /* #define VERIFY_HONOR */
 
 
-/*
+/**
  * React to the "VERIFY_HONOR" flag
  */
 #ifdef VERIFY_HONOR
@@ -390,43 +390,43 @@
 /* Testing upkeep */
 /* # define TRACK_FRIENDS */
 
-/*
+/**
  * OPTION: Repeat last command -- TNB
  */
 #define ALLOW_REPEAT
 
-/*
+/**
  * OPTION: Make opening and closing things easy -- TNB
  */
 #define ALLOW_EASY_OPEN
 
-/*
+/**
  * OPTION: Make disarming traps easy -- TNB
  */
 #define ALLOW_EASY_DISARM
 
-/*
+/**
  * Using the fast autoroller can be considered as cheating
  */
 #define USE_FAST_AUTOROLLER
 
-/*
+/**
  * Forbid the use of some race/class combinations
  */
 /* #define RESTRICT_COMBINATIONS */
 
-/*
+/**
  * Enable the CTRL + L command to quit without saving
  * Only use for debugging purpose, otherwise you are a CHEATER
  */
 /* #define ALLOW_QUITTING */
 
-/*
+/**
  * Panic saves have a different name
  */
 #define SAFER_PANICS
 
-/*
+/**
  * Allow makefiles to override the default file mode
  */
 #ifndef FILE_MODE

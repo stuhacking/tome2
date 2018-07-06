@@ -2,7 +2,7 @@
 
 /* Purpose: Levels functions */
 
-/*
+/**
  * Copyright (c) 1989 James E. Wilson, Robert A. Koeneke
  *
  * This software may be copied and distributed for educational, research, and
@@ -13,7 +13,7 @@
 #include "angband.h"
 
 
-/*
+/**
  * Return the parameter of the given command in the given file
  */
 static int start_line = 0;
@@ -76,7 +76,7 @@ bool get_command(const char *file, char comm, char *param)
 }
 
 
-/*
+/**
  * Return the dungeon branch starting form the current dungeon/level
  */
 int get_branch()
@@ -93,7 +93,7 @@ int get_branch()
 	else return 0;
 }
 
-/*
+/**
  * Return the father dungeon branch
  */
 int get_fbranch()
@@ -110,7 +110,7 @@ int get_fbranch()
 	else return 0;
 }
 
-/*
+/**
  * Return the father dungeon level
  */
 int get_flevel()
@@ -127,7 +127,7 @@ int get_flevel()
 	else return 0;
 }
 
-/*
+/**
  * Return the extension of the savefile for the level
  */
 bool get_dungeon_save(char *buf)
@@ -142,7 +142,7 @@ bool get_dungeon_save(char *buf)
 	else return FALSE;
 }
 
-/*
+/**
  * Return the level generator
  */
 bool get_dungeon_generator(char *buf)
@@ -157,7 +157,7 @@ bool get_dungeon_generator(char *buf)
 	else return FALSE;
 }
 
-/*
+/**
  * Return the special level
  */
 bool get_dungeon_special(char *buf)
@@ -172,7 +172,7 @@ bool get_dungeon_special(char *buf)
 	else return FALSE;
 }
 
-/*
+/**
  * Return the special level name
  */
 bool get_dungeon_name(char *buf)
@@ -187,7 +187,7 @@ bool get_dungeon_name(char *buf)
 	else return FALSE;
 }
 
-/*
+/**
  * Return the special level name
  */
 void get_level_flags()
@@ -224,7 +224,7 @@ void get_level_flags()
 	}
 }
 
-/*
+/**
  * Return the special level desc
  */
 bool get_level_desc(char *buf)

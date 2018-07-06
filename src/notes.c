@@ -2,7 +2,7 @@
 
 /* Purpose: Note taking to a file */
 
-/*
+/**
  * Copyright (c) 1989, 1999 James E. Wilson, Robert A. Koeneke,
  * Robert Ruehlmann
  *
@@ -13,7 +13,7 @@
 
 #include "angband.h"
 
-/*
+/**
  * Show the notes file on the screen
  */
 void show_notes_file(void)
@@ -39,7 +39,7 @@ void show_notes_file(void)
 	return;
 }
 
-/*
+/**
  * Output a string to the notes file.
  * This is the only function that references that file.
  */
@@ -76,7 +76,7 @@ void output_note(char *final_note)
 }
 
 
-/*
+/**
  * Add note to file using a string + character symbol
  * to specify its type so that the notes file can be
  * searched easily by external utilities.
@@ -111,7 +111,7 @@ void add_note(char *note, char code)
 }
 
 
-/*
+/**
  * Append a note to the notes file using a "type".
  */
 void add_note_type(int note_number)

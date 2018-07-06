@@ -2,7 +2,7 @@
 
 /* Purpose: More Class commands */
 
-/*
+/**
  * Copyright (c) 1999 Dark God
  *
  * This software may be copied and distributed for educational, research, and
@@ -14,7 +14,7 @@
 #include "angband.h"
 
 
-/*
+/**
  * Describe class powers of Mindcrafters
  *
  * 'p' points to a 80 byte long buffer
@@ -75,7 +75,7 @@ void mindcraft_info(char *p, int power)
 }
 
 
-/*
+/**
  * Describe class powers of Mimics
  *
  * 'p' points to a 80 byte long buffer
@@ -110,7 +110,7 @@ void mimic_info(char *p, int power)
 }
 
 
-/*
+/**
  * Allow user to choose a magic power.
  *
  * If a valid spell is chosen, saves it in '*sn' and returns TRUE
@@ -336,7 +336,7 @@ bool get_magic_power(int *sn, magic_power *powers, int max_powers,
 }
 
 
-/*
+/**
  * do_cmd_cast calls this function if the player's class
  * is 'mindcrafter'.
  */
@@ -870,7 +870,7 @@ static bool mimic_forbid_travel(char *fmt)
 	return FALSE;
 }
 
-/*
+/**
  * do_cmd_cast calls this function if the player's class
  * is 'mimic'.
  */
@@ -1170,7 +1170,7 @@ void do_cmd_mimic(void)
 }
 
 
-/*
+/**
  * do_cmd_cast calls this function if the player's class
  * is 'beastmaster'.
  */
@@ -1213,7 +1213,7 @@ void do_cmd_beastmaster(void)
 }
 
 
-/*
+/**
  * Set of variables and functions to create an artifact
  */
 
@@ -1240,7 +1240,7 @@ bool alchemist_has_stone(void)
 		return FALSE;
 }
 
-/*
+/**
  Display a group of flags from a_select flags, and return
  the number of flags displayed (even invisible ones)
  */
@@ -2380,7 +2380,7 @@ void do_cmd_create_artifact(object_type *q_ptr)
 	p_ptr->window |= (PW_INVEN | PW_EQUIP);
 }
 
-/*
+/**
  * Test to see if this tval/sval combo is in the alchemists'
  * recipes as a createable item. Used to determine if we
  * should extract from it.
@@ -2411,7 +2411,7 @@ bool alchemist_exists(int tval, int sval, int ego, int artifact)
 }
 
 
-/*
+/**
  * Hook to determine if an object can have things extracted from it.
  */
 bool item_tester_hook_extractable(object_type *o_ptr)
@@ -2431,7 +2431,7 @@ bool item_tester_hook_extractable(object_type *o_ptr)
 	        || alchemist_exists(o_ptr->tval, o_ptr->sval, o_ptr->name2, o_ptr->name1));
 }
 
-/*
+/**
  * Hook to determine if an object is empowerable (NOT rechargeable)
  */
 bool item_tester_hook_empower(object_type *o_ptr)
@@ -2670,7 +2670,7 @@ void do_cmd_toggle_artifact(object_type *o_ptr)
 	}
 }
 
-/*
+/**
  * Test to see if they have all the ingredients to create an item.
  * (doesn't count base item)
  * creates 'tocreate' items (may be -1, but no more than that!)
@@ -2824,7 +2824,7 @@ void alchemist_display_recipe(int tval, int sval, int ego)
 
 }
 
-/*
+/**
  *
  * The alchemist_recipe_select was copied from
  * wiz_create_itemtype
@@ -2832,7 +2832,7 @@ void alchemist_display_recipe(int tval, int sval, int ego)
  *
  */
 
-/*
+/**
  The select array is a simple array of 'use this char to select item x'
  It has 88 items (three columns of 20 each)
  selectitem is initilized with the reverse mappings:
@@ -3602,7 +3602,7 @@ void alchemist_check_level()
 		alchemist_gain_level(alchemist_gained++);
 }
 
-/*
+/**
  * do_cmd_cast calls this function if the player's class
  * is 'alchemist'.
  */
@@ -4390,7 +4390,7 @@ void do_cmd_alchemist(void)
 }
 
 
-/*
+/**
  * Command to ask favors from your god.
  */
 void do_cmd_pray(void)
@@ -4418,7 +4418,7 @@ void do_cmd_pray(void)
 }
 
 
-/*
+/**
  * Return percentage chance of spell failure.
  */
 int spell_chance_random(random_spell* rspell)
@@ -4461,7 +4461,7 @@ int spell_chance_random(random_spell* rspell)
 
 
 
-/*
+/**
  * Print a batch of spells.
  */
 static void print_spell_batch(int batch, int max)
@@ -4501,7 +4501,7 @@ static void print_spell_batch(int batch, int max)
 
 
 
-/*
+/**
  * List ten random spells and ask to pick one.
  */
 static random_spell* select_spell_from_batch(int batch, bool quick)
@@ -4663,7 +4663,7 @@ static random_spell* select_spell_from_batch(int batch, bool quick)
 }
 
 
-/*
+/**
  * Pick a random spell from a menu
  */
 random_spell* select_spell(bool quick)
@@ -4896,7 +4896,7 @@ void do_cmd_powermage(void)
 
 #if 0
 
-/*
+/**
  * Incremental sleep spell -KMW-
  */
 static void do_sleep_monster(void)
@@ -4923,7 +4923,7 @@ static void do_sleep_monster(void)
 
 #if 0
 
-/*
+/**
  * Multiple Monster Fear -KMW-
  */
 static bool fear_monsters(void)
@@ -4932,7 +4932,7 @@ static bool fear_monsters(void)
 }
 
 
-/*
+/**
  * Close to Player Monster Fear -KMW-
  */
 static bool fear_monsters_touch(void)
@@ -4944,7 +4944,7 @@ static bool fear_monsters_touch(void)
 }
 
 
-/*
+/**
  * Incremental fear spell -KMW-
  */
 static void do_fear_monster(void)
@@ -4969,7 +4969,7 @@ static void do_fear_monster(void)
 #endif /* 0 */
 
 
-/*
+/**
  * Brand some ammunition.  Used by Cubragol and a mage spell.  The spell was
  * moved here from cmd6.c where it used to be for Cubragol only.  I've also
  * expanded it to do either frost, fire or venom, at random. -GJW	-KMW-
@@ -5067,7 +5067,7 @@ void brand_ammo(int brand_type, int bolts_only)
 }
 
 
-/*
+/**
  * From Kamband by Ivan Tkatchev
  */
 void summon_monster(int sumtype)
@@ -5094,7 +5094,7 @@ void summon_monster(int sumtype)
 
 
 
-/*
+/**
  * Use a class power of Possessor
  */
 void do_cmd_possessor()
@@ -5189,7 +5189,7 @@ void do_cmd_possessor()
 }
 
 
-/*
+/**
  * Hook to determine if an object is contertible in an arrow/bolt
  */
 static bool item_tester_hook_convertible(object_type *o_ptr)
@@ -5201,7 +5201,7 @@ static bool item_tester_hook_convertible(object_type *o_ptr)
 }
 
 
-/*
+/**
  * do_cmd_cast calls this function if the player's class
  * is 'archer'.
  */
@@ -5430,7 +5430,7 @@ void do_cmd_archer(void)
 	}
 }
 
-/*
+/**
  * Control whether shots are allowed to pierce
  */
 void do_cmd_set_piercing(void)
@@ -5469,7 +5469,7 @@ void do_cmd_set_piercing(void)
 		}
 	}
 }
-/*
+/**
  * Helper function to describe necro powers
  */
 void necro_info(char *p, int power)
@@ -5502,7 +5502,7 @@ void necro_info(char *p, int power)
 }
 
 
-/*
+/**
  * Cast a Necromancy spell
  */
 void do_cmd_necromancer(void)
@@ -5814,7 +5814,7 @@ void do_cmd_necromancer(void)
 /* Runecrafters -- Move this into variable.c XXX XXX XXX */
 static s32b rune_combine = 0;
 
-/*
+/**
  * Hook to determine if an object is "runestone"
  */
 static bool item_tester_hook_runestone(object_type *o_ptr)
@@ -5843,7 +5843,7 @@ static bool item_tester_hook_runestone_full(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Hook to determine if an object is "rune-able"
  */
 static bool item_tester_hook_runeable1(object_type *o_ptr)
@@ -5855,7 +5855,7 @@ static bool item_tester_hook_runeable1(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Hook to determine if an object is "rune-able"
  */
 static bool item_tester_hook_runeable2(object_type *o_ptr)
@@ -5871,7 +5871,7 @@ static bool item_tester_hook_runeable2(object_type *o_ptr)
 }
 
 
-/*
+/**
  * math.h(sqrt) is banned of angband so ... :)
  */
 s32b sroot(s32b n)
@@ -5893,7 +5893,7 @@ s32b sroot(s32b n)
 }
 
 
-/*
+/**
  * Damage formula, for runes
  */
 void rune_calc_power(s32b *power, s32b *powerdiv)
@@ -5913,7 +5913,7 @@ void rune_calc_power(s32b *power, s32b *powerdiv)
 }
 
 
-/*
+/**
  * Return percentage chance of runespell failure.
  */
 int spell_chance_rune(rune_spell* spell)
@@ -5965,7 +5965,7 @@ int spell_chance_rune(rune_spell* spell)
 }
 
 
-/*
+/**
  * Combine the Runes
  */
 int rune_exec(rune_spell *spell, int cost)
@@ -6145,7 +6145,7 @@ int rune_exec(rune_spell *spell, int cost)
 }
 
 
-/*
+/**
  * Test if all runes needed at in the player p_ptr->inventory
  */
 bool test_runespell(rune_spell *spell)
@@ -6183,7 +6183,7 @@ bool test_runespell(rune_spell *spell)
 }
 
 
-/*
+/**
  * Ask for rune, rune2 and mana
  */
 bool get_runespell(rune_spell *spell)
@@ -6310,7 +6310,7 @@ void do_cmd_rune(void)
 }
 
 
-/*
+/**
  * Print a batch of runespells.
  */
 static void print_runespell_batch(int batch, int max)
@@ -6347,7 +6347,7 @@ static void print_runespell_batch(int batch, int max)
 
 
 
-/*
+/**
  * List ten random spells and ask to pick one.
  */
 
@@ -6446,7 +6446,7 @@ static rune_spell* select_runespell_from_batch(int batch, bool quick,
 }
 
 
-/*
+/**
  * Pick a random spell from a menu
  */
 
@@ -6506,7 +6506,7 @@ rune_spell* select_runespell(bool quick, int *s_idx)
 }
 
 
-/*
+/**
  * Cast a memorized runespell
  * Note that the only limits are antimagic & conf, NOT blind
  */
@@ -6572,7 +6572,7 @@ void do_cmd_rune_cast()
 }
 
 
-/*
+/**
  * Cast a runespell from a carved runestone
  */
 void do_cmd_runestone()
@@ -6659,7 +6659,7 @@ void do_cmd_runestone()
 }
 
 
-/*
+/**
  * Add a runespell to the list
  */
 void do_cmd_rune_add_mem()
@@ -6703,7 +6703,7 @@ void do_cmd_rune_add_mem()
 }
 
 
-/*
+/**
  * Carve a runespell onto a Runestone
  */
 void do_cmd_rune_carve()
@@ -6815,7 +6815,7 @@ void do_cmd_rune_carve()
 }
 
 
-/*
+/**
  * Remove a runespell
  */
 void do_cmd_rune_del()
@@ -7012,7 +7012,7 @@ void do_cmd_unbeliever_antimagic()
 }
 
 
-/*
+/**
  * Detect traps + kill traps
  */
 void do_cmd_unbeliever()
@@ -7071,7 +7071,7 @@ void do_cmd_unbeliever()
 	}
 }
 
-/*
+/**
  * Hook to determine if an object is totemable
  */
 static bool item_tester_hook_totemable(object_type *o_ptr)
@@ -7088,7 +7088,7 @@ static bool item_tester_hook_totemable(object_type *o_ptr)
 }
 
 
-/*
+/**
  * Summoners
  */
 void do_cmd_summoner_extract()
@@ -7450,7 +7450,7 @@ void do_cmd_summoner(void)
 }
 
 
-/*
+/**
  * Fighters may invoke The Rush.
  */
 void do_cmd_blade(void)
@@ -7470,7 +7470,7 @@ void do_cmd_blade(void)
 }
 
 
-/*
+/**
  * Dodge Chance Feedback.
  */
 void use_ability_blade(void)
@@ -7511,7 +7511,7 @@ void use_ability_blade(void)
 	return;
 }
 
-/*
+/**
  * Helper function to describe symbiotic powers
  */
 void symbiotic_info(char *p, int power)
@@ -7536,7 +7536,7 @@ void symbiotic_info(char *p, int power)
 }
 
 
-/*
+/**
  * Cast a symbiotic spell
  */
 void do_cmd_symbiotic(void)
@@ -7936,7 +7936,7 @@ void do_cmd_symbiotic(void)
 	p_ptr->window |= (PW_PLAYER);
 }
 
-/*
+/**
  * Boulder creation .. sorry :)
  */
 void do_cmd_create_boulder()
