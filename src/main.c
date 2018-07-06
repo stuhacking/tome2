@@ -645,6 +645,7 @@ usage:
 #ifdef USE_SDL
 				puts("  -msdl              To use SDL");
 				puts("  --                 Sub options");
+				puts("  -- -nr             Turn off keyboard repeat");
 				puts("  -- -n #            Number of virtual consoles to use");
 				puts("  -- -g              Request new graphics (16x16)");
 				puts("  -- -o              Request old graphics (8x8)");
