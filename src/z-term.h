@@ -164,10 +164,7 @@ struct term_win
  *
  *	- Hook for drawing a sequence of special attr/char pairs
  */
-
-typedef struct term term;
-
-struct term
+typedef struct _term
 {
 	vptr user;
 
@@ -215,8 +212,8 @@ struct term
 	term_win *tmp;
 	term_win *mem;
 
-	void (*init_hook)(term *t);
-	void (*nuke_hook)(term *t);
+	void (*init_hook)(struct _term *t);
+	void (*nuke_hook)(struct _term *t);
 
 	errr (*user_hook)(int n);
 
@@ -240,7 +237,7 @@ struct term
 	errr (*pict_hook)(int x, int y, int n, const byte *ap, const char *cp);
 #endif /* USE_TRANSPARENCY */
 
-};
+} term;
 
 
 
